@@ -196,20 +196,69 @@
   .footer-links a:hover { color: #fff; }
   .footer-copy { width: 100%; text-align: center; font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
 
+  /* ── Mobile Nav ── */
+  .nav-burger {
+    display: none; width: 44px; height: 44px; border-radius: 50%;
+    align-items: center; justify-content: center; cursor: pointer;
+    background: none; border: none; padding: 0; flex-shrink: 0;
+  }
+  .nav-burger span {
+    display: block; width: 20px; height: 2px; background: var(--text);
+    position: relative; transition: all 0.3s;
+  }
+  .nav-burger span::before, .nav-burger span::after {
+    content: ''; position: absolute; left: 0; width: 100%; height: 2px;
+    background: var(--text); transition: all 0.3s;
+  }
+  .nav-burger span::before { top: -6px; }
+  .nav-burger span::after { top: 6px; }
+  .nav-burger.open span { background: transparent; }
+  .nav-burger.open span::before { top: 0; transform: rotate(45deg); }
+  .nav-burger.open span::after { top: 0; transform: rotate(-45deg); }
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+    flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: var(--heading); font-size: 28px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: -0.02em; color: var(--text);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--coral); }
+  .mobile-menu .mobile-cta {
+    margin-top: 12px; padding: 14px 32px; border-radius: var(--pill);
+    background: var(--coral); color: #fff; font-size: 16px;
+    font-family: var(--sans); font-weight: 600; text-transform: none;
+  }
+
   /* ── Responsive ── */
   @media (max-width: 860px) {
     .page-hero { padding: 60px 24px 40px; }
     .wb-grid-section { padding: 0 24px 60px; }
     .wb-grid { grid-template-columns: 1fr; }
     .wb-card { min-height: 400px; }
-    .nav-links { gap: 16px; padding: 0 12px; }
-    .nav-links a { font-size: 12px; }
-    .nav-cta { padding: 8px 16px; font-size: 12px; }
+    .nav-links { display: none; }
+    .nav-burger { display: flex; }
     .nav-avatar { width: 32px; height: 32px; }
     .how-section { padding: 0 24px 60px; }
     .how-steps { grid-template-columns: 1fr; gap: 24px; }
     .how-inner { padding: 40px 28px; }
     .page-cta { padding: 60px 24px; }
+  }
+  @media (max-width: 480px) {
+    .page-hero { padding: 40px 16px 32px; }
+    .wb-grid-section { padding: 0 16px 40px; }
+    .wb-card { min-height: 300px; }
+    .wb-body { padding: 22px; }
+    .how-section { padding: 0 16px 40px; }
+    .how-inner { padding: 32px 20px; }
+    .how-steps { gap: 16px; }
+    .page-cta { padding: 40px 16px; }
+    footer { padding: 28px 16px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
   }
 </style>
 </head>
@@ -227,6 +276,7 @@
         <li><a href="index.html#kontakt">Kontakt</a></li>
       </ul>
       <a href="index.html#kontakt" class="nav-cta">Erstgespr&auml;ch</a>
+      <button class="nav-burger" id="navBurger" aria-label="Menü öffnen"><span></span></button>
     </div>
     <div class="nav-compact">
       <img src="images/miriam-gesicht.jpg" class="nav-avatar" alt="Miriam">
@@ -236,6 +286,15 @@
     </div>
   </div>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="meine-geschichte.html">Über mich</a>
+  <a href="workbooks.html" onclick="closeMobile()">Workbooks</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#kontakt">Kontakt</a>
+  <a href="index.html#kontakt" class="mobile-cta">Erstgespräch</a>
+</div>
 
 <!-- ════════════════════ HERO ════════════════════ -->
 <section class="page-hero">
@@ -365,6 +424,20 @@
     }
   }, { passive: true });
 })();
+</script>
+<script>
+var burger = document.getElementById('navBurger');
+var mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', function(){
+  burger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+function closeMobile(){
+  burger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
 </script>
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147985028.js"></script>

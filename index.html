@@ -528,6 +528,7 @@ footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 36px v
 }
 .cursor-dot.visible { opacity: 1; }
 .cursor-dot.hover { transform: translate(-50%, -50%) scale(2.5); opacity: 0.5; }
+@media (hover: none), (pointer: coarse) { .cursor-dot { display: none !important; } }
 
 
 /* ═══════════════════════════════════════════════
@@ -557,6 +558,84 @@ footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 36px v
   .ueber-contacts { flex-direction: column; gap: 20px; }
   .ueber-socials { flex-wrap: wrap; }
   footer { flex-direction: column; text-align: center; }
+}
+
+/* ── Mobile Nav Overlay ── */
+.nav-burger {
+  display: none; width: 44px; height: 44px; border-radius: 50%;
+  align-items: center; justify-content: center; cursor: pointer;
+  background: none; border: none; padding: 0; flex-shrink: 0;
+}
+.nav-burger span {
+  display: block; width: 20px; height: 2px; background: var(--text);
+  position: relative; transition: all 0.3s;
+}
+.nav-burger span::before, .nav-burger span::after {
+  content: ''; position: absolute; left: 0; width: 100%; height: 2px;
+  background: var(--text); transition: all 0.3s;
+}
+.nav-burger span::before { top: -6px; }
+.nav-burger span::after { top: 6px; }
+.nav-burger.open span { background: transparent; }
+.nav-burger.open span::before { top: 0; transform: rotate(45deg); }
+.nav-burger.open span::after { top: 0; transform: rotate(-45deg); }
+
+.mobile-menu {
+  display: none; position: fixed; inset: 0; z-index: 999;
+  background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+  flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: var(--heading); font-size: 28px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: -0.02em; color: var(--text);
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--coral); }
+.mobile-menu .mobile-cta {
+  margin-top: 12px; padding: 14px 32px; border-radius: var(--pill);
+  background: var(--coral); color: #fff; font-size: 16px;
+  font-family: var(--sans); font-weight: 600; text-transform: none;
+}
+
+@media (max-width: 760px) {
+  .nav-burger { display: flex; }
+}
+
+/* ── Mobile: 480px ── */
+@media (max-width: 480px) {
+  :root { --px: 16px; }
+  .hero-wrap { padding: 40px var(--px) 60px; }
+  .hero-word { font-size: clamp(42px, 12vw, 70px); }
+  .hero-img-col { max-width: 220px; }
+  .flip-card-hero { height: 260px; }
+  .hero-circle-btn { width: 60px; height: 60px; }
+  .fj-leistungen { padding: 20px 0 60px; }
+  .leistungen-sub { font-size: 14px; }
+  .acc-btn { padding: 20px 0; }
+  .acc-features li { font-size: 14px; }
+  .fj-ueber { padding: 60px 0 40px; }
+  .ueber-bio { font-size: 15px; }
+  .stats-row { flex-direction: column; gap: 24px; }
+  .ueber-contacts { flex-direction: column; gap: 16px; }
+  .ueber-socials { flex-wrap: wrap; }
+  .testi-card { padding: 22px; }
+  .testi-quote { font-size: 14px; }
+  .faq-grid { gap: 32px; }
+  .faq-q { padding: 18px 12px; }
+  .faq-a { padding-left: 40px; }
+  .faq-item.open .faq-a { padding-left: 40px; }
+  .kontakt-grid { gap: 40px; }
+  .kontakt-portrait { height: 280px; }
+  .form-row { grid-template-columns: 1fr; }
+  .btn { padding: 14px 28px; min-height: 44px; }
+  .wb-card { min-height: 300px; }
+  .wb-body { padding: 22px; }
+  .blog-info { padding: 20px 22px; }
+  .blog-img { height: 180px; }
+  footer { flex-direction: column; text-align: center; padding: 28px var(--px); }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .footer-legal { flex-wrap: wrap; justify-content: center; }
 }
 
 /* ══ FLIP-JOURNEY FIX ══ */
@@ -644,6 +723,7 @@ footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 36px v
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
       <a href="#kontakt" class="nav-cta">Erstgespräch</a>
+      <button class="nav-burger" id="navBurger" aria-label="Menü öffnen"><span></span></button>
     </div>
     <!-- Compact "verfügbar" state -->
     <div class="nav-compact">
@@ -654,6 +734,16 @@ footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 36px v
     </div>
   </div>
 </nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="closeMobile()">Home</a>
+  <a href="meine-geschichte.html">Über mich</a>
+  <a href="workbooks.html">Workbooks</a>
+  <a href="blog.html">Blog</a>
+  <a href="#kontakt" onclick="closeMobile()">Kontakt</a>
+  <a href="#kontakt" class="mobile-cta" onclick="closeMobile()">Erstgespräch</a>
+</div>
 
 <!-- ════════════════════ HERO ════════════════════ -->
 <section id="hero">
@@ -1315,6 +1405,20 @@ function submitKontakt(e){
     }else{alert('Etwas ist schiefgelaufen. Bitte schreib mir direkt an hi@baeumlermarketing.de');}
   }).catch(function(){alert('Verbindungsfehler. Bitte schreib mir direkt an hi@baeumlermarketing.de');});
   return false;
+}
+
+/* ── Mobile Nav Toggle ── */
+var burger = document.getElementById('navBurger');
+var mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', function(){
+  burger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+function closeMobile(){
+  burger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
 }
 </script>
 </body>
