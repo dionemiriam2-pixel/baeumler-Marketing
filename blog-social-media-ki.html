@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a897db81-b3d5-4cdd-b229-a92558dc7545" data-blockingmode="auto" type="text/javascript"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media mit KI: Wie Claude Code dir das Posten abnimmt | Baeumler Marketing</title>
+<meta name="description" content="So baust du dir mit Claude Code einen kompletten Social-Media-Workflow &mdash; von der Content-Idee bis zum fertigen Post. Kan&auml;le verbinden, Dashboard bauen, Canva verlinken und alles automatisieren.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/favicon-192x192.png">
+<meta name="theme-color" content="#e8604c">
+<meta property="og:title" content="Social Media mit KI: Wie Claude Code dir das Posten abnimmt">
+<meta property="og:description" content="Kompletter Social-Media-Workflow mit Claude Code &mdash; Kan&auml;le verbinden, automatisieren, tracken. Alles aus einem Chat.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://baeumlermarketing.de/images/blog-social-media.avif">
+<link rel="canonical" href="https://baeumlermarketing.de/blog-social-media-ki.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg2: #f7f7f5; --text: #303030;
+    --muted: rgba(17,17,16,0.65); --border: rgba(0,0,0,0.08);
+    --coral: #e8604c; --teal: #2db8a8;
+    --sans: 'Inter', system-ui, sans-serif;
+    --heading: 'Antonio', sans-serif;
+    --serif: 'Playfair Display', Georgia, serif;
+    --pill: 100px; --r: 20px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── Nav ── */
+  nav {
+    position: sticky; top: 0; z-index: 100; padding: 16px 40px;
+    display: flex; justify-content: center;
+  }
+  .nav-bar {
+    background: #fff; border-radius: var(--pill); padding: 8px 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    display: inline-flex; align-items: center; gap: 24px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; text-transform: uppercase; }
+  .nav-back { font-size: 14px; color: var(--coral); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+
+  /* ── Article Layout ── */
+  .article-header {
+    max-width: 720px; margin: 0 auto; padding: 60px 40px 0;
+  }
+  .article-meta {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;
+  }
+  .article-tag {
+    color: #fff; padding: 4px 14px; border-radius: var(--pill);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    background: var(--coral);
+  }
+  .article-date { font-size: 13px; color: var(--muted); }
+  .article-header h1 {
+    font-family: var(--serif); font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700; text-transform: none; letter-spacing: -0.02em;
+    line-height: 1.2; margin-bottom: 16px;
+  }
+  .article-intro {
+    font-size: 17px; color: var(--muted); line-height: 1.8; margin-bottom: 32px;
+  }
+  .article-hero-img {
+    width: 100%; max-width: 900px; margin: 0 auto; display: block;
+    border-radius: var(--r); object-fit: cover; max-height: 440px;
+  }
+
+  /* ── Article Body ── */
+  .article-body {
+    max-width: 720px; margin: 0 auto; padding: 48px 40px 80px;
+  }
+  .article-body h2 {
+    font-family: var(--heading); font-size: clamp(22px, 3vw, 32px);
+    text-transform: uppercase; letter-spacing: -0.02em;
+    margin-top: 48px; margin-bottom: 16px; line-height: 1.15;
+  }
+  .article-body h3 {
+    font-family: var(--sans); font-size: 18px; font-weight: 600;
+    text-transform: none; letter-spacing: 0;
+    margin-top: 32px; margin-bottom: 10px;
+  }
+  .article-body p {
+    font-size: 16px; color: var(--text); line-height: 1.85; margin-bottom: 16px;
+  }
+  .article-body p.muted { color: var(--muted); }
+  .article-body strong { font-weight: 600; }
+  .article-body a { color: var(--coral); text-decoration: underline; }
+  .article-body a:hover { color: var(--text); }
+  .article-body ul, .article-body ol {
+    padding-left: 24px; margin-bottom: 16px;
+  }
+  .article-body li {
+    font-size: 16px; line-height: 1.85; margin-bottom: 8px;
+  }
+  .article-body blockquote {
+    border-left: 3px solid var(--coral); margin: 32px 0;
+    padding: 20px 24px; background: var(--bg2); border-radius: 0 var(--r) var(--r) 0;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .article-body blockquote:hover {
+    border-left-color: var(--teal);
+    transform: translateX(4px);
+  }
+  .article-body blockquote p { margin-bottom: 0; font-style: italic; color: var(--muted); }
+
+  /* ── Step Cards ── */
+  .step-card {
+    background: var(--bg2); border-radius: var(--r); padding: 28px 32px;
+    margin: 24px 0; border: 1px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    cursor: default;
+  }
+  .step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    border-color: var(--coral);
+  }
+  .step-number {
+    display: inline-block; background: var(--coral); color: #fff;
+    width: 32px; height: 32px; border-radius: 50%; text-align: center;
+    line-height: 32px; font-size: 14px; font-weight: 700; margin-bottom: 12px;
+    transition: transform 0.3s;
+  }
+  .step-card:hover .step-number { transform: scale(1.15); }
+  .step-card h3 { margin-top: 0; }
+  .step-card p:last-child { margin-bottom: 0; }
+
+  /* ── Tool Grid ── */
+  .tool-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px; margin: 24px 0;
+  }
+  .tool-item {
+    background: var(--bg2); border-radius: var(--r); padding: 20px;
+    border: 1px solid var(--border); text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    cursor: default;
+  }
+  .tool-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+    background: #fff;
+  }
+  .tool-item strong {
+    display: block; font-size: 15px; margin-bottom: 4px;
+    transition: color 0.2s;
+  }
+  .tool-item:hover strong { color: var(--coral); }
+  .tool-item span { font-size: 13px; color: var(--muted); }
+
+  /* ── CTA Box ── */
+  .article-cta {
+    background: var(--text); color: #fff; border-radius: var(--r);
+    padding: 40px; text-align: center; margin: 48px 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .article-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+  }
+  .article-cta h3 {
+    font-family: var(--heading); color: #fff; text-transform: uppercase;
+    font-size: 24px; margin-bottom: 12px; margin-top: 0;
+  }
+  .article-cta p { color: rgba(255,255,255,0.65); margin-bottom: 20px; }
+  .article-cta .cta-btn {
+    display: inline-block; background: var(--coral); color: #fff;
+    padding: 14px 32px; border-radius: var(--pill); font-size: 14px;
+    font-weight: 600; text-decoration: none; transition: background 0.25s, transform 0.2s;
+  }
+  .article-cta .cta-btn:hover { background: #d44f3b; color: #fff; transform: scale(1.03); }
+
+  /* ── Reading progress bar ── */
+  .progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px; background: var(--coral);
+    z-index: 9999; width: 0%; transition: width 0.1s linear;
+  }
+
+  /* ── Newsletter CTA ── */
+  .newsletter-section {
+    background: var(--bg2); padding: 60px 40px; text-align: center;
+  }
+  .newsletter-section h2 {
+    font-family: var(--heading); margin-bottom: 12px;
+    font-size: clamp(24px, 3vw, 36px);
+  }
+  .newsletter-section p {
+    font-size: 15px; color: var(--muted); max-width: 480px;
+    margin: 0 auto 24px; line-height: 1.7;
+  }
+  .newsletter-form {
+    display: flex; gap: 12px; max-width: 440px; margin: 0 auto;
+  }
+  .newsletter-input {
+    flex: 1; padding: 14px 18px; border-radius: var(--pill);
+    border: 1px solid var(--border); background: #fff;
+    color: var(--text); font-family: var(--sans); font-size: 14px; outline: none;
+    transition: border-color 0.2s;
+  }
+  .newsletter-input::placeholder { color: var(--muted); }
+  .newsletter-input:focus { border-color: var(--coral); }
+  .newsletter-btn {
+    padding: 14px 28px; border-radius: var(--pill); border: none;
+    background: var(--coral); color: #fff; font-family: var(--sans);
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: background 0.25s;
+  }
+  .newsletter-btn:hover { background: #d44f3b; }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--text); color: rgba(255,255,255,0.45); padding: 32px 40px;
+  }
+  .footer-inner {
+    max-width: 720px; margin: 0 auto; width: 100%;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-brand { font-family: var(--sans); font-size: 28px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+  .footer-brand .dot { color: var(--coral); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: rgba(255,255,255,0.45); font-size: 13px; transition: color 0.2s; text-decoration: none; }
+  .footer-links a:hover { color: #fff; }
+  .footer-copy { width: 100%; text-align: center; font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .article-header { padding: 40px 20px 0; }
+    .article-body { padding: 32px 20px 60px; }
+    nav { padding: 12px 20px; }
+    .nav-bar { padding: 8px 20px; gap: 16px; }
+    .step-card { padding: 20px; }
+    .article-cta { padding: 28px 20px; }
+    .newsletter-form { flex-direction: column; }
+    .newsletter-section { padding: 40px 20px; }
+    .tool-grid { grid-template-columns: 1fr 1fr; }
+    footer { padding: 28px 16px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+  }
+  @media (max-width: 380px) {
+    .article-header { padding: 32px 14px 0; }
+    .article-body { padding: 24px 14px 48px; }
+    .article-hero-img { max-height: 300px; }
+    nav { padding: 10px 12px; }
+    .tool-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<!-- Article structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Social Media mit KI: Wie Claude Code dir das Posten abnimmt",
+  "description": "So baust du dir mit Claude Code einen kompletten Social-Media-Workflow \u2014 Kan\u00e4le verbinden, Dashboard bauen, Canva verlinken, alles automatisieren.",
+  "author": {
+    "@type": "Person",
+    "name": "Miriam B\u00e4umler",
+    "url": "https://baeumlermarketing.de/meine-geschichte.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "B\u00e4umler Marketing"
+  },
+  "datePublished": "2026-03-10",
+  "dateModified": "2026-03-10",
+  "mainEntityOfPage": "https://baeumlermarketing.de/blog-social-media-ki.html",
+  "keywords": ["Social Media", "Claude Code", "KI Marketing", "Automatisierung", "Canva", "Content Workflow"]
+}
+</script>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <div class="nav-bar">
+    <a href="index.html" class="nav-logo">Baeumler.</a>
+    <a href="blog.html" class="nav-back">&larr; Alle Artikel</a>
+  </div>
+</nav>
+
+<!-- ════════════════════ ARTICLE HEADER ════════════════════ -->
+<header class="article-header">
+  <div class="article-meta">
+    <span class="article-tag">Social Media</span>
+    <span class="article-date">10. M&auml;rz 2026 &middot; 10 Min. Lesezeit</span>
+  </div>
+  <h1>Social Media mit KI: Wie Claude Code dir das Posten abnimmt</h1>
+  <p class="article-intro">Posten, planen, tracken, designen &mdash; alles aus einem Chat heraus. So baust du dir mit Claude Code einen kompletten Social-Media-Workflow, der dir Stunden pro Woche spart.</p>
+</header>
+
+<img class="article-hero-img" src="images/blog-social-media.avif" alt="Social Media Workflow mit Claude Code automatisieren" loading="lazy" style="padding: 0 40px;">
+
+<!-- ════════════════════ ARTICLE BODY ════════════════════ -->
+<div class="article-body">
+
+  <p>Du kennst das: Du willst regelm&auml;&szlig;ig posten, aber es kostet dich jedes Mal Stunden. Idee finden, Text schreiben, Bild in Canva basteln, zur richtigen Zeit posten, Hashtags recherchieren, Ergebnisse checken. Und am Ende postest du doch wieder nichts, weil der Tag schon voll war.</p>
+
+  <p>Was w&auml;re, wenn du das alles aus <strong>einem einzigen Chat</strong> heraus steuern k&ouml;nntest? Genau das geht mit Claude Code. Und in diesem Artikel zeige ich dir Schritt f&uuml;r Schritt, wie du dir einen kompletten Social-Media-Workflow aufbaust &mdash; von der Content-Idee bis zum fertigen, geplanten Post.</p>
+
+  <h2>Was am Ende steht: Dein Marketing-Cockpit</h2>
+
+  <p>Bevor wir loslegen, hier das Ergebnis:</p>
+
+  <ul>
+    <li><strong>Alle Kan&auml;le verbunden</strong> &mdash; Instagram, Facebook, LinkedIn &uuml;ber Konnektoren wie Buffer oder Make</li>
+    <li><strong>Ein Dashboard</strong> &mdash; wo du Reichweite, Engagement und Follower-Wachstum auf einen Blick siehst</li>
+    <li><strong>Canva-Integration</strong> &mdash; Claude erstellt dir Posting-Vorlagen, die du mit einem Klick in Canva &ouml;ffnest</li>
+    <li><strong>Automatisierte Abl&auml;ufe</strong> &mdash; Content wird erstellt, geplant und ver&ouml;ffentlicht, ohne dass du st&auml;ndig dran denken musst</li>
+    <li><strong>Alles trackbar</strong> &mdash; du wei&szlig;t genau, welcher Post funktioniert hat und warum</li>
+  </ul>
+
+  <p>Klingt nach viel? Ist es nicht. Weil Claude Code dir den Gro&szlig;teil der Arbeit abnimmt.</p>
+
+  <h2>Die Tools, die du brauchst</h2>
+
+  <p>Dein Social-Media-Workflow besteht aus diesen Bausteinen:</p>
+
+  <div class="tool-grid">
+    <div class="tool-item">
+      <strong>Claude Code</strong>
+      <span>Dein KI-Assistent</span>
+    </div>
+    <div class="tool-item">
+      <strong>Buffer / Later</strong>
+      <span>Posting-Planung</span>
+    </div>
+    <div class="tool-item">
+      <strong>Canva</strong>
+      <span>Design &amp; Vorlagen</span>
+    </div>
+    <div class="tool-item">
+      <strong>Make / Zapier</strong>
+      <span>Automatisierung</span>
+    </div>
+    <div class="tool-item">
+      <strong>Google Sheets</strong>
+      <span>Dashboard &amp; Tracking</span>
+    </div>
+    <div class="tool-item">
+      <strong>Meta Business Suite</strong>
+      <span>Instagram &amp; Facebook</span>
+    </div>
+  </div>
+
+  <p>Das Beste: Die meisten dieser Tools sind in der Basisversion <strong>kostenlos</strong>. Du brauchst kein gro&szlig;es Budget &mdash; nur den Willen, es einmal richtig aufzusetzen.</p>
+
+  <h2>Schritt 1: Kan&auml;le verbinden</h2>
+
+  <p>Zuerst verbindest du deine Social-Media-Kan&auml;le mit einem Planungstool wie <strong>Buffer</strong> oder <strong>Later</strong>. Damit postest du von einer Stelle aus auf alle Plattformen gleichzeitig.</p>
+
+  <p>Claude Code hilft dir dabei, das Setup zu verstehen:</p>
+
+  <blockquote>
+    <p>&bdquo;Ich m&ouml;chte Instagram, Facebook und LinkedIn mit Buffer verbinden. Erkl&auml;r mir Schritt f&uuml;r Schritt, wie ich das einrichte und worauf ich achten muss.&ldquo;</p>
+  </blockquote>
+
+  <p>Claude f&uuml;hrt dich durch jeden Schritt &mdash; von der Konto-Verkn&uuml;pfung bis zu den richtigen Berechtigungen. Kein Googeln, kein Tutorial-Marathon. <strong>Du fragst, Claude antwortet.</strong></p>
+
+  <h2>Schritt 2: Content-Ideen generieren</h2>
+
+  <p>Das leere Blatt ist der gr&ouml;&szlig;te Feind jedes Social-Media-Managers. Claude l&ouml;st das Problem in Sekunden:</p>
+
+  <blockquote>
+    <p>&bdquo;Erstelle mir 20 Post-Ideen f&uuml;r eine Marketingberaterin, die lokale Selbstst&auml;ndige berät. Mix aus Tipps, Behind-the-Scenes, Kundenstories und Meinungen. F&uuml;r Instagram.&ldquo;</p>
+  </blockquote>
+
+  <p>Was du bekommst: <strong>20 fertige Ideen</strong> &mdash; mit Thema, Formatvorschlag (Reel, Karussell, Story) und einer kurzen Beschreibung. In unter einer Minute.</p>
+
+  <p>Das Geniale: Claude kennt dein Business. Wenn du ihm einmal erkl&auml;rst, was du machst und wer deine Zielgruppe ist, passt er alle Ideen genau darauf an. Keine generischen &bdquo;10 Tipps f&uuml;r mehr Reichweite&ldquo;-Vorschl&auml;ge.</p>
+
+  <h2>Schritt 3: Texte schreiben lassen</h2>
+
+  <p>Du hast die Idee. Jetzt brauchst du den Text. Auch das &uuml;bernimmt Claude:</p>
+
+  <blockquote>
+    <p>&bdquo;Schreib mir einen Instagram-Post zum Thema: Warum dein Google Business Profil wichtiger ist als deine Website. Locker, direkt, mit einem starken Hook am Anfang. Max. 150 W&ouml;rter. Inklusive Hashtags.&ldquo;</p>
+  </blockquote>
+
+  <p>Claude liefert dir:</p>
+  <ul>
+    <li><strong>Einen Hook</strong>, der zum Stoppen bringt</li>
+    <li><strong>Einen Hauptteil</strong>, der Mehrwert liefert</li>
+    <li><strong>Einen CTA</strong>, der zur Interaktion auffordert</li>
+    <li><strong>10-15 relevante Hashtags</strong>, sortiert nach Reichweite</li>
+  </ul>
+
+  <p>Und wenn dir der Ton nicht passt? &bdquo;Mach es lockerer&ldquo;, &bdquo;Mehr Pers&ouml;nlichkeit&ldquo;, &bdquo;K&uuml;rzer&ldquo; &mdash; Claude passt sofort an.</p>
+
+  <h2>Schritt 4: Canva-Designs erstellen</h2>
+
+  <p>Texte sind fertig. Jetzt brauchen wir das Visual. Und hier wird es richtig smart:</p>
+
+  <p>Claude Code kann dir <strong>Canva-Templates beschreiben</strong>, die du mit einem Klick &ouml;ffnest und anpasst. Der Workflow:</p>
+
+  <ol>
+    <li>Du sagst Claude, welches Format du brauchst (Instagram Post, Story, Karussell)</li>
+    <li>Claude erstellt dir eine <strong>Design-Anweisung</strong> &mdash; Farben, Textplatzierung, Bildvorschl&auml;ge</li>
+    <li>Du &ouml;ffnest deine Canva-Vorlage und setzt es in 2 Minuten um</li>
+  </ol>
+
+  <blockquote>
+    <p>&bdquo;Erstelle mir eine Design-Anweisung f&uuml;r einen Instagram-Karussell-Post mit 5 Slides zum Thema: 5 Fehler bei der lokalen SEO. Meine Farben sind Wei&szlig;, Dunkelgrau und Coral (#e8604c).&ldquo;</p>
+  </blockquote>
+
+  <p>Claude liefert dir f&uuml;r jede Slide: <strong>Headline, Subtext, Hintergrundfarbe und Layout-Vorschlag.</strong> Du musst nur noch in Canva einsetzen.</p>
+
+  <h2>Schritt 5: Redaktionsplan automatisieren</h2>
+
+  <p>Jetzt hast du Content. Aber wann postest du was? Claude baut dir einen <strong>Redaktionsplan</strong>:</p>
+
+  <blockquote>
+    <p>&bdquo;Erstelle mir einen Redaktionsplan f&uuml;r 4 Wochen. 3 Posts pro Woche auf Instagram. Mix aus Karussell, Reel-Idee und Einzelpost. Mit Datum, Uhrzeit und Thema.&ldquo;</p>
+  </blockquote>
+
+  <p>Was du bekommst: Eine fertige Tabelle mit <strong>12 Posts</strong>, komplett geplant. Die &uuml;bertr&auml;gst du in Buffer &mdash; und dein Content l&auml;uft auf Autopilot.</p>
+
+  <p>Noch besser: Claude kann dir den Plan direkt als <strong>CSV-Datei</strong> erstellen, die du in Google Sheets oder Buffer importierst. Kein Abtippen.</p>
+
+  <h2>Schritt 6: Dashboard bauen</h2>
+
+  <p>Posten ohne Tracking ist wie Autofahren ohne Tacho. Du musst wissen, was funktioniert. Claude hilft dir, ein einfaches <strong>Tracking-Dashboard in Google Sheets</strong> aufzubauen:</p>
+
+  <ul>
+    <li><strong>Reichweite pro Post</strong> &mdash; wie viele Menschen haben deinen Content gesehen?</li>
+    <li><strong>Engagement-Rate</strong> &mdash; Likes, Kommentare, Saves im Verh&auml;ltnis zur Reichweite</li>
+    <li><strong>Follower-Wachstum</strong> &mdash; Woche f&uuml;r Woche</li>
+    <li><strong>Best Performing Content</strong> &mdash; welche Formate und Themen funktionieren?</li>
+  </ul>
+
+  <blockquote>
+    <p>&bdquo;Erstelle mir ein Google Sheets Template f&uuml;r Social Media Tracking. Spalten: Datum, Plattform, Format, Thema, Reichweite, Likes, Kommentare, Saves, Engagement-Rate. Mit automatischer Berechnung und bedingter Formatierung.&ldquo;</p>
+  </blockquote>
+
+  <p>Claude baut dir die komplette Tabelle &mdash; <strong>inklusive Formeln</strong>. Du musst nur noch deine Zahlen eintragen. Einmal pro Woche, 5 Minuten.</p>
+
+  <h2>Schritt 7: Automatisierung mit Make</h2>
+
+  <p>Jetzt wird es richtig m&auml;chtig. Mit <strong>Make</strong> (fr&uuml;her Integromat) kannst du Abl&auml;ufe zwischen deinen Tools automatisieren:</p>
+
+  <ul>
+    <li><strong>Neuer Blog-Artikel ver&ouml;ffentlicht?</strong> &rarr; Automatisch ein Social-Media-Post daraus erstellen</li>
+    <li><strong>Post in Buffer geplant?</strong> &rarr; Automatisch ins Google-Sheet eintragen</li>
+    <li><strong>Instagram-Story gepostet?</strong> &rarr; Automatisch als Content-Idee f&uuml;r LinkedIn recyclen</li>
+  </ul>
+
+  <p>Claude erkl&auml;rt dir genau, wie du diese Automationen einrichtest &mdash; Schritt f&uuml;r Schritt, in deiner Sprache. Kein Tech-Jargon.</p>
+
+  <blockquote>
+    <p>&bdquo;Erkl&auml;r mir, wie ich in Make eine Automation baue, die jeden neuen Blog-Artikel automatisch in 3 Social-Media-Posts umwandelt und in Buffer plant.&ldquo;</p>
+  </blockquote>
+
+  <h2>Der komplette Workflow auf einen Blick</h2>
+
+  <div class="step-card">
+    <span class="step-number">1</span>
+    <h3>Kan&auml;le verbinden</h3>
+    <p>Instagram, Facebook, LinkedIn mit Buffer oder Later verkn&uuml;pfen. Einmal einrichten, immer nutzen.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">2</span>
+    <h3>Content-Ideen generieren</h3>
+    <p>Claude liefert dir 20+ Ideen auf Knopfdruck &mdash; passend zu deinem Business und deiner Zielgruppe.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">3</span>
+    <h3>Texte schreiben lassen</h3>
+    <p>Captions, Hooks, Hashtags &mdash; alles in deinem Ton. Du gibst die Richtung vor, Claude schreibt.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">4</span>
+    <h3>Designs in Canva umsetzen</h3>
+    <p>Claude gibt dir die Design-Anweisung, du setzt sie in deiner Canva-Vorlage in Minuten um.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">5</span>
+    <h3>Redaktionsplan f&uuml;llen</h3>
+    <p>4 Wochen Content, fertig geplant. In Buffer laden und auf Autopilot stellen.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">6</span>
+    <h3>Dashboard tracken</h3>
+    <p>5 Minuten pro Woche: Zahlen eintragen, sehen was funktioniert, Strategie anpassen.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">7</span>
+    <h3>Automatisieren mit Make</h3>
+    <p>Blog &rarr; Social Media, Content Recycling, Auto-Tracking. Einmal einrichten, dauerhaft profitieren.</p>
+  </div>
+
+  <h2>Was dich das kostet</h2>
+
+  <ul>
+    <li><strong>Claude Pro:</strong> ca. 20 $/Monat</li>
+    <li><strong>Buffer (Free):</strong> kostenlos (3 Kan&auml;le)</li>
+    <li><strong>Canva (Free oder Pro):</strong> kostenlos oder 12 &euro;/Monat</li>
+    <li><strong>Make (Free):</strong> kostenlos (1.000 Operationen/Monat)</li>
+    <li><strong>Google Sheets:</strong> kostenlos</li>
+    <li><strong>Meta Business Suite:</strong> kostenlos</li>
+  </ul>
+
+  <p><strong>Gesamt: ab ca. 20 &euro; pro Monat.</strong> F&uuml;r einen Workflow, der dir jede Woche Stunden spart. Zum Vergleich: Ein Social-Media-Manager kostet 500&ndash;2.000 &euro; im Monat.</p>
+
+  <h2>Das &auml;ndert sich f&uuml;r dich</h2>
+
+  <p>Vorher: Du sitzt eine Stunde vor dem Handy, &uuml;berlegst was du posten sollst, schreibst drei S&auml;tze, l&ouml;schst sie wieder, machst am Ende doch nichts.</p>
+
+  <p>Nachher: Du &ouml;ffnest Claude, sagst &bdquo;Gib mir Content f&uuml;r diese Woche&ldquo; und hast in <strong>30 Minuten</strong> drei fertige Posts mit Text, Hashtags und Design-Anweisungen. Die planst du in Buffer vor &mdash; und dein Social Media l&auml;uft.</p>
+
+  <p><strong>Das ist kein Zukunftsszenario.</strong> Das funktioniert heute. Jetzt. Mit Tools, die es schon gibt.</p>
+
+  <p>Der einzige Schritt, der noch fehlt: Anfangen.</p>
+
+  <!-- CTA Box: Erstgespr&auml;ch -->
+  <div class="article-cta">
+    <h3>Du willst das f&uuml;r dein Business aufsetzen?</h3>
+    <p>Ich helfe dir, deinen Social-Media-Workflow mit KI aufzubauen &mdash; von der Strategie bis zur Automatisierung.</p>
+    <a href="index.html#kontakt" class="cta-btn">Kostenloses Erstgespr&auml;ch &rarr;</a>
+  </div>
+
+  <!-- CTA Box: Online Check -->
+  <div class="article-cta" style="background: var(--coral);">
+    <h3>Noch nicht sicher, wo du stehst?</h3>
+    <p>Mach den kostenlosen Online-Check und finde heraus, was du als Erstes angehen solltest.</p>
+    <a href="https://baeumlermarketing.gumroad.com/l/online-check" target="_blank" class="cta-btn" style="background: var(--text);">Kostenloser Online-Check &rarr;</a>
+  </div>
+
+  <p>Und wenn du regelm&auml;&szlig;ig Tipps zu KI, Marketing und Social Media bekommen willst &mdash; trag dich unten in den Newsletter ein.</p>
+
+</div>
+
+<!-- ════════════════════ NEWSLETTER ════════════════════ -->
+<section class="newsletter-section">
+  <h2>Nichts mehr verpassen</h2>
+  <p>Neue Artikel, KI-Tipps und Praxiswissen &mdash; direkt in dein Postfach. Kein Spam, nur Inhalte, die dir weiterhelfen.</p>
+  <form class="newsletter-form" id="nlForm" onsubmit="return submitNewsletter(event)" style="flex-direction:column;align-items:center;gap:14px">
+    <div style="display:flex;gap:12px;width:100%;max-width:440px">
+      <input type="text" class="newsletter-input" id="nl-name" required placeholder="Dein Vorname" style="flex:1">
+      <input type="email" class="newsletter-input" id="nl-email" required placeholder="deine@email.de" style="flex:1">
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;max-width:440px;width:100%">
+      <input type="checkbox" id="nl-dsgvo" required style="accent-color:var(--coral);width:18px;height:18px;flex-shrink:0">
+      <label for="nl-dsgvo" style="font-size:12px;color:var(--muted);line-height:1.4;text-align:left">Ich stimme der <a href="datenschutz.html" style="color:var(--coral)">Datenschutzerkl&auml;rung</a> zu.</label>
+    </div>
+    <button type="submit" class="newsletter-btn">Eintragen &rarr;</button>
+  </form>
+  <p id="nl-success" style="display:none;color:var(--teal);font-weight:600;margin-top:16px">Danke f&uuml;r deine Anmeldung!</p>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">B&auml;umler<span class="dot">.</span></span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="meine-geschichte.html">&Uuml;ber mich</a>
+      <a href="workbooks.html">Workbooks</a>
+      <a href="blog.html">Blog</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+    <span class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</span>
+  </div>
+</footer>
+
+<script>
+/* ── Progress Bar ── */
+window.addEventListener('scroll', function(){
+  var h = document.documentElement;
+  var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progressBar').style.width = pct + '%';
+}, {passive:true});
+
+/* ── Newsletter Submit ── */
+function submitNewsletter(e){
+  e.preventDefault();
+  var name=document.getElementById('nl-name').value;
+  var email=document.getElementById('nl-email').value;
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/0ca9c402-9b0b-4b59-bb8f-23fe7bd65411',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      fields:[
+        {name:'firstname',value:name},
+        {name:'email',value:email}
+      ],
+      context:{pageUri:window.location.href,pageName:'Blog - Social Media KI'},
+      legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Datenschutzerkl\u00e4rung zu.'}}
+    })
+  }).then(function(r){
+    if(r.ok){
+      document.getElementById('nlForm').reset();
+      document.getElementById('nl-success').style.display='block';
+      setTimeout(function(){document.getElementById('nl-success').style.display='none'},5000);
+    }else{alert('Etwas ist schiefgelaufen.');}
+  }).catch(function(){alert('Verbindungsfehler.');});
+  return false;
+}
+</script>
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147985028.js"></script>
+<!-- End of HubSpot Embed Code -->
+</body>
+</html>
