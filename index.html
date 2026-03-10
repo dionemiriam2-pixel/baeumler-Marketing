@@ -495,18 +495,14 @@ section { position: relative; overflow: visible; }
 /* ═══════════════════════════════════════════════
    FOOTER
 ═══════════════════════════════════════════════ */
-footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 36px var(--px); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
-.footer-logo { font-family: var(--serif); font-style: italic; color: #fff; font-size: 20px; font-weight: 800; }
-.footer-logo-img { height: 220px; width: auto; mix-blend-mode: screen; margin: -85px 0 -55px -40px; }
+footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 32px 40px; }
+.footer-inner { max-width: 720px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 .footer-brand { font-family: var(--body); font-size: 28px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
 .footer-brand .dot { color: var(--coral); }
-.footer-copy { font-size: 13px; }
-.footer-links { display: flex; gap: 26px; }
+.footer-links { display: flex; gap: 20px; }
 .footer-links a { font-size: 13px; color: rgba(255,255,255,0.45); transition: color 0.2s; }
 .footer-links a:hover { color: #fff; }
-.footer-legal { display: flex; gap: 18px; }
-.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.28); transition: color 0.2s; }
-.footer-legal a:hover { color: rgba(255,255,255,0.7); }
+.footer-copy { width: 100%; text-align: center; font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
 
 /* ═══════════════════════════════════════════════
    SCROLL REVEAL
@@ -637,9 +633,8 @@ footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 36px v
   .wb-body { padding: 22px; }
   .blog-info { padding: 20px 22px; }
   .blog-img { height: 180px; }
-  footer { flex-direction: column; text-align: center; padding: 28px var(--px); }
+  .footer-inner { flex-direction: column; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
-  .footer-legal { flex-wrap: wrap; justify-content: center; }
 }
 
 /* ══ FLIP-JOURNEY FIX ══ */
@@ -1157,17 +1152,19 @@ footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 36px v
 
 <!-- ════════════════════ FOOTER ════════════════════ -->
 <footer>
-  <span class="footer-brand">Bäumler<span class="dot">.</span></span>
-  <span class="footer-copy">© 2026 Baeumler Marketing · Langenfeld</span>
-  <ul class="footer-links">
-    <li><a href="workbooks.html">Workbooks</a></li>
-    <li><a href="meine-geschichte.html">Über mich</a></li>
-    <li><a href="#kontakt">Kontakt</a></li>
-  </ul>
-  <div class="footer-legal">
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
-    <a href="agb.html">AGB</a>
+  <div class="footer-inner">
+    <span class="footer-brand">Bäumler<span class="dot">.</span></span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="meine-geschichte.html">Über mich</a>
+      <a href="workbooks.html">Workbooks</a>
+      <a href="blog.html">Blog</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+    <div class="footer-copy">© 2026 Baeumler Marketing · Langenfeld</div>
   </div>
 </footer>
 
