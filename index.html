@@ -551,8 +551,9 @@ footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 36px v
   .nav-links { display: none; }
   .nav-full .nav-avatar { display: none; }
   .hero-split { flex-direction: column; align-items: flex-start; gap: 28px; }
-  .hero-word-right { padding-left: 0; }
+  .hero-word-right { padding-left: 0; width: 100%; }
   .hero-word { font-size: clamp(52px, 14vw, 90px); }
+  .hero-sub { padding-left: 0; max-width: 100%; }
   .hero-img-col { width: 100%; max-width: 280px; margin: 0; }
   .flip-card-hero { height: 320px; }
   .stats-row { grid-template-columns: 1fr 1fr; }
@@ -1249,6 +1250,9 @@ function toggleFaq(btn) {
   const theCard = document.getElementById('heroFlipCard');
   const imgCol  = document.querySelector('.hero-img-col');
   if (!theCard || !imgCol) return;
+
+  /* Disable flip scroll effect on mobile */
+  if (window.innerWidth < 760) return;
 
   /* Pin die Karten-Spalte: bleibt fixiert vom Hero bis Über-mich Mitte */
   ScrollTrigger.create({
