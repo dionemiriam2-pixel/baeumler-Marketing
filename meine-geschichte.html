@@ -701,26 +701,17 @@
       <div>
         <h2 class="kontakt-title" style="margin-bottom:16px">Lass uns starten</h2>
         <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:36px">Lass uns gemeinsam etwas Wirkungsvolles aufbauen — ob deine Marke, deine Website oder deine nächste große Idee.</p>
-        <form class="kontakt-form" action="https://formsubmit.co/hi@baeumlermarketing.de" method="POST">
-          <input type="hidden" name="_subject" value="Neue Anfrage über Baeumler Marketing">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://baeumlermarketing.de/danke.html">
+        <form class="kontakt-form" id="kontaktForm" onsubmit="return submitKontakt(event)">
           <div class="form-row">
-            <div class="form-group"><label class="form-label">Name</label><input class="form-input" type="text" name="name" required placeholder="Dein Name"></div>
-            <div class="form-group"><label class="form-label">E-Mail</label><input class="form-input" type="email" name="email" required placeholder="deine@email.de"></div>
+            <div class="form-group"><label class="form-label">Name</label><input class="form-input" type="text" id="k-name" required placeholder="Dein Name"></div>
+            <div class="form-group"><label class="form-label">E-Mail</label><input class="form-input" type="email" id="k-email" required placeholder="deine@email.de"></div>
           </div>
-          <div class="form-group">
-            <label class="form-label">Gewünschte Leistung</label>
-            <select class="form-select" name="leistung">
-              <option value="">Auswählen…</option>
-              <option>Beratung</option>
-              <option>Webdesign</option>
-              <option>Online Marketing</option>
-              <option>Sonstiges</option>
-            </select>
+          <div class="form-group"><label class="form-label">Nachricht</label><textarea class="form-textarea" id="k-msg" required placeholder="Erzähl mir kurz, worum es geht…"></textarea></div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:4px">
+            <input type="checkbox" id="k-dsgvo" required style="accent-color:var(--coral);width:18px;height:18px">
+            <label for="k-dsgvo" style="font-size:13px;color:var(--muted);line-height:1.4">Ich stimme der <a href="datenschutz.html" style="color:var(--coral)">Datenschutzerklärung</a> zu.</label>
           </div>
-          <div class="form-group"><label class="form-label">Nachricht</label><textarea class="form-textarea" name="nachricht" placeholder="Erzähl mir von deinem Projekt…"></textarea></div>
-          <button type="submit" class="btn-send">Anfrage senden →</button>
+          <button type="submit" class="btn btn-coral" style="align-self:flex-start;padding:15px 36px;font-size:15px">Anfrage senden →</button>
         </form>
       </div>
     </div>
@@ -810,5 +801,37 @@ function closeMobile(){
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147985028.js"></script>
 <!-- End of HubSpot Embed Code -->
+
+<!-- HubSpot Kontaktformular Submit -->
+<script>
+function submitKontakt(e){
+  e.preventDefault();
+  var name=document.getElementById('k-name').value;
+  var email=document.getElementById('k-email').value;
+  var msg=document.getElementById('k-msg').value;
+  var parts=name.trim().split(' ');
+  var first=parts[0]||'';
+  var last=parts.slice(1).join(' ')||'';
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/908c2aa2-11a7-439c-b2a7-207c37419536',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      fields:[
+        {name:'firstname',value:first},
+        {name:'lastname',value:last},
+        {name:'email',value:email},
+        {name:'message',value:msg}
+      ],
+      context:{pageUri:window.location.href,pageName:'Über mich – Kontakt'},
+      legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Datenschutzerklärung zu.'}}
+    })
+  }).then(function(r){
+    if(r.ok){
+      window.location.href='danke.html';
+    }else{alert('Etwas ist schiefgelaufen. Bitte schreib mir direkt an hi@baeumlermarketing.de');}
+  }).catch(function(){alert('Verbindungsfehler. Bitte schreib mir direkt an hi@baeumlermarketing.de');});
+  return false;
+}
+</script>
 </body>
 </html>
