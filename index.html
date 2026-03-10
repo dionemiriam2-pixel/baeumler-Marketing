@@ -1043,8 +1043,8 @@ footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 36px v
         <img class="kontakt-portrait" loading="lazy" src="images/Miriam_Foto.JPG" alt="Miriam Bäumler Kontakt">
       </div>
       <div class="reveal">
-        <h2 class="sec-title" style="margin-bottom:16px">Schreib mir</h2>
-        <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:36px">Du hast eine Idee oder brauchst Unterstützung? Schreib mir — ich melde mich schnellstmöglich bei dir.</p>
+        <h2 class="sec-title" style="margin-bottom:16px">Lass uns schreiben</h2>
+        <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:36px">Du hast eine Idee oder brauchst Unterstützung? Schreib mir — ich melde mich bei dir.</p>
       <form class="kontakt-form" id="kontaktForm" onsubmit="return submitKontakt(event)">
         <div class="form-row">
           <div class="form-group"><label class="form-label">Name</label><input class="form-input" type="text" id="k-name" required placeholder="Dein Name"></div>
@@ -1056,7 +1056,6 @@ footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 36px v
           <label for="k-dsgvo" style="font-size:13px;color:var(--muted);line-height:1.4">Ich stimme der <a href="datenschutz.html" style="color:var(--coral)">Datenschutzerklärung</a> zu.</label>
         </div>
         <button type="submit" class="btn btn-coral" style="align-self:flex-start;padding:15px 36px;font-size:15px">Anfrage senden →</button>
-        <p id="kontakt-success" style="display:none;color:var(--teal);font-weight:600;margin-top:8px">Danke! Ich melde mich bald bei dir.</p>
       </form>
       </div>
     </div>
@@ -1312,9 +1311,7 @@ function submitKontakt(e){
     })
   }).then(function(r){
     if(r.ok){
-      document.getElementById('kontaktForm').reset();
-      document.getElementById('kontakt-success').style.display='block';
-      setTimeout(function(){document.getElementById('kontakt-success').style.display='none'},5000);
+      window.location.href='danke.html';
     }else{alert('Etwas ist schiefgelaufen. Bitte schreib mir direkt an hi@baeumlermarketing.de');}
   }).catch(function(){alert('Verbindungsfehler. Bitte schreib mir direkt an hi@baeumlermarketing.de');});
   return false;
