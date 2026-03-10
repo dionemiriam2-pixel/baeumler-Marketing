@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a897db81-b3d5-4cdd-b229-a92558dc7545" data-blockingmode="auto" type="text/javascript"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KI im Marketing: Kompletter Business-Workspace in unter einer Woche | Baeumler Marketing</title>
+<meta name="description" content="Wie ich mit Claude, VS Code, GitHub, Vercel, HubSpot und Gmail meinen kompletten Marketing-Workspace in unter einer Woche aufgebaut habe. Schritt-f&uuml;r-Schritt f&uuml;r Selbstst&auml;ndige.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/favicon-192x192.png">
+<meta name="theme-color" content="#e8604c">
+<meta property="og:title" content="KI im Marketing: Kompletter Business-Workspace in unter einer Woche">
+<meta property="og:description" content="Wie ich mit Claude AI meinen kompletten Marketing-Workspace aufgebaut habe &mdash; Website, E-Mail, CRM, Hosting. Alles in unter 7 Tagen.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://baeumlermarketing.de/images/wb-ki-marketing.jpg">
+<link rel="canonical" href="https://baeumlermarketing.de/blog-ki-marketing.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg2: #f7f7f5; --text: #303030;
+    --muted: rgba(17,17,16,0.65); --border: rgba(0,0,0,0.08);
+    --coral: #e8604c; --teal: #2db8a8;
+    --sans: 'Inter', system-ui, sans-serif;
+    --heading: 'Antonio', sans-serif;
+    --serif: 'Playfair Display', Georgia, serif;
+    --pill: 100px; --r: 20px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── Nav (pill, subpage) ── */
+  nav {
+    position: sticky; top: 0; z-index: 100; padding: 16px 40px;
+    display: flex; justify-content: center;
+  }
+  .nav-bar {
+    background: #fff; border-radius: var(--pill); padding: 8px 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    display: inline-flex; align-items: center; gap: 24px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; text-transform: uppercase; }
+  .nav-back { font-size: 14px; color: var(--coral); text-decoration: none; transition: color 0.2s; }
+  .nav-back:hover { color: var(--text); }
+
+  /* ── Article Layout ── */
+  .article-header {
+    max-width: 720px; margin: 0 auto; padding: 60px 40px 0;
+  }
+  .article-meta {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;
+  }
+  .article-tag {
+    color: #fff; padding: 4px 14px; border-radius: var(--pill);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    background: var(--text);
+  }
+  .article-date { font-size: 13px; color: var(--muted); }
+  .article-header h1 {
+    font-family: var(--serif); font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700; text-transform: none; letter-spacing: -0.02em;
+    line-height: 1.2; margin-bottom: 16px;
+  }
+  .article-intro {
+    font-size: 17px; color: var(--muted); line-height: 1.8; margin-bottom: 32px;
+  }
+  .article-hero-img {
+    width: 100%; max-width: 900px; margin: 0 auto; display: block;
+    border-radius: var(--r); object-fit: cover; max-height: 440px;
+  }
+
+  /* ── Article Body ── */
+  .article-body {
+    max-width: 720px; margin: 0 auto; padding: 48px 40px 80px;
+  }
+  .article-body h2 {
+    font-family: var(--heading); font-size: clamp(22px, 3vw, 32px);
+    text-transform: uppercase; letter-spacing: -0.02em;
+    margin-top: 48px; margin-bottom: 16px; line-height: 1.15;
+  }
+  .article-body h3 {
+    font-family: var(--sans); font-size: 18px; font-weight: 600;
+    text-transform: none; letter-spacing: 0;
+    margin-top: 32px; margin-bottom: 10px;
+  }
+  .article-body p {
+    font-size: 16px; color: var(--text); line-height: 1.85; margin-bottom: 16px;
+  }
+  .article-body p.muted { color: var(--muted); }
+  .article-body strong { font-weight: 600; }
+  .article-body a { color: var(--coral); text-decoration: underline; }
+  .article-body a:hover { color: var(--text); }
+  .article-body ul, .article-body ol {
+    padding-left: 24px; margin-bottom: 16px;
+  }
+  .article-body li {
+    font-size: 16px; line-height: 1.85; margin-bottom: 8px;
+  }
+  .article-body blockquote {
+    border-left: 3px solid var(--coral); margin: 32px 0;
+    padding: 20px 24px; background: var(--bg2); border-radius: 0 var(--r) var(--r) 0;
+  }
+  .article-body blockquote p { margin-bottom: 0; font-style: italic; color: var(--muted); }
+
+  /* ── Step Cards ── */
+  .step-card {
+    background: var(--bg2); border-radius: var(--r); padding: 28px 32px;
+    margin: 24px 0; border: 1px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    cursor: default;
+  }
+  .step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    border-color: var(--coral);
+  }
+  .step-number {
+    display: inline-block; background: var(--coral); color: #fff;
+    width: 32px; height: 32px; border-radius: 50%; text-align: center;
+    line-height: 32px; font-size: 14px; font-weight: 700; margin-bottom: 12px;
+    transition: transform 0.3s;
+  }
+  .step-card:hover .step-number { transform: scale(1.15); }
+  .step-card h3 { margin-top: 0; }
+  .step-card p:last-child { margin-bottom: 0; }
+
+  /* ── Tool Grid ── */
+  .tool-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px; margin: 24px 0;
+  }
+  .tool-item {
+    background: var(--bg2); border-radius: var(--r); padding: 20px;
+    border: 1px solid var(--border); text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    cursor: default;
+  }
+  .tool-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+    background: #fff;
+  }
+  .tool-item strong {
+    display: block; font-size: 15px; margin-bottom: 4px;
+    transition: color 0.2s;
+  }
+  .tool-item:hover strong { color: var(--coral); }
+  .tool-item span { font-size: 13px; color: var(--muted); }
+
+  /* ── Blockquote hover ── */
+  .article-body blockquote {
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .article-body blockquote:hover {
+    border-left-color: var(--teal);
+    transform: translateX(4px);
+  }
+
+  /* ── CTA Box ── */
+  .article-cta {
+    background: var(--text); color: #fff; border-radius: var(--r);
+    padding: 40px; text-align: center; margin: 48px 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .article-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+  }
+  .article-cta h3 {
+    font-family: var(--heading); color: #fff; text-transform: uppercase;
+    font-size: 24px; margin-bottom: 12px; margin-top: 0;
+  }
+  .article-cta p { color: rgba(255,255,255,0.65); margin-bottom: 20px; }
+  .article-cta .cta-btn {
+    display: inline-block; background: var(--coral); color: #fff;
+    padding: 14px 32px; border-radius: var(--pill); font-size: 14px;
+    font-weight: 600; text-decoration: none; transition: background 0.25s, transform 0.2s;
+  }
+  .article-cta .cta-btn:hover { background: #d44f3b; color: #fff; transform: scale(1.03); }
+
+  /* ── Reading progress bar ── */
+  .progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px; background: var(--coral);
+    z-index: 9999; width: 0%; transition: width 0.1s linear;
+  }
+
+  /* ── Newsletter CTA ── */
+  .newsletter-section {
+    background: var(--bg2); padding: 60px 40px; text-align: center;
+  }
+  .newsletter-section h2 {
+    font-family: var(--heading); margin-bottom: 12px;
+    font-size: clamp(24px, 3vw, 36px);
+  }
+  .newsletter-section p {
+    font-size: 15px; color: var(--muted); max-width: 480px;
+    margin: 0 auto 24px; line-height: 1.7;
+  }
+  .newsletter-form {
+    display: flex; gap: 12px; max-width: 440px; margin: 0 auto;
+  }
+  .newsletter-input {
+    flex: 1; padding: 14px 18px; border-radius: var(--pill);
+    border: 1px solid var(--border); background: #fff;
+    color: var(--text); font-family: var(--sans); font-size: 14px; outline: none;
+    transition: border-color 0.2s;
+  }
+  .newsletter-input::placeholder { color: var(--muted); }
+  .newsletter-input:focus { border-color: var(--coral); }
+  .newsletter-btn {
+    padding: 14px 28px; border-radius: var(--pill); border: none;
+    background: var(--coral); color: #fff; font-family: var(--sans);
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: background 0.25s;
+  }
+  .newsletter-btn:hover { background: #d44f3b; }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--text); color: rgba(255,255,255,0.45); padding: 32px 40px;
+  }
+  .footer-inner {
+    max-width: 720px; margin: 0 auto; width: 100%;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-brand { font-family: var(--sans); font-size: 28px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+  .footer-brand .dot { color: var(--coral); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: rgba(255,255,255,0.45); font-size: 13px; transition: color 0.2s; text-decoration: none; }
+  .footer-links a:hover { color: #fff; }
+  .footer-copy { width: 100%; text-align: center; font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .article-header { padding: 40px 20px 0; }
+    .article-body { padding: 32px 20px 60px; }
+    nav { padding: 12px 20px; }
+    .step-card { padding: 20px; }
+    .article-cta { padding: 28px 20px; }
+    .newsletter-form { flex-direction: column; }
+    .newsletter-section { padding: 40px 20px; }
+    .tool-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+
+<!-- Article structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "KI im Marketing: Kompletter Business-Workspace in unter einer Woche",
+  "description": "Wie ich mit Claude AI meinen kompletten Marketing-Workspace aufgebaut habe — Website, E-Mail, CRM, Hosting.",
+  "author": {
+    "@type": "Person",
+    "name": "Miriam B\u00e4umler",
+    "url": "https://baeumlermarketing.de/meine-geschichte.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "B\u00e4umler Marketing"
+  },
+  "datePublished": "2026-03-10",
+  "dateModified": "2026-03-10",
+  "mainEntityOfPage": "https://baeumlermarketing.de/blog-ki-marketing.html",
+  "keywords": ["KI Marketing", "Claude AI", "Website erstellen", "Marketing Workspace", "Selbstst\u00e4ndige"]
+}
+</script>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <div class="nav-bar">
+    <a href="index.html" class="nav-logo">Baeumler.</a>
+    <a href="blog.html" class="nav-back">&larr; Alle Artikel</a>
+  </div>
+</nav>
+
+<!-- ════════════════════ ARTICLE HEADER ════════════════════ -->
+<header class="article-header">
+  <div class="article-meta">
+    <span class="article-tag">KI &amp; Tools</span>
+    <span class="article-date">10. M&auml;rz 2026 &middot; 8 Min. Lesezeit</span>
+  </div>
+  <h1>KI im Marketing: Wie ich meinen kompletten Business-Workspace in unter einer Woche aufgebaut habe</h1>
+  <p class="article-intro">Website, E-Mail, CRM, Domain, Hosting &mdash; alles von Null. Ohne Agentur, ohne Programmierkenntnisse. Nur mit Claude AI und ein paar smarten Tools. Hier zeige ich dir Schritt f&uuml;r Schritt, wie das funktioniert hat.</p>
+</header>
+
+<img class="article-hero-img" src="images/wb-ki-marketing.jpg" alt="KI im Marketing &mdash; Business Workspace mit Claude AI aufbauen" loading="lazy" style="padding: 0 40px;">
+
+<!-- ════════════════════ ARTICLE BODY ════════════════════ -->
+<div class="article-body">
+
+  <p>Ich wollte mein Business endlich professionell aufstellen. Eigene Website, E-Mail mit eigener Domain, ein CRM f&uuml;r Kontakte, digitale Produkte zum Verkaufen &mdash; der komplette Workspace. Und ich wollte nicht monatelang auf eine Agentur warten oder Tausende Euro ausgeben.</p>
+
+  <p>Spoiler: Es hat keine Woche gedauert. Und das Herzst&uuml;ck war <strong>Claude</strong> &mdash; eine KI von Anthropic, die nicht nur Texte schreiben kann, sondern auch programmiert, strukturiert und mitdenkt.</p>
+
+  <p>In diesem Artikel zeige ich dir, welche Tools ich nutze, was das Ganze kostet und warum KI alles ver&auml;ndert hat. Die <strong>komplette Schritt-f&uuml;r-Schritt-Anleitung</strong> mit Screenshots und Vorlagen findest du in meinem Workbook.</p>
+
+  <h2>Das Ergebnis: Was in 7 Tagen entstanden ist</h2>
+
+  <p>Bevor ich dir zeige, wie &mdash; hier erstmal, was:</p>
+
+  <ul>
+    <li><strong>Eine komplette Website</strong> mit 7 Seiten &mdash; Startseite, &Uuml;ber mich, Workbooks, Blog, Impressum, Datenschutz, AGB</li>
+    <li><strong>Responsive Design</strong> &mdash; sieht auf Handy, Tablet und Desktop perfekt aus</li>
+    <li><strong>SEO-optimiert</strong> &mdash; Schema-Markup, Sitemap, Meta-Tags, alles dabei</li>
+    <li><strong>Professionelle E-Mail</strong> &mdash; hi@baeumlermarketing.de statt irgendwas@gmail.com</li>
+    <li><strong>CRM-System</strong> &mdash; alle Kontakte und Anfragen an einem Ort</li>
+    <li><strong>Shop f&uuml;r digitale Produkte</strong> &mdash; Workbooks sofort verkaufsbereit</li>
+    <li><strong>DSGVO-konform</strong> &mdash; Cookie-Consent, Datenschutzerkl&auml;rung, alles sauber</li>
+  </ul>
+
+  <p>Die monatlichen Kosten? <strong>Unter 30 Euro.</strong></p>
+
+  <h2>Die 9 Tools, die alles m&ouml;glich machen</h2>
+
+  <p>Mein gesamter Workspace besteht aus diesen Tools. Die meisten sind kostenlos:</p>
+
+  <div class="tool-grid">
+    <div class="tool-item">
+      <strong>Claude</strong>
+      <span>KI-Assistent &amp; Coder</span>
+    </div>
+    <div class="tool-item">
+      <strong>VS Code</strong>
+      <span>Code-Editor</span>
+    </div>
+    <div class="tool-item">
+      <strong>GitHub</strong>
+      <span>Code-Verwaltung</span>
+    </div>
+    <div class="tool-item">
+      <strong>Vercel</strong>
+      <span>Hosting &amp; Deployment</span>
+    </div>
+    <div class="tool-item">
+      <strong>IONOS</strong>
+      <span>Domain</span>
+    </div>
+    <div class="tool-item">
+      <strong>HubSpot</strong>
+      <span>CRM &amp; Marketing</span>
+    </div>
+    <div class="tool-item">
+      <strong>Gmail</strong>
+      <span>E-Mail</span>
+    </div>
+    <div class="tool-item">
+      <strong>Gumroad</strong>
+      <span>Digitale Produkte</span>
+    </div>
+  </div>
+
+  <p>Das Zusammenspiel ist der Clou: Claude baut die Website in VS Code, GitHub speichert den Code, Vercel macht ihn live, IONOS liefert die Domain. Und HubSpot, Gmail und Gumroad decken alles ab, was du f&uuml;r Kundenkontakt und Verkauf brauchst.</p>
+
+  <h2>Wie Claude mir die Website gebaut hat</h2>
+
+  <p>Ich habe Claude gesagt, was ich brauche. Nicht in Code &mdash; in normaler Sprache:</p>
+
+  <blockquote>
+    <p>&bdquo;Erstelle mir eine Startseite mit Hero-Sektion, Leistungen, Testimonials und einem Kontaktformular. Farben: Wei&szlig;, Dunkelgrau, Coral als Akzent.&ldquo;</p>
+  </blockquote>
+
+  <p>Und Claude hat gebaut. Nicht nur die Startseite &mdash; das komplette Design-System. Farben, Schriften, Abst&auml;nde, alles konsistent. Jede &Auml;nderung (&bdquo;Mach den Button gr&ouml;&szlig;er&ldquo;, &bdquo;Der Text soll schmaler sein&ldquo;) wurde <strong>sofort umgesetzt</strong>. Kein Hin und Her per E-Mail. Kein &bdquo;Das ist au&szlig;erhalb des Briefings&ldquo;.</p>
+
+  <p>Das Beste: Claude merkt sich alles. Entscheidungen, Design-Regeln, deine Vorlieben. Es baut konsistent weiter, auch wenn du Tage sp&auml;ter nochmal &auml;nderst.</p>
+
+  <h2>Warum Claude und nicht ChatGPT?</h2>
+
+  <p>Ich habe beides getestet. Der Unterschied: <strong>Claude denkt mit.</strong> Wenn ich sage &bdquo;mach die Seite SEO-freundlich&ldquo;, f&uuml;gt Claude nicht nur Meta-Tags ein &mdash; es erstellt Schema-Markup, eine robots.txt, eine Sitemap und erkl&auml;rt mir, warum das wichtig ist.</p>
+
+  <blockquote>
+    <p>&bdquo;Claude f&uuml;hlt sich an wie ein Kollege, der neben dir sitzt und einfach macht &mdash; schnell, pr&auml;zise und ohne dass du alles dreimal erkl&auml;ren musst.&ldquo;</p>
+  </blockquote>
+
+  <p>Besonders stark: <strong>Claude Code</strong>. Das arbeitet direkt in deinen Dateien, sieht den Kontext deines ganzen Projekts und baut konsistent weiter. Kein Copy-Paste aus einem Chat-Fenster. Kein &bdquo;Sorry, ich habe keinen Zugriff auf deine Dateien&ldquo;.</p>
+
+  <h2>Von Null auf Live &mdash; der Ablauf</h2>
+
+  <p>Hier die 9 Schritte, mit denen ich alles aufgesetzt habe:</p>
+
+  <div class="step-card">
+    <span class="step-number">1</span>
+    <h3>Claude-Konto erstellen</h3>
+    <p>Claude Pro einrichten und mit VS Code verbinden. Dein KI-Assistent ist ab jetzt dein Entwickler, Texter und Berater in einem.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">2</span>
+    <h3>VS Code &amp; Projekt einrichten</h3>
+    <p>Kostenloser Code-Editor, Projektordner anlegen &mdash; und los geht&rsquo;s. Claude arbeitet direkt in deinen Dateien.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">3</span>
+    <h3>Website von Claude bauen lassen</h3>
+    <p>Startseite, Unterseiten, Blog, Legal Pages &mdash; alles responsive und SEO-optimiert. Du sagst, was du willst. Claude setzt um.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">4</span>
+    <h3>Code auf GitHub sichern</h3>
+    <p>Jede &Auml;nderung versioniert und gesichert. Plus: Die Br&uuml;cke zu deinem Hosting.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">5</span>
+    <h3>Mit Vercel live schalten</h3>
+    <p>GitHub mit Vercel verbinden. Ab jetzt ist jede &Auml;nderung in Sekunden online. Kostenlos.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">6</span>
+    <h3>Eigene Domain verbinden</h3>
+    <p>Domain bei IONOS registrieren und mit Vercel verknüpfen. SSL-Zertifikat gibt&rsquo;s automatisch dazu.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">7</span>
+    <h3>Professionelle E-Mail einrichten</h3>
+    <p>hi@deinedomain.de statt irgendwas@gmail.com. Macht sofort einen professionelleren Eindruck.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">8</span>
+    <h3>CRM mit HubSpot aufsetzen</h3>
+    <p>Alle Kontakte an einem Ort. Anfragen, Newsletter-Abonnenten, Kundenhistorie &mdash; &uuml;bersichtlich und kostenlos.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">9</span>
+    <h3>Digitale Produkte &uuml;ber Gumroad verkaufen</h3>
+    <p>Workbook hochladen, Preis festlegen, Link auf die Website. Gumroad &uuml;bernimmt Zahlung und Lieferung.</p>
+  </div>
+
+  <p class="muted">Das waren die Schritte im &Uuml;berblick. F&uuml;r jeden einzelnen Schritt gibt es nat&uuml;rlich einiges zu beachten &mdash; welche Einstellungen, welche Fallstricke, welche Abk&uuml;rzungen.</p>
+
+  <h2>Was mich das kostet &mdash; pro Monat</h2>
+
+  <ul>
+    <li><strong>Claude Pro:</strong> ca. 20 $/Monat</li>
+    <li><strong>VS Code, GitHub, Vercel, HubSpot CRM:</strong> kostenlos</li>
+    <li><strong>IONOS Domain:</strong> ca. 1 &euro;/Monat</li>
+    <li><strong>Google Workspace (E-Mail):</strong> ca. 6 &euro;/Monat</li>
+    <li><strong>Gumroad:</strong> kostenlos (10% pro Verkauf)</li>
+    <li><strong>Cookiebot:</strong> kostenlos (bis 100 Seiten)</li>
+  </ul>
+
+  <p><strong>Gesamt: unter 30 &euro; pro Monat.</strong> F&uuml;r einen kompletten, professionellen Business-Workspace. Zum Vergleich: Allein eine Website h&auml;tte bei einer Agentur mehrere Tausend Euro gekostet &mdash; plus laufende Kosten f&uuml;r jede &Auml;nderung.</p>
+
+  <h2>Was ich daraus gelernt habe</h2>
+
+  <p>Die wichtigste Erkenntnis: <strong>Du brauchst keine technischen Vorkenntnisse.</strong> Du brauchst eine klare Vorstellung davon, was du willst &mdash; und ein gutes Tool, das dir zuh&ouml;rt.</p>
+
+  <p>KI ersetzt keine Kreativit&auml;t und keine Strategie. Aber sie nimmt dir die technische Umsetzung komplett ab. Und das ver&auml;ndert alles &mdash; weil du pl&ouml;tzlich in Tagen schaffst, wof&uuml;r du fr&uuml;her Wochen gebraucht h&auml;ttest.</p>
+
+  <p>Wenn du selbstst&auml;ndig bist und dein Marketing endlich professionell aufstellen willst, dann fang an. Nicht irgendwann. Jetzt.</p>
+
+  <!-- CTA Box: Workbook -->
+  <div class="article-cta">
+    <h3>Die komplette Anleitung als Workbook</h3>
+    <p>9 Schritte, Screenshots, Vorlagen, Checklisten &mdash; alles, was du brauchst, um deinen eigenen Business-Workspace mit Claude aufzubauen. F&uuml;r unter 30 &euro; im Monat. In unter einer Woche.</p>
+    <a href="workbooks.html" class="cta-btn">Zum Workbook &mdash; 55 &euro; &rarr;</a>
+  </div>
+
+  <!-- CTA Box: Online Check -->
+  <div class="article-cta" style="background: var(--coral);">
+    <h3>Noch nicht sicher, wo du stehst?</h3>
+    <p>Mach den kostenlosen Online-Check und finde heraus, was du als Erstes angehen solltest.</p>
+    <a href="https://baeumlermarketing.gumroad.com/l/online-check" target="_blank" class="cta-btn" style="background: var(--text);">Kostenloser Online-Check &rarr;</a>
+  </div>
+
+  <p>Und wenn du regelm&auml;&szlig;ig Tipps zu KI, Marketing und Tools bekommen willst &mdash; trag dich unten in den Newsletter ein. Kein Spam, nur Inhalte, die dir wirklich weiterhelfen.</p>
+
+</div>
+
+<!-- ════════════════════ NEWSLETTER ════════════════════ -->
+<!-- TODO: Replace with HubSpot form when Portal ID and Form ID are available -->
+<section class="newsletter-section">
+  <h2>Newsletter</h2>
+  <p>Neue Artikel, Tipps und exklusive Inhalte direkt in dein Postfach &mdash; kostenlos.</p>
+  <form class="newsletter-form" action="https://formsubmit.co/hi@baeumlermarketing.de" method="POST">
+    <input type="hidden" name="_subject" value="Neuer Newsletter-Abonnent (Blog: KI Marketing)">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://baeumlermarketing.de/danke.html">
+    <input type="email" class="newsletter-input" name="email" required aria-label="E-Mail-Adresse" placeholder="deine@email.de">
+    <button type="submit" class="newsletter-btn">Eintragen</button>
+  </form>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">B&auml;umler<span class="dot">.</span></span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="meine-geschichte.html">&Uuml;ber mich</a>
+      <a href="workbooks.html">Workbooks</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
+  </div>
+</footer>
+
+<script>
+// ── Reading progress bar ──
+(function() {
+  var bar = document.getElementById('progressBar');
+  if (!bar) return;
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    bar.style.width = pct + '%';
+  }, { passive: true });
+})();
+
+// ── Fade-in on scroll ──
+(function() {
+  var els = document.querySelectorAll('.step-card, .tool-item, .article-cta, blockquote');
+  if (!els.length) return;
+  els.forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  });
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function(el) { obs.observe(el); });
+})();
+</script>
+
+</body>
+</html>

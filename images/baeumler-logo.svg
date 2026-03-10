@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 70" width="360" height="70">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&amp;display=swap');
+  </style>
+  <text x="10" y="55" font-family="'Inter', sans-serif" font-weight="700" font-size="58" letter-spacing="-0.02em" fill="#2d2d2d">Bäumler</text>
+  <text x="288" y="55" font-family="'Inter', sans-serif" font-weight="700" font-size="58" fill="#e8604c">.</text>
+</svg>

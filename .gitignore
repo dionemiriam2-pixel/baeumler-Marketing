@@ -1,0 +1,19 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Archive
+archiv/
+
+# Old root-level files (originals with spaces/umlauts)
+Miriam Foto Webseite.jpg
+Miriam Foto.JPG
+Miriam Gesicht.jpg
+Miri Logo b*.png
+Miri Logo b*.svg
+caroline-badran-*.jpg

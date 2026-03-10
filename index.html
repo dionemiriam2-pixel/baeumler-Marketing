@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a897db81-b3d5-4cdd-b229-a92558dc7545" data-blockingmode="auto" type="text/javascript"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baeumler Marketing — Miriam Bäumler | Marketingberaterin Langenfeld</title>
+<meta name="description" content="Marketingberaterin aus Langenfeld. Ich helfe lokalen Selbstständigen und Creatorn, online sichtbar zu werden, mehr Kunden zu gewinnen und ihr Business nachhaltig zu skalieren.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/favicon-192x192.png">
+<meta name="theme-color" content="#e8604c">
+<meta property="og:title" content="Baeumler Marketing — Miriam Bäumler | Marketingberaterin Langenfeld">
+<meta property="og:description" content="Marketingberaterin aus Langenfeld. Ich helfe lokalen Selbstständigen und Creatorn, online sichtbar zu werden.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://baeumlermarketing.de/images/Miriam_Foto.JPG">
+<link rel="canonical" href="https://baeumlermarketing.de/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<script src="https://gumroad.com/js/gumroad.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<style>
+/* ═══════════════════════════════════════════════
+   RESET & VARIABLES
+═══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --max: 1160px; --px: 56px; --nav-h: 80px;
+  --bg: #ffffff; --bg2: #f7f7f5; --text: #303030;
+  --muted: rgba(17,17,16,0.78); --border: rgba(0,0,0,0.08);
+  --coral: #e8604c; --orange: #f0872b; --yellow: #f5c842;
+  --teal: #2db8a8; --navy: #1e2d5a; --pink: #d94f8a; --purple: #7c5cbf;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  --heading: 'Antonio', sans-serif;
+  --r: 20px; --pill: 100px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+h1 em, h2 em, h3 em { font-family: var(--serif); font-style: italic; }
+ul { list-style: none; }
+button { font-family: var(--sans); cursor: pointer; border: none; background: none; }
+
+/* ── Global Typography ── */
+h1, h2, h3, h4 {
+  font-family: var(--heading); font-weight: 700; text-transform: uppercase;
+  letter-spacing: -0.03em; line-height: 1.1;
+}
+h1 { font-size: clamp(40px, 5.5vw, 72px); }
+h2 { font-size: clamp(36px, 5vw, 64px); }
+h3 { font-size: clamp(22px, 2.5vw, 32px); }
+h4 { font-size: clamp(16px, 1.6vw, 20px); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* ═══════════════════════════════════════════════
+   BLOBS
+═══════════════════════════════════════════════ */
+.blob {
+  position: absolute; border-radius: 50%; pointer-events: none; z-index: 0;
+  filter: blur(110px); opacity: 0.10;
+  animation: blobMove var(--d,22s) ease-in-out infinite;
+}
+@keyframes blobMove {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%      { transform: translate(var(--tx,25px), var(--ty,-20px)) scale(1.04); }
+}
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); position: relative; z-index: 1; }
+section { position: relative; overflow: visible; }
+
+/* ═══════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════ */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border-radius: var(--pill);
+  font-size: 14px; font-weight: 500; transition: all 0.22s;
+}
+.btn-coral  { border: 1.5px solid var(--coral); color: var(--coral); background: transparent; }
+.btn-coral:hover  { background: var(--coral); color: #fff; }
+.btn-navy   { border: 1.5px solid var(--coral); color: var(--coral); background: transparent; }
+.btn-navy:hover   { background: var(--coral); color: #fff; }
+.btn-teal   { border: 1.5px solid var(--coral); color: var(--coral); background: transparent; }
+.btn-teal:hover   { background: var(--coral); color: #fff; }
+.btn-outline { border: 1.5px solid var(--coral); color: var(--coral); }
+.btn-outline:hover { background: var(--coral); color: #fff; }
+
+/* ═══════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════ */
+#nav {
+  position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+  z-index: 1000; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-inner {
+  background: #fff; border-radius: var(--pill);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+  border: 1px solid var(--border);
+  padding: 6px 6px 6px 8px;
+  display: flex; align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Full nav state */
+.nav-full {
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-avatar {
+  width: 38px; height: 38px; border-radius: 50%; object-fit: cover;
+  border: 2px solid var(--border); flex-shrink: 0;
+}
+.nav-logo-img {
+  height: 22px; width: auto; flex-shrink: 0;
+}
+.nav-logo-compact { height: 18px; }
+.nav-links { display: flex; gap: 28px; align-items: center; padding: 0 20px; }
+.nav-links a { font-size: 14px; color: var(--muted); transition: color 0.2s; font-weight: 400; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  background: var(--text); color: #fff; padding: 10px 24px;
+  border-radius: var(--pill); font-size: 13px; font-weight: 500;
+  transition: background 0.25s; white-space: nowrap;
+}
+.nav-cta:hover { background: var(--coral); }
+
+/* Compact "verfügbar" state — hidden by default */
+.nav-compact {
+  display: none; align-items: center; gap: 10px; padding: 0 12px 0 0;
+}
+.nav-compact .nav-avatar { width: 34px; height: 34px; }
+.nav-compact-badge {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 13px; color: var(--text); font-weight: 500; white-space: nowrap;
+}
+.nav-compact-badge .hero-dot { width: 8px; height: 8px; background: var(--teal); border-radius: 50%; }
+
+/* Phase 2: compact state */
+#nav.compact .nav-full { display: none; }
+#nav.compact .nav-compact { display: flex; }
+
+/* ═══════════════════════════════════════════════
+   SECTION LABELS
+═══════════════════════════════════════════════ */
+.sec-label {
+  font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; margin-bottom: 10px; display: block;
+}
+.sec-title { line-height: 1.05; }
+.sec-title em { font-style: italic; }
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+#hero {
+  min-height: 100vh; padding-top: var(--nav-h);
+  display: flex; align-items: center; overflow: visible;
+}
+.hero-blob { background: radial-gradient(circle, var(--yellow), transparent 70%); width:600px; height:600px; top:-120px; right:-80px; --d:24s; --tx:30px; --ty:-20px; }
+.hero-wrap {
+  max-width: 960px; margin: 0 auto; padding: 60px var(--px) 80px;
+  width: 100%; position: relative;
+}
+.hero-available {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: rgba(45,184,168,0.08); border: 1px solid rgba(45,184,168,0.25);
+  border-radius: var(--pill); padding: 7px 18px;
+  font-size: 13px; color: var(--teal); margin-bottom: 18px;
+}
+.hero-dot { width: 7px; height: 7px; background: var(--teal); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+.hero-name { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; font-weight: 500; align-self: flex-start; padding-left: 19px; }
+
+/* Split row */
+.hero-split { display: flex; align-items: center; justify-content: center; gap: 0; }
+.hero-word { font-family: var(--heading); font-size: clamp(48px, 8vw, 120px); font-weight: 700; line-height: 0.95; letter-spacing: -0.04em; text-transform: uppercase; white-space: nowrap; }
+.hero-word-left { flex: 0 0 auto; display: flex; flex-direction: column; }
+.hero-word-right { flex: 0 0 auto; display: flex; flex-direction: column; gap: 22px; padding-left: 0; }
+.hero-word-right .hero-word { color: var(--coral); font-style: normal; }
+.hero-sub { font-size: 16px; color: var(--muted); max-width: 420px; line-height: 1.72; padding-left: 6px; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: nowrap; }
+
+/* ── HERO FLIP CARD (center image that kicks off the flip journey) ── */
+.hero-img-col {
+  flex: 0 0 auto;
+  width: clamp(200px, 23vw, 300px);
+  margin: 0 clamp(24px, 3.5vw, 48px);
+  position: relative;
+}
+.hero-badge {
+  position: absolute; top: -18px; left: 18px; z-index: 3;
+  background: #fff; border: 1px solid var(--border);
+  border-radius: var(--pill); padding: 7px 16px;
+  font-size: 13px; color: var(--muted);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+/* Interactive circle button on image */
+.hero-circle-btn {
+  position: absolute; bottom: -34px; left: -34px; z-index: 5;
+  width: 76px; height: 76px; border-radius: 50%;
+  background: var(--coral); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 600; text-decoration: none; text-align: center; line-height: 1.2;
+  box-shadow: 0 6px 24px rgba(232,96,76,0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; cursor: pointer;
+}
+.hero-circle-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 30px rgba(232,96,76,0.45);
+}
+@keyframes wave {
+  0%,60%,100% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+}
+.hero-wave-anim { animation: wave 2.5s ease-in-out infinite; transform-origin: 70% 80%; }
+.hero-circle-default, .hero-circle-hover {
+  position: absolute; transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.hero-circle-hover { opacity: 0; transform: translateY(8px); }
+.hero-circle-btn:hover .hero-circle-default { opacity: 0; transform: translateY(-8px); }
+.hero-circle-btn:hover .hero-circle-hover { opacity: 1; transform: translateY(0); }
+
+/* The flip card scene in hero */
+.flip-scene-hero {
+  perspective: 1200px;
+  width: 100%;
+}
+.flip-card-hero {
+  width: 100%; height: clamp(260px, 36vw, 460px);
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.flip-face {
+  position: absolute; inset: 0;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border-radius: 18px; overflow: hidden;
+}
+.flip-face img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.flip-back { transform: rotateY(180deg); }
+
+/* ═══════════════════════════════════════════════
+   FLIP JOURNEY: Leistungen + Über mich combined
+   One sticky flip card on the right
+═══════════════════════════════════════════════ */
+#flip-journey {
+  padding: 80px 0;
+  position: relative;
+}
+#flip-journey .blob-l { background: radial-gradient(circle, var(--coral), transparent 70%); width:460px; height:460px; top:-60px; right:-80px; --d:20s; --tx:20px; --ty:15px; }
+#flip-journey .blob-u { background: radial-gradient(circle, var(--orange), transparent 70%); width:480px; height:480px; bottom:80px; left:-90px; --d:26s; --tx:-20px; --ty:25px; }
+
+.flip-journey-inner {
+  max-width: var(--max); margin: 0 auto; padding: 0 var(--px);
+  position: relative; z-index: 1;
+}
+
+/* LEFT: stacked content */
+.flip-content-col { display: flex; flex-direction: column; max-width: 640px; }
+
+/* LEISTUNGEN block — Portavia style */
+.fj-leistungen { padding: 20px 0 100px; }
+.fj-leistungen-header { margin-bottom: 16px; }
+.leistungen-dot { width: 12px; height: 12px; background: var(--coral); border-radius: 50%; display: inline-block; margin-left: 6px; vertical-align: baseline; position: relative; top: -2px; }
+.leistungen-title { display: block; line-height: 1.05; }
+.leistungen-sub { color: var(--muted); font-size: 15px; max-width: 460px; line-height: 1.7; margin: 16px 0 36px; }
+
+/* Accordion — Portavia style */
+.acc-list { border-top: 1px solid var(--border); }
+.acc-item { border-bottom: 1px solid var(--border); }
+.acc-item:last-child { border-bottom: none; }
+.acc-btn {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 28px 0; text-align: left; background: none; border: none; cursor: pointer;
+}
+.acc-btn:hover .acc-name { color: var(--coral); }
+.acc-num {
+  font-size: clamp(18px, 2vw, 22px); color: var(--coral); font-weight: 700;
+  font-family: var(--heading);
+}
+.acc-name {
+  flex: 1; font-family: var(--heading); font-size: clamp(18px, 2vw, 22px);
+  font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em;
+  transition: color 0.2s;
+}
+.acc-item.open .acc-name { color: var(--coral); }
+.acc-arrow {
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: var(--muted); transition: transform 0.3s, color 0.3s; flex-shrink: 0;
+}
+.acc-item.open .acc-arrow { transform: rotate(180deg); color: var(--coral); }
+.acc-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; padding: 0 0 0 0; }
+.acc-item.open .acc-body { max-height: 300px; padding: 0 0 22px 0; }
+.acc-features { display: flex; flex-direction: column; gap: 14px; padding-left: 4px; }
+.acc-features li { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--muted); line-height: 1.6; }
+.acc-features li::before { content: '✓'; color: var(--coral); font-size: 15px; flex-shrink: 0; font-weight: 600; }
+
+/* ÜBER MICH block — Portavia style */
+.fj-ueber { padding: 80px 0 40px; max-width: 640px; }
+.ueber-title { line-height: 1.05; margin-bottom: 24px; }
+.ueber-bio { font-size: 16px; color: var(--muted); line-height: 1.82; margin: 0 0 48px; max-width: 540px; }
+.ueber-bio strong { color: var(--text); }
+
+/* Stats — Portavia style big numbers */
+.stats-row { display: flex; gap: 48px; margin-bottom: 48px; }
+.stat-box { display: flex; flex-direction: column; gap: 4px; }
+.stat-big { font-family: var(--heading); font-size: clamp(40px, 5vw, 64px); font-weight: 700; line-height: 1; color: var(--coral); letter-spacing: -0.02em; }
+.stat-suf { color: var(--coral); }
+.stat-lbl { font-size: 14px; color: var(--text); line-height: 1.4; font-weight: 700; }
+
+/* Contact rows */
+.ueber-contacts { display: flex; gap: 56px; margin-bottom: 40px; }
+.ueber-contact-block { display: flex; flex-direction: column; gap: 6px; }
+.ueber-lbl { color: var(--text); font-size: 16px; font-weight: 700; font-family: var(--body); text-transform: none; letter-spacing: normal; }
+.ueber-contact-block a { font-size: 16px; color: var(--muted); font-weight: 400; }
+.ueber-contact-block a { transition: color 0.2s; }
+.ueber-contact-block a:hover { color: var(--coral); }
+
+/* Social icons */
+.ueber-socials { display: flex; gap: 16px; margin-bottom: 32px; }
+.ueber-socials a {
+  width: 40px; height: 40px; border-radius: 10px;
+  border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
+  color: var(--text); font-size: 18px; transition: border-color 0.2s, color 0.2s;
+}
+.ueber-socials a:hover { border-color: var(--coral); color: var(--coral); }
+
+/* My Story button */
+.ueber-story-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px; border-radius: var(--pill);
+  border: 1.5px solid var(--coral); color: var(--coral);
+  font-family: var(--heading); font-size: 14px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  transition: background 0.25s, color 0.25s;
+}
+.ueber-story-btn:hover { background: var(--coral); color: #fff; }
+
+
+/* ═══════════════════════════════════════════════
+   WORKBOOKS
+═══════════════════════════════════════════════ */
+#workbooks { padding: 80px 0; position: relative; }
+#workbooks .blob { background: radial-gradient(circle, var(--teal), transparent 70%); width:440px; height:440px; bottom:-80px; right:-80px; --d:22s; --tx:20px; --ty:-20px; }
+.wb-header { margin-bottom: 56px; }
+.wb-header .sec-title { display: inline; }
+.wb-header-top { display: flex; align-items: center; gap: 20px; margin-bottom: 16px; flex-wrap: wrap; }
+.wb-header-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; border: 1px solid var(--border); border-radius: var(--pill);
+  padding: 6px 16px 6px 6px; font-size: 13px; color: var(--text); font-weight: 500;
+}
+.wb-header-badge img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+.wb-header-badge .hero-dot { width: 7px; height: 7px; }
+.wb-header-sub { font-size: 16px; color: var(--muted); max-width: 420px; line-height: 1.72; }
+.wb-stack { max-width: 960px; margin: 0 auto; padding: 0 var(--px); }
+.wb-card {
+  position: sticky;
+  top: calc(var(--nav-h) + var(--i, 0) * 26px);
+  border-radius: 22px; overflow: hidden;
+  margin-bottom: 22px; min-height: 440px;
+  transform-origin: top center; transition: box-shadow 0.3s;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.wb-card:last-child { margin-bottom: 100px; }
+.wb-card-img { position: absolute; inset: 0; z-index: 0; }
+.wb-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.wb-card:hover .wb-card-img img { transform: scale(1.04); }
+.wb-card-img::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%);
+}
+.wb-body {
+  position: relative; z-index: 1;
+  padding: 40px 44px; display: flex; flex-direction: column;
+  align-items: center; text-align: center; gap: 14px;
+}
+.wb-tag {
+  display: inline-block; color: #fff; padding: 6px 16px;
+  border-radius: var(--pill); font-size: 11px; font-weight: 500;
+  width: fit-content; letter-spacing: 0.05em;
+  background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
+}
+.wb-body h3 {
+  color: #fff; line-height: 1.15; letter-spacing: -0.02em;
+}
+.wb-body p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.72; max-width: 520px; }
+.wb-arrow {
+  position: absolute; top: 24px; right: 24px; z-index: 2;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--coral); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s, background 0.3s;
+}
+.wb-card:hover .wb-arrow { transform: scale(1.1) rotate(-5deg); }
+/* Gumroad override — keep our button style */
+.wb-arrow.gumroad-button { background: var(--coral) !important; padding: 0 !important; border: none !important; font-size: 0 !important; line-height: 0 !important; overflow: hidden !important; }
+.wb-arrow.gumroad-button svg { font-size: initial; }
+
+/* ═══════════════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════════════ */
+#testimonials { padding: 80px 0; position: relative; }
+#testimonials .blob { background: radial-gradient(circle, var(--pink), transparent 70%); width:420px; height:420px; bottom:-80px; left:-60px; --d:19s; --tx:-20px; --ty:20px; }
+.testi-header { margin-bottom: 50px; }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.testi-card { background: var(--bg2); border: none; border-radius: 18px; padding: 28px; }
+.testi-stars { font-size: 15px; margin-bottom: 12px; color: var(--coral); }
+.testi-quote { font-size: 14.5px; color: var(--muted); line-height: 1.72; margin-bottom: 20px; font-style: italic; }
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.testi-name { font-weight: 600; font-size: 14px; }
+.testi-role { font-size: 12px; color: var(--muted); }
+.testi-stat { border-radius: 18px; padding: 32px; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; }
+.testi-stat-dark { background: var(--text); }
+.testi-stat-coral { background: var(--coral); }
+.testi-stat-lbl { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.4; margin-bottom: auto; }
+.testi-stat-num { font-family: var(--heading); font-size: clamp(40px, 5vw, 56px); line-height: 1; color: #fff; font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em; }
+.testi-stat-unit { font-size: clamp(24px, 3vw, 36px); color: rgba(255,255,255,0.55); margin-left: 2px; }
+.testi-stat-sub { font-size: 15px; color: rgba(255,255,255,0.75); font-weight: 600; margin-top: 4px; }
+.testi-avail-wrap { display: flex; justify-content: center; margin-top: 40px; }
+.testi-avail-badge { display: inline-flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--border); border-radius: var(--pill); padding: 10px 20px; font-size: 14px; color: var(--muted); box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+.testi-avail-avatar { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+.testi-avail-dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; animation: pulse 2s infinite; }
+
+/* ═══════════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════════ */
+#faq { padding: 80px 0; position: relative; }
+#faq .blob { background: radial-gradient(circle, var(--purple), transparent 70%); width:400px; height:400px; top:-60px; right:-80px; --d:24s; --tx:20px; --ty:-15px; }
+.faq-grid { display: grid; grid-template-columns: 360px 1fr; gap: 80px; align-items: start; }
+.faq-left { position: sticky; top: calc(var(--nav-h) + 30px); }
+.faq-desc { color: var(--muted); font-size: 15px; line-height: 1.7; margin-top: 16px; max-width: 280px; }
+.faq-cta-wrap { margin-top: 36px; }
+.faq-acc-list { overflow: hidden; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 28px; text-align: left; background: none; border: none; cursor: pointer; transition: color 0.2s; }
+.faq-q:hover .faq-q-text, .faq-q:hover .faq-q-num { color: var(--coral); }
+.faq-q-num { font-family: var(--heading); font-size: clamp(16px, 1.8vw, 20px); color: var(--text); min-width: 28px; font-weight: 700; }
+.faq-q-text { flex: 1; font-family: var(--heading); font-size: clamp(16px, 1.8vw, 20px); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; text-align: left; color: var(--text); }
+.faq-q-icon { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--text); transition: transform 0.3s, color 0.3s; flex-shrink: 0; }
+.faq-item.open .faq-q-icon { transform: rotate(45deg); color: var(--coral); }
+.faq-item.open .faq-q-num { color: var(--coral); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.38s ease, padding 0.38s ease; padding: 0 28px 0 74px; font-size: 15px; color: var(--text); line-height: 1.8; }
+.faq-item.open .faq-a { max-height: 300px; padding: 0 28px 22px 74px; }
+
+/* ═══════════════════════════════════════════════
+   BLOG
+═══════════════════════════════════════════════ */
+#blog { padding: 80px 0; position: relative; }
+#blog .blob { background: radial-gradient(circle, var(--navy), transparent 70%); width:380px; height:380px; top:-60px; left:-60px; --d:21s; --tx:-20px; --ty:20px; }
+.blog-header { margin-bottom: 50px; display: flex; align-items: flex-end; justify-content: space-between; }
+.blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.blog-card { background: #fff; border-radius: 18px; border: 1px solid var(--border); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; display: block; }
+.blog-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.09); }
+.blog-img { width: 100%; height: 230px; object-fit: cover; }
+.blog-info { padding: 26px 28px; }
+.blog-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+.blog-tag { color: #fff; padding: 4px 12px; border-radius: var(--pill); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.blog-date { font-size: 12px; color: var(--muted); }
+.blog-title { font-family: var(--serif); font-size: 21px; line-height: 1.25; margin-bottom: 10px; }
+.blog-excerpt { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+.blog-more { text-align: center; margin-top: 24px; }
+
+/* ═══════════════════════════════════════════════
+   KONTAKT
+═══════════════════════════════════════════════ */
+#kontakt { padding: 80px 0; position: relative; }
+#kontakt .blob { background: radial-gradient(circle, var(--coral), transparent 70%); width:500px; height:500px; top:-100px; left:-80px; --d:25s; --tx:-25px; --ty:20px; }
+.kontakt-grid { display: grid; grid-template-columns: 360px 1fr; gap: 90px; align-items: start; }
+.kontakt-left { position: sticky; top: calc(var(--nav-h) + 24px); }
+.kontakt-portrait { width: 100%; height: 360px; object-fit: cover; object-position: top center; border-radius: 18px; margin-bottom: 26px; box-shadow: 0 16px 50px rgba(0,0,0,0.09); }
+.kontakt-info { display: flex; flex-direction: column; gap: 11px; }
+.kontakt-row { display: flex; gap: 14px; align-items: center; font-size: 14px; }
+.kontakt-lbl { color: var(--muted); min-width: 74px; font-size: 13px; }
+.kontakt-row a { font-weight: 500; color: var(--text); transition: color 0.2s; }
+.kontakt-row a:hover { color: var(--coral); }
+.kontakt-form { display: flex; flex-direction: column; gap: 16px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-size: 14px; font-weight: 500; letter-spacing: normal; text-transform: none; color: var(--coral); }
+.form-input, .form-select, .form-textarea { background: var(--bg2); border: 1px solid var(--border); border-radius: 11px; padding: 13px 16px; color: var(--text); font-family: var(--sans); font-size: 14px; outline: none; transition: border-color 0.2s; -webkit-appearance: none; }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--coral); }
+.form-textarea { resize: vertical; min-height: 120px; }
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 36px var(--px); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+.footer-logo { font-family: var(--serif); font-style: italic; color: #fff; font-size: 20px; font-weight: 800; }
+.footer-logo-img { height: 220px; width: auto; mix-blend-mode: screen; margin: -85px 0 -55px -40px; }
+.footer-brand { font-family: var(--body); font-size: 28px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+.footer-brand .dot { color: var(--coral); }
+.footer-copy { font-size: 13px; }
+.footer-links { display: flex; gap: 26px; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.45); transition: color 0.2s; }
+.footer-links a:hover { color: #fff; }
+.footer-legal { display: flex; gap: 18px; }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.28); transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.7); }
+
+/* ═══════════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ═══════════════════════════════════════════════
+   CURSOR DOT
+═══════════════════════════════════════════════ */
+.cursor-dot {
+  position: fixed; top: 0; left: 0; z-index: 9999;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--coral);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, opacity 0.2s ease;
+  opacity: 0;
+}
+.cursor-dot.visible { opacity: 1; }
+.cursor-dot.hover { transform: translate(-50%, -50%) scale(2.5); opacity: 0.5; }
+
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media (max-width: 1000px) {
+  :root { --px: 28px; }
+  .flip-journey-inner { max-width: 100%; }
+  .faq-grid, .kontakt-grid { grid-template-columns: 1fr; }
+  .faq-left, .kontakt-left { position: static; }
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+  .wb-card { min-height: 360px; }
+  .wb-body { padding: 28px; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .blog-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+@media (max-width: 760px) {
+  .nav-links { display: none; }
+  .nav-full .nav-avatar { display: none; }
+  .hero-split { flex-direction: column; align-items: flex-start; gap: 28px; }
+  .hero-word-right { padding-left: 0; }
+  .hero-word { font-size: clamp(52px, 14vw, 90px); }
+  .hero-img-col { width: 100%; max-width: 280px; margin: 0; }
+  .flip-card-hero { height: 320px; }
+  .stats-row { grid-template-columns: 1fr 1fr; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .ueber-contacts { flex-direction: column; gap: 20px; }
+  .ueber-socials { flex-wrap: wrap; }
+  footer { flex-direction: column; text-align: center; }
+}
+
+/* ══ FLIP-JOURNEY FIX ══ */
+#flip-journey {
+  min-height: auto !important;
+  height: auto !important;
+}
+.flip-journey-inner {
+  display: block;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--px);
+}
+
+/* ══ HERO FLIP CARD (pinned by GSAP) ══ */
+.hero-img-col.is-pinned {
+  z-index: 100;
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Wie viel Zeit muss ich für die Begleitung aufbringen?", "acceptedAnswer": {"@type": "Answer", "text": "Je nach Paket ca. 2–4 Stunden pro Woche. Das meiste läuft über kurze Calls und asynchrone Zusammenarbeit."}},
+    {"@type": "Question", "name": "Kann ich wirklich alles danach alleine führen?", "acceptedAnswer": {"@type": "Answer", "text": "Ja — das ist mein erklärtes Ziel. Ich übergebe dir nicht nur Ergebnisse, sondern das Wissen und die Systeme dahinter."}},
+    {"@type": "Question", "name": "Ab wann sehe ich erste Ergebnisse?", "acceptedAnswer": {"@type": "Answer", "text": "Erste Veränderungen sind oft schon nach 2–3 Wochen sichtbar. Messbare Ergebnisse zeigen sich typischerweise ab Woche 4–6."}},
+    {"@type": "Question", "name": "Wie läuft eine Zusammenarbeit ab?", "acceptedAnswer": {"@type": "Answer", "text": "In drei Schritten: 1. Diagnose & Strategie, 2. Aufbau & Implementierung, 3. Eigenständigkeit & Support."}},
+    {"@type": "Question", "name": "Für wen ist die Beratung geeignet?", "acceptedAnswer": {"@type": "Answer", "text": "Für lokale Selbstständige, die online sichtbar werden wollen, und für Creator, die ihre Reichweite in echten Umsatz umwandeln möchten."}},
+    {"@type": "Question", "name": "Wie starten wir zusammen?", "acceptedAnswer": {"@type": "Answer", "text": "Füll das Formular aus oder schreib mir direkt. Das Erstgespräch ist kostenlos, dauert ca. 30 Minuten und gibt dir erste konkrete Impulse."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Baeumler Marketing",
+  "description": "Marketingberatung für Selbstständige und lokale Unternehmen — Webdesign, Branding und Online Marketing in Langenfeld.",
+  "url": "https://baeumlermarketing.de",
+  "email": "hi@baeumlermarketing.de",
+  "telephone": "+4917469223 22",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Langenfeld",
+    "addressRegion": "NRW",
+    "addressCountry": "DE"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Miriam Bäumler",
+    "jobTitle": "Marketingberaterin"
+  },
+  "sameAs": [
+    "https://instagram.com/baeumlermarketing",
+    "https://www.linkedin.com/in/miriambaeumler"
+  ],
+  "priceRange": "$$",
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 51.1083,
+      "longitude": 6.9486
+    },
+    "geoRadius": "50000"
+  }
+}
+</script>
+</head>
+<body>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- ════════════════════ NAV ════════════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <!-- Full nav state -->
+    <div class="nav-full">
+      <img src="images/miriam-gesicht.jpg" class="nav-avatar" alt="Miriam">
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="meine-geschichte.html">Über mich</a></li>
+        <li><a href="workbooks.html">Workbooks</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <a href="#kontakt" class="nav-cta">Erstgespräch</a>
+    </div>
+    <!-- Compact "verfügbar" state -->
+    <div class="nav-compact">
+      <img src="images/miriam-gesicht.jpg" class="nav-avatar" alt="Miriam">
+      <span class="nav-compact-badge">
+        <span class="hero-dot"></span> Ich bin verfügbar
+      </span>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════ HERO ════════════════════ -->
+<section id="hero">
+  <div class="blob hero-blob"></div>
+  <h1 class="sr-only">Online sichtbar — Marketingberaterin Miriam Bäumler</h1>
+  <div class="hero-wrap">
+    <div class="hero-split">
+      <!-- LEFT WORD -->
+      <div class="hero-word-left">
+        <p class="hero-name">Miriam Bäumler</p>
+        <span class="hero-word" id="heroWordLeft">Online</span>
+      </div>
+
+      <!-- CENTER: flip card that "kicks off" the journey -->
+      <div class="hero-img-col">
+        <span class="hero-badge">Hi 👋</span>
+        <a href="https://baeumlermarketing.gumroad.com/l/online-check" class="hero-circle-btn" aria-label="Kostenloser Online-Check" target="_blank">
+          <span class="hero-circle-default"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          <span class="hero-circle-hover" style="font-family:var(--sans);font-size:11px;font-weight:700">Online<br>Check</span>
+        </a>
+        <div class="flip-scene-hero">
+          <div class="flip-card-hero" id="heroFlipCard">
+            <div class="flip-face">
+              <img src="images/Miriam_Foto.JPG" alt="Miriam Bäumler Portrait">
+            </div>
+            <div class="flip-face flip-back">
+              <img src="images/miriam-flip.jpg" alt="Miriam Bäumler">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT WORD + CONTENT -->
+      <div class="hero-word-right">
+        <em class="hero-word" id="heroWordRight">sichtbar.</em>
+        <p class="hero-sub">
+          Ich bin Marketingberaterin aus Langenfeld — für Webdesign, Branding und Online Marketing. Ich helfe Selbstständigen und lokalen Unternehmen, digital sichtbar zu werden und erfolgreich zu wachsen.
+        </p>
+        <!--<div class="hero-actions">
+          <a href="#kontakt" class="btn btn-coral">Kostenloser Check</a>
+          <a href="#flip-journey" class="btn btn-outline">Alle Leistungen →</a>
+        </div>-->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FLIP JOURNEY: Leistungen + Über mich ════════════════════ -->
+<section id="flip-journey">
+  <div class="blob blob-l"></div>
+  <div class="blob blob-u"></div>
+
+  <div class="flip-journey-inner">
+
+    <!-- LEFT: scrolling content -->
+    <div class="flip-content-col">
+
+      <!-- ── LEISTUNGEN ── -->
+      <div class="fj-leistungen" id="leistungen">
+        <div class="fj-leistungen-header reveal">
+          <h2 class="leistungen-title">Das biete ich an</h2>
+        </div>
+        <p class="leistungen-sub reveal">
+          Als Marketingberaterin bin ich strategische Denkerin und handfeste
+          Umsetzerin — für deinen nachhaltigen Erfolg online.
+        </p>
+
+        <div class="acc-list reveal">
+          <div class="acc-item">
+            <button class="acc-btn" onclick="toggleAcc(this)">
+              <span class="acc-num">1.</span>
+              <span class="acc-name">Web &amp; Design</span>
+              <span class="acc-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></span>
+            </button>
+            <div class="acc-body">
+              <ul class="acc-features">
+                <li>Webdesign</li>
+                <li>UI/UX Design</li>
+                <li>Landing Page</li>
+                <li>Webflow Entwicklung</li>
+              </ul>
+            </div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-btn" onclick="toggleAcc(this)">
+              <span class="acc-num">2.</span>
+              <span class="acc-name">Marke &amp; Identität</span>
+              <span class="acc-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></span>
+            </button>
+            <div class="acc-body">
+              <ul class="acc-features">
+                <li>Markenstrategie</li>
+                <li>Logo &amp; Corporate Design</li>
+                <li>Style Guide</li>
+                <li>Markenbotschaft</li>
+              </ul>
+            </div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-btn" onclick="toggleAcc(this)">
+              <span class="acc-num">3.</span>
+              <span class="acc-name">Online Marketing</span>
+              <span class="acc-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></span>
+            </button>
+            <div class="acc-body">
+              <ul class="acc-features">
+                <li>Marketing Analyse</li>
+                <li>Social Media Aufbau</li>
+                <li>Content Strategie</li>
+                <li>Meta &amp; Google Ads</li>
+              </ul>
+            </div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-btn" onclick="toggleAcc(this)">
+              <span class="acc-num">4.</span>
+              <span class="acc-name">Business Aufbau</span>
+              <span class="acc-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></span>
+            </button>
+            <div class="acc-body">
+              <ul class="acc-features">
+                <li>Businessplanung</li>
+                <li>Angebotsstruktur</li>
+                <li>Produktentwicklung</li>
+                <li>Skalierungsstrategie</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ÜBER MICH ── -->
+      <div class="fj-ueber" id="ueber-mich">
+        <div class="reveal">
+          <h2 class="ueber-title">Über mich</h2>
+        </div>
+        <p class="ueber-bio reveal">
+          Hi, ich bin Miriam — Marketingberaterin mit einem <strong>Master in Wirtschaftspsychologie</strong>
+          und jahrelanger Erfahrung im Agentur-Aufbau. Ich verbinde strategisches Denken
+          mit handfester Umsetzung und helfe dir, online sichtbar zu werden.
+        </p>
+        <div class="stats-row reveal">
+          <div class="stat-box">
+            <div class="stat-big"><span class="counter" data-target="8">0</span><span class="stat-suf">+</span></div>
+            <div class="stat-lbl">Jahre Erfahrung</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-big"><span class="counter" data-target="10">0</span><span class="stat-suf">+</span></div>
+            <div class="stat-lbl">Abgeschlossene Projekte</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-big"><span class="counter" data-target="100">0</span><span class="stat-suf">%</span></div>
+            <div class="stat-lbl">Zufriedene Kunden</div>
+          </div>
+        </div>
+        <div class="ueber-contacts reveal">
+          <div class="ueber-contact-block">
+            <span class="ueber-lbl">Rufnummer :</span>
+            <a href="tel:+4917469223 22">+49 174 69 22 3 22</a>
+          </div>
+          <div class="ueber-contact-block">
+            <span class="ueber-lbl">E-Mail :</span>
+            <a href="mailto:hi@baeumlermarketing.de">hi@baeumlermarketing.de</a>
+          </div>
+        </div>
+        <div class="ueber-socials reveal">
+          <a href="https://instagram.com/baeumlermarketing" aria-label="Instagram" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/miriambaeumler" aria-label="LinkedIn" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="mailto:hi@baeumlermarketing.de" aria-label="E-Mail" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+        <a href="meine-geschichte.html" class="ueber-story-btn reveal">Meine Geschichte</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════ WORKBOOKS ════════════════════ -->
+<section id="workbooks">
+  <div class="blob"></div>
+  <div class="container wb-header reveal">
+    <h2 class="sec-title">Workbooks & <em>E-Books</em></h2>
+    <p class="wb-header-sub">Mein gesammeltes Wissen — kompakt aufbereitet. Workbooks und Guides, die dir helfen, dein Marketing eigenständig auf das nächste Level zu bringen.</p>
+  </div>
+  <div class="wb-stack">
+    <!-- GUMROAD: Ersetze DEIN-PRODUKT-ID mit deiner echten Gumroad Produkt-ID -->
+    <div class="wb-card reveal" style="--i:0">
+      <div class="wb-card-img"><img src="images/wb-online-check.jpg" alt="Kostenloser Online-Check" loading="lazy"></div>
+      <a href="https://baeumlermarketing.gumroad.com/l/online-check" class="gumroad-button wb-arrow" aria-label="Jetzt holen">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+      <div class="wb-body">
+        <span class="wb-tag">Kostenlos · Freebie</span>
+        <h3>Kostenloser Online-Check</h3>
+        <p>Füll die Umfrage aus und erfahre genau, wo dein Business gerade steht — und wo du als Erstes ansetzen solltest.</p>
+      </div>
+    </div>
+    <div class="wb-card reveal" style="--i:1">
+      <div class="wb-card-img"><img src="images/wb-ki-marketing.jpg" alt="KI im Marketing" loading="lazy"></div>
+      <a href="https://baeumlermarketing.gumroad.com/l/ki-marketing" class="gumroad-button wb-arrow" aria-label="Auf die Warteliste">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+      <div class="wb-body">
+        <span class="wb-tag">E-Book · Demnächst</span>
+        <h3>KI im Marketing — ohne Technik-Stress</h3>
+        <p>Wie du KI-Tools gezielt einsetzt, um Content schneller zu erstellen, Ideen zu entwickeln und Zeit zu sparen.</p>
+      </div>
+    </div>
+    <div class="wb-card reveal" style="--i:2">
+      <div class="wb-card-img"><img src="images/wb-lokal-sichtbar.jpg" alt="Lokal sichtbar" loading="lazy"></div>
+      <a href="https://baeumlermarketing.gumroad.com/l/lokal-sichtbar" class="gumroad-button wb-arrow" aria-label="Auf die Warteliste">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+      <div class="wb-body">
+        <span class="wb-tag">E-Book · Demnächst</span>
+        <h3>Lokal sichtbar — der Guide für Selbstständige</h3>
+        <p>Schritt für Schritt mehr Kunden über Google, Instagram &amp; Co. — speziell für lokale Betriebe.</p>
+      </div>
+    </div>
+    <div class="wb-card reveal" style="--i:3">
+      <div class="wb-card-img"><img src="images/wb-creator-business.jpg" alt="Creator Business" loading="lazy"></div>
+      <a href="https://baeumlermarketing.gumroad.com/l/creator-business" class="gumroad-button wb-arrow" aria-label="Auf die Warteliste">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+      <div class="wb-body">
+        <span class="wb-tag">E-Book · Demnächst</span>
+        <h3>Von der Reichweite zum Business</h3>
+        <p>Wie du deine Community monetarisierst und echtes Einkommen aufbaust.</p>
+      </div>
+    </div>
+  </div>
+  <div class="blog-more reveal" style="margin-top:24px;"><a href="workbooks.html" class="btn btn-coral">Alle Workbooks ansehen →</a></div>
+</section>
+
+<!-- ════════════════════ TESTIMONIALS ════════════════════ -->
+<section id="testimonials">
+  <div class="blob"></div>
+  <div class="container">
+    <div class="testi-header reveal">
+      <h2 class="sec-title">Kundenfeedback</h2>
+    </div>
+    <div class="testi-grid reveal">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Kein Plan, kein System, kein Wachstum. Miriam hat unsere Marketingstrategie von Grund auf neu aufgebaut – endlich läuft es."</p>
+        <div class="testi-author">
+          <img class="testi-avatar" loading="lazy" src="images/testi-tim.jpg" alt="Tim L.">
+          <div><div class="testi-name">Tim L.</div><div class="testi-role">Geschäftsführer, Konzept mit Kopf</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Meine Spezialisierung war unsichtbar. Miriam hat Social Media &amp; Positionierung neu ausgerichtet – meine Wunschklientinnen finden mich jetzt."</p>
+        <div class="testi-author">
+          <img class="testi-avatar" loading="lazy" src="images/testi-sarah.jpg" alt="Sarah M.">
+          <div><div class="testi-name">Sarah M.</div><div class="testi-role">Physiotherapeutin, Urdenbach</div></div>
+        </div>
+      </div>
+      <div class="testi-stat testi-stat-dark">
+        <div class="testi-stat-lbl">Über 10 zufriedene Kunden betreut</div>
+        <div class="testi-stat-num"><span class="count-up" data-target="98">0</span><span class="testi-stat-unit">%</span></div>
+        <div class="testi-stat-sub">Zufriedenheitsrate</div>
+      </div>
+      <div class="testi-stat testi-stat-coral">
+        <div class="testi-stat-lbl">Meine Arbeit hat Kunden geholfen, ihren Umsatz um 200% zu steigern</div>
+        <div class="testi-stat-num"><span class="count-up" data-target="200">0</span><span class="testi-stat-unit">%</span></div>
+        <div class="testi-stat-sub">Wachstum</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Facebook-Ads, die nichts gebracht haben. Miriam hat das komplett umgestellt – wir gewinnen jetzt konstant neue Mitglieder."</p>
+        <div class="testi-author">
+          <img class="testi-avatar" loading="lazy" src="images/testi-marco.jpg" alt="Marco D.">
+          <div><div class="testi-name">Marco D.</div><div class="testi-role">Inhaber Fitnessstudio</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Kein klares Ziel, kein roter Faden. Miriam hat uns geholfen, unseren Nordstern zu finden – endlich wissen wir, wo wir hinwollen."</p>
+        <div class="testi-author">
+          <img class="testi-avatar" loading="lazy" src="images/testi-klaus.jpg" alt="Klaus R.">
+          <div><div class="testi-name">Klaus R.</div><div class="testi-role">Inhaber, Spedition</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FAQ ════════════════════ -->
+<section id="faq">
+  <div class="blob"></div>
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-left reveal">
+        <h2 class="sec-title">Häufig gestellte<br>Fragen</h2>
+        <p class="faq-desc">Hier findest du Antworten auf die häufigsten Fragen. Wenn deine nicht dabei ist – schreib mir einfach, ich helfe gerne.</p>
+        <div class="faq-cta-wrap"><a href="#kontakt" class="btn btn-navy">Erstgespräch buchen →</a></div>
+      </div>
+      <div class="reveal">
+        <div class="faq-acc-list">
+          <div class="faq-item open">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span class="faq-q-num">1.</span><span class="faq-q-text">Wie viel Zeit muss ich für die Begleitung aufbringen?</span><span class="faq-q-icon">∧</span>
+            </button>
+            <div class="faq-a">Je nach Paket ca. 2–4 Stunden pro Woche. Das meiste läuft über kurze Calls und asynchrone Zusammenarbeit, sodass du dein Tagesgeschäft nicht vernachlässigen musst.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span class="faq-q-num">2.</span><span class="faq-q-text">Kann ich wirklich alles danach alleine führen?</span><span class="faq-q-icon">∧</span>
+            </button>
+            <div class="faq-a">Ja — das ist mein erklärtes Ziel. Ich übergebe dir nicht nur Ergebnisse, sondern das Wissen und die Systeme dahinter. Du sollst eigenständig sein, nicht abhängig von mir.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span class="faq-q-num">3.</span><span class="faq-q-text">Ab wann sehe ich erste Ergebnisse?</span><span class="faq-q-icon">∧</span>
+            </button>
+            <div class="faq-a">Erste Veränderungen sind oft schon nach 2–3 Wochen sichtbar. Messbare Ergebnisse wie mehr Anfragen oder Reichweite zeigen sich typischerweise ab Woche 4–6.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span class="faq-q-num">4.</span><span class="faq-q-text">Wie läuft eine Zusammenarbeit ab?</span><span class="faq-q-icon">∧</span>
+            </button>
+            <div class="faq-a">In drei Schritten: 1. Diagnose &amp; Strategie (Woche 1–2), 2. Aufbau &amp; Implementierung (Woche 3–6), 3. Eigenständigkeit &amp; Support (dauerhaft).</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span class="faq-q-num">5.</span><span class="faq-q-text">Für wen ist die Beratung geeignet?</span><span class="faq-q-icon">∧</span>
+            </button>
+            <div class="faq-a">Für lokale Selbstständige, die online sichtbar werden wollen, und für Creator, die ihre Reichweite in echten Umsatz umwandeln möchten.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              <span class="faq-q-num">6.</span><span class="faq-q-text">Wie starten wir zusammen?</span><span class="faq-q-icon">∧</span>
+            </button>
+            <div class="faq-a">Füll das Formular aus oder schreib mir direkt an hi@baeumlermarketing.de. Das Erstgespräch ist kostenlos, dauert ca. 30 Minuten und gibt dir erste konkrete Impulse.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ BLOG ════════════════════ -->
+<section id="blog">
+  <div class="blob"></div>
+  <div class="container">
+    <div class="blog-header">
+      <div class="reveal">
+        <h2 class="sec-title">Wissen &amp; Tipps</h2>
+      </div>
+      <p class="reveal" style="color:var(--muted);font-size:15px;max-width:460px;line-height:1.7">Praxiswissen für Selbstständige und lokale Betriebe —<br>direkt umsetzbar und kostenlos.</p>
+    </div>
+    <div class="blog-grid reveal">
+      <a href="blog.html" class="blog-card">
+        <img class="blog-img" src="images/blog-instagram.jpg" alt="Instagram Marketing" loading="lazy">
+        <div class="blog-info">
+          <div class="blog-meta"><span class="blog-tag" style="background:var(--coral)">Social Media</span><span class="blog-date">6 Min. Lesezeit</span></div>
+          <h3 class="blog-title">7 häufige Fehler im Instagram-Marketing</h3>
+          <p class="blog-excerpt">Warum Reichweite allein nicht reicht — und was du stattdessen tun solltest, um echte Kunden zu gewinnen.</p>
+        </div>
+      </a>
+      <a href="blog.html" class="blog-card">
+        <img class="blog-img" src="images/blog-lokale-seo.jpg" alt="Lokale SEO" loading="lazy">
+        <div class="blog-info">
+          <div class="blog-meta"><span class="blog-tag" style="background:var(--teal)">SEO</span><span class="blog-date">4 Min. Lesezeit</span></div>
+          <h3 class="blog-title">Lokale SEO für KMU: In 3 Schritten ganz oben</h3>
+          <p class="blog-excerpt">So wirst du in deiner Stadt gefunden, wenn Kunden mobil suchen — ohne Agentur-Budget.</p>
+        </div>
+      </a>
+    </div>
+    <div class="blog-more reveal"><a href="blog.html" class="btn btn-navy">Zum vollständigen Blog →</a></div>
+  </div>
+</section>
+
+<!-- ════════════════════ KONTAKT ════════════════════ -->
+<section id="kontakt">
+  <div class="blob"></div>
+  <div class="container">
+    <div class="kontakt-grid">
+      <div class="kontakt-left reveal">
+        <img class="kontakt-portrait" loading="lazy" src="images/Miriam_Foto.JPG" alt="Miriam Bäumler Kontakt">
+      </div>
+      <div class="reveal">
+        <h2 class="sec-title" style="margin-bottom:16px">Schreib mir</h2>
+        <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:36px">Du hast eine Idee oder brauchst Unterstützung? Schreib mir — ich melde mich schnellstmöglich bei dir.</p>
+      <form class="kontakt-form" id="kontaktForm" onsubmit="return submitKontakt(event)">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Name</label><input class="form-input" type="text" id="k-name" required placeholder="Dein Name"></div>
+          <div class="form-group"><label class="form-label">E-Mail</label><input class="form-input" type="email" id="k-email" required placeholder="deine@email.de"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Nachricht</label><textarea class="form-textarea" id="k-msg" required placeholder="Erzähl mir kurz, worum es geht…"></textarea></div>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:4px">
+          <input type="checkbox" id="k-dsgvo" required style="accent-color:var(--coral);width:18px;height:18px">
+          <label for="k-dsgvo" style="font-size:13px;color:var(--muted);line-height:1.4">Ich stimme der <a href="datenschutz.html" style="color:var(--coral)">Datenschutzerklärung</a> zu.</label>
+        </div>
+        <button type="submit" class="btn btn-coral" style="align-self:flex-start;padding:15px 36px;font-size:15px">Anfrage senden →</button>
+        <p id="kontakt-success" style="display:none;color:var(--teal);font-weight:600;margin-top:8px">Danke! Ich melde mich bald bei dir.</p>
+      </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <span class="footer-brand">Bäumler<span class="dot">.</span></span>
+  <span class="footer-copy">© 2026 Baeumler Marketing · Langenfeld</span>
+  <ul class="footer-links">
+    <li><a href="workbooks.html">Workbooks</a></li>
+    <li><a href="meine-geschichte.html">Über mich</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <div class="footer-legal">
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
+  </div>
+</footer>
+
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* ── NAV (compact while scrolling, full when stopped) ── */
+(function(){
+  const nav = document.getElementById('nav');
+  if (!nav) return;
+  let scrollTimer;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      nav.classList.add('compact');
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        nav.classList.remove('compact');
+      }, 600);
+    } else {
+      nav.classList.remove('compact');
+      clearTimeout(scrollTimer);
+    }
+  }, { passive: true });
+})();
+
+/* ── SCROLL REVEAL ── */
+const reveals = document.querySelectorAll('.reveal');
+const ro = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const siblings = [...e.target.parentElement.querySelectorAll('.reveal')];
+    const idx = siblings.indexOf(e.target);
+    setTimeout(() => e.target.classList.add('visible'), idx * 70);
+    ro.unobserve(e.target);
+  });
+}, { threshold: 0.10 });
+reveals.forEach(el => ro.observe(el));
+
+/* ── COUNTER ── */
+const cObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.target);
+    gsap.fromTo(el, { textContent: 0 }, {
+      textContent: target, duration: 1.5, ease: 'power2.out',
+      snap: { textContent: 1 },
+      onUpdate() { el.textContent = Math.round(parseFloat(el.textContent)); }
+    });
+    cObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.counter').forEach(el => cObs.observe(el));
+
+/* ── HERO INTRO ANIMATIONS ── */
+gsap.from('#heroWordLeft',  { x: -80, opacity: 0, duration: 1.1, ease: 'expo.out', delay: 0.2 });
+gsap.from('#heroWordRight', { x:  80, opacity: 0, duration: 1.1, ease: 'expo.out', delay: 0.32 });
+gsap.from('.hero-img-col',  { scale: 0.88, opacity: 0, duration: 1.2, ease: 'expo.out', delay: 0.14 });
+gsap.from('.hero-name', { y: -18, opacity: 0, duration: 0.8, ease: 'power2.out', delay: 0.05 });
+gsap.from('.hero-sub, .hero-actions',    { y: 20,  opacity: 0, duration: 0.8, ease: 'power2.out', delay: 0.5, stagger: 0.12 });
+
+/* ── ACCORDIONS ── */
+function toggleAcc(btn) {
+  const item = btn.closest('.acc-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ══ FLIP SCROLL EFFEKT — Pin + 2-Phasen-Rotation ══ */
+(function(){
+  const theCard = document.getElementById('heroFlipCard');
+  const imgCol  = document.querySelector('.hero-img-col');
+  if (!theCard || !imgCol) return;
+
+  /* Pin die Karten-Spalte: bleibt fixiert vom Hero bis Über-mich Mitte */
+  ScrollTrigger.create({
+    trigger: imgCol,
+    start: 'top top+=94',
+    endTrigger: '#ueber-mich',
+    end: '70% center',
+    pin: true,
+    pinSpacing: false,
+    onEnter: () => imgCol.classList.add('is-pinned'),
+    onLeaveBack: () => imgCol.classList.remove('is-pinned'),
+    onLeave: () => imgCol.classList.remove('is-pinned'),
+  });
+
+  /* Karte nach rechts schieben + leicht kippen sobald Hero hochscrollt */
+  const scene = imgCol.querySelector('.flip-scene-hero');
+  gsap.to(imgCol, {
+    x: () => {
+      const inner = document.querySelector('.flip-journey-inner');
+      const innerRect = inner.getBoundingClientRect();
+      const colW = imgCol.offsetWidth;
+      const targetX = innerRect.right - colW - 20;
+      const currentX = imgCol.getBoundingClientRect().left;
+      return targetX - currentX;
+    },
+    ease: 'power2.inOut',
+    scrollTrigger: {
+      trigger: '#hero',
+      start: 'bottom 80%',
+      end: 'bottom top',
+      scrub: 1,
+    }
+  });
+  /* Leichte Kippung beim Scrollen — kippt und richtet sich bei Über mich wieder gerade */
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: '#hero',
+      start: 'bottom 80%',
+      endTrigger: '#ueber-mich',
+      end: '70% center',
+      scrub: 1,
+    }
+  })
+  .to(scene, { rotation: 3, ease: 'power2.in', duration: 0.4 })
+  .to(scene, { rotation: 0, ease: 'power2.out', duration: 0.6 });
+
+  /* Circle-Button + Badge ausblenden ab Leistungen */
+  const circleBtn = imgCol.querySelector('.hero-circle-btn');
+  const badge = imgCol.querySelector('.hero-badge');
+  if (circleBtn) {
+    gsap.to([circleBtn, badge].filter(Boolean), {
+      opacity: 0, scale: 0.5,
+      ease: 'power2.in',
+      scrollTrigger: {
+        trigger: '#hero',
+        start: 'bottom 80%',
+        end: 'bottom 40%',
+        scrub: 1,
+      }
+    });
+  }
+
+  /* Phase 1: Hero → Leistungen-Anfang = 0° → 180° (Rückseite Schreibtisch) */
+  gsap.to(theCard, {
+    rotateY: 180,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#hero',
+      start: 'center top',
+      endTrigger: '#leistungen',
+      end: 'top center',
+      scrub: 1,
+    }
+  });
+
+  /* Phase 2: Leistungen-Ende → Über mich Mitte = 180° → 0° (rückwärts drehen zur Vorderseite) */
+  gsap.fromTo(theCard,
+    { rotateY: 180 },
+    {
+      rotateY: 0,
+      ease: 'none',
+      immediateRender: false,
+      scrollTrigger: {
+        trigger: '#leistungen',
+        start: 'bottom 60%',
+        endTrigger: '#ueber-mich',
+        end: '70% center',
+        scrub: 1,
+      }
+    }
+  );
+})();
+
+/* ══ COUNT-UP ANIMATION ══ */
+document.querySelectorAll('.count-up').forEach(el => {
+  const target = +el.dataset.target;
+  ScrollTrigger.create({
+    trigger: el.closest('.testi-stat'),
+    start: 'top 85%',
+    once: true,
+    onEnter() {
+      let obj = { val: 0 };
+      gsap.to(obj, {
+        val: target, duration: 1.6, ease: 'power2.out',
+        onUpdate() { el.textContent = Math.round(obj.val); }
+      });
+    }
+  });
+});
+
+/* ══ CURSOR DOT ══ */
+(function(){
+  const dot = document.getElementById('cursorDot');
+  if (!dot || matchMedia('(pointer:coarse)').matches) return;
+  let mx = 0, my = 0, dx = 0, dy = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.classList.add('visible'); });
+  document.addEventListener('mouseleave', () => dot.classList.remove('visible'));
+  (function loop(){ dx += (mx - dx) * 0.18; dy += (my - dy) * 0.18; dot.style.left = dx + 'px'; dot.style.top = dy + 'px'; requestAnimationFrame(loop); })();
+  document.querySelectorAll('a, button, .btn, .nav-cta, .acc-btn, .faq-btn').forEach(el => {
+    el.addEventListener('mouseenter', () => dot.classList.add('hover'));
+    el.addEventListener('mouseleave', () => dot.classList.remove('hover'));
+  });
+})();
+
+</script>
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147985028.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+<!-- HubSpot Kontaktformular Submit -->
+<script>
+function submitKontakt(e){
+  e.preventDefault();
+  var name=document.getElementById('k-name').value;
+  var email=document.getElementById('k-email').value;
+  var msg=document.getElementById('k-msg').value;
+  var parts=name.trim().split(' ');
+  var first=parts[0]||'';
+  var last=parts.slice(1).join(' ')||'';
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/908c2aa2-11a7-439c-b2a7-207c37419536',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      fields:[
+        {name:'firstname',value:first},
+        {name:'lastname',value:last},
+        {name:'email',value:email},
+        {name:'message',value:msg}
+      ],
+      context:{pageUri:window.location.href,pageName:'Kontakt'},
+      legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Datenschutzerklärung zu.'}}
+    })
+  }).then(function(r){
+    if(r.ok){
+      document.getElementById('kontaktForm').reset();
+      document.getElementById('kontakt-success').style.display='block';
+      setTimeout(function(){document.getElementById('kontakt-success').style.display='none'},5000);
+    }else{alert('Etwas ist schiefgelaufen. Bitte schreib mir direkt an hi@baeumlermarketing.de');}
+  }).catch(function(){alert('Verbindungsfehler. Bitte schreib mir direkt an hi@baeumlermarketing.de');});
+  return false;
+}
+</script>
+</body>
+</html>

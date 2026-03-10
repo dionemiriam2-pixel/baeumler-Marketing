@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a897db81-b3d5-4cdd-b229-a92558dc7545" data-blockingmode="auto" type="text/javascript"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workbooks & E-Books | Baeumler Marketing — Miriam Bäumler</title>
+<meta name="description" content="Workbooks, E-Books und Guides von Miriam Bäumler — kompaktes Marketingwissen für Selbstständige und lokale Betriebe.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/favicon-192x192.png">
+<meta name="theme-color" content="#e8604c">
+<meta property="og:title" content="Workbooks & E-Books | Baeumler Marketing">
+<meta property="og:description" content="Workbooks, E-Books und Guides von Miriam Bäumler — kompaktes Marketingwissen für Selbstständige.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://baeumlermarketing.de/images/Miriam_Foto.JPG">
+<link rel="canonical" href="https://baeumlermarketing.de/workbooks.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<script src="https://gumroad.com/js/gumroad.js" defer></script>
+<style>
+  :root {
+    --bg: #ffffff; --bg2: #f7f7f5; --text: #303030;
+    --muted: rgba(17,17,16,0.65); --border: rgba(0,0,0,0.08);
+    --coral: #e8604c; --teal: #2db8a8;
+    --sans: 'Inter', system-ui, sans-serif;
+    --heading: 'Antonio', sans-serif;
+    --serif: 'Playfair Display', Georgia, serif;
+    --pill: 100px; --r: 20px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  /* ── Global Typography ── */
+  h1, h2, h3, h4 {
+    font-family: var(--heading); font-weight: 700; text-transform: uppercase;
+    letter-spacing: -0.03em; line-height: 1.1;
+  }
+  h1 { font-size: clamp(40px, 5.5vw, 72px); }
+  h2 { font-size: clamp(36px, 5vw, 64px); }
+  h3 { font-size: clamp(22px, 2.5vw, 32px); }
+  h4 { font-size: clamp(16px, 1.6vw, 20px); }
+
+  /* ── Nav (pill) ── */
+  #nav {
+    position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+    z-index: 1000; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-inner {
+    background: #fff; border-radius: var(--pill);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    padding: 6px 6px 6px 8px;
+    display: flex; align-items: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-full {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .nav-avatar {
+    width: 38px; height: 38px; border-radius: 50%; object-fit: cover;
+    border: 2px solid var(--border); flex-shrink: 0;
+  }
+  .nav-links { display: flex; gap: 28px; align-items: center; padding: 0 20px; }
+  .nav-links a { font-size: 14px; color: var(--muted); transition: color 0.2s; font-weight: 400; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    background: var(--text); color: #fff; padding: 10px 24px;
+    border-radius: var(--pill); font-size: 13px; font-weight: 500;
+    transition: background 0.25s; white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--coral); }
+  .nav-compact {
+    display: none; align-items: center; gap: 10px; padding: 0 12px 0 0;
+  }
+  .nav-compact .nav-avatar { width: 34px; height: 34px; }
+  .nav-compact-badge {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 13px; color: var(--text); font-weight: 500; white-space: nowrap;
+  }
+  .nav-compact-badge .hero-dot { width: 8px; height: 8px; background: var(--teal); border-radius: 50%; }
+  #nav.compact .nav-full { display: none; }
+  #nav.compact .nav-compact { display: flex; }
+
+  /* ── Hero ── */
+  .page-hero {
+    max-width: 1100px; margin: 0 auto; padding: 80px 40px 60px;
+  }
+  .page-hero h1 {
+    margin-bottom: 24px;
+  }
+  .page-hero p {
+    font-size: 16px; color: var(--muted); line-height: 1.8; max-width: 560px;
+  }
+
+  /* ── Workbook Grid ── */
+  .wb-grid-section {
+    max-width: 1100px; margin: 0 auto; padding: 0 40px 100px;
+  }
+  .wb-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
+  }
+  .wb-card {
+    border-radius: var(--r); overflow: hidden; position: relative;
+    min-height: 480px; display: flex; flex-direction: column; justify-content: flex-end;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .wb-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
+  .wb-card-img { position: absolute; inset: 0; z-index: 0; }
+  .wb-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+  .wb-card:hover .wb-card-img img { transform: scale(1.04); }
+  .wb-card-img::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%);
+  }
+  .wb-body {
+    position: relative; z-index: 1;
+    padding: 40px; display: flex; flex-direction: column; gap: 12px;
+  }
+  .wb-tag {
+    display: inline-block; color: #fff; padding: 6px 16px;
+    border-radius: var(--pill); font-size: 11px; font-weight: 500;
+    width: fit-content; letter-spacing: 0.05em;
+    background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
+  }
+  .wb-body h3 { color: #fff; line-height: 1.15; letter-spacing: -0.02em; text-transform: none; }
+  .wb-body p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.72; }
+  .wb-arrow {
+    position: absolute; top: 24px; right: 24px; z-index: 2;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--coral); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s;
+  }
+  .wb-card:hover .wb-arrow { transform: scale(1.1) rotate(-5deg); }
+  .wb-arrow.gumroad-button { background: var(--coral) !important; padding: 0 !important; border: none !important; font-size: 0 !important; line-height: 0 !important; overflow: hidden !important; }
+
+  /* ── How It Works ── */
+  .how-section {
+    max-width: 1100px; margin: 0 auto; padding: 0 40px 80px;
+  }
+  .how-inner {
+    background: var(--bg2); border-radius: var(--r); padding: 56px 48px;
+  }
+  .how-inner h2 { margin-bottom: 40px; }
+  .how-steps {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+  }
+  .how-step { display: flex; flex-direction: column; gap: 10px; }
+  .how-num {
+    width: 40px; height: 40px; border-radius: 50%; background: var(--coral);
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-family: var(--heading); font-size: 18px; font-weight: 700;
+  }
+  .how-step h4 { text-transform: none; letter-spacing: 0; }
+  .how-step p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+  /* ── CTA ── */
+  .page-cta {
+    background: var(--bg2); border-top: 1px solid var(--border);
+    text-align: center; padding: 80px 40px;
+  }
+  .page-cta h2 { margin-bottom: 16px; }
+  .page-cta p {
+    font-size: 15px; color: var(--muted); max-width: 480px; margin: 0 auto 32px; line-height: 1.7;
+  }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 32px; border-radius: var(--pill);
+    border: 1.5px solid var(--coral); color: var(--coral);
+    font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    transition: background 0.25s, color 0.25s;
+  }
+  .cta-btn:hover { background: var(--coral); color: #fff; }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--text); color: rgba(255,255,255,0.45); padding: 32px 40px;
+  }
+  .footer-inner {
+    max-width: 720px; margin: 0 auto; width: 100%;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo { font-family: var(--heading); font-size: 18px; font-weight: 700; color: #fff; text-transform: uppercase; }
+  .footer-logo-img { height: 220px; width: auto; mix-blend-mode: screen; margin: -85px 0 -55px -40px; }
+  .footer-brand { font-family: var(--body); font-size: 28px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+  .footer-brand .dot { color: var(--coral); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: rgba(255,255,255,0.45); font-size: 13px; transition: color 0.2s; }
+  .footer-links a:hover { color: #fff; }
+  .footer-copy { width: 100%; text-align: center; font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+  /* ── Responsive ── */
+  @media (max-width: 860px) {
+    .page-hero { padding: 60px 24px 40px; }
+    .wb-grid-section { padding: 0 24px 60px; }
+    .wb-grid { grid-template-columns: 1fr; }
+    .wb-card { min-height: 400px; }
+    .nav-links { gap: 16px; padding: 0 12px; }
+    .nav-links a { font-size: 12px; }
+    .nav-cta { padding: 8px 16px; font-size: 12px; }
+    .nav-avatar { width: 32px; height: 32px; }
+    .how-section { padding: 0 24px 60px; }
+    .how-steps { grid-template-columns: 1fr; gap: 24px; }
+    .how-inner { padding: 40px 28px; }
+    .page-cta { padding: 60px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-full">
+      <img src="images/miriam-gesicht.jpg" class="nav-avatar" alt="Miriam">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="meine-geschichte.html">&Uuml;ber mich</a></li>
+        <li><a href="workbooks.html">Workbooks</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+      <a href="index.html#kontakt" class="nav-cta">Erstgespr&auml;ch</a>
+    </div>
+    <div class="nav-compact">
+      <img src="images/miriam-gesicht.jpg" class="nav-avatar" alt="Miriam">
+      <span class="nav-compact-badge">
+        <span class="hero-dot"></span> Ich bin verf&uuml;gbar
+      </span>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════ HERO ════════════════════ -->
+<section class="page-hero">
+  <h1>Workbooks & <em style="font-family:var(--serif);text-transform:none;letter-spacing:-0.02em">E-Books</em></h1>
+  <p>Mein gesammeltes Wissen — kompakt aufbereitet. Workbooks und Guides, die dir helfen, dein Marketing eigenständig auf das nächste Level zu bringen.</p>
+</section>
+
+<!-- ════════════════════ WORKBOOK GRID ════════════════════ -->
+<section class="wb-grid-section">
+  <div class="wb-grid">
+
+    <div class="wb-card">
+      <div class="wb-card-img"><img src="images/wb-online-check.jpg" alt="Kostenloser Online-Check" loading="lazy"></div>
+      <a href="https://baeumlermarketing.gumroad.com/l/online-check" class="gumroad-button wb-arrow" aria-label="Jetzt holen">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+      <div class="wb-body">
+        <span class="wb-tag">Kostenlos &middot; Freebie</span>
+        <h3>Kostenloser Online-Check</h3>
+        <p>F&uuml;ll die Umfrage aus und erfahre genau, wo dein Business gerade steht — und wo du als Erstes ansetzen solltest.</p>
+      </div>
+    </div>
+
+    <div class="wb-card">
+      <div class="wb-card-img"><img src="images/wb-ki-marketing.jpg" alt="KI-Workspace Workbook" loading="lazy"></div>
+      <a href="https://baeumlermarketing.gumroad.com/l/ki-marketing" class="gumroad-button wb-arrow" aria-label="Jetzt kaufen">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+      <div class="wb-body">
+        <span class="wb-tag">Workbook &middot; 55 &euro;</span>
+        <h3>Dein Business-Workspace mit KI &mdash; in unter einer Woche</h3>
+        <p>Die komplette Schritt-f&uuml;r-Schritt-Anleitung: Website, E-Mail, CRM, Hosting und Shop &mdash; aufgebaut mit Claude AI. Mit Screenshots, Vorlagen und Checklisten.</p>
+      </div>
+    </div>
+
+    <div class="wb-card">
+      <div class="wb-card-img"><img src="images/wb-lokal-sichtbar.jpg" alt="Lokal sichtbar" loading="lazy"></div>
+      <a href="https://baeumlermarketing.gumroad.com/l/lokal-sichtbar" class="gumroad-button wb-arrow" aria-label="Auf die Warteliste">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+      <div class="wb-body">
+        <span class="wb-tag">E-Book &middot; Warteliste</span>
+        <h3>Lokal sichtbar — der Guide f&uuml;r Selbstst&auml;ndige</h3>
+        <p>Schritt f&uuml;r Schritt mehr Kunden &uuml;ber Google, Instagram &amp; Co. — speziell f&uuml;r lokale Betriebe.</p>
+      </div>
+    </div>
+
+    <div class="wb-card">
+      <div class="wb-card-img"><img src="images/wb-creator-business.jpg" alt="Creator Business" loading="lazy"></div>
+      <a href="https://baeumlermarketing.gumroad.com/l/creator-business" class="gumroad-button wb-arrow" aria-label="Auf die Warteliste">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+      <div class="wb-body">
+        <span class="wb-tag">E-Book &middot; Warteliste</span>
+        <h3>Von der Reichweite zum Business</h3>
+        <p>Wie du deine Community monetarisierst und echtes Einkommen aufbaust.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════ SO FUNKTIONIERT'S ════════════════════ -->
+<section class="how-section">
+  <div class="how-inner">
+    <h2>So funktioniert's</h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="how-num">1</span>
+        <h4>Workbook auswählen</h4>
+        <p>Wähle das Thema, das zu deiner aktuellen Situation passt.</p>
+      </div>
+      <div class="how-step">
+        <span class="how-num">2</span>
+        <h4>Über Gumroad bestellen</h4>
+        <p>Sicherer Checkout — per Kreditkarte oder PayPal. Kostenlose Produkte direkt ohne Zahlung.</p>
+      </div>
+      <div class="how-step">
+        <span class="how-num">3</span>
+        <h4>Sofort loslegen</h4>
+        <p>Du bekommst den Download-Link sofort per E-Mail und kannst direkt starten.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ CTA ════════════════════ -->
+<section class="page-cta">
+  <h2>Du brauchst individuelle Hilfe?</h2>
+  <p>Die Workbooks sind ein guter Startpunkt — aber manchmal braucht es jemanden, der mit dir gemeinsam draufschaut.</p>
+  <a href="index.html#kontakt" class="cta-btn">Erstgespr&auml;ch vereinbaren</a>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">Bäumler<span class="dot">.</span></span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="meine-geschichte.html">&Uuml;ber mich</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
+  </div>
+</footer>
+
+<script>
+// ── Nav compact on scroll ──
+(function(){
+  const nav = document.getElementById('nav');
+  if (!nav) return;
+  let scrollTimer;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+      nav.classList.add('compact');
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function() {
+        nav.classList.remove('compact');
+      }, 600);
+    } else {
+      nav.classList.remove('compact');
+      clearTimeout(scrollTimer);
+    }
+  }, { passive: true });
+})();
+</script>
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147985028.js"></script>
+<!-- End of HubSpot Embed Code -->
+</body>
+</html>

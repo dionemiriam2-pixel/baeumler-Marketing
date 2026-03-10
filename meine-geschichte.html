@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a897db81-b3d5-4cdd-b229-a92558dc7545" data-blockingmode="auto" type="text/javascript"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meine Geschichte | Baeumler Marketing — Miriam Bäumler</title>
+<meta name="description" content="Erfahre mehr über Miriam Bäumler — Marketingberaterin aus Langenfeld. Mein Weg, meine Werte und warum ich tue, was ich tue.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/favicon-192x192.png">
+<meta name="theme-color" content="#e8604c">
+<meta property="og:title" content="Meine Geschichte | Baeumler Marketing — Miriam Bäumler">
+<meta property="og:description" content="Erfahre mehr über Miriam Bäumler und ihren Weg zur Marketingberaterin für Selbstständige und lokale Betriebe.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://baeumlermarketing.de/images/Miriam_Foto.JPG">
+<link rel="canonical" href="https://baeumlermarketing.de/meine-geschichte.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg2: #f7f7f5; --text: #303030;
+    --muted: rgba(17,17,16,0.65); --border: rgba(0,0,0,0.08);
+    --coral: #e8604c; --teal: #2db8a8;
+    --sans: 'Inter', system-ui, sans-serif;
+    --heading: 'Antonio', sans-serif;
+    --serif: 'Playfair Display', Georgia, serif;
+    --pill: 100px; --r: 20px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  /* ── Global Typography (same as index.html) ── */
+  h1, h2, h3, h4 {
+    font-family: var(--heading); font-weight: 700; text-transform: uppercase;
+    letter-spacing: -0.03em; line-height: 1.1;
+  }
+  h1 { font-size: clamp(40px, 5.5vw, 72px); }
+  h2 { font-size: clamp(36px, 5vw, 64px); }
+  h3 { font-size: clamp(22px, 2.5vw, 32px); }
+  h4 { font-size: clamp(16px, 1.6vw, 20px); }
+
+  /* ── Nav (pill) ── */
+  #nav {
+    position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+    z-index: 1000; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-inner {
+    background: #fff; border-radius: var(--pill);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    padding: 6px 6px 6px 8px;
+    display: flex; align-items: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-full {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .nav-avatar {
+    width: 38px; height: 38px; border-radius: 50%; object-fit: cover;
+    border: 2px solid var(--border); flex-shrink: 0;
+  }
+  .nav-links { display: flex; gap: 28px; align-items: center; padding: 0 20px; }
+  .nav-links a { font-size: 14px; color: var(--muted); transition: color 0.2s; font-weight: 400; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    background: var(--text); color: #fff; padding: 10px 24px;
+    border-radius: var(--pill); font-size: 13px; font-weight: 500;
+    transition: background 0.25s; white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--coral); }
+  .nav-compact {
+    display: none; align-items: center; gap: 10px; padding: 0 12px 0 0;
+  }
+  .nav-compact .nav-avatar { width: 34px; height: 34px; }
+  .nav-compact-badge {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 13px; color: var(--text); font-weight: 500; white-space: nowrap;
+  }
+  .nav-compact-badge .hero-dot { width: 8px; height: 8px; background: var(--teal); border-radius: 50%; }
+  #nav.compact .nav-full { display: none; }
+  #nav.compact .nav-compact { display: flex; }
+
+  /* ── Main Layout: 2-Column with sticky image ── */
+  .story-main {
+    max-width: 1100px; margin: 0 auto; padding: 0 40px;
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 120px;
+  }
+  .story-left {
+    padding: 80px 0 120px;
+  }
+  .story-right {
+    position: relative; padding: 80px 0 120px;
+  }
+  .story-img-sticky {
+    position: sticky; top: 100px;
+    border-radius: var(--r); overflow: hidden;
+    aspect-ratio: 4/5;
+  }
+  .story-img-sticky img {
+    width: 100%; height: 100%; object-fit: cover;
+    position: absolute; inset: 0;
+    opacity: 0; transition: opacity 0.6s ease;
+  }
+  .story-img-sticky img.active { opacity: 1; }
+
+  /* ── Section blocks (left column) ── */
+  .story-section {
+    min-height: 80vh; padding-bottom: 140px;
+  }
+  .story-section:last-child { min-height: auto; padding-bottom: 0; }
+
+  .story-section h1 {
+    font-size: clamp(36px, 5vw, 64px);
+    margin-bottom: 24px;
+  }
+  .story-section h2 {
+    margin-bottom: 24px;
+  }
+  .story-section h3 {
+    margin-bottom: 8px;
+  }
+  .story-section p {
+    font-size: 15px; color: var(--text); line-height: 1.8; margin-bottom: 16px;
+  }
+  .story-section .name-sub {
+    font-family: var(--heading); font-size: 18px; font-weight: 700;
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+
+  /* Social icons */
+  .story-socials { display: flex; gap: 16px; margin-top: 24px; }
+  .story-socials a {
+    width: 40px; height: 40px; border-radius: 10px;
+    border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
+    color: var(--text); transition: border-color 0.2s, color 0.2s;
+  }
+  .story-socials a:hover { border-color: var(--coral); color: var(--coral); }
+
+  /* ── Leistungen (Accordion) ── */
+  .leistung-list { margin-top: 32px; }
+  .leistung-item { border-bottom: 1px solid var(--border); }
+  .leistung-item:first-child { border-top: 1px solid var(--border); }
+  .leistung-btn {
+    display: flex; align-items: center; gap: 12px; width: 100%;
+    padding: 20px 0; background: none; border: none; cursor: pointer;
+    font-family: inherit; text-align: left;
+  }
+  .leistung-num {
+    font-family: var(--heading); font-size: clamp(18px, 2vw, 24px); font-weight: 700;
+    text-transform: uppercase; color: var(--coral); min-width: 28px;
+  }
+  .leistung-name {
+    font-family: var(--heading); font-size: clamp(18px, 2vw, 24px); font-weight: 700;
+    text-transform: uppercase; letter-spacing: -0.02em;
+  }
+  .leistung-price {
+    font-family: var(--sans); font-size: 13px; color: var(--muted); font-weight: 400;
+    margin-left: 8px;
+  }
+  .leistung-arrow {
+    margin-left: auto; transition: transform 0.3s;
+  }
+  .leistung-item.open .leistung-arrow { transform: rotate(180deg); }
+  .leistung-body {
+    max-height: 0; overflow: hidden; transition: max-height 0.35s ease;
+  }
+  .leistung-item.open .leistung-body { max-height: 300px; }
+  .leistung-features {
+    list-style: none; padding: 0 0 20px 40px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .leistung-features li {
+    font-size: 14px; color: var(--text); line-height: 1.6;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .leistung-features li::before {
+    content: '✓'; color: var(--coral); font-weight: 700; flex-shrink: 0;
+  }
+
+  /* ── Journey / Career ── */
+  .career-list { margin-top: 32px; }
+  .career-item {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 24px 0; border-bottom: 1px solid var(--border);
+  }
+  .career-item:first-child { border-top: 1px solid var(--border); }
+  .career-role {
+    font-family: var(--heading); font-size: clamp(18px, 2vw, 24px); font-weight: 700;
+    text-transform: uppercase; letter-spacing: -0.02em;
+  }
+  .career-meta { text-align: right; }
+  .career-company {
+    font-size: 15px; font-weight: 700; color: var(--coral);
+  }
+  .career-period {
+    font-size: 13px; color: var(--text);
+  }
+
+  /* ── Tools ── */
+  .tool-list { margin-top: 32px; }
+  .tool-item {
+    display: flex; align-items: center; gap: 20px;
+    padding: 24px 0; border-bottom: 1px solid var(--border);
+  }
+  .tool-item:first-child { border-top: 1px solid var(--border); }
+  .tool-icon {
+    width: 56px; height: 56px; border-radius: 16px;
+    background: var(--text); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .tool-info h4 {
+    margin-bottom: 4px; text-transform: none; letter-spacing: 0;
+  }
+  .tool-info p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 0; }
+
+  /* ── Process Bento Grid (full width) ── */
+  .process-section {
+    max-width: 1100px; margin: 0 auto; padding: 100px 40px 80px;
+  }
+  .process-section h2 {
+    margin-bottom: 16px;
+  }
+  .process-section > p {
+    font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 520px; margin-bottom: 48px;
+  }
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 340px 340px 340px;
+    gap: 16px;
+  }
+  .bento-card {
+    border-radius: var(--r); padding: 32px; display: flex; flex-direction: column;
+    justify-content: flex-end; min-height: 280px; position: relative; overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .bento-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+  .bento-img {
+    border-radius: var(--r); overflow: hidden; min-height: 280px;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .bento-img:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+  .bento-dark { background: var(--text); color: #fff; }
+  .bento-coral { background: var(--coral); color: #fff; }
+  .bento-light { background: var(--bg2); color: var(--text); }
+  .bento-img img { width: 100%; height: 100%; object-fit: cover; }
+  .bento-wide { grid-column: span 2; }
+  .bento-num {
+    font-family: var(--heading); font-size: clamp(48px, 6vw, 72px); font-weight: 700;
+    line-height: 1; margin-bottom: auto;
+  }
+  .bento-dark .bento-num { color: rgba(255,255,255,0.3); }
+  .bento-coral .bento-num { color: rgba(255,255,255,0.4); }
+  .bento-light .bento-num { color: var(--coral); }
+  .bento-card h4 {
+    margin-bottom: 10px;
+  }
+  .bento-card p {
+    font-size: 13px; line-height: 1.6; margin-bottom: 0;
+  }
+  .bento-dark p { color: rgba(255,255,255,0.6); }
+  .bento-coral p { color: rgba(255,255,255,0.75); }
+  .bento-light p { color: var(--muted); }
+
+  /* ── Kontakt Section ── */
+  .kontakt-section {
+    padding: 100px 0; max-width: 1100px; margin: 0 auto;
+  }
+  .kontakt-wrap { padding: 0 40px; }
+  .kontakt-title {
+    /* inherits global h2 styles */
+  }
+  .kontakt-title em {
+    font-family: var(--serif); font-style: italic; text-transform: none;
+    letter-spacing: -0.02em;
+  }
+  .kontakt-grid { display: grid; grid-template-columns: 360px 1fr; gap: 90px; align-items: start; }
+  .kontakt-left { position: sticky; top: 120px; }
+  .kontakt-portrait {
+    width: 100%; height: 360px; object-fit: cover; object-position: top center;
+    border-radius: 18px; margin-bottom: 26px; box-shadow: 0 16px 50px rgba(0,0,0,0.09);
+  }
+  .kontakt-info { display: flex; flex-direction: column; gap: 11px; }
+  .kontakt-row { display: flex; gap: 14px; align-items: center; font-size: 14px; }
+  .kontakt-lbl { color: var(--muted); min-width: 74px; font-size: 13px; }
+  .kontakt-row a { font-weight: 500; color: var(--text); transition: color 0.2s; }
+  .kontakt-row a:hover { color: var(--coral); }
+  .kontakt-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .form-input, .form-select, .form-textarea {
+    background: var(--bg2); border: 1px solid var(--border); border-radius: 11px;
+    padding: 13px 16px; color: var(--text); font-family: var(--sans); font-size: 14px;
+    outline: none; transition: border-color 0.2s; -webkit-appearance: none;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--coral); }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .btn-send {
+    align-self: flex-start; padding: 15px 36px; font-size: 15px;
+    font-family: var(--sans); font-weight: 600; cursor: pointer;
+    border: 1.5px solid var(--coral); color: var(--coral); background: transparent;
+    border-radius: var(--pill); letter-spacing: 0.04em;
+    transition: background 0.25s, color 0.25s;
+  }
+  .btn-send:hover { background: var(--coral); color: #fff; }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--text); color: rgba(255,255,255,0.45); padding: 32px 40px;
+  }
+  .footer-inner {
+    max-width: 720px; margin: 0 auto; width: 100%;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo { font-family: var(--heading); font-size: 18px; font-weight: 700; color: #fff; text-transform: uppercase; }
+  .footer-logo-img { height: 220px; width: auto; mix-blend-mode: screen; margin: -85px 0 -55px -40px; }
+  .footer-brand { font-family: var(--body); font-size: 28px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+  .footer-brand .dot { color: var(--coral); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: rgba(255,255,255,0.45); font-size: 13px; transition: color 0.2s; }
+  .footer-links a:hover { color: #fff; }
+  .footer-copy { width: 100%; text-align: center; font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+  /* ── Responsive ── */
+  @media (max-width: 860px) {
+    .story-main {
+      grid-template-columns: 1fr; gap: 0; padding: 0 24px;
+    }
+    .story-right { display: none; }
+    .story-left { padding: 60px 0 80px; }
+    .story-section { min-height: auto; padding-bottom: 60px; }
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-wide { grid-column: span 1; }
+    .bento-card { min-height: 220px; }
+    .process-section { padding: 60px 24px; }
+    .nav-links { gap: 16px; padding: 0 12px; }
+    .nav-links a { font-size: 12px; }
+    .nav-cta { padding: 8px 16px; font-size: 12px; }
+    .nav-avatar { width: 32px; height: 32px; }
+    .kontakt-section { padding: 60px 0; }
+    .kontakt-wrap { padding: 0 24px; }
+    .kontakt-grid { grid-template-columns: 1fr; gap: 40px; }
+    .kontakt-left { position: static; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-full">
+      <img src="images/miriam-gesicht.jpg" class="nav-avatar" alt="Miriam">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="meine-geschichte.html">&Uuml;ber mich</a></li>
+        <li><a href="workbooks.html">Workbooks</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+      <a href="index.html#kontakt" class="nav-cta">Erstgespr&auml;ch</a>
+    </div>
+    <div class="nav-compact">
+      <img src="images/miriam-gesicht.jpg" class="nav-avatar" alt="Miriam">
+      <span class="nav-compact-badge">
+        <span class="hero-dot"></span> Ich bin verf&uuml;gbar
+      </span>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════ MAIN 2-COL LAYOUT ════════════════════ -->
+<div class="story-main">
+
+  <!-- ── Left Column: Content ── -->
+  <div class="story-left">
+
+    <!-- Section 1: About Me -->
+    <div class="story-section" data-img="0">
+      <h1>Über mich</h1>
+      <div class="name-sub">Miriam Bäumler</div>
+      <p>Ich bin Marketingberaterin für digitales Wachstum aus Langenfeld und unterstütze Selbstständige sowie kleine Unternehmen dabei, online sichtbar zu werden und ihr Business nachhaltig erfolgreich weiterzuentwickeln.</p>
+      <p>Dabei begleite ich meine Kundinnen und Kunden von der ersten Analyse über die Strategie bis hin zur finalen Umsetzung. Mit einem Master in Wirtschaftspsychologie und Erfahrung im Agenturaufbau verbinde ich fundierte Theorie mit praktischer Umsetzung. Ich freue mich auf spannende gemeinsame Projekte mit dir.</p>
+      <div class="story-socials">
+        <a href="https://instagram.com/baeumlermarketing" aria-label="Instagram" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/miriambaeumler" aria-label="LinkedIn" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="mailto:hi@baeumlermarketing.de" aria-label="E-Mail">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 2: Leistungen -->
+    <div class="story-section" data-img="1">
+      <h2>Was ich für<br>dich tun kann</h2>
+      <p>Ich arbeite ohne feste Leistungspakete. Du erhältst ein individuelles Angebot, das zu deinem Business und deinen Zielen passt.</p>
+      <p style="margin-top:12px;font-size:14px;"><a href="#kontakt" style="color:#e8604c;font-weight:500;">Lass uns sprechen →</a></p>
+      <div class="leistung-list">
+        <div class="leistung-item open">
+          <button class="leistung-btn" onclick="toggleLeistung(this)">
+            <span class="leistung-num">1.</span>
+            <div><span class="leistung-name">Web &amp; Design</span></div>
+            <span class="leistung-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="leistung-body">
+            <ul class="leistung-features">
+              <li>Webdesign</li>
+              <li>UI/UX Design</li>
+              <li>Landing Page</li>
+              <li>Webflow Entwicklung</li>
+            </ul>
+          </div>
+        </div>
+        <div class="leistung-item">
+          <button class="leistung-btn" onclick="toggleLeistung(this)">
+            <span class="leistung-num">2.</span>
+            <div><span class="leistung-name">Marke &amp; Identität</span></div>
+            <span class="leistung-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="leistung-body">
+            <ul class="leistung-features">
+              <li>Markenstrategie</li>
+              <li>Logo &amp; Corporate Design</li>
+              <li>Style Guide</li>
+              <li>Markenbotschaft</li>
+            </ul>
+          </div>
+        </div>
+        <div class="leistung-item">
+          <button class="leistung-btn" onclick="toggleLeistung(this)">
+            <span class="leistung-num">3.</span>
+            <div><span class="leistung-name">Online Marketing</span></div>
+            <span class="leistung-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="leistung-body">
+            <ul class="leistung-features">
+              <li>Marketing Analyse</li>
+              <li>Social Media Aufbau</li>
+              <li>Content Strategie</li>
+              <li>Meta &amp; Google Ads</li>
+            </ul>
+          </div>
+        </div>
+        <div class="leistung-item">
+          <button class="leistung-btn" onclick="toggleLeistung(this)">
+            <span class="leistung-num">4.</span>
+            <div><span class="leistung-name">Business Aufbau</span></div>
+            <span class="leistung-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </button>
+          <div class="leistung-body">
+            <ul class="leistung-features">
+              <li>Businessplanung</li>
+              <li>Angebotsstruktur</li>
+              <li>Produktentwicklung</li>
+              <li>Skalierungsstrategie</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Journey -->
+    <div class="story-section" data-img="2">
+      <h2>Mein Weg im<br>Marketing</h2>
+      <p>Von der ersten Kampagne bis zur eigenen Beratung — jeder Schritt hat mich geprägt und mein Verständnis für echtes, nachhaltiges und strategisches Marketing tief geschärft.</p>
+      <div class="career-list">
+        <div class="career-item">
+          <span class="career-role">Gründerin & Beraterin</span>
+          <div class="career-meta">
+            <div class="career-company">Baeumler Marketing</div>
+            <div class="career-period">2022 – Heute</div>
+          </div>
+        </div>
+        <div class="career-item">
+          <span class="career-role">Marketing Managerin</span>
+          <div class="career-meta">
+            <div class="career-company">Agentur & Unternehmen</div>
+            <div class="career-period">2019 – 2022</div>
+          </div>
+        </div>
+        <div class="career-item">
+          <span class="career-role">Online Marketing</span>
+          <div class="career-meta">
+            <div class="career-company">Erster Einstieg</div>
+            <div class="career-period">2017 – 2019</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: Tools -->
+    <div class="story-section" data-img="3">
+      <h2>Meine Tools</h2>
+      <p>Ich arbeite mit Tools, die funktionieren. Kein Schnickschnack, sondern bewährte Werkzeuge für Strategie, Content und Analyse.</p>
+      <div class="tool-list">
+        <div class="tool-item">
+          <div class="tool-icon">
+            <!-- Google "G" -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09A6.97 6.97 0 0 1 5.48 12c0-.72.13-1.43.36-2.09V7.07H2.18A11.96 11.96 0 0 0 .96 12c0 1.94.46 3.77 1.22 5.07l3.66-2.98z" fill="#FBBC05"/>
+              <path d="M12 4.75c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 1.09 14.97 0 12 0 7.7 0 3.99 2.47 2.18 6.07l3.66 2.84c.87-2.6 3.3-4.16 6.16-4.16z" fill="#EA4335"/>
+            </svg>
+          </div>
+          <div class="tool-info">
+            <h4>Google Ads & Analytics</h4>
+            <p>Datengetriebene Entscheidungen — ich analysiere, was wirklich funktioniert und optimiere gezielt.</p>
+          </div>
+        </div>
+        <div class="tool-item">
+          <div class="tool-icon" style="background:#1877F2;">
+            <!-- Meta -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff">
+              <path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.93 3.78-3.93 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.45 2.9h-2.33v7A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04z"/>
+            </svg>
+          </div>
+          <div class="tool-info">
+            <h4>Meta Business Suite</h4>
+            <p>Content-Planung, Community Management und Ad-Kampagnen — alles aus einer Hand.</p>
+          </div>
+        </div>
+        <div class="tool-item">
+          <div class="tool-icon" style="background:linear-gradient(135deg, #7B2FF7, #00C4CC);">
+            <!-- Canva + Midjourney -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.2)"/>
+              <text x="12" y="16.5" text-anchor="middle" fill="#fff" font-size="13" font-weight="700" font-family="Arial">C</text>
+            </svg>
+          </div>
+          <div class="tool-info">
+            <h4>Canva & Midjourney</h4>
+            <p>Visuelle Inhalte, die auffallen — von Social Media Posts über Brand Guidelines bis zu KI-generierten Bildern.</p>
+          </div>
+        </div>
+        <div class="tool-item">
+          <div class="tool-icon" style="background:linear-gradient(135deg, #10A37F, #1A7F64);">
+            <!-- KI / ChatGPT -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff">
+              <path d="M22.28 9.37a5.98 5.98 0 0 0-.52-4.93 6.07 6.07 0 0 0-6.55-2.93A6.07 6.07 0 0 0 10.66 0a6.05 6.05 0 0 0-5.79 4.25 5.98 5.98 0 0 0-4 2.9 6.07 6.07 0 0 0 .75 7.11 5.98 5.98 0 0 0 .52 4.93 6.07 6.07 0 0 0 6.55 2.93A6.07 6.07 0 0 0 13.24 24a6.05 6.05 0 0 0 5.79-4.25 5.98 5.98 0 0 0 4-2.9 6.07 6.07 0 0 0-.75-7.48zM13.24 22.44a4.53 4.53 0 0 1-2.9-1.05l.14-.08 4.82-2.78a.78.78 0 0 0 .4-.68v-6.79l2.04 1.17a.07.07 0 0 1 .04.06v5.63a4.56 4.56 0 0 1-4.54 4.52zM3.52 18.32a4.52 4.52 0 0 1-.54-3.05l.14.09 4.82 2.78a.78.78 0 0 0 .78 0l5.89-3.4v2.35a.07.07 0 0 1-.03.06l-4.88 2.82a4.56 4.56 0 0 1-6.18-1.65zM2.27 7.87A4.52 4.52 0 0 1 4.64 5.9v5.72a.78.78 0 0 0 .39.68l5.88 3.4-2.04 1.17a.07.07 0 0 1-.07 0L3.92 14.06a4.56 4.56 0 0 1-1.65-6.19zm17.18 4l-5.89-3.4 2.04-1.18a.07.07 0 0 1 .07 0l4.88 2.82a4.55 4.55 0 0 1-.7 8.18v-5.74a.78.78 0 0 0-.4-.68zm2.03-3.07-.14-.09-4.82-2.78a.78.78 0 0 0-.78 0L9.85 9.33V6.98a.07.07 0 0 1 .03-.06l4.88-2.82a4.55 4.55 0 0 1 6.72 4.7zM8.72 12.68l-2.04-1.17a.07.07 0 0 1-.04-.06V5.82a4.55 4.55 0 0 1 7.46-3.5l-.14.08-4.82 2.78a.78.78 0 0 0-.4.68l-.02 6.82zm1.1-2.39 2.63-1.51 2.62 1.51v3.03l-2.62 1.51-2.63-1.51v-3.03z"/>
+            </svg>
+          </div>
+          <div class="tool-info">
+            <h4>KI-Tools & Automatisierung</h4>
+            <p>Smarte Workflows mit ChatGPT, Jasper und Zapier — für mehr Output in weniger Zeit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Right Column: Sticky Image ── -->
+  <div class="story-right">
+    <div class="story-img-sticky">
+      <img src="images/miriam-gesicht.jpg" alt="Miriam Bäumler Portrait" class="active" data-index="0">
+      <img src="images/miriam-leistungen.avif" alt="Leistungen" data-index="1">
+      <img src="images/miriam-karriere.avif" alt="Karriere" data-index="2">
+      <img src="images/miriam-tools.avif" alt="Tools" data-index="3">
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════════════════ PROCESS BENTO ════════════════════ -->
+<section class="process-section">
+  <h2>So arbeiten wir</h2>
+  <p>Mein Prozess ist klar strukturiert und transparent — damit du immer weißt, wo wir stehen und was als Nächstes kommt.</p>
+
+  <div class="bento-grid">
+    <!-- Row 1 -->
+    <div class="bento-card bento-dark">
+      <div class="bento-num">01.</div>
+      <h4>Analyse & Strategie</h4>
+      <p>Ich schaue mir an, wo du stehst, und entwickle einen klaren Plan für deine digitale Sichtbarkeit.</p>
+    </div>
+    <div class="bento-img">
+      <img src="images/miriam-strategie.avif" alt="Strategie">
+    </div>
+    <div class="bento-card bento-coral">
+      <div class="bento-num">02.</div>
+      <h4>Konzept & Setup</h4>
+      <p>Branding, Kanäle, Content-Strategie — alles wird sauber aufgesetzt und aufeinander abgestimmt.</p>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="bento-img">
+      <img src="images/miriam-umsetzung.avif" alt="Umsetzung">
+    </div>
+    <div class="bento-card bento-light bento-wide">
+      <div class="bento-num">03.</div>
+      <h4>Umsetzung & Begleitung</h4>
+      <p>Gemeinsam setzen wir die Strategie um. Ich begleite dich mit regelmäßigen Calls, praktischem Feedback und klaren nächsten Schritten. So stellen wir sicher, dass alles passt.</p>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="bento-card bento-coral">
+      <div class="bento-num">04.</div>
+      <h4>Optimierung & Daten</h4>
+      <p>Datenbasierte Anpassungen und KI-gestützte Analysen sorgen dafür, dass dein Marketing kontinuierlich besser wird.</p>
+    </div>
+    <div class="bento-card bento-dark">
+      <div class="bento-num">05.</div>
+      <h4>Wachstum & Skalierung</h4>
+      <p>Wenn das Fundament steht, skalieren wir — mit Ads, KI-gestützten Tools, Automatisierung und neuen Kanälen.</p>
+    </div>
+    <div class="bento-img">
+      <img src="images/miriam-wachstum.avif" alt="Wachstum">
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ KONTAKT ════════════════════ -->
+<section class="kontakt-section" id="kontakt">
+  <div class="kontakt-wrap">
+    <div class="kontakt-grid">
+      <div class="kontakt-left">
+        <img class="kontakt-portrait" loading="lazy" src="images/Miriam_Foto.JPG" alt="Miriam Bäumler Kontakt">
+      </div>
+      <div>
+        <h2 class="kontakt-title" style="margin-bottom:16px">Lass uns starten</h2>
+        <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:36px">Lass uns gemeinsam etwas Wirkungsvolles aufbauen — ob deine Marke, deine Website oder deine nächste große Idee.</p>
+        <form class="kontakt-form" action="https://formsubmit.co/hi@baeumlermarketing.de" method="POST">
+          <input type="hidden" name="_subject" value="Neue Anfrage über Baeumler Marketing">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://baeumlermarketing.de/danke.html">
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Name</label><input class="form-input" type="text" name="name" required placeholder="Dein Name"></div>
+            <div class="form-group"><label class="form-label">E-Mail</label><input class="form-input" type="email" name="email" required placeholder="deine@email.de"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Gewünschte Leistung</label>
+            <select class="form-select" name="leistung">
+              <option value="">Auswählen…</option>
+              <option>Beratung</option>
+              <option>Webdesign</option>
+              <option>Online Marketing</option>
+              <option>Sonstiges</option>
+            </select>
+          </div>
+          <div class="form-group"><label class="form-label">Nachricht</label><textarea class="form-textarea" name="nachricht" placeholder="Erzähl mir von deinem Projekt…"></textarea></div>
+          <button type="submit" class="btn-send">Anfrage senden →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">Bäumler<span class="dot">.</span></span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="meine-geschichte.html">&Uuml;ber mich</a>
+      <a href="workbooks.html">Workbooks</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
+  </div>
+</footer>
+
+<script>
+// ── Sticky image swap on scroll ──
+(function(){
+  const sections = document.querySelectorAll('.story-section[data-img]');
+  const images = document.querySelectorAll('.story-img-sticky img');
+  if (!sections.length || !images.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = entry.target.dataset.img;
+        images.forEach(img => img.classList.remove('active'));
+        const target = document.querySelector(`.story-img-sticky img[data-index="${idx}"]`);
+        if (target) target.classList.add('active');
+      }
+    });
+  }, {
+    rootMargin: '-30% 0px -30% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(s => observer.observe(s));
+})();
+
+function toggleLeistung(btn) {
+  const item = btn.closest('.leistung-item');
+  item.classList.toggle('open');
+}
+
+// ── Nav compact on scroll ──
+(function(){
+  const nav = document.getElementById('nav');
+  if (!nav) return;
+  let scrollTimer;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+      nav.classList.add('compact');
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function() {
+        nav.classList.remove('compact');
+      }, 600);
+    } else {
+      nav.classList.remove('compact');
+      clearTimeout(scrollTimer);
+    }
+  }, { passive: true });
+})();
+</script>
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147985028.js"></script>
+<!-- End of HubSpot Embed Code -->
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a897db81-b3d5-4cdd-b229-a92558dc7545" data-blockingmode="auto" type="text/javascript"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Wissen & Tipps | Baeumler Marketing — Miriam Bäumler</title>
+<meta name="description" content="Praxiswissen für Selbstständige und lokale Betriebe — direkt umsetzbar. Blog von Miriam Bäumler, Baeumler Marketing.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/favicon-192x192.png">
+<meta name="theme-color" content="#e8604c">
+<link rel="canonical" href="https://baeumlermarketing.de/blog.html">
+<meta property="og:title" content="Blog — Wissen & Tipps | Baeumler Marketing">
+<meta property="og:description" content="Praxiswissen für Selbstständige und lokale Betriebe — direkt umsetzbar. Blog von Miriam Bäumler.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://baeumlermarketing.de/images/Miriam_Foto.JPG">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg2: #f7f7f5; --text: #303030;
+    --muted: rgba(17,17,16,0.65); --border: rgba(0,0,0,0.08);
+    --coral: #e8604c; --orange: #e8604c; --teal: #2db8a8;
+    --sans: 'Inter', system-ui, sans-serif;
+    --heading: 'Antonio', sans-serif;
+    --serif: 'Playfair Display', Georgia, serif;
+    --pill: 100px; --r: 20px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  /* ── Global Typography ── */
+  h1, h2, h3, h4 {
+    font-family: var(--heading); font-weight: 700; text-transform: uppercase;
+    letter-spacing: -0.03em; line-height: 1.1;
+  }
+  h1 { font-size: clamp(40px, 5.5vw, 72px); }
+  h2 { font-size: clamp(36px, 5vw, 64px); }
+  h3 { font-size: clamp(22px, 2.5vw, 32px); }
+  h4 { font-size: clamp(16px, 1.6vw, 20px); }
+
+  /* ── Nav (pill) ── */
+  #nav {
+    position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+    z-index: 1000; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-inner {
+    background: #fff; border-radius: var(--pill);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    padding: 6px 6px 6px 8px;
+    display: flex; align-items: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-full {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .nav-avatar {
+    width: 38px; height: 38px; border-radius: 50%; object-fit: cover;
+    border: 2px solid var(--border); flex-shrink: 0;
+  }
+  .nav-links { display: flex; gap: 28px; align-items: center; padding: 0 20px; }
+  .nav-links a { font-size: 14px; color: var(--muted); transition: color 0.2s; font-weight: 400; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    background: var(--text); color: #fff; padding: 10px 24px;
+    border-radius: var(--pill); font-size: 13px; font-weight: 500;
+    transition: background 0.25s; white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--coral); }
+  .nav-compact {
+    display: none; align-items: center; gap: 10px; padding: 0 12px 0 0;
+  }
+  .nav-compact .nav-avatar { width: 34px; height: 34px; }
+  .nav-compact-badge {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 13px; color: var(--text); font-weight: 500; white-space: nowrap;
+  }
+  .nav-compact-badge .hero-dot { width: 8px; height: 8px; background: var(--teal); border-radius: 50%; }
+  #nav.compact .nav-full { display: none; }
+  #nav.compact .nav-compact { display: flex; }
+
+  /* ── Hero ── */
+  .page-hero {
+    max-width: 1100px; margin: 0 auto; padding: 80px 40px 60px;
+  }
+  .page-hero h1 { margin-bottom: 16px; }
+  .page-hero p {
+    font-size: 16px; color: var(--muted); line-height: 1.8; max-width: 560px;
+  }
+
+  /* ── Featured Post ── */
+  .featured-section {
+    max-width: 1100px; margin: 0 auto; padding: 0 40px 80px;
+  }
+  .featured-card {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border-radius: var(--r); overflow: hidden; border: 1px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .featured-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.09); }
+  .featured-img { height: 100%; min-height: 360px; }
+  .featured-img img { width: 100%; height: 100%; object-fit: cover; }
+  .featured-info {
+    padding: 48px; display: flex; flex-direction: column; justify-content: center; gap: 16px;
+    background: var(--bg2);
+  }
+  .featured-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--coral);
+  }
+  .featured-info h2 {
+    font-family: var(--serif); text-transform: none; letter-spacing: -0.02em;
+    font-size: clamp(22px, 2.5vw, 32px); line-height: 1.25;
+  }
+  .featured-info p { font-size: 15px; color: var(--muted); line-height: 1.8; }
+  .featured-link {
+    font-size: 14px; font-weight: 600; color: var(--coral); display: inline-flex;
+    align-items: center; gap: 6px; transition: gap 0.2s;
+  }
+  .featured-link:hover { gap: 10px; }
+
+  /* ── Blog Grid ── */
+  .blog-grid-section {
+    max-width: 1100px; margin: 0 auto; padding: 0 40px 100px;
+  }
+  .blog-grid-section h2 { margin-bottom: 40px; }
+  .blog-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .blog-card {
+    background: #fff; border-radius: var(--r); border: 1px solid var(--border);
+    overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; display: block;
+  }
+  .blog-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.09); }
+  .blog-img { width: 100%; height: 220px; object-fit: cover; }
+  .blog-info { padding: 24px; }
+  .blog-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+  .blog-tag {
+    color: #fff; padding: 4px 12px; border-radius: var(--pill);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .blog-date { font-size: 12px; color: var(--muted); }
+  .blog-title {
+    font-family: var(--serif); font-size: 18px; line-height: 1.3; margin-bottom: 10px;
+    text-transform: none; letter-spacing: 0; font-weight: 700;
+  }
+  .blog-excerpt { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+
+  /* ── Newsletter CTA ── */
+  .newsletter-section {
+    background: var(--text); color: #fff; padding: 80px 40px; text-align: center;
+  }
+  .newsletter-section h2 { color: #fff; margin-bottom: 12px; }
+  .newsletter-section p {
+    font-size: 15px; color: rgba(255,255,255,0.6); max-width: 480px;
+    margin: 0 auto 32px; line-height: 1.7;
+  }
+  .newsletter-form {
+    display: flex; gap: 12px; max-width: 440px; margin: 0 auto;
+  }
+  .newsletter-input {
+    flex: 1; padding: 14px 18px; border-radius: var(--pill);
+    border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08);
+    color: #fff; font-family: var(--sans); font-size: 14px; outline: none;
+    transition: border-color 0.2s;
+  }
+  .newsletter-input::placeholder { color: rgba(255,255,255,0.35); }
+  .newsletter-input:focus { border-color: var(--coral); }
+  .newsletter-btn {
+    padding: 14px 28px; border-radius: var(--pill); border: none;
+    background: var(--coral); color: #fff; font-family: var(--sans);
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: background 0.25s;
+  }
+  .newsletter-btn:hover { background: #d44f3b; }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--text); color: rgba(255,255,255,0.45); padding: 32px 40px;
+  }
+  .footer-inner {
+    max-width: 720px; margin: 0 auto; width: 100%;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-logo { font-family: var(--heading); font-size: 18px; font-weight: 700; color: #fff; text-transform: uppercase; }
+  .footer-logo-img { height: 220px; width: auto; mix-blend-mode: screen; margin: -85px 0 -55px -40px; }
+  .footer-brand { font-family: var(--body); font-size: 28px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+  .footer-brand .dot { color: var(--coral); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: rgba(255,255,255,0.45); font-size: 13px; transition: color 0.2s; }
+  .footer-links a:hover { color: #fff; }
+  .footer-copy { width: 100%; text-align: center; font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+  /* ── Responsive ── */
+  @media (max-width: 860px) {
+    .page-hero { padding: 60px 24px 40px; }
+    .featured-section { padding: 0 24px 60px; }
+    .featured-card { grid-template-columns: 1fr; }
+    .featured-img { min-height: 240px; }
+    .featured-info { padding: 32px; }
+    .blog-grid-section { padding: 0 24px 60px; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .newsletter-section { padding: 60px 24px; }
+    .newsletter-form { flex-direction: column; }
+    .nav-links { gap: 16px; padding: 0 12px; }
+    .nav-links a { font-size: 12px; }
+    .nav-cta { padding: 8px 16px; font-size: 12px; }
+    .nav-avatar { width: 32px; height: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-full">
+      <img src="images/miriam-gesicht.jpg" class="nav-avatar" alt="Miriam">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="meine-geschichte.html">&Uuml;ber mich</a></li>
+        <li><a href="workbooks.html">Workbooks</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+      <a href="index.html#kontakt" class="nav-cta">Erstgespr&auml;ch</a>
+    </div>
+    <div class="nav-compact">
+      <img src="images/miriam-gesicht.jpg" class="nav-avatar" alt="Miriam">
+      <span class="nav-compact-badge">
+        <span class="hero-dot"></span> Ich bin verf&uuml;gbar
+      </span>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════ HERO ════════════════════ -->
+<section class="page-hero">
+  <h1>Wissen &<br><em style="font-family:var(--serif);text-transform:none;letter-spacing:-0.02em">Tipps</em></h1>
+  <p>Praxiswissen f&uuml;r lokale Betriebe und Selbstst&auml;ndige — direkt umsetzbar und kostenlos. Damit du dein Marketing in die eigene Hand nehmen kannst.</p>
+</section>
+
+<!-- ════════════════════ FEATURED ════════════════════ -->
+<section class="featured-section">
+  <a href="#" class="featured-card">
+    <div class="featured-img">
+      <img src="images/blog-instagram.jpg" alt="Instagram Marketing" loading="lazy">
+    </div>
+    <div class="featured-info">
+      <span class="featured-label">Featured Artikel</span>
+      <h2>7 h&auml;ufige Fehler im Instagram-Marketing</h2>
+      <p>Warum Reichweite allein nicht reicht — und was du stattdessen tun solltest, um echte Kunden zu gewinnen.</p>
+      <span class="featured-link">Artikel lesen &rarr;</span>
+    </div>
+  </a>
+</section>
+
+<!-- ════════════════════ BLOG GRID ════════════════════ -->
+<section class="blog-grid-section">
+  <h2>Alle Artikel</h2>
+  <div class="blog-grid">
+
+    <a href="#" class="blog-card">
+      <img class="blog-img" src="images/blog-lokale-seo.jpg" alt="Lokale SEO" loading="lazy">
+      <div class="blog-info">
+        <div class="blog-meta"><span class="blog-tag" style="background:var(--teal)">SEO</span><span class="blog-date">4 Min. Lesezeit</span></div>
+        <h3 class="blog-title">Lokale SEO f&uuml;r KMU: In 3 Schritten ganz oben</h3>
+        <p class="blog-excerpt">So wirst du in deiner Stadt gefunden, wenn Kunden mobil suchen — ohne Agentur-Budget.</p>
+      </div>
+    </a>
+
+    <a href="#" class="blog-card">
+      <img class="blog-img" src="images/blog-content-strategie.avif" alt="Content Strategie" loading="lazy">
+      <div class="blog-info">
+        <div class="blog-meta"><span class="blog-tag" style="background:var(--coral)">Strategie</span><span class="blog-date">5 Min. Lesezeit</span></div>
+        <h3 class="blog-title">Content-Strategie: So planst du Inhalte, die wirken</h3>
+        <p class="blog-excerpt">Warum du keinen Content-Kalender brauchst — sondern eine echte Strategie, die zu deinem Business passt.</p>
+      </div>
+    </a>
+
+    <a href="blog-ki-marketing.html" class="blog-card">
+      <img class="blog-img" src="images/wb-ki-marketing.jpg" alt="KI im Marketing" loading="lazy">
+      <div class="blog-info">
+        <div class="blog-meta"><span class="blog-tag" style="background:var(--text)">KI &amp; Tools</span><span class="blog-date">8 Min. Lesezeit</span></div>
+        <h3 class="blog-title">KI im Marketing: Kompletter Workspace in unter einer Woche</h3>
+        <p class="blog-excerpt">Wie ich mit Claude AI meinen kompletten Business-Workspace aufgebaut habe &mdash; Website, E-Mail, CRM, Hosting. F&uuml;r unter 30 &euro; im Monat.</p>
+      </div>
+    </a>
+
+    <a href="#" class="blog-card">
+      <img class="blog-img" src="images/blog-google-business.avif" alt="Google Business" loading="lazy">
+      <div class="blog-info">
+        <div class="blog-meta"><span class="blog-tag" style="background:var(--teal)">SEO</span><span class="blog-date">3 Min. Lesezeit</span></div>
+        <h3 class="blog-title">Google Business Profil: Dein wichtigstes Werkzeug</h3>
+        <p class="blog-excerpt">Wie du dein Google Business Profil optimierst und damit mehr lokale Anfragen bekommst.</p>
+      </div>
+    </a>
+
+    <a href="#" class="blog-card">
+      <img class="blog-img" src="images/blog-social-media.avif" alt="Social Media" loading="lazy">
+      <div class="blog-info">
+        <div class="blog-meta"><span class="blog-tag" style="background:var(--coral)">Social Media</span><span class="blog-date">4 Min. Lesezeit</span></div>
+        <h3 class="blog-title">Reels, Stories oder Posts? Was wirklich z&auml;hlt</h3>
+        <p class="blog-excerpt">Welche Formate 2026 wirklich funktionieren und wo du deine Zeit am besten investierst.</p>
+      </div>
+    </a>
+
+    <a href="#" class="blog-card">
+      <img class="blog-img" src="images/blog-personal-branding.avif" alt="Branding" loading="lazy">
+      <div class="blog-info">
+        <div class="blog-meta"><span class="blog-tag" style="background:var(--text)">Branding</span><span class="blog-date">5 Min. Lesezeit</span></div>
+        <h3 class="blog-title">Personal Branding: Warum du die Marke bist</h3>
+        <p class="blog-excerpt">Wie du als Selbstst&auml;ndige eine starke Marke aufbaust, die Vertrauen schafft und Kunden anzieht.</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ════════════════════ NEWSLETTER ════════════════════ -->
+<section class="newsletter-section">
+  <h2>Nichts mehr verpassen</h2>
+  <p>Trag dich ein und bekomm neue Artikel, Tipps und exklusive Inhalte direkt in dein Postfach.</p>
+  <form class="newsletter-form" id="nlForm" onsubmit="return submitNewsletter(event)" style="flex-direction:column;align-items:center;gap:14px">
+    <div style="display:flex;gap:12px;width:100%;max-width:440px">
+      <input type="text" class="newsletter-input" id="nl-name" required placeholder="Dein Vorname" style="flex:1">
+      <input type="email" class="newsletter-input" id="nl-email" required placeholder="deine@email.de" style="flex:1">
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;max-width:440px;width:100%">
+      <input type="checkbox" id="nl-dsgvo" required style="accent-color:var(--coral);width:18px;height:18px;flex-shrink:0">
+      <label for="nl-dsgvo" style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.4;text-align:left">Ich stimme der <a href="datenschutz.html" style="color:var(--coral)">Datenschutzerklärung</a> zu.</label>
+    </div>
+    <button type="submit" class="newsletter-btn">Eintragen →</button>
+    <p id="nl-success" style="display:none;color:var(--coral);font-weight:600;font-size:14px;margin-top:4px">Super, du bist dabei!</p>
+  </form>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">Bäumler<span class="dot">.</span></span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="meine-geschichte.html">&Uuml;ber mich</a>
+      <a href="workbooks.html">Workbooks</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
+  </div>
+</footer>
+
+<script>
+// ── Nav compact on scroll ──
+(function(){
+  const nav = document.getElementById('nav');
+  if (!nav) return;
+  let scrollTimer;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+      nav.classList.add('compact');
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function() {
+        nav.classList.remove('compact');
+      }, 600);
+    } else {
+      nav.classList.remove('compact');
+      clearTimeout(scrollTimer);
+    }
+  }, { passive: true });
+})();
+</script>
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147985028.js"></script>
+<!-- End of HubSpot Embed Code -->
+
+<!-- HubSpot Newsletter Submit -->
+<script>
+function submitNewsletter(e){
+  e.preventDefault();
+  var name=document.getElementById('nl-name').value.trim();
+  var email=document.getElementById('nl-email').value.trim();
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/0ca9c402-9b0b-4b59-bb8f-23fe7bd65411',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      fields:[
+        {name:'firstname',value:name},
+        {name:'email',value:email}
+      ],
+      context:{pageUri:window.location.href,pageName:'Blog Newsletter'},
+      legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Datenschutzerklärung zu.'}}
+    })
+  }).then(function(r){
+    if(r.ok){
+      document.getElementById('nlForm').reset();
+      document.getElementById('nl-success').style.display='block';
+      setTimeout(function(){document.getElementById('nl-success').style.display='none'},5000);
+    }else{alert('Etwas ist schiefgelaufen. Bitte schreib mir an hi@baeumlermarketing.de');}
+  }).catch(function(){alert('Verbindungsfehler. Bitte schreib mir an hi@baeumlermarketing.de');});
+  return false;
+}
+</script>
+</body>
+</html>
