@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-<script src="https://gumroad.com/js/gumroad.js" defer></script>
+<!-- Stripe Payment Links werden hier eingefügt sobald verfügbar -->
 <style>
   :root {
     --bg: #ffffff; --bg2: #f7f7f5; --text: #303030;
@@ -141,7 +141,7 @@
     transition: transform 0.3s;
   }
   .wb-card:hover .wb-arrow { transform: scale(1.1) rotate(-5deg); }
-  .wb-arrow.gumroad-button { background: var(--coral) !important; padding: 0 !important; border: none !important; font-size: 0 !important; line-height: 0 !important; overflow: hidden !important; }
+  /* Gumroad override removed — switching to Stripe */
 
   /* ── How It Works ── */
   .how-section {
@@ -326,7 +326,7 @@
 
     <div class="wb-card">
       <div class="wb-card-img"><img src="images/wb-online-check.jpg" alt="Kostenloser Online-Check" loading="lazy"></div>
-      <a href="https://baeumlermarketing.gumroad.com/l/online-check" class="gumroad-button wb-arrow" aria-label="Jetzt holen">
+      <a href="#" data-product="online-check" class="wb-arrow" aria-label="Jetzt holen">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
       </a>
       <div class="wb-body">
@@ -338,7 +338,7 @@
 
     <div class="wb-card">
       <div class="wb-card-img"><img src="images/wb-ki-marketing.jpg" alt="KI-Workspace Workbook" loading="lazy"></div>
-      <a href="https://baeumlermarketing.gumroad.com/l/ki-marketing" class="gumroad-button wb-arrow" aria-label="Jetzt kaufen">
+      <a href="#" data-product="ki-marketing" class="wb-arrow" aria-label="Jetzt kaufen">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
       </a>
       <div class="wb-body">
@@ -350,7 +350,7 @@
 
     <div class="wb-card">
       <div class="wb-card-img"><img src="images/wb-lokal-sichtbar.jpg" alt="Lokal sichtbar" loading="lazy"></div>
-      <a href="https://baeumlermarketing.gumroad.com/l/lokal-sichtbar" class="gumroad-button wb-arrow" aria-label="Mehr erfahren">
+      <a href="#" data-product="lokal-sichtbar" class="wb-arrow" aria-label="Mehr erfahren">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
       </a>
       <div class="wb-body">
@@ -362,7 +362,7 @@
 
     <div class="wb-card">
       <div class="wb-card-img"><img src="images/wb-creator-business.jpg" alt="Creator Business" loading="lazy"></div>
-      <a href="https://baeumlermarketing.gumroad.com/l/creator-business" class="gumroad-button wb-arrow" aria-label="Mehr erfahren">
+      <a href="#" data-product="creator-business" class="wb-arrow" aria-label="Mehr erfahren">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
       </a>
       <div class="wb-body">
@@ -387,8 +387,8 @@
       </div>
       <div class="how-step">
         <span class="how-num">2</span>
-        <h4>Über Gumroad bestellen</h4>
-        <p>Sicherer Checkout — per Kreditkarte oder PayPal. Kostenlose Produkte direkt ohne Zahlung.</p>
+        <h4>Sicher bezahlen</h4>
+        <p>Einfacher Checkout — per Kreditkarte, PayPal oder Klarna. Kostenlose Produkte direkt ohne Zahlung.</p>
       </div>
       <div class="how-step">
         <span class="how-num">3</span>
@@ -401,8 +401,8 @@
 
 <!-- ════════════════════ CTA ════════════════════ -->
 <section class="page-cta">
-  <h2>Du willst schneller vorankommen?</h2>
-  <p>Die Workbooks sind ein guter Startpunkt — aber manchmal bringt ein Blick von außen mehr als jedes Workbook.</p>
+  <h2>Du willst schneller voran?</h2>
+  <p>Die Workbooks sind ein guter Startpunkt &mdash; aber manchmal bringt ein Blick von au&szlig;en mehr als jedes Workbook.</p>
   <a href="/#kontakt" class="cta-btn">Erstgespr&auml;ch vereinbaren</a>
 </section>
 
