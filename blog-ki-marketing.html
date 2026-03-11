@@ -318,6 +318,7 @@
     .step-card { padding: 20px; }
     .article-cta { padding: 28px 20px; }
     .newsletter-form { flex-direction: column; }
+    .nl-row { flex-direction: column; }
     .newsletter-section { padding: 40px 20px; }
     .tool-grid { grid-template-columns: 1fr; }
     footer { padding: 32px 16px 24px; }
@@ -604,7 +605,7 @@
   <h2>Nichts mehr verpassen</h2>
   <p>Neue Artikel, Tipps und Praxiswissen &mdash; direkt in dein Postfach. Kein Spam, nur Inhalte, die dir weiterhelfen.</p>
   <form class="newsletter-form" id="nlForm" onsubmit="return submitNewsletter(event)" style="flex-direction:column;align-items:center;gap:14px">
-    <div style="display:flex;gap:12px;width:100%;max-width:440px">
+    <div class="nl-row" style="display:flex;gap:12px;width:100%;max-width:440px">
       <input type="text" class="newsletter-input" id="nl-name" required placeholder="Dein Vorname" style="flex:1">
       <input type="email" class="newsletter-input" id="nl-email" required placeholder="deine@email.de" style="flex:1">
     </div>
