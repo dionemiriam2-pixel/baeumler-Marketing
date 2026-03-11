@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lokale SEO: So wirst du in deiner Stadt gefunden | Baeumler Marketing</title>
+<meta name="description" content="Lokale SEO f&uuml;r Selbstst&auml;ndige und kleine Unternehmen. In 3 Schritten bei Google ganz oben erscheinen &mdash; ohne Agentur-Budget und ohne Technik-Wissen.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/favicon-192x192.png">
+<meta name="theme-color" content="#e8604c">
+<meta property="og:title" content="Lokale SEO: So wirst du in deiner Stadt gefunden">
+<meta property="og:description" content="In 3 Schritten bei Google ganz oben &mdash; ohne Agentur und ohne Technik-Wissen. F&uuml;r Selbstst&auml;ndige und lokale Unternehmen.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://baeumlermarketing.de/images/blog-lokale-seo.jpg">
+<link rel="canonical" href="https://baeumlermarketing.de/blog-lokale-seo.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg2: #f7f7f5; --text: #303030;
+    --muted: rgba(17,17,16,0.65); --border: rgba(0,0,0,0.08);
+    --coral: #e8604c; --teal: #2db8a8;
+    --sans: 'Inter', system-ui, sans-serif;
+    --heading: 'Antonio', sans-serif;
+    --serif: 'Playfair Display', Georgia, serif;
+    --pill: 100px; --r: 20px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── Nav (pill, subpage) ── */
+  nav {
+    position: sticky; top: 0; z-index: 100; padding: 16px 40px;
+    display: flex; justify-content: center;
+  }
+  .nav-bar {
+    background: #fff; border-radius: var(--pill); padding: 8px 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    display: inline-flex; align-items: center; gap: 24px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; text-transform: uppercase; }
+  .nav-back { font-size: 14px; color: var(--coral); text-decoration: none; transition: color 0.2s; }
+
+  /* ── Progress bar ── */
+  .progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0;
+    background: var(--coral); z-index: 200; transition: width 0.15s linear;
+  }
+
+  /* ── Article layout ── */
+  .article-header {
+    max-width: 720px; margin: 0 auto; padding: 48px 40px 0; text-align: center;
+  }
+  .article-meta { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; }
+  .article-tag {
+    background: var(--teal); color: #fff; font-size: 12px; font-weight: 600;
+    padding: 4px 12px; border-radius: var(--pill); text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .article-date { font-size: 13px; color: var(--muted); }
+  .article-header h1 {
+    font-family: var(--heading); font-size: clamp(32px,5vw,56px);
+    font-weight: 700; line-height: 1.1; margin-bottom: 16px; text-transform: uppercase;
+  }
+  .article-intro {
+    font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 600px; margin: 0 auto;
+  }
+  .article-hero-img {
+    width: 100%; max-height: 480px; object-fit: cover; margin: 40px auto 0; border-radius: var(--r);
+    max-width: 960px;
+  }
+  .article-body {
+    max-width: 680px; margin: 0 auto; padding: 48px 40px 80px;
+    font-size: 16px; line-height: 1.8;
+  }
+  .article-body h2 {
+    font-family: var(--heading); font-size: clamp(22px,3vw,32px);
+    font-weight: 700; margin: 48px 0 16px; text-transform: uppercase; line-height: 1.2;
+  }
+  .article-body h3 {
+    font-family: var(--sans); font-size: 18px; font-weight: 600; margin: 32px 0 8px;
+  }
+  .article-body p { margin-bottom: 20px; }
+  .article-body ul, .article-body ol { margin: 0 0 20px 24px; }
+  .article-body li { margin-bottom: 8px; }
+  .article-body strong { font-weight: 600; }
+  .article-body blockquote {
+    border-left: 3px solid var(--coral); margin: 28px 0; padding: 16px 24px;
+    font-style: italic; color: var(--muted); background: var(--bg2); border-radius: 0 var(--r) var(--r) 0;
+  }
+  .article-body blockquote p { margin-bottom: 0; }
+  .article-body a { color: var(--coral); text-decoration: underline; }
+  .muted { color: var(--muted); font-size: 14px; font-style: italic; }
+
+  /* ── Step cards ── */
+  .step-card {
+    background: var(--bg2); border-radius: var(--r); padding: 24px 28px;
+    margin: 16px 0; position: relative; padding-left: 72px;
+  }
+  .step-number {
+    position: absolute; left: 24px; top: 24px; width: 36px; height: 36px;
+    background: var(--coral); color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 15px;
+  }
+  .step-card h3 { font-family: var(--sans); font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .step-card p { font-size: 14px; color: var(--muted); margin-bottom: 0; }
+
+  /* ── Checklist ── */
+  .checklist { list-style: none; margin: 0 0 20px 0; padding: 0; }
+  .checklist li {
+    padding: 8px 0 8px 32px; position: relative; border-bottom: 1px solid var(--border);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: "\2713"; position: absolute; left: 0; top: 8px;
+    color: var(--teal); font-weight: 700; font-size: 16px;
+  }
+
+  /* ── CTA box ── */
+  .article-cta {
+    background: var(--text); color: #fff; border-radius: var(--r);
+    padding: 36px 32px; text-align: center; margin: 40px 0;
+  }
+  .article-cta h3 { font-family: var(--heading); font-size: 24px; text-transform: uppercase; margin-bottom: 8px; }
+  .article-cta p { color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 15px; }
+  .cta-btn {
+    display: inline-block; background: var(--coral); color: #fff; padding: 14px 32px;
+    border-radius: var(--pill); font-weight: 600; font-size: 15px; text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); background: #d4553f; }
+
+  /* ── Newsletter ── */
+  .newsletter-section {
+    max-width: 600px; margin: 0 auto; padding: 60px 40px; text-align: center;
+  }
+  .newsletter-section h2 {
+    font-family: var(--heading); font-size: clamp(24px,3vw,36px);
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .newsletter-section p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
+  .newsletter-form { display: flex; gap: 12px; justify-content: center; }
+  .newsletter-input {
+    padding: 14px 20px; border-radius: var(--pill); border: 1px solid var(--border);
+    font-size: 15px; font-family: var(--sans); outline: none; transition: border 0.2s;
+  }
+  .newsletter-input:focus { border-color: var(--coral); }
+  .newsletter-btn {
+    padding: 14px 28px; background: var(--coral); color: #fff; border: none;
+    border-radius: var(--pill); font-weight: 600; font-size: 15px; cursor: pointer;
+    font-family: var(--sans); transition: background 0.2s, transform 0.2s;
+  }
+  .newsletter-btn:hover { background: #d4553f; transform: translateY(-1px); }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border); padding: 36px 40px; text-align: center;
+  }
+  .footer-inner { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .footer-brand { font-family: var(--heading); font-size: 20px; font-weight: 700; text-transform: uppercase; }
+  .footer-brand .dot { color: var(--coral); }
+  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--coral); }
+  .footer-copy { font-size: 12px; color: var(--muted); }
+
+  /* ── Responsive ── */
+  @media (max-width: 860px) {
+    .article-header { padding: 36px 20px 0; }
+    .article-body { padding: 36px 20px 60px; }
+    .article-hero-img { max-height: 360px; padding: 0 20px !important; }
+    nav { padding: 12px 20px; }
+    .nav-bar { padding: 8px 20px; gap: 16px; }
+    .step-card { padding: 20px; padding-left: 64px; }
+    .article-cta { padding: 28px 20px; }
+    .newsletter-form { flex-direction: column; }
+    .newsletter-section { padding: 40px 20px; }
+    footer { padding: 28px 16px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+  }
+  @media (max-width: 380px) {
+    .article-header { padding: 32px 14px 0; }
+    .article-body { padding: 24px 14px 48px; }
+    .article-hero-img { max-height: 300px; }
+    nav { padding: 10px 12px; }
+  }
+</style>
+
+<!-- Article structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Lokale SEO: So wirst du in deiner Stadt gefunden",
+  "description": "Lokale SEO f\u00fcr Selbstst\u00e4ndige und kleine Unternehmen. In 3 Schritten bei Google ganz oben erscheinen.",
+  "author": {
+    "@type": "Person",
+    "name": "Miriam B\u00e4umler",
+    "url": "https://baeumlermarketing.de/meine-geschichte.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "B\u00e4umler Marketing"
+  },
+  "datePublished": "2026-03-11",
+  "dateModified": "2026-03-11",
+  "mainEntityOfPage": "https://baeumlermarketing.de/blog-lokale-seo.html",
+  "keywords": ["lokale SEO", "Google Business Profil", "Selbstst\u00e4ndige", "lokale Unternehmen", "bei Google gefunden werden", "SEO ohne Agentur"]
+}
+</script>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <div class="nav-bar">
+    <a href="/" class="nav-logo">Baeumler.</a>
+    <a href="blog.html" class="nav-back">&larr; Alle Artikel</a>
+  </div>
+</nav>
+
+<!-- ════════════════════ ARTICLE HEADER ════════════════════ -->
+<header class="article-header">
+  <div class="article-meta">
+    <span class="article-tag">SEO</span>
+    <span class="article-date">11. M&auml;rz 2026 &middot; 4 Min. Lesezeit</span>
+  </div>
+  <h1>Lokale SEO: So wirst du in deiner Stadt gefunden</h1>
+  <p class="article-intro">Deine potenziellen Kunden suchen bei Google nach genau dem, was du anbietest &mdash; aber sie finden dich nicht. Das l&auml;sst sich &auml;ndern. In 3 Schritten.</p>
+</header>
+
+<img class="article-hero-img" src="images/blog-lokale-seo.jpg" alt="Lokale SEO &mdash; bei Google in deiner Stadt gefunden werden" loading="lazy" style="padding: 0 40px;">
+
+<!-- ════════════════════ ARTICLE BODY ════════════════════ -->
+<div class="article-body">
+
+  <p>Wenn jemand in deiner Stadt nach &bdquo;Friseur in der N&auml;he&ldquo;, &bdquo;Steuerberater Langenfeld&ldquo; oder &bdquo;Webdesign D&uuml;sseldorf&ldquo; sucht, entscheidet Google in Sekunden, wer oben steht &mdash; und wer unsichtbar bleibt.</p>
+
+  <p>Die gute Nachricht: <strong>Lokale SEO ist kein Hexenwerk.</strong> Du brauchst keine Agentur, keine technischen Vorkenntnisse und kein gro&szlig;es Budget. Was du brauchst, sind die richtigen Grundlagen &mdash; und die bekommst du hier.</p>
+
+  <h2>Warum lokale SEO so wichtig ist</h2>
+
+  <p>Rund <strong>46 % aller Google-Suchanfragen</strong> haben einen lokalen Bezug. Und fast 80 % der Nutzer, die mobil nach einem lokalen Angebot suchen, besuchen innerhalb von 24 Stunden ein Gesch&auml;ft oder nehmen Kontakt auf.</p>
+
+  <p>Das hei&szlig;t: Wenn du lokal anbietest und bei Google nicht sichtbar bist, verlierst du t&auml;glich potenzielle Kunden &mdash; an Wettbewerber, die sichtbar sind.</p>
+
+  <h2>In 3 Schritten zur lokalen Sichtbarkeit</h2>
+
+  <div class="step-card">
+    <span class="step-number">1</span>
+    <h3>Google Business Profil einrichten</h3>
+    <p>Das ist die wichtigste Ma&szlig;nahme. Dein Google Business Profil entscheidet, ob du auf Google Maps und in den lokalen Suchergebnissen auftauchst. Trag deine Adresse, &Ouml;ffnungszeiten, Telefonnummer und eine gute Beschreibung ein.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">2</span>
+    <h3>Website f&uuml;r lokale Suchen optimieren</h3>
+    <p>Dein Standort sollte auf deiner Website klar erkennbar sein &mdash; im Seitentitel, in der Meta-Beschreibung und im Text. Nicht versteckt im Footer, sondern prominent. Google muss verstehen, wo du bist und was du anbietest.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">3</span>
+    <h3>Bewertungen sammeln</h3>
+    <p>Google-Bewertungen sind einer der st&auml;rksten Ranking-Faktoren f&uuml;r lokale Suchergebnisse. Bitte zufriedene Kunden aktiv um eine Bewertung &mdash; am besten direkt nach dem Projekt oder Kauf.</p>
+  </div>
+
+  <h2>Schritt 1: Dein Google Business Profil</h2>
+
+  <p>Falls du noch kein Profil hast: Geh auf <strong>business.google.com</strong> und erstelle eins. Falls du schon eins hast, pr&uuml;f ob alle Angaben aktuell und vollst&auml;ndig sind.</p>
+
+  <p>Darauf kommt es an:</p>
+
+  <ul class="checklist">
+    <li><strong>Name:</strong> Dein offizieller Unternehmensname (keine Keywords reinpacken)</li>
+    <li><strong>Adresse:</strong> Korrekt und identisch mit der auf deiner Website</li>
+    <li><strong>&Ouml;ffnungszeiten:</strong> Aktuell halten, auch an Feiertagen</li>
+    <li><strong>Kategorie:</strong> Die passendste Hauptkategorie w&auml;hlen (z.B. &bdquo;Marketingberater&ldquo;)</li>
+    <li><strong>Beschreibung:</strong> Klar formulieren, was du anbietest und f&uuml;r wen</li>
+    <li><strong>Fotos:</strong> Echte Bilder von dir, deinem B&uuml;ro, deiner Arbeit &mdash; keine Stockfotos</li>
+    <li><strong>Website-Link:</strong> Auf deine Startseite verlinken</li>
+  </ul>
+
+  <blockquote>
+    <p>Ein vollst&auml;ndiges Google Business Profil hat laut Google eine 70 % h&ouml;here Wahrscheinlichkeit, Besucher anzuziehen als ein unvollst&auml;ndiges.</p>
+  </blockquote>
+
+  <h2>Schritt 2: Deine Website lokal optimieren</h2>
+
+  <p>Deine Website muss Google klar zeigen: Hier ist ein Unternehmen in [Stadt], das [Dienstleistung] anbietet. Das geht &uuml;ber drei Stellen:</p>
+
+  <h3>Seitentitel und Meta-Beschreibung</h3>
+  <p>Dein Seitentitel sollte dein Angebot und deinen Standort enthalten. Beispiel: <strong>&bdquo;Marketingberatung Langenfeld &mdash; Webdesign, Branding und Online Marketing&ldquo;</strong>. Das ist das Erste, was Nutzer in den Google-Ergebnissen sehen.</p>
+
+  <h3>Inhalte auf der Seite</h3>
+  <p>Erw&auml;hne deinen Standort im Text &mdash; nicht k&uuml;nstlich, sondern dort, wo es Sinn ergibt. &bdquo;Ich arbeite aus Langenfeld und betreue Kunden in der Region D&uuml;sseldorf&ldquo; ist besser als deinen Stadtnamen zehnmal zu wiederholen.</p>
+
+  <h3>NAP-Konsistenz</h3>
+  <p><strong>NAP</strong> steht f&uuml;r Name, Address, Phone. Diese drei Angaben m&uuml;ssen &uuml;berall identisch sein &mdash; auf deiner Website, bei Google, in Branchenverzeichnissen. Schon kleine Abweichungen (z.B. &bdquo;Stra&szlig;e&ldquo; vs. &bdquo;Str.&ldquo;) k&ouml;nnen dein Ranking beeintr&auml;chtigen.</p>
+
+  <h2>Schritt 3: Bewertungen gezielt aufbauen</h2>
+
+  <p>Bewertungen sind f&uuml;r lokale SEO das, was Backlinks f&uuml;r die klassische Suchmaschinenoptimierung sind: ein Vertrauenssignal.</p>
+
+  <p>So bekommst du mehr Bewertungen:</p>
+
+  <ul>
+    <li><strong>Frag direkt nach:</strong> Nach einem erfolgreichen Projekt oder Kauf. Die meisten Kunden bewerten gerne &mdash; sie denken nur nicht von selbst dran.</li>
+    <li><strong>Mach es einfach:</strong> Schick einen direkten Link zu deinem Google-Bewertungsformular per E-Mail oder Nachricht.</li>
+    <li><strong>Reagiere auf Bewertungen:</strong> Bedanke dich f&uuml;r positive Bewertungen und antworte professionell auf negative. Das zeigt Google und potenziellen Kunden, dass du aktiv bist.</li>
+  </ul>
+
+  <blockquote>
+    <p>Unternehmen mit mehr als 10 Google-Bewertungen und einem Durchschnitt &uuml;ber 4 Sternen werden in den lokalen Ergebnissen deutlich h&auml;ufiger angeklickt.</p>
+  </blockquote>
+
+  <h2>Bonus: Branchenverzeichnisse nutzen</h2>
+
+  <p>Trag dein Unternehmen in relevante Online-Verzeichnisse ein &mdash; zum Beispiel:</p>
+
+  <ul>
+    <li><strong>Das &Ouml;rtliche / Gelbe Seiten</strong> &mdash; immer noch relevant f&uuml;r lokale Suchen</li>
+    <li><strong>Yelp</strong> &mdash; besonders f&uuml;r Dienstleister</li>
+    <li><strong>Branchenspezifische Verzeichnisse</strong> &mdash; je nach deinem Bereich</li>
+    <li><strong>Lokale Verzeichnisse</strong> &mdash; z.B. von deiner Stadt oder Gemeinde</li>
+  </ul>
+
+  <p>Wichtig: &Uuml;berall dieselben NAP-Daten verwenden. Qualit&auml;t vor Quantit&auml;t &mdash; 5 gepflegte Eintr&auml;ge sind mehr wert als 50 veraltete.</p>
+
+  <h2>Wie schnell zeigen sich Ergebnisse?</h2>
+
+  <p>Lokale SEO ist kein Sprint. Aber die Ma&szlig;nahmen hier sind so grundlegend, dass du oft schon nach <strong>2&ndash;4 Wochen</strong> eine Verbesserung merkst &mdash; vor allem, wenn du vorher gar nichts gemacht hast.</p>
+
+  <p>Die erste Reaktion ist meistens: Mehr Aufrufe deines Google Business Profils. Dann kommen die ersten Anrufe und Website-Besuche. Und mit der Zeit steigst du in den lokalen Suchergebnissen immer weiter nach oben.</p>
+
+  <h2>Zusammenfassung</h2>
+
+  <ul class="checklist">
+    <li>Google Business Profil vollst&auml;ndig einrichten und aktuell halten</li>
+    <li>Website-Titel, Texte und Meta-Beschreibung lokal optimieren</li>
+    <li>NAP-Daten &uuml;berall konsistent halten</li>
+    <li>Aktiv Google-Bewertungen sammeln und beantworten</li>
+    <li>In relevante Branchenverzeichnisse eintragen</li>
+  </ul>
+
+  <p>Das sind keine komplizierten Ma&szlig;nahmen. Aber sie machen den Unterschied zwischen &bdquo;unsichtbar&ldquo; und &bdquo;ganz oben&ldquo;.</p>
+
+  <!-- CTA Box -->
+  <div class="article-cta">
+    <h3>Du willst, dass dein Business lokal gefunden wird?</h3>
+    <p>Ich helfe dir, deine Website und dein Google-Profil so aufzustellen, dass deine Kunden dich finden &mdash; nicht andersherum.</p>
+    <a href="/#kontakt" class="cta-btn">Kostenloses Erstgespr&auml;ch &rarr;</a>
+  </div>
+
+  <div class="article-cta" style="background: var(--coral);">
+    <h3>Nicht sicher, wo du stehst?</h3>
+    <p>Mach den kostenlosen Online-Check und finde heraus, was du als Erstes angehen solltest.</p>
+    <a href="https://baeumlermarketing.gumroad.com/l/online-check" target="_blank" class="cta-btn" style="background: var(--text);">Kostenloser Online-Check &rarr;</a>
+  </div>
+
+</div>
+
+<!-- ════════════════════ NEWSLETTER ════════════════════ -->
+<section class="newsletter-section">
+  <h2>Nichts mehr verpassen</h2>
+  <p>Neue Artikel, Tipps und Praxiswissen &mdash; direkt in dein Postfach. Kein Spam, nur Inhalte, die dir weiterhelfen.</p>
+  <form class="newsletter-form" id="nlForm" onsubmit="return submitNewsletter(event)" style="flex-direction:column;align-items:center;gap:14px">
+    <div style="display:flex;gap:12px;width:100%;max-width:440px">
+      <input type="text" class="newsletter-input" id="nl-name" required placeholder="Dein Vorname" style="flex:1">
+      <input type="email" class="newsletter-input" id="nl-email" required placeholder="deine@email.de" style="flex:1">
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;max-width:440px;width:100%">
+      <input type="checkbox" id="nl-dsgvo" required style="accent-color:var(--coral);width:18px;height:18px;flex-shrink:0">
+      <label for="nl-dsgvo" style="font-size:12px;color:var(--muted);line-height:1.4;text-align:left">Ich stimme der <a href="datenschutz.html" style="color:var(--coral)">Datenschutzerkl&auml;rung</a> zu.</label>
+    </div>
+    <button type="submit" class="newsletter-btn">Eintragen &rarr;</button>
+    <p id="nl-success" style="display:none;color:var(--teal);font-weight:600;font-size:14px;margin-top:4px">Super, du bist dabei!</p>
+  </form>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">B&auml;umler<span class="dot">.</span></span>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="meine-geschichte.html">&Uuml;ber mich</a>
+      <a href="workbooks.html">Workbooks</a>
+      <a href="blog.html">Blog</a>
+      <a href="/#kontakt">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+      <a href="#" data-cookie-settings>Cookie-Einstellungen</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
+  </div>
+</footer>
+
+<script>
+// ── Reading progress bar ──
+(function() {
+  var bar = document.getElementById('progressBar');
+  if (!bar) return;
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    bar.style.width = pct + '%';
+  }, { passive: true });
+})();
+
+// ── Newsletter (HubSpot) ──
+function submitNewsletter(e) {
+  e.preventDefault();
+  var name = document.getElementById('nl-name').value.trim();
+  var email = document.getElementById('nl-email').value.trim();
+  if (!name || !email) return false;
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/49329498/3da277bf-6e73-44ea-892c-71358b35552b', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      fields: [
+        { objectTypeId: '0-1', name: 'firstname', value: name },
+        { objectTypeId: '0-1', name: 'email', value: email }
+      ],
+      context: { pageUri: window.location.href, pageName: document.title }
+    })
+  }).then(function() {
+    document.getElementById('nl-success').style.display = 'block';
+    document.getElementById('nlForm').reset();
+  });
+  return false;
+}
+</script>
+<script src="cookie-banner.js" defer></script>
+</body>
+</html>
