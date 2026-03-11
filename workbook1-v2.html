@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Workspace in unter einer Woche — Workbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', system-ui, sans-serif; color: #1a1a1a; background: #e8e8e8; line-height: 1.6; }
+
+  .page {
+    width: 794px; height: 1123px;
+    background: #fff; margin: 30px auto;
+    position: relative; overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    padding: 60px 56px;
+    display: flex; flex-direction: column;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  h1, h2, h3, h4 { font-family: 'Antonio', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.1; }
+  h1 { font-size: 44px; }
+  h2 { font-size: 36px; margin-bottom: 24px; }
+  h3 { font-size: 24px; margin-bottom: 16px; }
+  h4 { font-size: 18px; margin-bottom: 12px; }
+  p { font-size: 14px; line-height: 1.7; margin-bottom: 14px; color: #333; }
+  .serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
+
+  .coral { color: #e8604c; }
+  .coral-bg { background: #e8604c; }
+  .coral-line { width: 40px; height: 3px; background: #e8604c; border-radius: 2px; margin-bottom: 20px; }
+  .coral-line-long { width: 100%; height: 2px; background: #e8604c; opacity: 0.2; margin: 24px 0; }
+
+  /* Cover */
+  .cover { padding: 48px 44px; }
+  .cover .top-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #e8604c; margin-bottom: 28px; }
+  .cover h1 { font-size: 44px; margin-bottom: 16px; }
+  .cover .subtitle { font-size: 16px; font-weight: 500; color: #e8604c; margin-bottom: 8px; }
+  .cover .tagline { font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; color: #303030; margin-bottom: 24px; line-height: 1.4; }
+  .cover .description { font-size: 13px; color: #555; max-width: 380px; margin-bottom: 20px; line-height: 1.6; }
+  .cover .image-area { flex: 1; background: #f2f2f0; border: 2px dashed #ccc; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; min-height: 200px; }
+  .cover .bottom-info { margin-top: auto; padding-top: 20px; }
+  .cover .bottom-info h3 { font-size: 16px; text-transform: uppercase; }
+  .cover .bottom-info p { font-size: 11px; color: #888; margin-bottom: 0; }
+  .cover .coral-swipe { position: absolute; top: -80px; right: -60px; width: 500px; height: 500px; background: radial-gradient(ellipse at 70% 30%, #e8604c 0%, #e8604c 40%, transparent 70%); opacity: 0.12; border-radius: 50%; filter: blur(40px); z-index: 0; }
+
+  /* TOC */
+  .toc-item { display: flex; align-items: baseline; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+  .toc-number { font-family: 'Antonio', sans-serif; font-size: 24px; font-weight: 700; color: #e8604c; width: 44px; flex-shrink: 0; }
+  .toc-title { font-family: 'Antonio', sans-serif; font-size: 16px; font-weight: 700; text-transform: uppercase; flex: 1; }
+  .toc-desc { font-size: 11px; color: #888; margin-top: 3px; font-family: 'Inter', sans-serif; text-transform: none; }
+
+  /* Chapter Title Pages */
+  .chapter-title-page { justify-content: center; align-items: flex-start; }
+  .chapter-title-page .chapter-num { font-family: 'Antonio', sans-serif; font-size: 120px; font-weight: 700; color: #e8604c; opacity: 0.15; line-height: 1; margin-bottom: -20px; }
+  .chapter-title-page h2 { font-size: 42px; margin-bottom: 16px; }
+  .chapter-title-page .chapter-intro { font-size: 16px; color: #555; max-width: 500px; line-height: 1.7; }
+
+  /* Content Elements */
+  .step-box { background: #fafaf8; border-left: 3px solid #e8604c; padding: 18px 22px; margin-bottom: 18px; border-radius: 0 8px 8px 0; }
+  .step-box .step-num { font-family: 'Antonio', sans-serif; font-size: 13px; color: #e8604c; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+  .step-box h4 { font-size: 15px; margin-bottom: 6px; }
+  .step-box p { font-size: 13px; margin-bottom: 0; color: #555; }
+
+  .tip-box { background: #fff8f6; border: 1px solid rgba(232,96,76,0.2); border-radius: 8px; padding: 18px 22px; margin: 18px 0; }
+  .tip-box .tip-label { font-size: 11px; font-weight: 700; color: #e8604c; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+  .tip-box p { font-size: 13px; color: #555; margin-bottom: 0; }
+
+  .screenshot-placeholder { background: #f5f5f3; border: 2px dashed #ddd; border-radius: 8px; height: 160px; display: flex; align-items: center; justify-content: center; color: #bbb; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin: 18px 0; }
+
+  .checklist { margin: 14px 0; }
+  .checklist-item { display: flex; align-items: flex-start; gap: 12px; padding: 9px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px; }
+  .checkbox { width: 18px; height: 18px; border: 2px solid #ddd; border-radius: 4px; flex-shrink: 0; margin-top: 1px; }
+
+  .fill-field { border-bottom: 2px dotted #ccc; padding: 8px 0; margin: 8px 0 18px; min-height: 30px; font-size: 13px; color: #999; }
+  .fill-field.large { min-height: 70px; }
+
+  .tool-card { display: inline-flex; align-items: center; gap: 10px; background: #fafaf8; border: 1px solid #eee; border-radius: 8px; padding: 10px 14px; margin: 5px 5px 5px 0; font-size: 12px; font-weight: 600; }
+  .tool-card .tool-type { font-size: 10px; color: #888; font-weight: 400; }
+
+  .cost-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px; }
+  .cost-row .cost-price { font-weight: 700; color: #e8604c; }
+  .cost-total { font-size: 16px; font-weight: 700; padding-top: 10px; display: flex; justify-content: space-between; }
+
+  .prompt-box { background: #1a1a1a; color: #e8e8e8; border-radius: 8px; padding: 18px 22px; margin: 14px 0; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.6; }
+  .prompt-box .prompt-label { color: #e8604c; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+
+  .quote-block { border-left: 3px solid #e8604c; padding: 16px 24px; margin: 20px 0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 17px; color: #303030; line-height: 1.5; }
+
+  .page-footer { margin-top: auto; padding-top: 16px; display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: #ccc; border-top: 1px solid #f0f0f0; }
+
+  .two-col { display: flex; gap: 24px; }
+  .two-col > div { flex: 1; }
+
+  .mindset-box { background: #f7f7f5; border-radius: 12px; padding: 20px 24px; margin: 14px 0; }
+  .mindset-box h4 { font-size: 14px; margin-bottom: 8px; color: #e8604c; }
+  .mindset-box p { font-size: 13px; color: #555; margin-bottom: 0; }
+
+  .mode-card { background: #fafaf8; border: 1px solid #eee; border-radius: 12px; padding: 18px 20px; margin: 10px 0; }
+  .mode-card h4 { font-size: 16px; margin-bottom: 6px; }
+  .mode-card .mode-tag { display: inline-block; font-size: 10px; font-weight: 700; color: #fff; background: #e8604c; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .mode-card p { font-size: 12px; color: #555; margin-bottom: 0; }
+
+  @media print { body { background: white; } .page { box-shadow: none; margin: 0; } }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 1: COVER
+═══════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="coral-swipe"></div>
+  <div style="position:relative;z-index:1;display:flex;flex-direction:column;height:100%;">
+    <div class="top-label">Workbook</div>
+    <h1>Business<br>Workspace<br>in unter einer<br>Woche</h1>
+    <div class="subtitle">mit Claude AI · für unter 30 € monatlich</div>
+    <div class="coral-line"></div>
+    <div class="tagline">So macht Selbstständigkeit<br>wieder Spaß.</div>
+    <div class="description">Du hast ein Produkt oder eine Dienstleistung und weißt nicht, wie du alle Tools online einrichtest? Dank KI geht das heute alles in unter einer Woche. Ich zeige dir wie.</div>
+    <div class="image-area">Dein Bild hier</div>
+    <div class="bottom-info">
+      <h3>Miriam Bäumler</h3>
+      <p>Baeumler Marketing</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 2: EINSTIEG + ÜBER MICH
+═══════════════════════════════════════════ -->
+<div class="page">
+  <p style="font-family:'Playfair Display',serif;font-size:18px;line-height:1.7;color:#1a1a1a;font-style:italic;text-align:center;margin-bottom:28px;">Was wäre, wenn deine Selbstständigkeit nicht an deiner Idee scheitert – sondern nur daran, dass dir niemand gezeigt hat, wie du sie online aufbaust?</p>
+
+  <div class="coral-line"></div>
+
+  <p>Vielleicht hast du eine Idee für deine Selbstständigkeit. Vielleicht auch schon ein Angebot. Aber irgendwo zwischen Website, Marketing, Tools und Technik fühlt sich plötzlich alles komplizierter an, als du gedacht hast.</p>
+
+  <p>Du fragst dich: Wo fange ich überhaupt an? Was brauche ich wirklich? Und was kann ich vielleicht erst später machen?</p>
+
+  <p>Vielleicht stehst du gerade genau an diesem Punkt.</p>
+
+  <p>Du hast eine Idee. Vielleicht eine Dienstleistung, vielleicht ein Produkt. Vielleicht einfach nur das Gefühl, dass du mit deinem Wissen eigentlich längst selbstständig arbeiten könntest.</p>
+
+  <p>Du weißt, was du kannst. Du weißt auch, wem du helfen könntest.</p>
+
+  <p>Und trotzdem fühlt sich der Anfang irgendwie kompliziert an.</p>
+
+  <p>Nicht, weil dir die Idee fehlt. Sondern weil plötzlich tausend andere Dinge auftauchen.</p>
+
+  <p>Du brauchst eine Website. Ein Logo. Eine Domain. Eine geschäftliche E-Mail-Adresse. Dann kommen die rechtlichen Dinge dazu: Impressum, Datenschutzerklärung, Cookie-Banner. Dann merkst du, dass du dich auch noch mit Marketing beschäftigen musst. Mit Texten. Mit Social Media. Mit Tools.</p>
+
+  <p>Und irgendwann sitzt du vor deinem Laptop und denkst:</p>
+
+  <p>Ich wollte doch eigentlich nur mein Wissen anbieten. Warum fühlt sich das gerade an wie ein komplett neues Studium?</p>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>2</span>
+  </div>
+</div>
+
+<div class="page">
+  <p>Das Verrückte ist: Fast jeder, der heute ein Online-Business aufbauen möchte, kommt irgendwann genau an diesen Punkt. Es sind unglaublich viele Bausteine. Und alle wirken gleichzeitig wichtig. Nur erklärt dir niemand wirklich, wo du eigentlich anfangen sollst.</p>
+
+  <p>Genau dort stand ich auch.</p>
+
+  <p>Ich bin Miriam. Und vor ein paar Jahren stand ich genau an dem Punkt, an dem du vielleicht gerade stehst.</p>
+
+  <p>Nach meinem Master in Wirtschaftspsychologie mit Schwerpunkt Markt- und Werbepsychologie wollte ich mich selbstständig machen und mein Wissen endlich in der Praxis einsetzen. Während meines Studiums hat mich besonders interessiert, warum Menschen bestimmte Entscheidungen treffen, wie Marken Vertrauen aufbauen und wie Kommunikation unser Verhalten beeinflusst.</p>
+
+  <p>Für mich war deshalb relativ klar, dass ich in diesem Bereich arbeiten und mich selbstständig machen möchte.</p>
+
+  <p>Ich hatte Ideen, Wissen und Motivation.</p>
+
+  <p>Was ich damals allerdings noch nicht hatte, war ein wirklicher Überblick darüber, was alles dazugehört, wenn man ein eigenes Business aufbauen möchte.</p>
+
+  <p>Denn ziemlich schnell wurde mir klar: Selbstständig zu sein bedeutet nicht nur, ein gutes Angebot zu haben. Es bedeutet auch, sichtbar zu sein.</p>
+
+  <p>Und genau da begann für mich eine ganz neue Lernkurve.</p>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>3</span>
+  </div>
+</div>
+
+<div class="page">
+  <p>Plötzlich ging es nicht mehr nur um mein Fachgebiet, sondern um viele andere Themen, die im Studium kaum eine Rolle gespielt hatten. Website, Branding, Marketing, Tools, Online-Präsenz, Kundenaufbau.</p>
+
+  <p>Ich merkte schnell, dass zwischen der Idee „Ich mache mich selbstständig" und einem funktionierenden Online-Business noch eine ganze Welt liegt. Eine Welt aus Technik, Marketing, Strategie und vielen kleinen Bausteinen, die alle irgendwie zusammenhängen.</p>
+
+  <p>Und genau in dieser Phase habe ich angefangen, mich intensiver mit Marketing zu beschäftigen. Am Anfang ganz pragmatisch, weil ich es einfach für meine eigene Selbstständigkeit brauchte.</p>
+
+  <p>Ich habe kostenlose Kurse gemacht, Tutorials geschaut, mich durch Inhalte gearbeitet, Dinge ausprobiert und versucht zu verstehen, wie Online-Marketing eigentlich funktioniert. Wie Websites aufgebaut sind. Wie Menschen online auf Angebote aufmerksam werden. Und wie man sich Schritt für Schritt eine eigene Präsenz aufbauen kann.</p>
+
+  <p>Mit der Zeit habe ich gemerkt, dass mich dieses Thema immer mehr interessiert. Plötzlich ergab vieles Sinn: mein wirtschaftliches Denken, mein Studium mit Markt- und Werbepsychologie und die praktische Seite von Marketing und Sichtbarkeit. Alles hängt zusammen. Gerade in der Online-Welt.</p>
+
+  <p>Also habe ich angefangen, mich noch tiefer in das Thema einzuarbeiten, weitere Kurse zu besuchen, praktische Erfahrungen zu sammeln und später auch in Agenturen zu arbeiten. Dabei habe ich immer besser verstanden, wie Marketing, Psychologie und strategisches Denken zusammenwirken.</p>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>4</span>
+  </div>
+</div>
+
+<div class="page">
+  <p>Und genau aus dieser Kombination ist schließlich auch das entstanden, was ich heute mache.</p>
+
+  <p>Heute verbinde ich wirtschaftspsychologisches Verständnis mit Marketing-Know-how und praktischer Umsetzung – besonders für Menschen, die ihr eigenes Business aufbauen und online sichtbar werden möchten.</p>
+
+  <p>Denn ich kenne diesen Punkt, an dem alles noch unübersichtlich wirkt. Die Idee ist da. Die Motivation auch. Aber der Weg dorthin wirkt plötzlich viel größer als gedacht.</p>
+
+  <p>Und genau dabei soll dir dieses Workbook helfen.</p>
+
+  <p>Es bündelt vieles von dem Wissen, das ich mir über Jahre selbst zusammengesucht habe – und zeigt dir Schritt für Schritt, welche Bausteine wirklich wichtig sind, wenn du dir online eine Selbstständigkeit aufbauen möchtest. Damit du nicht erst jahrelang alles selbst zusammensuchen musst, sondern direkt mit einer klaren Struktur starten kannst.</p>
+
+  <div class="coral-line" style="margin-top:32px;"></div>
+  <h2>Was du aus diesem Workbook mitnehmen wirst</h2>
+  <p>Nach diesem Workbook wirst du:</p>
+  <p>✓ verstehen, welche Bausteine ein Online-Business wirklich braucht</p>
+  <p>✓ wissen, womit du anfangen solltest – und was später kommt</p>
+  <p>✓ dein eigenes Online-Fundament Schritt für Schritt aufbauen</p>
+  <p>✓ Tools nutzen, die dir Arbeit abnehmen statt neue Probleme schaffen</p>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>5</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 8: INHALTSVERZEICHNIS
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Inhalt</h2>
+
+  <div class="toc-item"><div class="toc-number">01</div><div><div class="toc-title">Unternehmer-Mindset</div><div class="toc-desc">Selbstmanagement, Zeitplanung & die richtige Einstellung</div></div></div>
+  <div class="toc-item"><div class="toc-number">02</div><div><div class="toc-title">Was brauchst du alles?</div><div class="toc-desc">Der große Überblick: Alle Bausteine deiner Online-Selbstständigkeit</div></div></div>
+  <div class="toc-item"><div class="toc-number">03</div><div><div class="toc-title">Claude AI verstehen</div><div class="toc-desc">Chat, Cowork & Claude Code — dein KI-Assistent erklärt</div></div></div>
+  <div class="toc-item"><div class="toc-number">04</div><div><div class="toc-title">VS Code & Projektstruktur</div><div class="toc-desc">Code-Editor installieren, Ordner anlegen, loslegen</div></div></div>
+  <div class="toc-item"><div class="toc-number">05</div><div><div class="toc-title">Website-Template finden</div><div class="toc-desc">Moderne Vorlage aussuchen und mit Claude anpassen</div></div></div>
+  <div class="toc-item"><div class="toc-number">06</div><div><div class="toc-title">Cookie-Banner & Recht</div><div class="toc-desc">Impressum, Datenschutz, DSGVO — alles Pflicht</div></div></div>
+  <div class="toc-item"><div class="toc-number">07</div><div><div class="toc-title">Marke & Logo mit Canva</div><div class="toc-desc">Name, Logo, Farben & Branding aufbauen</div></div></div>
+  <div class="toc-item"><div class="toc-number">08</div><div><div class="toc-title">Domain bei IONOS</div><div class="toc-desc">Deine Adresse im Internet registrieren</div></div></div>
+  <div class="toc-item"><div class="toc-number">09</div><div><div class="toc-title">Website live schalten</div><div class="toc-desc">GitHub, Vercel & Domain verbinden</div></div></div>
+  <div class="toc-item"><div class="toc-number">10</div><div><div class="toc-title">Google Workspace & E-Mail</div><div class="toc-desc">Professionelle E-Mail mit eigener Domain</div></div></div>
+  <div class="toc-item"><div class="toc-number">11</div><div><div class="toc-title">CRM mit HubSpot</div><div class="toc-desc">Kontakte, Formulare & Newsletter an einem Ort</div></div></div>
+  <div class="toc-item"><div class="toc-number">12</div><div><div class="toc-title">Automatisierung mit Cowork</div><div class="toc-desc">Claude erledigt Aufgaben für dich — automatisch</div></div></div>
+  <div class="toc-item" style="border-bottom:none;"><div class="toc-number">13</div><div><div class="toc-title">Digitale Produkte verkaufen</div><div class="toc-desc">Gumroad einrichten, Produkt anlegen, Checkout einbauen</div></div></div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>6</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 1: UNTERNEHMER-MINDSET (Titelseite)
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">01</div>
+  <h2>Unternehmer-<br>Mindset</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Bevor wir irgendein Tool aufmachen, reden wir über das Wichtigste: dich. Deine Einstellung, deine Zeit und deinen Plan. Denn egal wie gut die Werkzeuge sind — ohne das richtige Mindset bringt dir das alles nichts.</p>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>7</span></div>
+</div>
+
+<!-- KAPITEL 1: INHALT (Seite 1) -->
+<div class="page">
+  <h3><span class="coral">01</span> — Unternehmer-Mindset</h3>
+  <div class="coral-line-long"></div>
+
+  <p>Was mir in der Schule nie jemand beigebracht hat: wie man sich selbstständig macht. Wir lernen, gute Angestellte zu sein — pünktlich kommen, Aufgaben abarbeiten, Noten kriegen. Aber wie man ein eigenes Business aufbaut, was dazugehört, wie man sich organisiert? Das bringt dir keiner bei. Und genau da stand ich auch. Und wahrscheinlich stehst du gerade an einem ähnlichen Punkt.</p>
+
+  <p>Ich sage dir ganz ehrlich: Selbstständigkeit ist nicht für jeden. Nicht weil es zu schwer wäre, sondern weil es Disziplin braucht. Du musst dir Zeit nehmen — regelmäßig, nicht nur wenn du Lust hast. Du musst abends nach der Arbeit nochmal den Laptop aufmachen, wenn du eigentlich lieber auf der Couch liegen würdest. Du musst Dinge lernen, die dir erstmal komplett fremd sind. Und du musst akzeptieren, dass es nicht beim ersten Mal perfekt sein wird.</p>
+
+  <p>Aber wenn du bereit bist, das zu tun, dann hast du einen riesigen Vorteil gegenüber allen, die es nicht tun.</p>
+
+  <div class="mindset-box">
+    <h4>Selbstständigkeit ist wie in ETFs investieren</h4>
+    <p>Am Anfang brauchst du ein ganzes Setup und Grundwissen. Dann musst du regelmäßig reinvestieren — Zeit, Energie, manchmal auch Geld. Und irgendwann wächst es exponentiell. Aber nur, wenn du den Anfang machst und dranbleibst. Genau wie bei einer Geldanlage: Die meisten scheitern nicht, weil sie zu wenig wissen, sondern weil sie zu früh aufhören.</p>
+  </div>
+
+  <h3 style="margin-top:20px;">Wie viel Zeit brauchst du wirklich?</h3>
+
+  <p>Du brauchst nicht 8 Stunden am Tag. Aber du brauchst <strong>Regelmäßigkeit</strong>. Ein, zwei, drei Stunden abends können reichen, wenn du sie konsequent nutzt. Hier ist ein realistischer Plan:</p>
+
+  <div class="step-box">
+    <div class="step-num">Woche 1</div>
+    <h4>Workspace aufsetzen (dieses Workbook)</h4>
+    <p>Ca. 15–20 Stunden verteilt auf 5–7 Tage. Das klingt viel, aber du arbeitest dich hier durch alles durch: Marke, Website, E-Mail, CRM, Shop. Danach steht dein Fundament.</p>
+  </div>
+  <div class="step-box">
+    <div class="step-num">Woche 2–3</div>
+    <h4>Website verfeinern, Content erstellen</h4>
+    <p>Ca. 5–10 Stunden pro Woche. Texte anpassen, eigene Bilder einfügen, vielleicht den ersten Blog-Artikel schreiben. Alles mit Claude als Unterstützung.</p>
+  </div>
+  <div class="step-box">
+    <div class="step-num">Woche 4</div>
+    <h4>Social Media starten, erstes Produkt live</h4>
+    <p>Ca. 5–10 Stunden. Instagram und Facebook einrichten, erste Posts erstellen, dein erstes digitales Produkt auf Gumroad hochladen.</p>
+  </div>
+  <div class="step-box">
+    <div class="step-num">Ab Monat 2</div>
+    <h4>Regelmäßig dranbleiben</h4>
+    <p>Ca. 3–5 Stunden pro Woche reichen. Content erstellen, Community aufbauen, optimieren. Ab jetzt wird es Routine — und es macht sogar Spaß, weil du siehst, dass es funktioniert.</p>
+  </div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>8</span></div>
+</div>
+
+<!-- KAPITEL 1: INHALT (Seite 2) -->
+<div class="page">
+  <h3>Bist du bereit? Dein Selbst-Check</h3>
+
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><span>Ich habe ein Produkt, eine Dienstleistung oder Wissen, das ich anbieten will</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Ich kann 15–20 Stunden diese Woche investieren</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Ich bin bereit, Neues zu lernen — auch wenn es am Anfang überwältigend ist</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Ich akzeptiere, dass es nicht beim ersten Mal perfekt sein muss</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Ich habe ca. 30 € pro Monat Budget für Tools</span></div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Mein wichtigster Tipp</div>
+    <p>Perfektionismus ist der Feind von Fortschritt. Ich bin selbst eine kleine Perfektionistin — und musste lernen, mich davon zu lösen. Deine Website muss nicht beim ersten Mal perfekt sein. Dein Logo auch nicht. Deine Texte erst recht nicht. Du kannst alles später anpassen, verbessern, komplett umschmeißen. Aber du musst erstmal <strong>anfangen</strong>. Lieber heute 70% live als nächstes Jahr 100% in der Schublade.</p>
+  </div>
+
+  <h4 style="margin-top: 24px;">Dein persönlicher Wochenplan</h4>
+  <p style="font-size:12px; color:#888;">Trage ein, wann du diese Woche an deinem Business arbeitest:</p>
+
+  <div style="display:grid; grid-template-columns: repeat(7,1fr); gap:8px; margin:14px 0;">
+    <div style="background:#fafaf8;border:1px solid #eee;border-radius:8px;padding:10px 6px;text-align:center;font-size:11px;"><strong style="color:#e8604c;">Mo</strong><div class="fill-field" style="margin:8px 0 0;min-height:40px;border-bottom:none;border:1px dashed #ddd;border-radius:4px;"></div></div>
+    <div style="background:#fafaf8;border:1px solid #eee;border-radius:8px;padding:10px 6px;text-align:center;font-size:11px;"><strong style="color:#e8604c;">Di</strong><div class="fill-field" style="margin:8px 0 0;min-height:40px;border-bottom:none;border:1px dashed #ddd;border-radius:4px;"></div></div>
+    <div style="background:#fafaf8;border:1px solid #eee;border-radius:8px;padding:10px 6px;text-align:center;font-size:11px;"><strong style="color:#e8604c;">Mi</strong><div class="fill-field" style="margin:8px 0 0;min-height:40px;border-bottom:none;border:1px dashed #ddd;border-radius:4px;"></div></div>
+    <div style="background:#fafaf8;border:1px solid #eee;border-radius:8px;padding:10px 6px;text-align:center;font-size:11px;"><strong style="color:#e8604c;">Do</strong><div class="fill-field" style="margin:8px 0 0;min-height:40px;border-bottom:none;border:1px dashed #ddd;border-radius:4px;"></div></div>
+    <div style="background:#fafaf8;border:1px solid #eee;border-radius:8px;padding:10px 6px;text-align:center;font-size:11px;"><strong style="color:#e8604c;">Fr</strong><div class="fill-field" style="margin:8px 0 0;min-height:40px;border-bottom:none;border:1px dashed #ddd;border-radius:4px;"></div></div>
+    <div style="background:#fafaf8;border:1px solid #eee;border-radius:8px;padding:10px 6px;text-align:center;font-size:11px;"><strong style="color:#e8604c;">Sa</strong><div class="fill-field" style="margin:8px 0 0;min-height:40px;border-bottom:none;border:1px dashed #ddd;border-radius:4px;"></div></div>
+    <div style="background:#fafaf8;border:1px solid #eee;border-radius:8px;padding:10px 6px;text-align:center;font-size:11px;"><strong style="color:#e8604c;">So</strong><div class="fill-field" style="margin:8px 0 0;min-height:40px;border-bottom:none;border:1px dashed #ddd;border-radius:4px;"></div></div>
+  </div>
+
+  <h4>Was ist mein Ziel in 4 Wochen?</h4>
+  <div class="fill-field large"></div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>9</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 2: WAS BRAUCHST DU ALLES? (Titelseite)
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">02</div>
+  <h2>Was brauchst<br>du alles?</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Das war mein größtes Problem am Anfang: Ich wusste nicht mal, was ich alles brauche. Hier bekommst du den kompletten Überblick — alle Bausteine auf einen Blick, was sie kosten, und wofür du sie brauchst.</p>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>10</span></div>
+</div>
+
+<!-- KAPITEL 2: INHALT (Seite 1) -->
+<div class="page">
+  <h3><span class="coral">02</span> — Der große Überblick</h3>
+  <div class="coral-line-long"></div>
+
+  <p>Als ich angefangen habe, wusste ich nicht mal, was eine Domain ist. Ich kannte den Unterschied zwischen Hosting und Server nicht, wusste nicht was DNS bedeutet, und hatte keine Vorstellung davon, was man alles braucht, um online professionell aufzutreten. Und das Frustrierende war: Niemand hat mir gesagt, welche Puzzleteile es überhaupt gibt.</p>
+
+  <p>Deshalb bekommst du hier den kompletten Überblick. Zehn Bausteine, die zusammen deinen Online-Workspace ergeben. Jeder einzelne wird in den folgenden Kapiteln Schritt für Schritt erklärt:</p>
+
+  <div class="two-col">
+    <div>
+      <div class="mindset-box">
+        <h4>1. Marke & Identität</h4>
+        <p>Name, Logo, Farben, Schriften, Tonalität. Wie willst du nach außen auftreten?</p>
+      </div>
+      <div class="mindset-box">
+        <h4>2. Website</h4>
+        <p>Deine digitale Visitenkarte. Startseite, Über mich, Leistungen, Blog, Kontakt.</p>
+      </div>
+      <div class="mindset-box">
+        <h4>3. Domain & Hosting</h4>
+        <p>Deine Adresse im Internet. Z.B. deinname.de — und der Server, der deine Seite ausliefert.</p>
+      </div>
+      <div class="mindset-box">
+        <h4>4. E-Mail</h4>
+        <p>Professionell: hi@deinedomain.de statt meinemail123@gmail.com.</p>
+      </div>
+      <div class="mindset-box">
+        <h4>5. Rechtliches</h4>
+        <p>Impressum, Datenschutz, Cookie-Banner, AGB — alles Pflicht in Deutschland.</p>
+      </div>
+    </div>
+    <div>
+      <div class="mindset-box">
+        <h4>6. CRM-System</h4>
+        <p>Kundenkontakte verwalten, Anfragen sammeln, Formulare einbinden, Newsletter.</p>
+      </div>
+      <div class="mindset-box">
+        <h4>7. Shop / Checkout</h4>
+        <p>Digitale Produkte verkaufen: Workbooks, Kurse, Templates, E-Books.</p>
+      </div>
+      <div class="mindset-box">
+        <h4>8. Marketing & Content</h4>
+        <p>Social Media, Blog-Artikel, Newsletter — damit Leute dich finden.</p>
+      </div>
+      <div class="mindset-box">
+        <h4>9. Tracking & Analyse</h4>
+        <p>Wer besucht deine Seite? Woher kommen sie? Was funktioniert?</p>
+      </div>
+      <div class="mindset-box">
+        <h4>10. KI-Werkzeuge</h4>
+        <p>Claude AI als dein Schweizer Taschenmesser: baut, schreibt, automatisiert.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>11</span></div>
+</div>
+
+<!-- KAPITEL 2: INHALT (Seite 2) -->
+<div class="page">
+  <h3>Was kostet das alles?</h3>
+
+  <p>Das war für mich eine der wichtigsten Erkenntnisse: Du brauchst kein großes Budget, um professionell aufzutreten. Die meisten Tools, die wir nutzen, sind entweder komplett kostenlos oder kosten weniger als ein Kaffee am Tag. Hier ist die ehrliche Aufstellung:</p>
+
+  <div class="cost-row"><span>Claude Pro (KI-Assistent)</span><span class="cost-price">~19 €/Monat</span></div>
+  <div class="cost-row"><span>VS Code (Code-Editor)</span><span class="cost-price">kostenlos</span></div>
+  <div class="cost-row"><span>GitHub (Code-Verwaltung)</span><span class="cost-price">kostenlos</span></div>
+  <div class="cost-row"><span>Vercel (Hosting)</span><span class="cost-price">kostenlos</span></div>
+  <div class="cost-row"><span>IONOS Domain (.de)</span><span class="cost-price">~1 €/Monat</span></div>
+  <div class="cost-row"><span>Google Workspace (E-Mail)</span><span class="cost-price">~6 €/Monat</span></div>
+  <div class="cost-row"><span>Canva (Grafik-Design)</span><span class="cost-price">kostenlos*</span></div>
+  <div class="cost-row"><span>HubSpot CRM</span><span class="cost-price">kostenlos</span></div>
+  <div class="cost-row"><span>Gumroad (Shop)</span><span class="cost-price">kostenlos**</span></div>
+  <div class="cost-total"><span>Gesamt</span><span class="coral">unter 30 € / Monat</span></div>
+  <p style="font-size:10px; color:#aaa; margin-top:4px;">* Canva Pro optional für 12€/Monat — lohnt sich, ist aber nicht Pflicht. ** Gumroad nimmt 10% pro Verkauf.</p>
+
+  <div class="coral-line-long"></div>
+
+  <h3>Deine Ausgangslage</h3>
+  <p style="font-size:12px; color:#888;">Notiere dir kurz, wo du stehst — das hilft dir durch das ganze Workbook:</p>
+
+  <h4>Mein Produkt / meine Dienstleistung:</h4>
+  <div class="fill-field large"></div>
+  <h4>Mein Wunsch-Markenname:</h4>
+  <div class="fill-field"></div>
+  <h4>Meine Zielgruppe:</h4>
+  <div class="fill-field"></div>
+  <h4>Mein monatliches Budget:</h4>
+  <div class="fill-field"></div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>12</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 3: CLAUDE AI VERSTEHEN (Titelseite)
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">03</div>
+  <h2>Claude AI<br>verstehen</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Das war der Gamechanger für mich. Claude ist nicht einfach ein Chatbot, dem du Fragen stellst. Claude ist dein Entwickler, Texter und Assistent in einem. In diesem Kapitel lernst du die drei Modi kennen — und verstehst, warum das alles verändert.</p>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>13</span></div>
+</div>
+
+<!-- KAPITEL 3: INHALT (Seite 1) -->
+<div class="page">
+  <h3><span class="coral">03</span> — Claude AI verstehen</h3>
+  <div class="coral-line-long"></div>
+
+  <p>Ich habe in meinem Leben noch nie eine Zeile Code geschrieben. Ich wusste nicht, was Frontend und Backend bedeutet, was HTML ist, was CSS macht — diese ganzen Begriffe waren mir komplett fremd. Ich konnte eine Website benutzen, aber ich hatte null Ahnung, wie man eine baut.</p>
+
+  <p>Dann habe ich mir auf YouTube und TikTok ein paar Videos angeschaut — einfach „Claude Code Website bauen" eingegeben — und gesehen, wie jemand einer KI in normalem Deutsch sagt, was er haben will, und die KI baut eine komplette Website. Innerhalb von Minuten. Ich konnte es nicht glauben.</p>
+
+  <p>Claude AI hat <strong>drei Modi</strong>. Jeder davon hat eine andere Aufgabe, und du wirst im Laufe dieses Workbooks alle drei nutzen. Lass mich dir erklären, was jeder Modus macht und wofür du ihn brauchst:</p>
+
+  <div class="mode-card">
+    <div class="mode-tag">Modus 1</div>
+    <h4>Claude Chat</h4>
+    <p>Das ist der Modus, den du wahrscheinlich als Erstes nutzen wirst. Hier stellst du Fragen, lässt Texte schreiben, arbeitest an Strategien. Du kannst <strong>Projekte</strong> anlegen und dort Dateien hochladen — zum Beispiel dein Logo, deine Farbpalette, eine Beschreibung deines Business. So kennt Claude bei jedem neuen Chat deinen Kontext und du musst nicht jedes Mal alles von vorne erklären. Nutze Chat für: Texte schreiben, Ideen brainstormen, Fragen stellen, Prompts vorbereiten, Recherche.</p>
+  </div>
+
+  <div class="mode-card">
+    <div class="mode-tag">Modus 2</div>
+    <h4>Claude Cowork</h4>
+    <p>Das hat mich am meisten beeindruckt. Cowork ist wie ein Assistent, der an deinem Computer sitzt und Aufgaben für dich erledigt. Du sagst Claude, was er tun soll, und er macht es — im Browser, vor deinen Augen. Wenn du den Browser-Zugriff akzeptierst, kann Claude Websites öffnen, Formulare ausfüllen, Einstellungen ändern. Mit <strong>Konnektoren</strong> verbindest du Tools wie Canva, Google oder HubSpot direkt mit Claude. Nutze Cowork für: HubSpot einrichten, E-Mail-Signaturen erstellen, Canva-Designs anlegen, repetitive Aufgaben automatisieren.</p>
+  </div>
+
+  <div class="mode-card">
+    <div class="mode-tag">Modus 3</div>
+    <h4>Claude Code</h4>
+    <p>Dein persönlicher Programmierer. Claude Code arbeitet direkt in deinen Dateien in VS Code — dem Programm, das Entwickler normalerweise zum Coden benutzen. Du sagst in ganz normalem Deutsch, was du haben willst, und Claude schreibt den Code dafür. Website, Cookie-Banner, E-Mail-Signatur, interaktive Elemente — alles. Claude sieht dein ganzes Projekt und baut konsistent weiter. Das Wichtigste: <strong>Du musst keinen Code verstehen oder lesen können.</strong> Du redest, Claude baut.</p>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Das Wichtigste, was ich gelernt habe</div>
+    <p>Alles, was du nicht weißt — jede einzelne Frage, die du hast — kannst du einfach in Claude eingeben. „Was ist ein DNS-Record?" „Wie richte ich eine Domain ein?" „Erkläre mir, was Frontend bedeutet." Claude erklärt dir alles in einfacher Sprache.</p>
+  </div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>14</span></div>
+</div>
+
+<!-- KAPITEL 3: INHALT (Seite 2) -->
+<div class="page">
+  <h3>Deine ersten Prompts</h3>
+
+  <p>Ein guter Prompt ist wie eine gute Briefing-Mail: Je klarer du sagst, was du willst, desto besser das Ergebnis. Hier sind Vorlagen, die du sofort nutzen kannst:</p>
+
+  <div class="prompt-box">
+    <div class="prompt-label">Prompt: Fragen stellen</div>
+    Erkläre mir in einfachen Worten, was [Begriff] bedeutet. Ich habe keine technischen Vorkenntnisse. Nutze Beispiele aus dem Alltag.
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-label">Prompt: Prompt verbessern lassen</div>
+    Du bist Webentwickler. Ich möchte eine moderne, interaktive Website erstellen für mein Business [Name]. Schreibe mir einen detaillierten Prompt, den ich in Claude Code eingeben kann, um diese Website zu bauen. Mein Stil: [modern/minimalistisch/...]. Meine Farben: [Farben].
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-label">Prompt: Schritt-für-Schritt-Anleitung</div>
+    Erstelle mir eine Schritt-für-Schritt-Anleitung für [Aufgabe]. Erkläre jeden Schritt so, als hätte ich noch nie etwas davon gehört. Wo muss ich klicken? Was muss ich eingeben? Was passiert dann?
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Profi-Tipp: Projekte in Claude Chat</div>
+    <p>Lege in Claude Chat ein Projekt an (z.B. „Mein Business Workspace") und speichere dort dein Briefing als Projektanweisung. So kennt Claude bei jedem neuen Chat deinen Kontext — deine Farben, deinen Stil, deine Zielgruppe. Du sparst dir das wiederholte Erklären.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Jetzt bist du dran</div>
+    <h4>Claude Pro aktivieren</h4>
+    <p>Gehe auf <strong>claude.ai</strong> → Konto erstellen → Auf Claude Pro upgraden (~20$/Monat). Damit bekommst du deutlich mehr Nachrichten, Zugang zu den besten Modellen und alle drei Modi: Chat, Cowork und Code.</p>
+  </div>
+
+  <div class="screenshot-placeholder">Screenshot: claude.ai — Chat, Cowork, Code</div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>15</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 4: VS CODE (Titelseite)
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">04</div>
+  <h2>VS Code &<br>Projektstruktur</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Keine Panik — VS Code klingt technischer als es ist. Es ist einfach das Programm, in dem deine Website-Dateien liegen und in dem Claude Code für dich arbeitet. Du musst hier nichts selbst programmieren. Aber du musst wissen, wo alles liegt.</p>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>16</span></div>
+</div>
+
+<!-- KAPITEL 4: INHALT -->
+<div class="page">
+  <h3><span class="coral">04</span> — VS Code einrichten</h3>
+  <div class="coral-line-long"></div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>VS Code herunterladen</h4>
+    <p>Gehe auf <strong>code.visualstudio.com</strong> und lade die kostenlose Version herunter. Installieren, öffnen, fertig.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Projektordner anlegen</h4>
+    <p>Erstelle auf deinem Computer einen neuen Ordner, z.B. auf dem Desktop: „meine-website". Dann in VS Code: Datei → Ordner öffnen → deinen Ordner auswählen.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Claude Code installieren</h4>
+    <p>Öffne das Terminal in VS Code (Ansicht → Terminal) und gib ein:<br><strong>npm install -g @anthropic-ai/claude-code</strong><br>Danach kannst du Claude Code direkt im Terminal starten.</p>
+  </div>
+
+  <div class="screenshot-placeholder">Screenshot: VS Code mit Terminal & Ordnerstruktur</div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 4</div>
+    <h4>Ordnerstruktur verstehen</h4>
+    <p>Claude wird automatisch die richtigen Dateien erstellen. Aber damit du verstehst, was passiert: <strong>index.html</strong> = deine Startseite. <strong>style.css</strong> = das Design (Farben, Schriften). <strong>script.js</strong> = interaktive Funktionen. <strong>images/</strong> = ein Ordner für deine Bilder.</p>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Keine Angst vor Code</div>
+    <p>Ich sage es nochmal, weil es so wichtig ist: Du musst keinen Code lesen oder verstehen können. Du sagst Claude einfach in ganz normalen Sätzen, was du willst. „Mach die Überschrift größer." „Ändere die Hintergrundfarbe zu Weiß." „Füge ein Kontaktformular ein." Claude versteht dich und ändert den Code für dich. Du siehst nur das Ergebnis im Browser.</p>
+  </div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>17</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 5: WEBSITE-TEMPLATE (Titelseite)
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">05</div>
+  <h2>Website-Template<br>finden &<br>anpassen</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Du musst das Rad nicht neu erfinden. Es gibt Tausende von professionellen Website-Vorlagen im Internet — viele davon kostenlos. Du suchst dir eine aus, die dir gefällt, lädst den Code herunter, und Claude passt sie an dein Business an.</p>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>18</span></div>
+</div>
+
+<!-- KAPITEL 5: INHALT -->
+<div class="page">
+  <h3><span class="coral">05</span> — Website-Template</h3>
+  <div class="coral-line-long"></div>
+
+  <p>Ich wollte eine richtig gute Website. Nicht so eine Standard-Baukasten-Seite wie bei Wix oder Jimdo, wo man sofort sieht, dass es ein Baukasten ist. Sondern etwas Modernes, Interaktives, Professionelles. Das Problem: Wenn du das von einer Agentur bauen lässt, zahlst du schnell 5.000 Euro aufwärts. Die Lösung: Du nimmst ein professionelles Template als Grundlage und lässt Claude den Rest machen.</p>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Template-Seiten durchstöbern</h4>
+    <p>Gehe auf Seiten wie <strong>21st.dev</strong>, <strong>html5up.net</strong> oder <strong>templatemo.com</strong> und such dir ein Template aus, das dir gefällt. Achte auf: modernes Design, responsive (sieht auf Handy gut aus), sauberer Aufbau.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>HTML-Quellcode herunterladen</h4>
+    <p>Lade den HTML-Code des Templates herunter. Bei den meisten Seiten ist das ein ZIP-Ordner mit HTML, CSS und Bild-Dateien.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>In deinen VS Code Ordner einfügen</h4>
+    <p>Entpacke die Dateien und kopiere sie in deinen Projektordner (den du in Kapitel 4 erstellt hast). Öffne den Ordner in VS Code.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 4</div>
+    <h4>Claude anpassen lassen</h4>
+    <p>Starte Claude Code im Terminal und sag ihm, was du willst:</p>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-label">Prompt: Website anpassen</div>
+    Ich habe dieses HTML-Template in meinem Ordner. Ich möchte eine ähnliche Website für mein Business „[Name]". Meine Farben sind [Farben], mein Stil ist [modern/minimalistisch/...]. Erstelle mir daraus eine komplette Website mit: Startseite mit Hero-Sektion, Über-mich-Seite, Leistungen/Produkte, Blog, Kontaktformular. Alles auf Deutsch, responsive für mobile Geräte.
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Trying and Error — das gehört dazu</div>
+    <p>Deine Website wird beim ersten Versuch nicht perfekt aussehen. Das ist völlig normal — meins sah am Anfang auch nicht so aus wie jetzt. Der Trick ist: Du sagst Claude einfach, was dir nicht gefällt. „Mach den Hero-Bereich größer." „Die Schrift gefällt mir nicht, nimm eine modernere." „Das Kontaktformular soll auf einer eigenen Seite sein." Claude passt alles an — so oft du willst, ohne dass es extra kostet.</p>
+  </div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>19</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 6: COOKIE-BANNER & RECHT (Titelseite + Inhalt)
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">06</div>
+  <h2>Cookie-Banner<br>& Rechtliches</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Das ist der Teil, vor dem sich alle drücken. Aber in Deutschland kommst du nicht drum herum: Impressum, Datenschutz und Cookie-Banner sind Pflicht. Die gute Nachricht: Claude kann das komplett für dich übernehmen.</p>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>20</span></div>
+</div>
+
+<div class="page">
+  <h3><span class="coral">06</span> — Rechtliches</h3>
+  <div class="coral-line-long"></div>
+
+  <p>Ich weiß, das klingt trocken. Aber ohne Impressum und Datenschutzerklärung riskierst du Abmahnungen — und die können schnell mal 1.000 Euro oder mehr kosten. Das willst du nicht. Die gute Nachricht: Mit den richtigen Generatoren und Claude ist das in unter einer Stunde erledigt. Und dann hast du Ruhe.</p>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Impressum erstellen</h4>
+    <p>Nutze einen Impressum-Generator (z.B. e-recht24.de) und lass Claude das Ergebnis als eigene Seite auf deiner Website einbauen.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Datenschutzerklärung erstellen</h4>
+    <p>Ebenfalls über einen Generator (e-recht24.de oder datenschutz-generator.de). Claude baut dir die Seite auf deiner Website ein.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Cookie-Banner mit Claude Code bauen</h4>
+    <p>Sag Claude im Terminal: „Erstelle mir einen DSGVO-konformen Cookie-Consent-Banner in HTML/CSS/JS." Claude baut dir einen komplett funktionalen Banner, der Cookies erst lädt, wenn der User zustimmt.</p>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-label">Prompt: Cookie-Banner</div>
+    Erstelle mir einen DSGVO-konformen Cookie-Consent-Banner für meine Website. Der Banner soll: beim ersten Besuch erscheinen, die Optionen „Alle akzeptieren", „Nur notwendige" und „Einstellungen" anbieten, Cookies erst nach Zustimmung laden, die Auswahl speichern. Design passend zu meinen Farben [Farben].
+  </div>
+
+  <div class="checklist" style="margin-top:16px;">
+    <div class="checklist-item"><div class="checkbox"></div><span>Impressum auf der Website (als eigene Seite, im Footer verlinkt)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Datenschutzerklärung auf der Website (eigene Seite, im Footer)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Cookie-Banner funktioniert und erscheint beim ersten Besuch</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>AGB (falls du Produkte verkaufst)</span></div>
+  </div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>21</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 7: MARKE & LOGO (Titelseite + Inhalt)
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">07</div>
+  <h2>Marke & Logo<br>mit Canva</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Einfach soll einfach sein. In diesem Kapitel findest du deinen Markennamen, erstellst dein Logo und legst deine Brand-Farben fest — alles mit Canva und Claude.</p>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>22</span></div>
+</div>
+
+<div class="page">
+  <h3><span class="coral">07</span> — Marke & Logo</h3>
+  <div class="coral-line-long"></div>
+
+  <p>Ich habe am Anfang viel zu viel Zeit mit dem Markennamen verbracht. Stundenlang Schreibweisen verglichen, geschaut ob es den schon gibt, Markenrecht recherchiert, alternative Namen ausprobiert. Heute sage ich: <strong>Einfach soll einfach sein.</strong> Ich heiße Bäumler, ich mache Marketing — also Bäumler Marketing. Das war's. Kein ausgefallener Fantasiename, kein Branding-Workshop für 3.000 Euro.</p>
+
+  <p>Mein Tipp: Nimm deinen Namen und das, was du machst. Prüf, ob die Domain frei ist. Wenn ja — fertig. Du kannst den Namen später immer noch ändern oder erweitern. Aber blockiere dich nicht am Anfang damit.</p>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Markennamen festlegen</h4>
+    <p>Kurz, einprägsam, ehrlich. Tipp: Dein Name + was du machst. Prüfe, ob die .de-Domain noch frei ist (bei ionos.de).</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Logo in Canva erstellen</h4>
+    <p>Gehe auf <strong>canva.com</strong> (kostenlos reicht, Pro spart Zeit). Such nach „Logo" und passe eine Vorlage an — oder erstelle eins von Null. Du brauchst dein Logo als <strong>SVG</strong> (für die Website) und als <strong>PNG</strong> (für Social Media, E-Mail etc.).</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Brand-Farben & Schriften festlegen</h4>
+    <p>Wähle 2–3 Farben und 2 Schriftarten. Das reicht für den Anfang. Tipp: Schau dir deine Lieblings-Websites an — welche Farben gefallen dir?</p>
+  </div>
+
+  <p style="font-weight:600; font-size:13px; margin-top:16px;">Dein Branding:</p>
+  <div class="fill-field">Markenname: </div>
+  <div class="fill-field">Hauptfarbe: ________  ·  Akzentfarbe: ________  ·  Textfarbe: ________</div>
+  <div class="fill-field">Schrift Überschriften: ________________  ·  Schrift Fließtext: ________________</div>
+
+  <div class="tip-box">
+    <div class="tip-label">Canva mit Claude verbinden</div>
+    <p>In Claude Cowork kannst du Canva als Konnektor verbinden. Dann kann Claude direkt in Canva Designs erstellen, Logos anpassen und Vorlagen generieren — ohne dass du Canva selbst öffnen musst.</p>
+  </div>
+
+  <p style="font-size:12px; color:#888;">Kostenlose Bildquellen für deine Website: <strong>Unsplash</strong>, <strong>Pexels</strong>, <strong>Pixabay</strong> — hochwertige Fotos, komplett kostenlos.</p>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>23</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 8: DOMAIN (Titelseite + Inhalt)
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">08</div>
+  <h2>Domain bei<br>IONOS</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Eine Domain ist deine Adresse im Internet — wie eine Hausnummer, nur digital. Statt einer kryptischen URL wie mein-projekt.vercel.app steht dann deinbusiness.de in der Browserleiste. Und das kostet weniger als ein Kaffee im Monat.</p>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>24</span></div>
+</div>
+
+<div class="page">
+  <h3><span class="coral">08</span> — Domain registrieren</h3>
+  <div class="coral-line-long"></div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Auf ionos.de gehen</h4>
+    <p>IONOS ist günstig, zuverlässig und einfach zu bedienen. Eine .de-Domain kostet ca. 1€ pro Monat.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Domain-Verfügbarkeit prüfen</h4>
+    <p>Gib deinen Wunschnamen ein (z.B. baeumlermarketing.de). Wenn er frei ist — sofort registrieren.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Domain registrieren</h4>
+    <p>Registriere die Domain. Du brauchst dafür nur Name, Adresse und Zahlungsmethode. In wenigen Minuten gehört die Domain dir.</p>
+  </div>
+
+  <div class="screenshot-placeholder">Screenshot: IONOS Domain-Suche</div>
+
+  <div class="tip-box">
+    <div class="tip-label">Namens-Tipps</div>
+    <p>Halte den Domainnamen kurz und einprägsam. Vermeide Bindestriche wenn möglich. Prüfe, ob der Name auch auf Instagram und Facebook noch frei ist — Konsistenz ist wichtig.</p>
+  </div>
+
+  <h4>Meine Domain-Details:</h4>
+  <div class="fill-field">Domain: </div>
+  <div class="fill-field">Registriert bei: IONOS  ·  Zugangsdaten sicher gespeichert: ☐ Ja</div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>25</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 9: WEBSITE LIVE (Titelseite + Inhalt)
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">09</div>
+  <h2>Website<br>live schalten</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Das klingt erstmal kompliziert, ist es aber nicht. GitHub ist wie eine Cloud-Ablage für deinen Website-Code. Vercel nimmt diesen Code und macht ihn im Internet sichtbar. Zusammen sorgen sie dafür, dass jede Änderung, die du machst, automatisch und in Sekunden auf deiner Website live ist.</p>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>26</span></div>
+</div>
+
+<div class="page">
+  <h3><span class="coral">09</span> — GitHub + Vercel</h3>
+  <div class="coral-line-long"></div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>GitHub-Konto erstellen</h4>
+    <p>Gehe auf <strong>github.com</strong> und erstelle ein kostenloses Konto. GitHub ist wie eine Cloud für deinen Code — jede Änderung wird gespeichert und du kannst jederzeit zurückgehen.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Repository anlegen & Code hochladen</h4>
+    <p>Erstelle ein neues Repository (= Projektordner auf GitHub). Claude Code kann den Upload für dich übernehmen — sag einfach: „Lade meinen Code auf GitHub hoch."</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Vercel-Konto erstellen & verbinden</h4>
+    <p>Gehe auf <strong>vercel.com</strong> und melde dich mit deinem GitHub-Konto an. Klicke auf „Import Project" und wähle dein Repository. Vercel erkennt automatisch dein Projekt.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 4</div>
+    <h4>Domain in Vercel hinzufügen</h4>
+    <p>In Vercel: Settings → Domains → deine IONOS-Domain hinzufügen. Vercel zeigt dir, welche DNS-Einstellungen du bei IONOS ändern musst. SSL (https://) wird automatisch aktiviert — kostenlos.</p>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Das Magische an diesem Setup</div>
+    <p>Das ist der Moment, wo es richtig cool wird: Ab jetzt gilt — jede Änderung, die du in VS Code machst und auf GitHub hochlädst, ist <strong>automatisch in Sekunden</strong> auf deiner Website live. Keine manuelle Veröffentlichung, kein FTP-Upload, kein Server-Stress. Du speicherst, lädst hoch, und deine Website aktualisiert sich von alleine. So arbeiten auch professionelle Entwickler — und dank Claude kannst du das jetzt auch, ohne Entwickler zu sein.</p>
+  </div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>27</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 10: GOOGLE WORKSPACE (Titelseite + Inhalt)
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">10</div>
+  <h2>Google Workspace<br>& E-Mail</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Stell dir vor, du schreibst einen potenziellen Kunden an — und in der Absenderzeile steht irgendwas123@gmail.com. Oder kontakt@deinbusiness.de. Der Unterschied ist sofort spürbar. Eine professionelle E-Mail-Adresse kostet dich 6 Euro im Monat und du bekommst Gmail, Kalender und Cloud-Speicher dazu.</p>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>28</span></div>
+</div>
+
+<div class="page">
+  <h3><span class="coral">10</span> — E-Mail einrichten</h3>
+  <div class="coral-line-long"></div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Google Workspace abonnieren</h4>
+    <p>Gehe auf <strong>workspace.google.com</strong> → Business Starter Plan (~6€/Monat). Du bekommst: Gmail mit eigener Domain, Google Drive (30GB), Google Kalender, Google Meet.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Domain verifizieren</h4>
+    <p>Google führt dich durch den Prozess. Du musst einen TXT-Record bei IONOS hinzufügen. Google zeigt dir den genauen Wert — du kopierst ihn einfach bei IONOS in die DNS-Einstellungen.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>DNS Records bei IONOS ändern</h4>
+    <p>Bei IONOS gehst du zu: Domains → deine Domain → DNS-Einstellungen. Dort trägst du die <strong>MX-Records</strong> ein, die Google dir gibt. MX-Records sagen dem Internet: „E-Mails für diese Domain gehen an Google."</p>
+  </div>
+
+  <div class="screenshot-placeholder">Screenshot: IONOS DNS-Einstellungen</div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 4</div>
+    <h4>E-Mail-Adressen einrichten</h4>
+    <p>Erstelle deine E-Mail-Adressen: z.B. hi@deinedomain.de und info@deinedomain.de. Richte eine Signatur ein — Claude kann dir den HTML-Code dafür generieren.</p>
+  </div>
+
+  <h4>Meine E-Mail-Adressen:</h4>
+  <div class="fill-field"></div>
+  <div class="fill-field"></div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>29</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 11: HUBSPOT (Titelseite + Inhalt)
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">11</div>
+  <h2>CRM mit<br>HubSpot</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Irgendwann kommen die ersten Anfragen über deine Website. Und dann willst du nicht jede E-Mail-Adresse in einer Excel-Liste sammeln. HubSpot ist ein professionelles CRM-System — und die Free-Version ist komplett kostenlos. Für immer. Keine versteckten Kosten.</p>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>30</span></div>
+</div>
+
+<div class="page">
+  <h3><span class="coral">11</span> — HubSpot CRM</h3>
+  <div class="coral-line-long"></div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>HubSpot-Konto erstellen</h4>
+    <p>Gehe auf <strong>hubspot.com</strong> und erstelle ein kostenloses CRM-Konto. Die Free-Version reicht für den Start — bis zu 1.000.000 Kontakte, Formulare, E-Mail-Marketing-Basics, alles dabei.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Kontaktformular erstellen</h4>
+    <p>In HubSpot: Marketing → Formulare → Neues Formular. Erstelle ein einfaches Kontaktformular (Name, E-Mail, Nachricht). Du bekommst einen Embed-Code, den Claude in deine Website einbaut.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>E-Mail-Benachrichtigung einrichten</h4>
+    <p>Stelle ein, dass du bei jeder neuen Anfrage eine E-Mail bekommst. So verpasst du keinen potenziellen Kunden.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 4</div>
+    <h4>Claude Cowork das Setup übernehmen lassen</h4>
+    <p>Das Beste: Du kannst Claude Cowork eine Aufgabenliste geben und Claude richtet HubSpot für dich ein!</p>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-label">Aufgabenliste für Claude Cowork</div>
+    1. HubSpot CRM einrichten<br>
+    2. Kontaktformular erstellen und Embed-Code generieren<br>
+    3. E-Mail-Benachrichtigung bei neuen Kontakten aktivieren<br>
+    4. Formular auf meiner Website einbauen
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">HubSpot für Einsteiger</div>
+    <p>HubSpot bietet kostenlose Kurse und Zertifikate an (HubSpot Academy). Wenn du tiefer einsteigen willst: Die Kurse zu Inbound Marketing und E-Mail-Marketing sind exzellent — und komplett gratis.</p>
+  </div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>31</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 12: AUTOMATISIERUNG (Titelseite + Inhalt)
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">12</div>
+  <h2>Automatisierung<br>mit Cowork</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Stell dir vor, du gibst jemandem eine To-Do-Liste — und er arbeitet alles ab, während du zusiehst. Genau das macht Claude Cowork. Kein Witz. Claude öffnet deinen Browser, klickt sich durch Websites, richtet Dinge ein und erstellt Dinge für dich. Du musst nur sagen, was du willst.</p>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>32</span></div>
+</div>
+
+<div class="page">
+  <h3><span class="coral">12</span> — Claude Cowork</h3>
+  <div class="coral-line-long"></div>
+
+  <p>Das war für mich ehrlich gesagt der Moment, wo ich dachte: Okay, das ist die Zukunft. Ich habe Claude gesagt: „Richte mir HubSpot ein, erstelle eine E-Mail-Signatur, konfiguriere meine Gmail-Einstellungen." Und Claude hat es einfach gemacht. Im Browser. Vor meinen Augen. Ich habe zugeschaut, wie Claude Formulare ausfüllt, Buttons klickt und Einstellungen ändert. Ohne dass ich irgendetwas machen musste.</p>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Cowork öffnen</h4>
+    <p>Gehe auf <strong>claude.ai</strong> → oben auf „Cowork" klicken. Hier kannst du Claude Aufgaben geben und zusehen, wie er sie erledigt.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Browser-Zugriff akzeptieren</h4>
+    <p>Claude fragt dich, ob er deinen Browser nutzen darf. Wenn du zustimmst, kann Claude Websites öffnen, Formulare ausfüllen, Einstellungen ändern — alles, was du sonst von Hand machen würdest.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Konnektoren verbinden</h4>
+    <p>Verbinde deine Tools mit Claude: Canva, Google, HubSpot und mehr. So kann Claude direkt in diesen Tools für dich arbeiten.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 4</div>
+    <h4>Aufgabenliste erstellen und loslegen</h4>
+    <p>Schreibe Claude einfach, was er tun soll. Claude erstellt eine To-Do-Liste und arbeitet Punkt für Punkt ab. Du musst nur manchmal gucken, dass die Verbindung nicht abbricht.</p>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-label">Beispiel-Aufgaben für Cowork</div>
+    - Erstelle mir eine HTML-E-Mail-Signatur mit meinem Logo und meinen Kontaktdaten<br>
+    - Richte meine Gmail-Signatur ein<br>
+    - Erstelle ein Kontaktformular in HubSpot<br>
+    - Erstelle mir ein Logo in Canva mit meinen Brand-Farben<br>
+    - Richte Google Analytics auf meiner Website ein
+  </div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>33</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 13: DIGITALE PRODUKTE (Titelseite + Inhalt)
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">13</div>
+  <h2>Digitale Produkte<br>verkaufen</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Du hast Wissen — verpacke es. Workbooks, Templates, Checklisten, Mini-Kurse. Gumroad ist eine Plattform, auf der du digitale Produkte verkaufen kannst. Ohne eigenen Shop, ohne Technik-Stress. Du lädst dein Produkt hoch, legst einen Preis fest, und Gumroad übernimmt Zahlung, Lieferung und Rechnungsstellung.</p>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>34</span></div>
+</div>
+
+<div class="page">
+  <h3><span class="coral">13</span> — Gumroad Shop</h3>
+  <div class="coral-line-long"></div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Gumroad-Konto erstellen</h4>
+    <p>Gehe auf <strong>gumroad.com</strong> und erstelle ein kostenloses Konto. Gumroad nimmt keine monatlichen Gebühren — nur 10% pro Verkauf.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Erstes Produkt anlegen</h4>
+    <p>Klicke auf „New Product" → „Digital Product". Lade deine Datei hoch (z.B. ein PDF-Workbook). Füge Titel, Beschreibung, Preis und ein Coverbild hinzu.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Checkout auf der Website einbauen</h4>
+    <p>Gumroad gibt dir einen Link oder Embed-Code. Sag Claude: „Baue einen Kaufen-Button auf meiner Produkt-Seite ein, der zu diesem Gumroad-Link führt." Fertig.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 4</div>
+    <h4>Zahlungsempfang einrichten</h4>
+    <p>Verbinde dein Bankkonto oder PayPal. Ab jetzt fließen die Einnahmen automatisch.</p>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Produktideen für den Start</div>
+    <p>Workbooks, Templates, Checklisten, E-Books, Mini-Kurse, Canva-Vorlagen. Starte mit einem Produkt und erweitere. Du hast Wissen — verpacke es.</p>
+  </div>
+
+  <h4>Mein erstes digitales Produkt:</h4>
+  <div class="fill-field"></div>
+  <h4>Preis:</h4>
+  <div class="fill-field"></div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>35</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     CHECKLISTE
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Deine Komplett-<br>Checkliste</h2>
+
+  <p>Hake jeden Schritt ab. Wenn alles angekreuzt ist, steht dein kompletter Business-Workspace.</p>
+
+  <h4 style="color:#e8604c; margin-top:16px;">Grundlagen</h4>
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><span>Mindset-Check: Bin bereit, Zeit zu investieren</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Wochenplan erstellt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Markenname festgelegt</span></div>
+  </div>
+
+  <h4 style="color:#e8604c; margin-top:12px;">Tools & Accounts</h4>
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><span>Claude Pro aktiviert</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>VS Code installiert & Projektordner angelegt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Claude Code installiert</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>GitHub-Konto erstellt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Vercel-Konto erstellt & mit GitHub verbunden</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Google Workspace eingerichtet</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>HubSpot CRM Konto erstellt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Gumroad Konto erstellt</span></div>
+  </div>
+
+  <h4 style="color:#e8604c; margin-top:12px;">Website & Online-Präsenz</h4>
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><span>Website-Template gefunden & angepasst</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Alle Unterseiten erstellt (Start, Über mich, Leistungen, Blog, Kontakt)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Responsive für mobile Geräte</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Impressum & Datenschutz online</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Cookie-Banner funktioniert</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Logo erstellt (SVG + PNG)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Domain registriert & mit Vercel verbunden</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>SSL aktiv (https://)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>E-Mail mit eigener Domain eingerichtet</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>E-Mail-Signatur erstellt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>HubSpot-Formular auf Website eingebunden</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Erstes Produkt auf Gumroad live</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Kaufen-Button auf der Website</span></div>
+  </div>
+
+  <div class="page-footer"><span>Baeumler Marketing</span><span>36</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ABSCHLUSS
+═══════════════════════════════════════════ -->
+<div class="page" style="justify-content: center;">
+  <div class="coral-line"></div>
+  <h2>Du hast es<br>geschafft!</h2>
+
+  <div class="quote-block">
+    „Du hast es selbst gebaut. Und du verstehst, wie alles funktioniert. Das ist mehr wert als jede Agentur."
+  </div>
+
+  <p>Schau mal zurück, wo du vor einer Woche standest. Vielleicht wusstest du nicht mal, was eine Domain ist. Und jetzt? Du hast eine professionelle Website, eine geschäftliche E-Mail, ein CRM-System, einen Cookie-Banner, ein Logo, und du kannst digitale Produkte verkaufen. Alles selbst aufgebaut, alles für unter 30 Euro im Monat.</p>
+
+  <p>Und das Wichtigste: Du verstehst, wie alles zusammenhängt. Wenn morgen etwas kaputtgeht, weißt du, wie du es reparierst. Wenn du etwas ändern willst, musst du keine Agentur anrufen und 2.000 Euro bezahlen. Du öffnest Claude, sagst was du brauchst — und es passiert. Dein Kopf ist dein Kapital. Und jetzt hast du das Wissen.</p>
+
+  <div class="coral-line-long"></div>
+
+  <h3>Nächste Schritte</h3>
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><span>Social Media aufsetzen (→ Workbook 2: Social Media mit KI)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Google Analytics einrichten (Website-Tracking)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Ersten Blog-Artikel veröffentlichen</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Weiteres digitales Produkt erstellen</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Strategie-Call buchen für individuelle Unterstützung</span></div>
+  </div>
+
+  <div style="background:#fafaf8; border-radius:12px; padding:28px; margin-top:24px; text-align:center;">
+    <h3 style="margin-bottom:8px;">Brauchst du Unterstützung?</h3>
+    <p style="margin-bottom:12px;">Buche einen 1:1 Strategie-Call und wir gehen deine nächsten Schritte gemeinsam durch.</p>
+    <p style="font-size:16px; font-weight:600; margin-bottom:4px;">baeumlermarketing.de</p>
+    <p style="font-size:14px; color:#e8604c; margin-bottom:4px;">kontakt@baeumlermarketing.de</p>
+    <p style="font-size:13px; color:#888;">Miriam Bäumler · Marketingberaterin · Langenfeld</p>
+  </div>
+
+  <div class="page-footer"><span>© Baeumler Marketing 2026</span><span>37</span></div>
+</div>
+
+</body>
+</html>

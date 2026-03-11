@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Workspace in unter einer Woche — Workbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', system-ui, sans-serif; color: #1a1a1a; background: #e8e8e8; line-height: 1.6; }
+
+  /* ─── Page Container ─── */
+  .page {
+    width: 794px; height: 1123px;
+    background: #fff; margin: 30px auto;
+    position: relative; overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    padding: 60px 56px;
+    display: flex; flex-direction: column;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ─── Typography ─── */
+  h1, h2, h3, h4 { font-family: 'Antonio', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.1; }
+  h1 { font-size: 44px; }
+  h2 { font-size: 36px; margin-bottom: 24px; }
+  h3 { font-size: 24px; margin-bottom: 16px; }
+  h4 { font-size: 18px; margin-bottom: 12px; }
+  p { font-size: 14px; line-height: 1.7; margin-bottom: 14px; color: #333; }
+  .serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
+
+  /* ─── Coral accents ─── */
+  .coral { color: #e8604c; }
+  .coral-bg { background: #e8604c; }
+  .coral-line { width: 40px; height: 3px; background: #e8604c; border-radius: 2px; margin-bottom: 20px; }
+  .coral-line-long { width: 100%; height: 2px; background: #e8604c; opacity: 0.2; margin: 24px 0; }
+
+  /* ─── Cover Page ─── */
+  .cover { padding: 48px 44px; }
+  .cover .top-label {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 3px; color: #e8604c; margin-bottom: 28px;
+  }
+  .cover h1 { font-size: 44px; margin-bottom: 16px; }
+  .cover .subtitle { font-size: 16px; font-weight: 500; color: #e8604c; margin-bottom: 8px; }
+  .cover .tagline { font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; color: #303030; margin-bottom: 24px; line-height: 1.4; }
+  .cover .description { font-size: 13px; color: #555; max-width: 380px; margin-bottom: 20px; line-height: 1.6; }
+  .cover .image-area {
+    flex: 1; background: #f2f2f0; border: 2px dashed #ccc; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #aaa; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; min-height: 200px;
+  }
+  .cover .bottom-info { margin-top: auto; padding-top: 20px; }
+  .cover .bottom-info h3 { font-size: 16px; text-transform: uppercase; }
+  .cover .bottom-info p { font-size: 11px; color: #888; margin-bottom: 0; }
+  .cover .coral-swipe {
+    position: absolute; top: -80px; right: -60px; width: 500px; height: 500px;
+    background: radial-gradient(ellipse at 70% 30%, #e8604c 0%, #e8604c 40%, transparent 70%);
+    opacity: 0.12; border-radius: 50%; filter: blur(40px); z-index: 0;
+  }
+
+  /* ─── TOC ─── */
+  .toc-item { display: flex; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #f0f0f0; }
+  .toc-number { font-family: 'Antonio', sans-serif; font-size: 28px; font-weight: 700; color: #e8604c; width: 50px; flex-shrink: 0; }
+  .toc-title { font-family: 'Antonio', sans-serif; font-size: 18px; font-weight: 700; text-transform: uppercase; flex: 1; }
+  .toc-desc { font-size: 12px; color: #888; margin-top: 4px; font-family: 'Inter', sans-serif; text-transform: none; }
+
+  /* ─── Chapter Title Pages ─── */
+  .chapter-title-page { justify-content: center; align-items: flex-start; }
+  .chapter-title-page .chapter-num {
+    font-family: 'Antonio', sans-serif; font-size: 120px; font-weight: 700;
+    color: #e8604c; opacity: 0.15; line-height: 1; margin-bottom: -20px;
+  }
+  .chapter-title-page h2 { font-size: 42px; margin-bottom: 16px; }
+  .chapter-title-page .chapter-intro { font-size: 16px; color: #555; max-width: 500px; line-height: 1.7; }
+
+  /* ─── Content Elements ─── */
+  .step-box {
+    background: #fafaf8; border-left: 3px solid #e8604c; padding: 20px 24px;
+    margin-bottom: 20px; border-radius: 0 8px 8px 0;
+  }
+  .step-box .step-num { font-family: 'Antonio', sans-serif; font-size: 14px; color: #e8604c; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+  .step-box h4 { font-size: 16px; margin-bottom: 8px; }
+  .step-box p { font-size: 13px; margin-bottom: 0; color: #555; }
+
+  .tip-box {
+    background: #fff8f6; border: 1px solid rgba(232,96,76,0.2); border-radius: 8px;
+    padding: 20px 24px; margin: 20px 0;
+  }
+  .tip-box .tip-label { font-size: 11px; font-weight: 700; color: #e8604c; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+  .tip-box p { font-size: 13px; color: #555; margin-bottom: 0; }
+
+  .screenshot-placeholder {
+    background: #f5f5f3; border: 2px dashed #ddd; border-radius: 8px;
+    height: 180px; display: flex; align-items: center; justify-content: center;
+    color: #bbb; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
+    margin: 20px 0;
+  }
+
+  .checklist { margin: 16px 0; }
+  .checklist-item {
+    display: flex; align-items: flex-start; gap: 12px; padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0; font-size: 14px;
+  }
+  .checkbox {
+    width: 20px; height: 20px; border: 2px solid #ddd; border-radius: 4px;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  .fill-field {
+    border-bottom: 2px dotted #ccc; padding: 8px 0; margin: 8px 0 20px;
+    min-height: 32px; font-size: 14px; color: #999;
+  }
+  .fill-field.large { min-height: 80px; }
+
+  .tool-card {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #fafaf8; border: 1px solid #eee; border-radius: 8px;
+    padding: 12px 16px; margin: 6px 6px 6px 0; font-size: 13px; font-weight: 600;
+  }
+  .tool-card .tool-type { font-size: 11px; color: #888; font-weight: 400; }
+
+  .cost-row {
+    display: flex; justify-content: space-between; padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0; font-size: 14px;
+  }
+  .cost-row .cost-price { font-weight: 700; color: #e8604c; }
+  .cost-total { font-size: 18px; font-weight: 700; padding-top: 12px; display: flex; justify-content: space-between; }
+
+  .page-footer {
+    margin-top: auto; padding-top: 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 10px; color: #ccc; border-top: 1px solid #f0f0f0;
+  }
+
+  .two-col { display: flex; gap: 32px; }
+  .two-col > div { flex: 1; }
+
+  .quote-block {
+    border-left: 3px solid #e8604c; padding: 16px 24px; margin: 20px 0;
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 18px; color: #303030; line-height: 1.5;
+  }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 1: COVER
+═══════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="coral-swipe"></div>
+  <div style="position:relative;z-index:1;display:flex;flex-direction:column;height:100%;">
+    <div class="top-label">Workbook</div>
+    <h1>Business<br>Workspace<br>in unter einer<br>Woche</h1>
+    <div class="subtitle">mit Claude AI · für unter 30 € monatlich</div>
+    <div class="coral-line"></div>
+    <div class="tagline">So macht Selbstständigkeit<br>wieder Spaß.</div>
+    <div class="description">Du hast ein Produkt oder eine Dienstleistung und weißt nicht, wie du alle Tools online einrichtest? Dank KI geht das heute alles in unter einer Woche. Ich zeige dir wie.</div>
+    <div class="image-area">Dein Bild hier</div>
+    <div class="bottom-info">
+      <h3>Miriam Bäumler</h3>
+      <p>Baeumler Marketing</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 2: WILLKOMMEN
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Hey, schön dass<br>du hier bist.</h2>
+
+  <div class="quote-block">
+    „Ich hatte keine Ahnung von Code. Keine Ahnung von VS Code, GitHub oder Hosting. Und trotzdem habe ich in unter einer Woche meinen kompletten Business-Workspace aufgebaut – für unter 30 Euro im Monat."
+  </div>
+
+  <p>Ich bin Miriam, Marketingberaterin aus Langenfeld mit einem Master in Wirtschaftspsychologie. Und ich sage dir eins: Die letzten Jahre als Selbstständige waren hart. Nicht wegen der Arbeit – sondern wegen der ganzen Tools, Systeme und Software, die du brauchst, bevor du überhaupt einen einzigen Euro verdienst.</p>
+
+  <p>Website? Kostet Tausende bei einer Agentur. CRM? Monatliche Gebühren. Professionelle E-Mail? Wieder ein Tool. Und dann noch Hosting, Domain, Shop-System, Cookie-Banner, Datenschutz... Plötzlich bist du bei 500 Euro im Monat – ohne auch nur einen Kunden gewonnen zu haben.</p>
+
+  <p>Und dann kam KI. Und alles hat sich verändert.</p>
+
+  <p>Mit Claude AI – einem KI-Assistenten von Anthropic – habe ich mir alles selbst aufgebaut. Keine Programmierkenntnisse nötig. Kein stundenlanges Googeln. Ich habe Claude einfach gesagt, was ich brauche, und Claude hat es umgesetzt. Seite für Seite, Funktion für Funktion.</p>
+
+  <p>Dieses Workbook ist deine Schritt-für-Schritt-Anleitung, damit du genau dasselbe tun kannst. Egal ob du Schmuck verkaufst, Beratung anbietest, Kerzen herstellst oder Coaching machst – am Ende hast du einen kompletten, professionellen Online-Workspace.</p>
+
+  <p style="font-weight:600; color:#1a1a1a;">Lass uns loslegen.</p>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>2</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 3: INHALTSVERZEICHNIS
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Inhalt</h2>
+
+  <div class="toc-item">
+    <div class="toc-number">01</div>
+    <div><div class="toc-title">Claude einrichten</div>
+    <div class="toc-desc">Dein KI-Assistent: Konto erstellen, Claude Pro aktivieren, VS Code verbinden</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">02</div>
+    <div><div class="toc-title">VS Code & Projekt</div>
+    <div class="toc-desc">Code-Editor installieren, Projektordner anlegen, erste Dateien erstellen</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">03</div>
+    <div><div class="toc-title">Website bauen lassen</div>
+    <div class="toc-desc">Startseite, Unterseiten, Blog, SEO – responsive und professionell</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">04</div>
+    <div><div class="toc-title">Code auf GitHub sichern</div>
+    <div class="toc-desc">Versionierung verstehen, Repository anlegen, Code hochladen</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">05</div>
+    <div><div class="toc-title">Mit Vercel live schalten</div>
+    <div class="toc-desc">Hosting einrichten, GitHub verbinden, Website veröffentlichen</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">06</div>
+    <div><div class="toc-title">Eigene Domain verbinden</div>
+    <div class="toc-desc">Domain registrieren, DNS einstellen, SSL-Zertifikat aktivieren</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">07</div>
+    <div><div class="toc-title">Professionelle E-Mail</div>
+    <div class="toc-desc">Google Workspace einrichten, E-Mail mit eigener Domain nutzen</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">08</div>
+    <div><div class="toc-title">CRM mit HubSpot</div>
+    <div class="toc-desc">Kontakte verwalten, Formulare einbinden, Newsletter vorbereiten</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">09</div>
+    <div><div class="toc-title">Digitale Produkte verkaufen</div>
+    <div class="toc-desc">Gumroad einrichten, Produkt anlegen, Checkout auf der Website einbinden</div></div>
+  </div>
+  <div class="toc-item" style="border-bottom:none;">
+    <div class="toc-number" style="color:#1a1a1a;">✓</div>
+    <div><div class="toc-title">Checklisten & Ressourcen</div>
+    <div class="toc-desc">Komplett-Checkliste, Link-Sammlung, nächste Schritte</div></div>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>3</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 4: ÜBERBLICK – DAS ERGEBNIS
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Das Ergebnis:<br>Was in 7 Tagen entsteht</h2>
+
+  <p>Bevor wir loslegen, hier das große Bild. Am Ende dieses Workbooks hast du:</p>
+
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Eine komplette Website</strong> mit Startseite, Über mich, Blog, Impressum, Datenschutz, AGB – responsive und SEO-optimiert</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Professionelle E-Mail</strong> – hi@deinedomain.de statt irgendwas@gmail.com</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>CRM-System</strong> – alle Kontakte, Anfragen und Newsletter-Abonnenten an einem Ort</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Shop für digitale Produkte</strong> – Workbooks, Templates oder Kurse sofort verkaufsbereit</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>DSGVO-konform</strong> – Cookie-Consent, Datenschutzerklärung, alles sauber</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Eigene Domain</strong> – mit SSL-Zertifikat und automatischem Deployment</div></div>
+  </div>
+
+  <h3 style="margin-top:32px;">Die monatlichen Kosten</h3>
+
+  <div class="cost-row"><span>Claude Pro (KI-Assistent)</span><span class="cost-price">~20 $/Monat</span></div>
+  <div class="cost-row"><span>VS Code, GitHub, Vercel, HubSpot CRM</span><span class="cost-price">kostenlos</span></div>
+  <div class="cost-row"><span>IONOS Domain</span><span class="cost-price">~1 €/Monat</span></div>
+  <div class="cost-row"><span>Google Workspace (E-Mail)</span><span class="cost-price">~6 €/Monat</span></div>
+  <div class="cost-row"><span>Gumroad (Shop)</span><span class="cost-price">kostenlos*</span></div>
+  <div class="cost-total"><span>Gesamt</span><span class="coral">unter 30 € / Monat</span></div>
+  <p style="font-size:11px; color:#aaa; margin-top:4px;">* Gumroad nimmt 10% pro Verkauf, keine monatlichen Kosten.</p>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>4</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 5: ÜBERBLICK – DIE TOOLS
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Die 9 Tools im Überblick</h2>
+
+  <p>Dein gesamter Workspace besteht aus diesen Tools. Die meisten sind kostenlos:</p>
+
+  <div style="display:flex; flex-wrap:wrap; gap:8px; margin:24px 0;">
+    <div class="tool-card"><div><strong>Claude</strong><br><span class="tool-type">KI-Assistent & Coder</span></div></div>
+    <div class="tool-card"><div><strong>VS Code</strong><br><span class="tool-type">Code-Editor</span></div></div>
+    <div class="tool-card"><div><strong>GitHub</strong><br><span class="tool-type">Code-Verwaltung</span></div></div>
+    <div class="tool-card"><div><strong>Vercel</strong><br><span class="tool-type">Hosting & Deployment</span></div></div>
+    <div class="tool-card"><div><strong>IONOS</strong><br><span class="tool-type">Domain</span></div></div>
+    <div class="tool-card"><div><strong>Google Workspace</strong><br><span class="tool-type">E-Mail</span></div></div>
+    <div class="tool-card"><div><strong>HubSpot</strong><br><span class="tool-type">CRM & Marketing</span></div></div>
+    <div class="tool-card"><div><strong>Gumroad</strong><br><span class="tool-type">Digitale Produkte</span></div></div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">So funktioniert das Zusammenspiel</div>
+    <p>Claude baut deine Website in VS Code. GitHub speichert den Code. Vercel macht ihn live. IONOS liefert deine Domain. Google Workspace gibt dir eine professionelle E-Mail. HubSpot verwaltet deine Kontakte. Und Gumroad verkauft deine digitalen Produkte.</p>
+  </div>
+
+  <h3 style="margin-top:32px;">Bevor du startest</h3>
+  <p>Notiere dir kurz dein Business und deine Ziele – das hilft dir bei allen weiteren Schritten:</p>
+
+  <h4>Mein Produkt / meine Dienstleistung:</h4>
+  <div class="fill-field large"></div>
+
+  <h4>Mein Wunsch-Domainname:</h4>
+  <div class="fill-field"></div>
+
+  <h4>Meine Zielgruppe:</h4>
+  <div class="fill-field"></div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>5</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 6: KAPITEL 1 – TITELSEITE
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">01</div>
+  <h2>Claude einrichten</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Dein KI-Assistent ist ab jetzt dein Entwickler, Texter und Berater in einem. In diesem Kapitel richtest du Claude Pro ein und verbindest ihn mit deinem Code-Editor.</p>
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>6</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 7: KAPITEL 1 – INHALT
+═══════════════════════════════════════════ -->
+<div class="page">
+  <h3><span class="coral">01</span> — Claude einrichten</h3>
+  <div class="coral-line-long"></div>
+
+  <h4>Was ist Claude?</h4>
+  <p>Claude ist ein KI-Assistent von Anthropic. Anders als andere KI-Tools kann Claude nicht nur Texte schreiben – er programmiert, strukturiert und denkt mit. Claude Code arbeitet direkt in deinen Dateien, sieht den Kontext deines ganzen Projekts und baut konsistent weiter.</p>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Claude-Konto erstellen</h4>
+    <p>Gehe auf claude.ai und erstelle ein kostenloses Konto. Du brauchst nur eine E-Mail-Adresse.</p>
+  </div>
+
+  <div class="screenshot-placeholder">Screenshot: claude.ai Registrierung</div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Claude Pro aktivieren</h4>
+    <p>Upgrade auf Claude Pro (~20$/Monat). Damit bekommst du deutlich mehr Nachrichten pro Tag und Zugang zu den leistungsstärksten Modellen – das ist essenziell für die Website-Erstellung.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Claude Code installieren</h4>
+    <p>Claude Code ist die Erweiterung, die direkt in deinem Code-Editor arbeitet. So installierst du es: Öffne das Terminal und gib ein: npm install -g @anthropic-ai/claude-code</p>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Warum Claude und nicht ChatGPT?</div>
+    <p>Claude denkt mit. Wenn du sagst „mach die Seite SEO-freundlich", fügt Claude nicht nur Meta-Tags ein – es erstellt Schema-Markup, eine Sitemap und erklärt dir warum. Claude Code sieht dein ganzes Projekt und baut konsistent weiter.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>7</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 8: KAPITEL 2 – TITELSEITE
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">02</div>
+  <h2>VS Code &<br>Projekt einrichten</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">VS Code ist dein kostenloser Code-Editor. Hier arbeitet Claude direkt in deinen Dateien – kein Copy-Paste aus einem Chat-Fenster mehr.</p>
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>8</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 9: KAPITEL 2 – INHALT
+═══════════════════════════════════════════ -->
+<div class="page">
+  <h3><span class="coral">02</span> — VS Code & Projekt</h3>
+  <div class="coral-line-long"></div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>VS Code herunterladen</h4>
+    <p>Gehe auf code.visualstudio.com und lade die kostenlose Version für dein Betriebssystem herunter. Die Installation dauert nur wenige Minuten.</p>
+  </div>
+
+  <div class="screenshot-placeholder">Screenshot: VS Code Download-Seite</div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Projektordner anlegen</h4>
+    <p>Erstelle auf deinem Computer einen neuen Ordner für dein Website-Projekt. Zum Beispiel: Desktop → mein-business-website. Öffne diesen Ordner in VS Code über Datei → Ordner öffnen.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Erste Datei erstellen</h4>
+    <p>Erstelle eine neue Datei namens index.html – das wird deine Startseite. Claude wird diese Datei gleich mit Inhalt füllen.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 4</div>
+    <h4>Claude Code im Terminal starten</h4>
+    <p>Öffne das Terminal in VS Code (Ansicht → Terminal) und starte Claude Code. Ab jetzt kannst du Claude direkt in deinem Projekt arbeiten lassen.</p>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Keine Angst vor Code</div>
+    <p>Du musst keinen Code verstehen oder schreiben können. Claude macht das alles für dich. Du sagst nur, was du willst – in ganz normaler Sprache. Zum Beispiel: „Erstelle mir eine Startseite mit einem großen Bild oben, meinen Leistungen und einem Kontaktformular."</p>
+  </div>
+
+  <h4 style="margin-top:24px;">Deine Notizen zu diesem Kapitel:</h4>
+  <div class="fill-field large"></div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>9</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGES 10-11: KAPITEL 3 – WEBSITE
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">03</div>
+  <h2>Website bauen<br>lassen</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Jetzt wird's spannend. Claude baut dir deine komplette Website – Startseite, Unterseiten, Blog, alles responsive und SEO-optimiert. Du sagst, was du willst. Claude setzt um.</p>
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>10</span>
+  </div>
+</div>
+
+<div class="page">
+  <h3><span class="coral">03</span> — Website bauen lassen</h3>
+  <div class="coral-line-long"></div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Startseite beschreiben</h4>
+    <p>Sag Claude in normaler Sprache, was du brauchst. Beispiel: „Erstelle mir eine Startseite mit Hero-Sektion, meinen Leistungen, Testimonials und einem Kontaktformular. Farben: Weiß, Dunkelgrau, Coral als Akzent."</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Design-System festlegen</h4>
+    <p>Claude erstellt automatisch ein konsistentes Design-System – Farben, Schriften, Abstände. Sag ihm deine Wunschfarben und den Stil (modern, minimalistisch, verspielt...).</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Unterseiten erstellen</h4>
+    <p>Lass Claude die weiteren Seiten bauen: Über mich, Leistungen/Workbooks, Blog, Kontakt. Plus die Pflichtseiten: Impressum, Datenschutz, AGB.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 4</div>
+    <h4>SEO-Optimierung</h4>
+    <p>Sag Claude: „Mach die Seite SEO-freundlich." Claude erstellt Meta-Tags, Schema-Markup, eine Sitemap, optimierte Überschriften und Alt-Texte für Bilder.</p>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Iterieren statt perfektionieren</div>
+    <p>Deine Website muss nicht beim ersten Mal perfekt sein. Starte mit einer soliden Basis und verbessere sie Schritt für Schritt. Jede Änderung kannst du Claude einfach sagen: „Mach den Button größer", „Ändere die Überschrift", „Füge einen Blog-Bereich hinzu".</p>
+  </div>
+
+  <h4>Welche Seiten brauche ich?</h4>
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><div>Startseite</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div>Über mich / Meine Geschichte</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div>Leistungen / Produkte / Workbooks</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div>Blog</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div>Kontakt</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div>Impressum</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div>Datenschutzerklärung</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div>AGB</div></div>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>11</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGES 12-13: KAPITEL 4 – GITHUB
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">04</div>
+  <h2>Code auf<br>GitHub sichern</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">GitHub ist wie ein Cloud-Speicher für deinen Code. Jede Änderung wird versioniert und gesichert – und es ist die Brücke zu deinem Hosting.</p>
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>12</span>
+  </div>
+</div>
+
+<div class="page">
+  <h3><span class="coral">04</span> — GitHub einrichten</h3>
+  <div class="coral-line-long"></div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>GitHub-Konto erstellen</h4>
+    <p>Gehe auf github.com und erstelle ein kostenloses Konto. GitHub ist der Standard für Code-Verwaltung – Millionen von Entwicklern nutzen es täglich.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Repository anlegen</h4>
+    <p>Ein Repository (kurz: Repo) ist dein Projektordner auf GitHub. Erstelle ein neues Repo mit dem Namen deiner Website (z.B. „meine-website").</p>
+  </div>
+
+  <div class="screenshot-placeholder">Screenshot: Neues Repository auf GitHub</div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Code hochladen</h4>
+    <p>Verbinde dein lokales Projekt mit GitHub. Claude kann dir die Befehle dafür geben – oder du nutzt die GitHub-Integration in VS Code. Ein Klick und dein Code ist gesichert.</p>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Warum GitHub wichtig ist</div>
+    <p>Wenn du etwas kaputt machst, kannst du jederzeit zu einer früheren Version zurückkehren. Und: Vercel (dein Hosting) liest direkt von GitHub – jede Änderung, die du hochlädst, ist automatisch Sekunden später live auf deiner Website.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>13</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGES 14-15: KAPITEL 5 – VERCEL
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">05</div>
+  <h2>Mit Vercel<br>live schalten</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Vercel ist dein kostenloses Hosting. Du verbindest es einmal mit GitHub – und ab dann ist jede Änderung in Sekunden online. Kein FTP, kein Server-Stress.</p>
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>14</span>
+  </div>
+</div>
+
+<div class="page">
+  <h3><span class="coral">05</span> — Vercel Hosting</h3>
+  <div class="coral-line-long"></div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Vercel-Konto erstellen</h4>
+    <p>Gehe auf vercel.com und melde dich mit deinem GitHub-Konto an. Die Verbindung zwischen beiden Diensten wird automatisch hergestellt.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Projekt importieren</h4>
+    <p>Klicke auf „Import Project" und wähle dein GitHub-Repository aus. Vercel erkennt automatisch, was für ein Projekt es ist, und konfiguriert alles für dich.</p>
+  </div>
+
+  <div class="screenshot-placeholder">Screenshot: Vercel Projekt-Import</div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Deployment starten</h4>
+    <p>Klicke auf „Deploy" – und innerhalb von Sekunden ist deine Website live. Du bekommst eine URL wie dein-projekt.vercel.app. Ab jetzt wird jeder Push auf GitHub automatisch veröffentlicht.</p>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Kostenlos und schnell</div>
+    <p>Vercel bietet ein großzügiges kostenloses Kontingent. Für die meisten Business-Websites reicht das völlig aus. Deine Seite wird weltweit über ein CDN ausgeliefert – superschnell, egal wo deine Besucher sitzen.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>15</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGES 16-17: KAPITEL 6 – DOMAIN
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">06</div>
+  <h2>Eigene Domain<br>verbinden</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Dein-Projekt.vercel.app wird zu deinbusiness.de. Eine eigene Domain macht dich professionell – und kostet weniger als einen Kaffee im Monat.</p>
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>16</span>
+  </div>
+</div>
+
+<div class="page">
+  <h3><span class="coral">06</span> — Domain verbinden</h3>
+  <div class="coral-line-long"></div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Domain registrieren</h4>
+    <p>Gehe auf ionos.de und registriere deine Wunschdomain. Eine .de-Domain kostet ca. 1€/Monat. Tipp: Halte den Namen kurz, einprägsam und passend zu deinem Business.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>DNS-Einstellungen anpassen</h4>
+    <p>In den IONOS-Einstellungen musst du die Nameserver auf Vercel umstellen. Vercel zeigt dir genau welche Werte du eintragen musst.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Domain in Vercel hinzufügen</h4>
+    <p>In deinem Vercel-Dashboard gehst du zu Settings → Domains und fügst deine neue Domain hinzu. Das SSL-Zertifikat (https://) wird automatisch erstellt – kostenlos.</p>
+  </div>
+
+  <div class="screenshot-placeholder">Screenshot: Vercel Domain-Einstellungen</div>
+
+  <h4 style="margin-top:24px;">Meine Domain-Details:</h4>
+  <p style="font-size:13px; color:#888;">Notiere hier deine Domain-Informationen für späteren Zugriff:</p>
+
+  <h4>Domain-Name:</h4>
+  <div class="fill-field"></div>
+  <h4>Registriert bei:</h4>
+  <div class="fill-field"></div>
+  <h4>Zugangsdaten (sicher aufbewahren!):</h4>
+  <div class="fill-field"></div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>17</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGES 18-19: KAPITEL 7 – E-MAIL
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">07</div>
+  <h2>Professionelle<br>E-Mail einrichten</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">hi@deinedomain.de statt irgendwas@gmail.com. Eine professionelle E-Mail-Adresse macht sofort einen besseren Eindruck – bei Kunden, Partnern und auf deiner Website.</p>
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>18</span>
+  </div>
+</div>
+
+<div class="page">
+  <h3><span class="coral">07</span> — E-Mail einrichten</h3>
+  <div class="coral-line-long"></div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Google Workspace abonnieren</h4>
+    <p>Gehe auf workspace.google.com und wähle den Business Starter Plan (~6€/Monat). Damit bekommst du Gmail mit deiner eigenen Domain plus Google Drive, Kalender und mehr.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Domain verifizieren</h4>
+    <p>Google führt dich durch den Verifizierungsprozess. Du musst einen DNS-Eintrag bei IONOS hinzufügen – Google zeigt dir genau welchen.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>E-Mail-Adresse einrichten</h4>
+    <p>Erstelle deine erste E-Mail-Adresse. Empfehlung: hi@deinedomain.de oder hallo@deinedomain.de – persönlich, aber professionell.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 4</div>
+    <h4>Signatur erstellen</h4>
+    <p>Erstelle eine professionelle E-Mail-Signatur mit deinem Namen, Titel, Website-Link und Logo. Claude kann dir den HTML-Code dafür generieren.</p>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Profi-Tipp</div>
+    <p>Richte dir auch eine info@-Adresse ein für dein Impressum und allgemeine Anfragen. In Gmail kannst du mehrere Adressen verwalten und sie an einen Posteingang weiterleiten.</p>
+  </div>
+
+  <h4>Meine E-Mail-Adressen:</h4>
+  <div class="fill-field"></div>
+  <div class="fill-field"></div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>19</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGES 20-21: KAPITEL 8 – CRM
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">08</div>
+  <h2>CRM mit<br>HubSpot aufsetzen</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Alle Kontakte an einem Ort. Anfragen, Newsletter-Abonnenten, Kundenhistorie – übersichtlich und komplett kostenlos.</p>
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>20</span>
+  </div>
+</div>
+
+<div class="page">
+  <h3><span class="coral">08</span> — HubSpot CRM</h3>
+  <div class="coral-line-long"></div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>HubSpot-Konto erstellen</h4>
+    <p>Gehe auf hubspot.com und erstelle ein kostenloses CRM-Konto. Das kostenlose Paket reicht für den Start völlig aus – du kannst bis zu 1.000.000 Kontakte verwalten.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Kontaktformular einrichten</h4>
+    <p>Erstelle in HubSpot ein Kontaktformular. Du bekommst einen Embed-Code, den Claude auf deiner Website einbaut. Jede Anfrage landet direkt in deinem CRM.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Kontakt-Eigenschaften anpassen</h4>
+    <p>Passe die Kontaktfelder an dein Business an. Beispiel: Branche, Interesse, woher der Kontakt kommt. So behältst du immer den Überblick.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 4</div>
+    <h4>E-Mail-Benachrichtigungen einrichten</h4>
+    <p>Stelle ein, dass du bei jeder neuen Anfrage eine E-Mail-Benachrichtigung bekommst. So verpasst du keinen potenziellen Kunden.</p>
+  </div>
+
+  <div class="screenshot-placeholder">Screenshot: HubSpot Dashboard</div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>21</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGES 22-23: KAPITEL 9 – GUMROAD
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">09</div>
+  <h2>Digitale Produkte<br>verkaufen</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Workbook hochladen, Preis festlegen, Link auf die Website – fertig. Gumroad übernimmt Zahlung, Lieferung und sogar die Rechnungsstellung.</p>
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>22</span>
+  </div>
+</div>
+
+<div class="page">
+  <h3><span class="coral">09</span> — Gumroad Shop</h3>
+  <div class="coral-line-long"></div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Gumroad-Konto erstellen</h4>
+    <p>Gehe auf gumroad.com und erstelle ein kostenloses Konto. Gumroad nimmt keine monatlichen Gebühren – nur 10% pro Verkauf.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Erstes Produkt anlegen</h4>
+    <p>Klicke auf „New Product", wähle „Digital Product" und lade deine Datei hoch (z.B. ein PDF-Workbook). Füge einen Titel, Beschreibung, Preis und ein Coverbild hinzu.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Checkout auf der Website einbinden</h4>
+    <p>Gumroad gibt dir einen Link oder Embed-Code. Claude baut einen schönen Kaufen-Button auf deiner Website ein, der direkt zum Gumroad-Checkout führt.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 4</div>
+    <h4>Zahlungsempfang einrichten</h4>
+    <p>Verbinde dein Bankkonto oder PayPal mit Gumroad. Ab jetzt fließen die Einnahmen automatisch – abzüglich der 10% Gumroad-Gebühr.</p>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Produktideen für den Start</div>
+    <p>Workbooks, Templates, Checklisten, E-Books, Online-Kurse, Vorlagen – alles, was du digital erstellen und verkaufen kannst. Starte mit einem Produkt und erweitere dein Angebot Schritt für Schritt.</p>
+  </div>
+
+  <h4>Mein erstes digitales Produkt:</h4>
+  <div class="fill-field"></div>
+  <h4>Preis:</h4>
+  <div class="fill-field"></div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>23</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 24: CHECKLISTE
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Deine Komplett-<br>Checkliste</h2>
+
+  <p>Hake jeden Schritt ab, sobald du ihn erledigt hast:</p>
+
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Claude Pro</strong> – Konto erstellt und aktiviert</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Claude Code</strong> – installiert und mit VS Code verbunden</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>VS Code</strong> – heruntergeladen und Projektordner angelegt</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Website</strong> – Startseite und Unterseiten erstellt</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>SEO</strong> – Meta-Tags, Sitemap, Schema-Markup eingerichtet</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>DSGVO</strong> – Impressum, Datenschutz, Cookie-Banner</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>GitHub</strong> – Repository angelegt und Code hochgeladen</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Vercel</strong> – Hosting eingerichtet und Website live</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Domain</strong> – registriert und mit Vercel verbunden</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>SSL</strong> – HTTPS aktiv (Vercel macht das automatisch)</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>E-Mail</strong> – Google Workspace eingerichtet</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>E-Mail-Signatur</strong> – professionell gestaltet</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>HubSpot CRM</strong> – Konto erstellt, Formular eingebunden</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Gumroad</strong> – Shop eingerichtet, erstes Produkt angelegt</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Kaufen-Button</strong> – auf der Website eingebaut</div></div>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>24</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 25: NÄCHSTE SCHRITTE + KONTAKT
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Geschafft!</h2>
+
+  <div class="quote-block">
+    „Du hast jetzt alles, was du brauchst. Eine professionelle Website, E-Mail, CRM und einen Shop – für unter 30 Euro im Monat. Ohne Agentur. Ohne Programmierkenntnisse. Nur du und KI."
+  </div>
+
+  <h3 style="margin-top:32px;">Wie geht's weiter?</h3>
+  <p>Dein Workspace steht. Jetzt geht es darum, ihn zu nutzen und dein Business nach vorne zu bringen. Hier sind deine nächsten Schritte:</p>
+
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Content erstellen</strong> – Blog-Artikel, Social-Media-Posts, Newsletter</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Social Media aufsetzen</strong> – Instagram, Facebook, LinkedIn</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Google Analytics</strong> – Website-Tracking einrichten</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Weitere Produkte</strong> – dein Angebot erweitern</div></div>
+    <div class="checklist-item"><div class="checkbox"></div><div><strong>Netzwerken</strong> – Kooperationen und Partnerschaften aufbauen</div></div>
+  </div>
+
+  <div style="background:#fafaf8; border-radius:12px; padding:32px; margin-top:32px; text-align:center;">
+    <h3 style="margin-bottom:8px;">Brauchst du Unterstützung?</h3>
+    <p style="margin-bottom:16px;">Buche einen Strategie-Call und wir gehen deine nächsten Schritte gemeinsam durch.</p>
+    <p style="font-size:16px; font-weight:600; margin-bottom:4px;">baeumlermarketing.de</p>
+    <p style="font-size:14px; color:#e8604c; margin-bottom:4px;">hi@baeumlermarketing.de</p>
+    <p style="font-size:13px; color:#888;">Miriam Bäumler · Marketingberaterin · Langenfeld</p>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>25</span>
+  </div>
+</div>
+
+</body>
+</html>

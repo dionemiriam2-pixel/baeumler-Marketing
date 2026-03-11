@@ -3,9 +3,16 @@
 Thumbs.db
 desktop.ini
 
+# Temp & Lock files
+*.tmp
+.~lock.*
+
 # IDE
 .vscode/
 .idea/
+
+# Claude Code
+.claude/
 
 # Archive
 archiv/

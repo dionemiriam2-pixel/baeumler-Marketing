@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workbook Cover Preview — Baeumler Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .page {
+    width: 595px; /* A4 width in pixels at 72dpi */
+    height: 842px;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  }
+
+  /* Coral brush stroke / swipe effect */
+  .coral-swipe {
+    position: absolute;
+    top: -80px;
+    right: -60px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(ellipse at 70% 30%, #e8604c 0%, #e8604c 40%, transparent 70%);
+    opacity: 0.12;
+    border-radius: 50%;
+    filter: blur(40px);
+    transform: rotate(-15deg);
+  }
+
+  .coral-accent {
+    position: absolute;
+    bottom: 180px;
+    left: -100px;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(ellipse at 30% 70%, #e8604c 0%, transparent 65%);
+    opacity: 0.08;
+    border-radius: 50%;
+    filter: blur(50px);
+  }
+
+  /* Content */
+  .content {
+    position: relative;
+    z-index: 2;
+    padding: 48px 44px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .top-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #e8604c;
+    margin-bottom: 28px;
+  }
+
+  .title {
+    font-family: 'Antonio', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.05;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #e8604c;
+    margin-bottom: 8px;
+  }
+
+  .tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #303030;
+    margin-bottom: 32px;
+    line-height: 1.4;
+  }
+
+  /* Image area */
+  .image-container {
+    flex: 1;
+    position: relative;
+    margin: 0 -44px;
+    overflow: hidden;
+    min-height: 220px;
+  }
+
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, #ffffff, transparent);
+  }
+
+  /* Bottom bar */
+  .bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 44px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 3;
+  }
+
+  .author-info h3 {
+    font-family: 'Antonio', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    letter-spacing: 0.02em;
+  }
+
+  .author-info p {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: #888;
+    margin-top: 2px;
+  }
+
+  /* Placeholder image style */
+  .image-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    background: #f2f2f0;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-family: 'Inter', sans-serif;
+    gap: 10px;
+    margin: 0 44px;
+  }
+
+  .image-placeholder .icon {
+    font-size: 40px;
+    opacity: 0.5;
+  }
+
+  .image-placeholder span {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Description text */
+  .description {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #555;
+    max-width: 380px;
+    margin-bottom: 20px;
+  }
+
+  /* Coral line accent */
+  .coral-line {
+    width: 40px;
+    height: 3px;
+    background: #e8604c;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <!-- Background effects -->
+  <div class="coral-swipe"></div>
+  <div class="coral-accent"></div>
+
+  <div class="content">
+    <div class="top-label">Workbook</div>
+
+    <div class="title">Business<br>Workspace<br>in unter einer<br>Woche</div>
+
+    <div class="subtitle">mit Claude AI · für unter 30 € monatlich</div>
+
+    <div class="coral-line"></div>
+
+    <div class="tagline">So macht Selbstständigkeit<br>wieder Spaß.</div>
+
+    <div class="description">
+      Du hast ein Produkt oder eine Dienstleistung und weißt nicht, wie du alle Tools online einrichtest? Dank KI geht das heute alles in unter einer Woche. Ich zeige dir wie.
+    </div>
+
+    <!-- Image area with placeholder -->
+    <div class="image-container">
+      <div class="image-placeholder">
+        <div class="icon">&#128247;</div>
+        <span>Dein Bild hier</span>
+      </div>
+      <div class="image-overlay"></div>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="bottom-bar">
+    <div class="author-info">
+      <h3>Miriam Bäumler</h3>
+      <p>Baeumler Marketing</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

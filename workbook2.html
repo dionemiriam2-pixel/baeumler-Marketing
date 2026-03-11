@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media mit KI — Workbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', system-ui, sans-serif; color: #1a1a1a; background: #e8e8e8; line-height: 1.6; }
+
+  /* ─── Page Container ─── */
+  .page {
+    width: 794px; height: 1123px;
+    background: #fff; margin: 30px auto;
+    position: relative; overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    padding: 60px 56px;
+    display: flex; flex-direction: column;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* ─── Typography ─── */
+  h1, h2, h3, h4 { font-family: 'Antonio', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.1; }
+  h1 { font-size: 44px; }
+  h2 { font-size: 36px; margin-bottom: 24px; }
+  h3 { font-size: 24px; margin-bottom: 16px; }
+  h4 { font-size: 18px; margin-bottom: 12px; }
+  p { font-size: 14px; line-height: 1.7; margin-bottom: 14px; color: #333; }
+  .serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
+
+  /* ─── Coral accents ─── */
+  .coral { color: #e8604c; }
+  .coral-bg { background: #e8604c; }
+  .coral-line { width: 40px; height: 3px; background: #e8604c; border-radius: 2px; margin-bottom: 20px; }
+  .coral-line-long { width: 100%; height: 2px; background: #e8604c; opacity: 0.2; margin: 24px 0; }
+
+  /* ─── Cover Page ─── */
+  .cover { padding: 48px 44px; }
+  .cover .top-label {
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 3px; color: #e8604c; margin-bottom: 28px;
+  }
+  .cover h1 { font-size: 44px; margin-bottom: 16px; }
+  .cover .subtitle { font-size: 16px; font-weight: 500; color: #e8604c; margin-bottom: 8px; }
+  .cover .tagline { font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; color: #303030; margin-bottom: 24px; line-height: 1.4; }
+  .cover .description { font-size: 13px; color: #555; max-width: 380px; margin-bottom: 20px; line-height: 1.6; }
+  .cover .image-area {
+    flex: 1; background: #f2f2f0; border: 2px dashed #ccc; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #aaa; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; min-height: 200px;
+  }
+  .cover .bottom-info { margin-top: auto; padding-top: 20px; }
+  .cover .bottom-info h3 { font-size: 16px; text-transform: uppercase; }
+  .cover .bottom-info p { font-size: 11px; color: #888; margin-bottom: 0; }
+  .cover .coral-swipe {
+    position: absolute; top: -80px; right: -60px; width: 500px; height: 500px;
+    background: radial-gradient(ellipse at 70% 30%, #e8604c 0%, #e8604c 40%, transparent 70%);
+    opacity: 0.12; border-radius: 50%; filter: blur(40px); z-index: 0;
+  }
+
+  /* ─── TOC ─── */
+  .toc-item { display: flex; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #f0f0f0; }
+  .toc-number { font-family: 'Antonio', sans-serif; font-size: 28px; font-weight: 700; color: #e8604c; width: 50px; flex-shrink: 0; }
+  .toc-title { font-family: 'Antonio', sans-serif; font-size: 18px; font-weight: 700; text-transform: uppercase; flex: 1; }
+  .toc-desc { font-size: 12px; color: #888; margin-top: 4px; font-family: 'Inter', sans-serif; text-transform: none; }
+
+  /* ─── Chapter Title Pages ─── */
+  .chapter-title-page { justify-content: center; align-items: flex-start; }
+  .chapter-title-page .chapter-num {
+    font-family: 'Antonio', sans-serif; font-size: 120px; font-weight: 700;
+    color: #e8604c; opacity: 0.15; line-height: 1; margin-bottom: -20px;
+  }
+  .chapter-title-page h2 { font-size: 42px; margin-bottom: 16px; }
+  .chapter-title-page .chapter-intro { font-size: 16px; color: #555; max-width: 500px; line-height: 1.7; }
+
+  /* ─── Content Elements ─── */
+  .step-box {
+    background: #fafaf8; border-left: 3px solid #e8604c; padding: 20px 24px;
+    margin-bottom: 20px; border-radius: 0 8px 8px 0;
+  }
+  .step-box .step-num { font-family: 'Antonio', sans-serif; font-size: 14px; color: #e8604c; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+  .step-box h4 { font-size: 16px; margin-bottom: 8px; }
+  .step-box p { font-size: 13px; margin-bottom: 0; color: #555; }
+
+  .tip-box {
+    background: #fff8f6; border: 1px solid rgba(232,96,76,0.2); border-radius: 8px;
+    padding: 20px 24px; margin: 20px 0;
+  }
+  .tip-box .tip-label { font-size: 11px; font-weight: 700; color: #e8604c; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+  .tip-box p { font-size: 13px; color: #555; margin-bottom: 0; }
+
+  .screenshot-placeholder {
+    background: #f5f5f3; border: 2px dashed #ddd; border-radius: 8px;
+    height: 180px; display: flex; align-items: center; justify-content: center;
+    color: #bbb; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
+    margin: 20px 0;
+  }
+
+  .checklist { margin: 16px 0; }
+  .checklist-item {
+    display: flex; align-items: flex-start; gap: 12px; padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0; font-size: 14px;
+  }
+  .checkbox {
+    width: 20px; height: 20px; border: 2px solid #ddd; border-radius: 4px;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  .fill-field {
+    border-bottom: 2px dotted #ccc; padding: 8px 0; margin: 8px 0 20px;
+    min-height: 32px; font-size: 14px; color: #999;
+  }
+  .fill-field.large { min-height: 80px; }
+
+  .tool-card {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #fafaf8; border: 1px solid #eee; border-radius: 8px;
+    padding: 12px 16px; margin: 6px 6px 6px 0; font-size: 13px; font-weight: 600;
+  }
+  .tool-card .tool-type { font-size: 11px; color: #888; font-weight: 400; }
+
+  .prompt-box {
+    background: #1a1a1a; color: #e8e8e8; border-radius: 8px;
+    padding: 20px 24px; margin: 16px 0; font-family: 'Courier New', monospace;
+    font-size: 12px; line-height: 1.6;
+  }
+  .prompt-box .prompt-label { color: #e8604c; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+
+  .content-card {
+    background: #fafaf8; border: 1px solid #eee; border-radius: 12px;
+    padding: 20px 24px; margin: 12px 0;
+  }
+  .content-card h4 { font-size: 15px; margin-bottom: 8px; }
+  .content-card p { font-size: 12px; color: #666; margin-bottom: 0; }
+
+  .two-col { display: flex; gap: 32px; }
+  .two-col > div { flex: 1; }
+
+  .quote-block {
+    border-left: 3px solid #e8604c; padding: 16px 24px; margin: 20px 0;
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 18px; color: #303030; line-height: 1.5;
+  }
+
+  .page-footer {
+    margin-top: auto; padding-top: 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 10px; color: #ccc; border-top: 1px solid #f0f0f0;
+  }
+
+  .week-grid {
+    display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin: 16px 0;
+  }
+  .week-cell {
+    background: #fafaf8; border: 1px solid #eee; border-radius: 8px;
+    padding: 10px 8px; text-align: center; font-size: 11px;
+  }
+  .week-cell .day { font-weight: 700; font-size: 12px; color: #e8604c; margin-bottom: 4px; }
+
+  .platform-badge {
+    display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px;
+    font-weight: 600; margin: 4px 4px 4px 0;
+  }
+  .badge-ig { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
+  .badge-fb { background: #1877F2; color: #fff; }
+  .badge-li { background: #0A66C2; color: #fff; }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 1: COVER
+═══════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="coral-swipe"></div>
+  <div style="position:relative;z-index:1;display:flex;flex-direction:column;height:100%;">
+    <div class="top-label">Workbook</div>
+    <h1>Social Media<br>mit KI</h1>
+    <div class="subtitle">Content erstellen · planen · auswerten — mit Claude AI</div>
+    <div class="coral-line"></div>
+    <div class="tagline">Von der Idee zum fertigen<br>Post in Minuten.</div>
+    <div class="description">Du weißt, dass du auf Social Media präsent sein solltest – aber dir fehlt die Zeit, die Ideen und der Plan? Mit KI erstellst du professionellen Content in einem Bruchteil der Zeit. Ich zeige dir wie.</div>
+    <div class="image-area">Dein Bild hier</div>
+    <div class="bottom-info">
+      <h3>Miriam Bäumler</h3>
+      <p>Baeumler Marketing</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 2: WILLKOMMEN
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Hey, schön dass<br>du hier bist.</h2>
+
+  <div class="quote-block">
+    „Social Media war für mich immer der Punkt, an dem ich stecken geblieben bin. Content erstellen, posten, dranbleiben – neben dem ganzen Tagesgeschäft? Unmöglich. Bis ich angefangen habe, KI dafür einzusetzen."
+  </div>
+
+  <p>Ich bin Miriam, Marketingberaterin aus Langenfeld. Ich habe meinen kompletten Business-Workspace mit Claude AI aufgebaut – ohne Programmierkenntnisse, in unter einer Woche, für unter 30 Euro im Monat.</p>
+
+  <p>Was mir dabei am meisten geholfen hat: Claude kann nicht nur Websites bauen. Claude kann auch Content schreiben, Redaktionspläne erstellen, Captions formulieren und sogar deine Canva-Designs vorbereiten.</p>
+
+  <p>In diesem Workbook zeige ich dir, wie du einen kompletten Social-Media-Workflow mit KI aufbaust. Kein stundenlanges Grübeln mehr über den nächsten Post. Kein schlechtes Gewissen, weil du seit Wochen nichts gepostet hast. Stattdessen: Ein System, das für dich arbeitet.</p>
+
+  <p>Du brauchst dafür nur:</p>
+
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><span>Claude Pro (20 $ / ca. 19 €/Monat)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Ein Instagram- und/oder Facebook-Konto</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Optional: Canva (kostenlos oder Pro)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>90 Minuten Zeit pro Woche</span></div>
+  </div>
+
+  <p style="font-weight:600; color:#1a1a1a; margin-top: 20px;">Bereit? Dann lass uns starten.</p>
+
+  <div class="page-footer">
+    <span>Social Media mit KI — Workbook</span>
+    <span>Baeumler Marketing</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 3: INHALTSVERZEICHNIS
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Inhalt</h2>
+
+  <div class="toc-item">
+    <div class="toc-number">01</div>
+    <div>
+      <div class="toc-title">Deine KI-Social-Media-Strategie</div>
+      <div class="toc-desc">Zielgruppe, Positionierung & Content-Säulen definieren</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">02</div>
+    <div>
+      <div class="toc-title">Claude als Content-Tool einrichten</div>
+      <div class="toc-desc">Claude Code installieren & den Social-Media-Workflow starten</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">03</div>
+    <div>
+      <div class="toc-title">Redaktionsplan mit KI erstellen</div>
+      <div class="toc-desc">Monats- & Wochenpläne automatisiert generieren</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">04</div>
+    <div>
+      <div class="toc-title">Texte & Captions schreiben</div>
+      <div class="toc-desc">KI-Prompts für Posts, Stories, Reels & Karussells</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">05</div>
+    <div>
+      <div class="toc-title">Bildwelten & Canva-Designs</div>
+      <div class="toc-desc">Visuellen Content mit KI-Unterstützung erstellen</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">06</div>
+    <div>
+      <div class="toc-title">Veröffentlichen & Planen</div>
+      <div class="toc-desc">Posting-Zeiten, Scheduling & Batch-Content-Produktion</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">07</div>
+    <div>
+      <div class="toc-title">Auswerten & Optimieren</div>
+      <div class="toc-desc">KPIs verstehen, Insights analysieren & Content verbessern</div>
+    </div>
+  </div>
+
+  <div style="margin-top: auto;">
+    <div class="tip-box">
+      <div class="tip-label">So nutzt du dieses Workbook</div>
+      <p>Arbeite die Kapitel der Reihe nach durch. Jedes Kapitel enthält konkrete Schritte, Prompt-Vorlagen und Ausfüllfelder. Am Ende jedes Kapitels findest du eine Checkliste. Nimm dir pro Kapitel ca. 30–60 Minuten Zeit.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Social Media mit KI — Workbook</span>
+    <span>Baeumler Marketing</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 4: ÜBERBLICK — DEINE TOOLS
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Deine Tools<br>im Überblick</h2>
+
+  <p>Für deinen KI-gestützten Social-Media-Workflow brauchst du nur wenige Tools. Hier ist dein Setup:</p>
+
+  <h3 style="margin-top: 24px;">Pflicht-Tools</h3>
+
+  <div class="tool-card">
+    <span>Claude Pro</span>
+    <span class="tool-type">KI-Assistent · $20/Monat</span>
+  </div>
+  <div class="tool-card">
+    <span>Instagram</span>
+    <span class="tool-type">Business-Konto · kostenlos</span>
+  </div>
+  <div class="tool-card">
+    <span>Facebook</span>
+    <span class="tool-type">Unternehmensseite · kostenlos</span>
+  </div>
+
+  <h3 style="margin-top: 24px;">Empfohlene Tools</h3>
+
+  <div class="tool-card">
+    <span>Canva</span>
+    <span class="tool-type">Grafikdesign · kostenlos / Pro 12 €</span>
+  </div>
+  <div class="tool-card">
+    <span>Meta Business Suite</span>
+    <span class="tool-type">Scheduling · kostenlos</span>
+  </div>
+  <div class="tool-card">
+    <span>Notion / Google Sheets</span>
+    <span class="tool-type">Redaktionsplan · kostenlos</span>
+  </div>
+
+  <div class="coral-line-long"></div>
+
+  <h3>Monatliche Kosten</h3>
+  <div class="cost-row"><span>Claude Pro</span><span class="cost-price">~19 €</span></div>
+  <div class="cost-row"><span>Instagram & Facebook</span><span class="cost-price">0 €</span></div>
+  <div class="cost-row"><span>Meta Business Suite</span><span class="cost-price">0 €</span></div>
+  <div class="cost-row"><span>Canva Free</span><span class="cost-price">0 €</span></div>
+  <div class="cost-total"><span>Gesamt</span><span class="coral">~19 € / Monat</span></div>
+
+  <div class="tip-box" style="margin-top: 24px;">
+    <div class="tip-label">Tipp</div>
+    <p>Mit Canva Pro (12 €/Monat) bekommst du Zugriff auf den Brand-Kit, Magic Resize und Millionen Vorlagen. Lohnt sich, wenn du regelmäßig postest. Aber für den Start reicht die kostenlose Version.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>Social Media mit KI — Workbook</span>
+    <span>Baeumler Marketing</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 1: KI-SOCIAL-MEDIA-STRATEGIE
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">01</div>
+  <h2>Deine KI-Social-<br>Media-Strategie</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Bevor du auch nur einen Post erstellst, brauchst du Klarheit: Wen willst du erreichen? Was macht dich einzigartig? Und welche Themen bespielst du? In diesem Kapitel erarbeitest du die Grundlage für deinen gesamten Content.</p>
+</div>
+
+<div class="page">
+  <h3>Deine Zielgruppe definieren</h3>
+
+  <p>Der häufigste Fehler auf Social Media: „Ich poste für alle." Das funktioniert nicht. Je klarer du weißt, für wen du postest, desto besser wird dein Content.</p>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Beschreibe deine Wunschkundin</h4>
+    <p>Denke an eine konkrete Person, die dein Angebot braucht. Wie alt ist sie? Was macht sie beruflich? Was sind ihre größten Herausforderungen?</p>
+  </div>
+
+  <p style="font-weight: 600; font-size: 13px; color: #1a1a1a; margin-top: 8px;">Deine Wunschkundin:</p>
+  <div class="fill-field large">Name, Alter, Beruf, Herausforderungen...</div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Frag Claude nach einer Zielgruppen-Analyse</h4>
+    <p>Nutze den folgenden Prompt, um Claude deine Zielgruppe analysieren zu lassen:</p>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-label">Prompt-Vorlage</div>
+    Ich bin [dein Beruf] und biete [dein Angebot] an. Meine Zielgruppe sind [Beschreibung]. Erstelle mir eine detaillierte Zielgruppen-Persona mit: demografische Daten, Schmerzpunkte, Wünsche, bevorzugte Social-Media-Plattformen und Content-Formate, die sie ansprechen.
+  </div>
+
+  <h3 style="margin-top: 28px;">Deine 3–5 Content-Säulen</h3>
+
+  <p>Content-Säulen sind die Hauptthemen, über die du immer wieder postest. Sie geben deinem Content Struktur und Wiedererkennungswert.</p>
+
+  <div class="tip-box">
+    <div class="tip-label">Beispiel Content-Säulen</div>
+    <p><strong>Marketingberaterin:</strong> 1) KI-Tipps & Tools · 2) Marketing-Wissen · 3) Hinter den Kulissen · 4) Kundenerfolge · 5) Persönliches & Motivation</p>
+  </div>
+
+  <p style="font-weight: 600; font-size: 13px; color: #1a1a1a;">Deine Content-Säulen:</p>
+  <div class="fill-field">Säule 1: </div>
+  <div class="fill-field">Säule 2: </div>
+  <div class="fill-field">Säule 3: </div>
+  <div class="fill-field">Säule 4: </div>
+  <div class="fill-field">Säule 5: </div>
+
+  <div class="page-footer">
+    <span>Social Media mit KI — Workbook</span>
+    <span>Kapitel 1 · Strategie</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 2: CLAUDE ALS CONTENT-TOOL
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">02</div>
+  <h2>Claude als<br>Content-Tool<br>einrichten</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Claude ist weit mehr als ein Chatbot – es ist dein persönlicher Content-Assistent. In diesem Kapitel richtest du Claude so ein, dass es deinen Stil kennt, deine Zielgruppe versteht und sofort loslegen kann.</p>
+</div>
+
+<div class="page">
+  <h3>Claude für Social Media vorbereiten</h3>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Claude Pro aktivieren</h4>
+    <p>Gehe auf <strong>claude.ai</strong> und erstelle ein Konto oder upgrade auf Claude Pro ($20/Monat). Mit Pro bekommst du deutlich mehr Nachrichten, Zugang zu Claude Opus und Projects.</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Ein Social-Media-Projekt anlegen</h4>
+    <p>Erstelle in Claude ein neues Projekt mit dem Namen „Social Media Content". Dort speicherst du dein Briefing als Projektanweisung — so kennt Claude bei jedem neuen Chat deinen Kontext.</p>
+  </div>
+
+  <div class="screenshot-placeholder">Screenshot: Claude Projekt erstellen</div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 3</div>
+    <h4>Dein Brand-Briefing erstellen</h4>
+    <p>Kopiere die folgende Vorlage und fülle sie aus. Dann paste sie als Projektanweisung in dein Claude-Projekt:</p>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-label">Brand-Briefing Vorlage</div>
+    Du bist mein Social-Media-Content-Assistent.<br><br>
+    Mein Business: [Name, Was du anbietest]<br>
+    Zielgruppe: [Wer sind sie, was brauchen sie]<br>
+    Tonalität: [z.B. locker, professionell, motivierend]<br>
+    Content-Säulen: [deine 3-5 Themen]<br>
+    Plattformen: [Instagram, Facebook, LinkedIn...]<br>
+    Ziel: [z.B. Reichweite, Vertrauen, Verkäufe]<br><br>
+    Schreibe immer auf Deutsch. Verwende eine persönliche du-Ansprache. Halte Texte kurz und knackig. Verwende Emojis sparsam und passend.
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Profi-Tipp</div>
+    <p>Je detaillierter dein Briefing, desto besser die Ergebnisse. Lade auch Beispiel-Posts hoch, die dir gefallen – Claude lernt daraus deinen Stil.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>Social Media mit KI — Workbook</span>
+    <span>Kapitel 2 · Claude einrichten</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 3: REDAKTIONSPLAN
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">03</div>
+  <h2>Redaktionsplan<br>mit KI erstellen</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Kein Rätselraten mehr, was du heute posten sollst. Mit einem KI-gestützten Redaktionsplan hast du Content für Wochen im Voraus – generiert in wenigen Minuten.</p>
+</div>
+
+<div class="page">
+  <h3>Deinen Monatsplan generieren</h3>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Posting-Frequenz festlegen</h4>
+    <p>Wie oft willst du posten? Für den Anfang reichen 3–4 Posts pro Woche. Wichtig ist Regelmäßigkeit, nicht Masse.</p>
+  </div>
+
+  <p style="font-weight: 600; font-size: 13px;">Deine Posting-Frequenz:</p>
+  <div class="fill-field">___  Posts pro Woche  ·  Tage: _________________________________</div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Monatsplan von Claude erstellen lassen</h4>
+    <p>Nutze diesen Prompt für einen kompletten Monatsplan:</p>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-label">Prompt-Vorlage</div>
+    Erstelle mir einen Redaktionsplan für [Monat] mit [X] Posts pro Woche. Verwende meine Content-Säulen und variiere die Formate: Karussell-Posts, Einzelbilder, Reels-Ideen und Story-Serien. Gib mir für jeden Post: Datum, Content-Säule, Format, Thema/Hook und kurze Beschreibung.
+  </div>
+
+  <div class="screenshot-placeholder">Screenshot: Beispiel-Redaktionsplan in Tabellenform</div>
+
+  <h3 style="margin-top: 24px;">Dein Wochen-Rhythmus</h3>
+
+  <p>Hier ist ein Beispiel für eine Content-Woche. Passe es an deine Posting-Frequenz an:</p>
+
+  <div class="week-grid">
+    <div class="week-cell"><div class="day">Mo</div>Karussell<br><span style="color:#888;font-size:10px;">Tipp/Wissen</span></div>
+    <div class="week-cell"><div class="day">Di</div>Story<br><span style="color:#888;font-size:10px;">Behind the Scenes</span></div>
+    <div class="week-cell"><div class="day">Mi</div>Reel<br><span style="color:#888;font-size:10px;">Quick-Tipp</span></div>
+    <div class="week-cell"><div class="day">Do</div>—<br><span style="color:#888;font-size:10px;">Pause</span></div>
+    <div class="week-cell"><div class="day">Fr</div>Einzelbild<br><span style="color:#888;font-size:10px;">Persönlich</span></div>
+    <div class="week-cell"><div class="day">Sa</div>Story<br><span style="color:#888;font-size:10px;">Interaktion</span></div>
+    <div class="week-cell"><div class="day">So</div>—<br><span style="color:#888;font-size:10px;">Pause</span></div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-label">Tipp</div>
+    <p>Erstelle am Sonntagabend oder Montagmorgen deinen Wochenplan — das dauert mit Claude maximal 15 Minuten. Dann hast du die ganze Woche Klarheit.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>Social Media mit KI — Workbook</span>
+    <span>Kapitel 3 · Redaktionsplan</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 4: TEXTE & CAPTIONS
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">04</div>
+  <h2>Texte &<br>Captions<br>schreiben</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Die Caption ist das Herzstück deines Posts. Hier lernst du, wie du mit den richtigen Prompts Texte generierst, die wirklich nach dir klingen – nicht nach KI.</p>
+</div>
+
+<div class="page">
+  <h3>Die perfekte Caption-Formel</h3>
+
+  <p>Gute Captions folgen einem einfachen Muster: <strong>Hook → Story → Mehrwert → Call to Action.</strong> Claude kann dieses Muster für dich anwenden — du musst nur die richtige Anweisung geben.</p>
+
+  <div class="step-box">
+    <div class="step-num">Hook</div>
+    <h4>Der erste Satz entscheidet</h4>
+    <p>Die ersten 1–2 Zeilen müssen zum Weiterlesen animieren. Claude kann dir 10 Hook-Varianten für jedes Thema generieren.</p>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-label">Prompt: Hooks generieren</div>
+    Gib mir 10 verschiedene Hook-Varianten für einen Instagram-Post zum Thema „[dein Thema]". Nutze verschiedene Techniken: Frage, provokante Aussage, Statistik, persönliche Geschichte, Mythos-Brecher. Jeder Hook maximal 2 Sätze.
+  </div>
+
+  <div class="step-box" style="margin-top: 20px;">
+    <div class="step-num">Caption</div>
+    <h4>Den kompletten Post schreiben lassen</h4>
+    <p>Für einen vollständigen Post nutze diese Vorlage:</p>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-label">Prompt: Instagram-Post</div>
+    Schreibe einen Instagram-Post zum Thema „[Thema]".<br>
+    Format: [Einzelbild / Karussell / Reel-Beschreibung]<br>
+    Ziel: [informieren / unterhalten / verkaufen / Interaktion]<br>
+    Tonalität: [locker / professionell / motivierend]<br><br>
+    Struktur: Starker Hook → kurze Geschichte oder Beispiel → Mehrwert/Tipp → Call to Action.<br>
+    Maximale Länge: 300 Wörter. Verwende Absätze und 2-3 passende Emojis. Füge 5 relevante Hashtags am Ende hinzu.
+  </div>
+
+  <h3 style="margin-top: 24px;">Content-Formate & Prompts</h3>
+
+  <div class="two-col">
+    <div class="content-card">
+      <h4>Karussell-Post</h4>
+      <p>„Erstelle einen 7-Slide-Karussell-Post zum Thema [X]. Slide 1: Hook. Slide 2–6: Je ein Tipp. Slide 7: CTA. Pro Slide max. 30 Wörter."</p>
+    </div>
+    <div class="content-card">
+      <h4>Reel-Script</h4>
+      <p>„Schreibe ein 30-Sekunden-Reel-Script zum Thema [X]. Voiceover-Text + Szenenanweisungen. Hook in den ersten 3 Sekunden."</p>
+    </div>
+  </div>
+  <div class="two-col">
+    <div class="content-card">
+      <h4>Story-Serie</h4>
+      <p>„Erstelle eine 5-Story-Serie zum Thema [X]. Pro Story: Text-Overlay + interaktives Element (Umfrage, Quiz, Frage)."</p>
+    </div>
+    <div class="content-card">
+      <h4>Persönlicher Post</h4>
+      <p>„Schreibe einen authentischen Post über [persönliches Erlebnis]. Vulnerabel aber professionell. Max. 200 Wörter."</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Social Media mit KI — Workbook</span>
+    <span>Kapitel 4 · Texte & Captions</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 5: BILDWELTEN & CANVA
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">05</div>
+  <h2>Bildwelten &<br>Canva-Designs</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Guter Content braucht gute Visuals. Hier lernst du, wie du mit Canva und KI-Unterstützung professionelle Designs erstellst — auch wenn du kein Designer bist.</p>
+</div>
+
+<div class="page">
+  <h3>Dein visuelles System aufbauen</h3>
+
+  <p>Bevor du loslegst, brauchst du ein konsistentes visuelles Erscheinungsbild. Das sorgt für Wiedererkennungswert in deinem Feed.</p>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Brand-Kit in Canva einrichten</h4>
+    <p>Definiere in Canva deine Markenfarben, Schriftarten und dein Logo. So bleibt jedes Design on-brand.</p>
+  </div>
+
+  <p style="font-weight: 600; font-size: 13px;">Deine Brand-Farben:</p>
+  <div class="fill-field">Hauptfarbe: ________  ·  Akzent: ________  ·  Text: ________  ·  Hintergrund: ________</div>
+
+  <p style="font-weight: 600; font-size: 13px;">Deine Schriftarten:</p>
+  <div class="fill-field">Überschrift: ________________  ·  Fließtext: ________________</div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Vorlagen für wiederkehrende Formate erstellen</h4>
+    <p>Erstelle in Canva Vorlagen für deine häufigsten Formate. Claude kann dir die Layouts beschreiben:</p>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-label">Prompt: Canva-Vorlage</div>
+    Beschreibe mir ein Canva-Template-Layout für einen Instagram-Karussell-Post (1080x1080px). Thema: [X]. Mein Brand-Stil: [modern/minimalistisch/verspielt]. Farben: [deine Farben]. Beschreibe für jeden Slide: Hintergrundgestaltung, Text-Platzierung, Schriftgröße, Bildelemente.
+  </div>
+
+  <h3 style="margin-top: 24px;">KI-Bilder generieren</h3>
+
+  <p>Für Social Media kannst du KI-generierte Bilder als Ergänzung nutzen – zum Beispiel für Konzeptbilder, Hintergründe oder illustrative Elemente.</p>
+
+  <div class="tip-box">
+    <div class="tip-label">Wichtig</div>
+    <p>KI-Bilder eignen sich für Stimmungsbilder und Illustrationen. Für authentische Behind-the-Scenes-Content oder Porträts nutze echte Fotos — deine Community will <em>dich</em> sehen.</p>
+  </div>
+
+  <div class="checklist" style="margin-top: 16px;">
+    <div class="checklist-item"><div class="checkbox"></div><span>Brand-Kit in Canva erstellt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Karussell-Vorlage erstellt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Einzelbild-Vorlage erstellt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Story-Vorlage erstellt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Zitat-/Motivation-Vorlage erstellt</span></div>
+  </div>
+
+  <div class="page-footer">
+    <span>Social Media mit KI — Workbook</span>
+    <span>Kapitel 5 · Bildwelten & Canva</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 6: VERÖFFENTLICHEN & PLANEN
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">06</div>
+  <h2>Veröffentlichen<br>& Planen</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Content erstellen ist nur die halbe Miete. Hier lernst du, wie du effizient veröffentlichst, die besten Posting-Zeiten findest und deinen Content in Batches vorplanst.</p>
+</div>
+
+<div class="page">
+  <h3>Batch-Content-Produktion</h3>
+
+  <p>Statt jeden Tag einen Post zu erstellen, produzierst du deinen Content gebündelt. Ein Nachmittag pro Woche reicht für eine ganze Woche Content.</p>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 1</div>
+    <h4>Content-Batch mit Claude erstellen</h4>
+    <p>Generiere alle Texte für die Woche in einem Durchgang:</p>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-label">Prompt: Wochen-Batch</div>
+    Erstelle mir alle Social-Media-Texte für die kommende Woche basierend auf meinem Redaktionsplan:<br><br>
+    Montag: [Thema + Format]<br>
+    Mittwoch: [Thema + Format]<br>
+    Freitag: [Thema + Format]<br>
+    Samstag: [Thema + Format]<br><br>
+    Schreibe für jeden Post die komplette Caption inkl. Hook, Mehrwert und CTA. Passe den Ton an die jeweilige Content-Säule an.
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">Schritt 2</div>
+    <h4>Meta Business Suite nutzen</h4>
+    <p>Die Meta Business Suite ist kostenlos und ermöglicht es dir, Posts für Instagram und Facebook vorauszuplanen. Perfekt für deine Batch-Produktion.</p>
+  </div>
+
+  <div class="screenshot-placeholder">Screenshot: Meta Business Suite — Post planen</div>
+
+  <h3 style="margin-top: 24px;">Beste Posting-Zeiten</h3>
+
+  <div class="tip-box">
+    <div class="tip-label">Allgemeine Empfehlung</div>
+    <p><strong>Instagram:</strong> Di–Fr, 9–11 Uhr und 18–20 Uhr · <strong>Facebook:</strong> Mi–Fr, 12–14 Uhr und 19–21 Uhr. Aber: Schau in deine eigenen Insights — jede Community ist anders.</p>
+  </div>
+
+  <h3 style="margin-top: 24px;">Dein Wochen-Workflow</h3>
+
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><span><strong>Sonntag/Montag:</strong> Wochenplan erstellen (15 Min.)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span><strong>Montag:</strong> Alle Captions mit Claude generieren (30 Min.)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span><strong>Dienstag:</strong> Designs in Canva erstellen (45 Min.)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span><strong>Dienstag:</strong> Alles in Meta Business Suite einplanen (15 Min.)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span><strong>Täglich:</strong> Community-Management — Kommentare & DMs (10 Min.)</span></div>
+  </div>
+
+  <p style="font-weight: 600; font-size: 14px; color: #e8604c; margin-top: 16px;">Gesamter Zeitaufwand: ca. 90 Minuten pro Woche + 10 Min./Tag</p>
+
+  <div class="page-footer">
+    <span>Social Media mit KI — Workbook</span>
+    <span>Kapitel 6 · Veröffentlichen & Planen</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KAPITEL 7: AUSWERTEN & OPTIMIEREN
+═══════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">07</div>
+  <h2>Auswerten &<br>Optimieren</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Posten ohne Auswertung ist wie Autofahren mit geschlossenen Augen. In diesem Kapitel lernst du die wichtigsten Kennzahlen kennen und wie du deinen Content datenbasiert verbesserst.</p>
+</div>
+
+<div class="page">
+  <h3>Deine wichtigsten KPIs</h3>
+
+  <p>Du brauchst keine komplizierten Dashboards. Konzentriere dich auf diese vier Kennzahlen:</p>
+
+  <div class="two-col">
+    <div class="content-card">
+      <h4>Reichweite</h4>
+      <p>Wie viele Menschen sehen deinen Content? Zeigt dir, ob dein Content vom Algorithmus ausgespielt wird.</p>
+    </div>
+    <div class="content-card">
+      <h4>Engagement-Rate</h4>
+      <p>Likes + Kommentare + Saves + Shares geteilt durch Reichweite. Zeigt dir, wie relevant dein Content ist.</p>
+    </div>
+  </div>
+  <div class="two-col">
+    <div class="content-card">
+      <h4>Follower-Wachstum</h4>
+      <p>Netto-Zuwachs pro Woche/Monat. Langsames, organisches Wachstum ist nachhaltig und wertvoll.</p>
+    </div>
+    <div class="content-card">
+      <h4>Link-Klicks / Website-Besuche</h4>
+      <p>Kommen Menschen von Social Media auf deine Website? Das ist der ultimative Erfolgsindikator.</p>
+    </div>
+  </div>
+
+  <div class="step-box" style="margin-top: 20px;">
+    <div class="step-num">Schritt 1</div>
+    <h4>Monatliche Auswertung mit Claude</h4>
+    <p>Teile deine Insights-Daten mit Claude und lass dir eine Analyse erstellen:</p>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-label">Prompt: Monats-Analyse</div>
+    Hier sind meine Instagram-Insights für [Monat]:<br><br>
+    Top 3 Posts nach Reichweite: [Posts + Zahlen]<br>
+    Top 3 Posts nach Engagement: [Posts + Zahlen]<br>
+    Follower-Wachstum: [Zahl]<br>
+    Story-Views Durchschnitt: [Zahl]<br><br>
+    Analysiere die Daten und gib mir: 1) Was hat gut funktioniert und warum? 2) Was kann ich verbessern? 3) Konkrete Empfehlungen für nächsten Monat.
+  </div>
+
+  <h3 style="margin-top: 24px;">Dein Monats-Tracker</h3>
+
+  <p style="font-weight: 600; font-size: 13px;">Monat: _______________</p>
+  <div class="fill-field">Reichweite Gesamt: ____________  ·  Engagement-Rate: ____________%</div>
+  <div class="fill-field">Neue Follower: ____________  ·  Website-Klicks: ____________</div>
+  <div class="fill-field">Top-Post: _______________________________________________</div>
+  <div class="fill-field">Erkenntnis / Learnings: _______________________________________________</div>
+
+  <div class="page-footer">
+    <span>Social Media mit KI — Workbook</span>
+    <span>Kapitel 7 · Auswerten & Optimieren</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     CHECKLISTE
+═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Deine<br>Gesamt-Checkliste</h2>
+
+  <p>Hake ab, was du bereits erledigt hast. Wenn alles angekreuzt ist, bist du bereit für konsistenten, KI-gestützten Social-Media-Content.</p>
+
+  <h3 style="margin-top: 24px;">Strategie</h3>
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><span>Zielgruppe & Persona definiert</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>3–5 Content-Säulen festgelegt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Posting-Frequenz bestimmt</span></div>
+  </div>
+
+  <h3 style="margin-top: 20px;">Setup</h3>
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><span>Claude Pro aktiviert & Projekt angelegt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Brand-Briefing als Projektanweisung hinterlegt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Instagram Business-Konto erstellt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Facebook-Unternehmensseite erstellt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Meta Business Suite eingerichtet</span></div>
+  </div>
+
+  <h3 style="margin-top: 20px;">Content-Produktion</h3>
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><span>Erster Monats-Redaktionsplan erstellt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Canva Brand-Kit eingerichtet</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Mindestens 3 Canva-Vorlagen erstellt</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Erste Wochen-Batch produziert</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Posts in Meta Business Suite eingeplant</span></div>
+  </div>
+
+  <h3 style="margin-top: 20px;">Routine</h3>
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><span>Wöchentlichen Content-Block im Kalender eingetragen</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Tägliche Community-Management-Routine (10 Min.)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Monatliche Auswertung geplant</span></div>
+  </div>
+
+  <div class="page-footer">
+    <span>Social Media mit KI — Workbook</span>
+    <span>Checkliste</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ABSCHLUSS-SEITE
+═══════════════════════════════════════════ -->
+<div class="page" style="justify-content: center;">
+  <div class="coral-line"></div>
+  <h2>Du hast es<br>geschafft!</h2>
+
+  <div class="quote-block">
+    „Social Media muss nicht kompliziert sein. Mit dem richtigen System und KI an deiner Seite kannst du mit weniger Aufwand mehr erreichen."
+  </div>
+
+  <p>Du hast jetzt alle Werkzeuge, Prompts und Strategien, die du brauchst, um deinen Social-Media-Auftritt professionell und zeitsparend zu managen. Das Wichtigste ist: Fang an. Der erste Post muss nicht perfekt sein – er muss nur existieren.</p>
+
+  <p>Und denk daran: Claude wird mit jedem Post, den du erstellst, besser darin, deinen Stil zu treffen. Je mehr du mit deinem KI-Assistenten arbeitest, desto schneller und besser wird der Output.</p>
+
+  <div class="coral-line-long"></div>
+
+  <h3>Nächste Schritte</h3>
+
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><span>Poste deinen ersten KI-unterstützten Post diese Woche</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Plane einen festen Content-Tag in deiner Woche ein</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Werte nach 4 Wochen zum ersten Mal aus</span></div>
+  </div>
+
+  <div class="coral-line-long"></div>
+
+  <h3>Brauchst du Unterstützung?</h3>
+
+  <p>Buche ein 1:1 Strategiegespräch und wir setzen deinen Social-Media-Workflow gemeinsam auf.</p>
+
+  <div style="margin-top: 24px;">
+    <div style="font-family:'Antonio',sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase;">Miriam Bäumler</div>
+    <p style="color: #888; font-size: 13px; margin-bottom: 4px;">Baeumler Marketing · Langenfeld</p>
+    <p style="color: #e8604c; font-size: 14px; font-weight: 600; margin-bottom: 4px;">baeumlermarketing.de</p>
+    <p style="color: #888; font-size: 13px;">kontakt@baeumlermarketing.de</p>
+  </div>
+
+  <div class="page-footer">
+    <span>Social Media mit KI — Workbook</span>
+    <span>© Baeumler Marketing 2026</span>
+  </div>
+</div>
+
+</body>
+</html>
