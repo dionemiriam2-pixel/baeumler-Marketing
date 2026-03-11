@@ -729,10 +729,10 @@
         <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:36px">Schreib mir kurz, was dich beschäftigt — ich melde mich mit einer ersten Einschätzung.</p>
         <form class="kontakt-form" id="kontaktForm" onsubmit="return submitKontakt(event)">
           <div class="form-row">
-            <div class="form-group"><label class="form-label">Name</label><input class="form-input" type="text" id="k-name" required placeholder="Dein Name"></div>
-            <div class="form-group"><label class="form-label">E-Mail</label><input class="form-input" type="email" id="k-email" required placeholder="deine@email.de"></div>
+            <div class="form-group"><label class="form-label" for="k-name">Name</label><input class="form-input" type="text" id="k-name" required placeholder="Dein Name"></div>
+            <div class="form-group"><label class="form-label" for="k-email">E-Mail</label><input class="form-input" type="email" id="k-email" required placeholder="deine@email.de"></div>
           </div>
-          <div class="form-group"><label class="form-label">Nachricht</label><textarea class="form-textarea" id="k-msg" required placeholder="Erzähl mir kurz, worum es geht…"></textarea></div>
+          <div class="form-group"><label class="form-label" for="k-msg">Nachricht</label><textarea class="form-textarea" id="k-msg" required placeholder="Erzähl mir kurz, worum es geht…"></textarea></div>
           <div style="display:flex;align-items:center;gap:10px;margin-top:4px">
             <input type="checkbox" id="k-dsgvo" required style="accent-color:var(--coral);width:18px;height:18px">
             <label for="k-dsgvo" style="font-size:13px;color:var(--muted);line-height:1.4">Ich stimme der <a href="datenschutz.html" style="color:var(--coral)">Datenschutzerklärung</a> zu.</label>

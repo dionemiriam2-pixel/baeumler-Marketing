@@ -21,8 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 <style>
 /* ═══════════════════════════════════════════════
    RESET & VARIABLES
@@ -1179,10 +1179,10 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 48px 4
         <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:36px">Ob konkrete Frage oder erstes Kennenlernen — schreib mir kurz, worum es geht. Ich antworte innerhalb von 24 Stunden.</p>
       <form class="kontakt-form" id="kontaktForm" onsubmit="return submitKontakt(event)">
         <div class="form-row">
-          <div class="form-group"><label class="form-label">Name</label><input class="form-input" type="text" id="k-name" required placeholder="Dein Name"></div>
-          <div class="form-group"><label class="form-label">E-Mail</label><input class="form-input" type="email" id="k-email" required placeholder="deine@email.de"></div>
+          <div class="form-group"><label class="form-label" for="k-name">Name</label><input class="form-input" type="text" id="k-name" required placeholder="Dein Name"></div>
+          <div class="form-group"><label class="form-label" for="k-email">E-Mail</label><input class="form-input" type="email" id="k-email" required placeholder="deine@email.de"></div>
         </div>
-        <div class="form-group"><label class="form-label">Nachricht</label><textarea class="form-textarea" id="k-msg" required placeholder="Erzähl mir kurz, worum es geht…"></textarea></div>
+        <div class="form-group"><label class="form-label" for="k-msg">Nachricht</label><textarea class="form-textarea" id="k-msg" required placeholder="Erzähl mir kurz, worum es geht…"></textarea></div>
         <div style="display:flex;align-items:center;gap:10px;margin-top:4px">
           <input type="checkbox" id="k-dsgvo" required style="accent-color:var(--coral);width:18px;height:18px">
           <label for="k-dsgvo" style="font-size:13px;color:var(--muted);line-height:1.4">Ich stimme der <a href="datenschutz.html" style="color:var(--coral)">Datenschutzerklärung</a> zu.</label>
