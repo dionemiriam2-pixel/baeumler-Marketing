@@ -18,6 +18,7 @@
     facebookPixelId: '0000000000',   // Deine Facebook Pixel ID
     cookieName: 'baeumler_consent',
     cookieDays: 365,
+    consentVersion: '1.0',
   };
 
   // Prüfe ob schon eine Einwilligung gespeichert ist
@@ -177,11 +178,11 @@
       .cb-btn-accept:hover { background: #d4553f; }
 
       .cb-btn-necessary {
-        background: #f7f7f5;
-        color: #303030;
-        border: 1px solid #ddd;
+        background: #ffffff;
+        color: #e8604c;
+        border: 2px solid #e8604c;
       }
-      .cb-btn-necessary:hover { background: #eee; }
+      .cb-btn-necessary:hover { background: #fef5f3; }
 
       .cb-btn-settings {
         background: transparent;
@@ -310,7 +311,7 @@
         <p class="cb-text">
           Wir verwenden Cookies, um dein Erlebnis auf unserer Webseite zu verbessern.
           Einige sind notwendig, andere helfen uns die Seite zu optimieren und dir relevante Inhalte zu zeigen.
-          Mehr dazu in unserer <a href="/datenschutz.html">Datenschutzerklärung</a>.
+          Mehr dazu in unserer <a href="/datenschutz.html">Datenschutzerklärung</a> und im <a href="/impressum.html">Impressum</a>.
         </p>
 
         <div class="cb-buttons" id="cb-main-buttons">
@@ -401,6 +402,7 @@
 
   function saveAndClose(consent) {
     consent.timestamp = new Date().toISOString();
+    consent.version = CONFIG.consentVersion;
     setConsent(consent);
     applyConsent(consent);
     closeBanner();
@@ -427,11 +429,12 @@
     document.querySelectorAll('[data-cookie-settings]').forEach(el => {
       el.addEventListener('click', (e) => {
         e.preventDefault();
+        // Vorherige Einstellungen VOR dem Löschen lesen
+        const prev = getConsent();
         // Altes Cookie löschen
         document.cookie = CONFIG.cookieName + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         createBanner();
-        // Vorherige Einstellungen laden
-        const prev = getConsent();
+        // Vorherige Einstellungen wiederherstellen
         if (prev) {
           if (prev.analytics) document.getElementById('cb-analytics').checked = true;
           if (prev.marketing) document.getElementById('cb-marketing').checked = true;
@@ -446,11 +449,11 @@
 
   function init() {
     const consent = getConsent();
-    if (consent) {
-      // Einwilligung vorhanden → Tracking laden
+    if (consent && consent.version === CONFIG.consentVersion) {
+      // Einwilligung vorhanden und aktuell → Tracking laden
       applyConsent(consent);
     } else {
-      // Keine Einwilligung → Banner zeigen
+      // Keine oder veraltete Einwilligung → Banner zeigen
       createBanner();
     }
     setupFooterLink();
