@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reichweite allein reicht nicht: So baust du ein echtes Business auf | Baeumler Marketing</title>
+<meta name="description" content="Du hast Reichweite, aber kein Business? Warum Creator mehr brauchen als Follower &mdash; und welche Tools, Strukturen und Denkweisen dir helfen, ein echtes Unternehmen aufzubauen.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/favicon-192x192.png">
+<meta name="theme-color" content="#e8604c">
+<meta property="og:title" content="Reichweite allein reicht nicht: So baust du ein echtes Business auf">
+<meta property="og:description" content="Warum Creator mehr brauchen als Follower. Unternehmer-Mindset, Buchhaltung, Verkauf und die Tools, die dir dabei helfen.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://baeumlermarketing.de/images/blog-instagram.jpg">
+<link rel="canonical" href="https://baeumlermarketing.de/blog-reichweite-business.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg2: #f7f7f5; --text: #303030;
+    --muted: rgba(17,17,16,0.65); --border: rgba(0,0,0,0.08);
+    --coral: #e8604c; --teal: #2db8a8;
+    --sans: 'Inter', system-ui, sans-serif;
+    --heading: 'Antonio', sans-serif;
+    --serif: 'Playfair Display', Georgia, serif;
+    --pill: 100px; --r: 20px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100; padding: 16px 40px;
+    display: flex; justify-content: center;
+  }
+  .nav-bar {
+    background: #fff; border-radius: var(--pill); padding: 8px 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    display: inline-flex; align-items: center; gap: 24px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; text-transform: uppercase; }
+  .nav-back { font-size: 14px; color: var(--coral); text-decoration: none; transition: color 0.2s; }
+
+  .progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0;
+    background: var(--coral); z-index: 200; transition: width 0.15s linear;
+  }
+
+  .article-header {
+    max-width: 720px; margin: 0 auto; padding: 48px 40px 0; text-align: center;
+  }
+  .article-meta { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; }
+  .article-tag {
+    background: var(--text); color: #fff; font-size: 12px; font-weight: 600;
+    padding: 4px 12px; border-radius: var(--pill); text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .article-date { font-size: 13px; color: var(--muted); }
+  .article-header h1 {
+    font-family: var(--heading); font-size: clamp(32px,5vw,56px);
+    font-weight: 700; line-height: 1.1; margin-bottom: 16px; text-transform: uppercase;
+  }
+  .article-intro {
+    font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 600px; margin: 0 auto;
+  }
+  .article-hero-img {
+    width: 100%; max-height: 480px; object-fit: cover; margin: 40px auto 0; border-radius: var(--r);
+    max-width: 960px;
+  }
+  .article-body {
+    max-width: 680px; margin: 0 auto; padding: 48px 40px 80px;
+    font-size: 16px; line-height: 1.8;
+  }
+  .article-body h2 {
+    font-family: var(--heading); font-size: clamp(22px,3vw,32px);
+    font-weight: 700; margin: 48px 0 16px; text-transform: uppercase; line-height: 1.2;
+  }
+  .article-body h3 {
+    font-family: var(--sans); font-size: 18px; font-weight: 600; margin: 32px 0 8px;
+  }
+  .article-body p { margin-bottom: 20px; }
+  .article-body ul, .article-body ol { margin: 0 0 20px 24px; }
+  .article-body li { margin-bottom: 8px; }
+  .article-body strong { font-weight: 600; }
+  .article-body blockquote {
+    border-left: 3px solid var(--coral); margin: 28px 0; padding: 16px 24px;
+    font-style: italic; color: var(--muted); background: var(--bg2); border-radius: 0 var(--r) var(--r) 0;
+  }
+  .article-body blockquote p { margin-bottom: 0; }
+  .article-body a { color: var(--coral); text-decoration: underline; }
+  .muted { color: var(--muted); font-size: 14px; font-style: italic; }
+
+  .step-card {
+    background: var(--bg2); border-radius: var(--r); padding: 24px 28px;
+    margin: 16px 0; position: relative; padding-left: 72px;
+  }
+  .step-number {
+    position: absolute; left: 24px; top: 24px; width: 36px; height: 36px;
+    background: var(--coral); color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 15px;
+  }
+  .step-card h3 { font-family: var(--sans); font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .step-card p { font-size: 14px; color: var(--muted); margin-bottom: 0; }
+
+  .tool-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px; margin: 20px 0 28px;
+  }
+  .tool-item {
+    background: var(--bg2); border-radius: var(--r); padding: 16px 20px;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .tool-item strong { font-size: 15px; }
+  .tool-item span { font-size: 13px; color: var(--muted); }
+
+  .checklist { list-style: none; margin: 0 0 20px 0; padding: 0; }
+  .checklist li {
+    padding: 8px 0 8px 32px; position: relative; border-bottom: 1px solid var(--border);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: "\2713"; position: absolute; left: 0; top: 8px;
+    color: var(--teal); font-weight: 700; font-size: 16px;
+  }
+
+  .article-cta {
+    background: var(--text); color: #fff; border-radius: var(--r);
+    padding: 36px 32px; text-align: center; margin: 40px 0;
+  }
+  .article-cta h3 { font-family: var(--heading); font-size: 24px; text-transform: uppercase; margin-bottom: 8px; }
+  .article-cta p { color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 15px; }
+  .cta-btn {
+    display: inline-block; background: var(--coral); color: #fff; padding: 14px 32px;
+    border-radius: var(--pill); font-weight: 600; font-size: 15px; text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); background: #d4553f; }
+
+  .newsletter-section {
+    max-width: 600px; margin: 0 auto; padding: 60px 40px; text-align: center;
+  }
+  .newsletter-section h2 {
+    font-family: var(--heading); font-size: clamp(24px,3vw,36px);
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .newsletter-section p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
+  .newsletter-form { display: flex; gap: 12px; justify-content: center; }
+  .newsletter-input {
+    padding: 14px 20px; border-radius: var(--pill); border: 1px solid var(--border);
+    font-size: 15px; font-family: var(--sans); outline: none; transition: border 0.2s;
+  }
+  .newsletter-input:focus { border-color: var(--coral); }
+  .newsletter-btn {
+    padding: 14px 28px; background: var(--coral); color: #fff; border: none;
+    border-radius: var(--pill); font-weight: 600; font-size: 15px; cursor: pointer;
+    font-family: var(--sans); transition: background 0.2s, transform 0.2s;
+  }
+  .newsletter-btn:hover { background: #d4553f; transform: translateY(-1px); }
+
+  footer {
+    border-top: 1px solid var(--border); padding: 36px 40px; text-align: center;
+  }
+  .footer-inner { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .footer-brand { font-family: var(--heading); font-size: 20px; font-weight: 700; text-transform: uppercase; }
+  .footer-brand .dot { color: var(--coral); }
+  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--coral); }
+  .footer-copy { font-size: 12px; color: var(--muted); }
+
+  @media (max-width: 860px) {
+    .article-header { padding: 36px 20px 0; }
+    .article-body { padding: 36px 20px 60px; }
+    .article-hero-img { max-height: 360px; padding: 0 20px !important; }
+    nav { padding: 12px 20px; }
+    .nav-bar { padding: 8px 20px; gap: 16px; }
+    .step-card { padding: 20px; padding-left: 64px; }
+    .article-cta { padding: 28px 20px; }
+    .newsletter-form { flex-direction: column; }
+    .newsletter-section { padding: 40px 20px; }
+    .tool-grid { grid-template-columns: 1fr; }
+    footer { padding: 28px 16px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+  }
+  @media (max-width: 380px) {
+    .article-header { padding: 32px 14px 0; }
+    .article-body { padding: 24px 14px 48px; }
+    .article-hero-img { max-height: 300px; }
+    nav { padding: 10px 12px; }
+    .tool-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Reichweite allein reicht nicht: So baust du ein echtes Business auf",
+  "description": "Warum Creator mehr brauchen als Follower. Unternehmer-Mindset, Buchhaltung, Verkauf und die Tools, die dir dabei helfen.",
+  "author": {
+    "@type": "Person",
+    "name": "Miriam B\u00e4umler",
+    "url": "https://baeumlermarketing.de/meine-geschichte.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "B\u00e4umler Marketing"
+  },
+  "datePublished": "2026-03-11",
+  "dateModified": "2026-03-11",
+  "mainEntityOfPage": "https://baeumlermarketing.de/blog-reichweite-business.html",
+  "keywords": ["Creator Business", "Unternehmer Mindset", "Business aufbauen", "Buchhaltung Selbstst\u00e4ndige", "Creator Monetarisierung", "Tools f\u00fcr Selbstst\u00e4ndige"]
+}
+</script>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <div class="nav-bar">
+    <a href="/" class="nav-logo">Baeumler.</a>
+    <a href="blog.html" class="nav-back">&larr; Alle Artikel</a>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="article-meta">
+    <span class="article-tag">Business</span>
+    <span class="article-date">11. M&auml;rz 2026 &middot; 8 Min. Lesezeit</span>
+  </div>
+  <h1>Reichweite allein reicht nicht: So baust du ein echtes Business auf</h1>
+  <p class="article-intro">Du hast Follower, dein erstes Produkt verkauft sich &mdash; und trotzdem fehlt etwas. Weil Reichweite kein Business ist. Hier erf&auml;hrst du, was danach kommt.</p>
+</header>
+
+<img class="article-hero-img" src="images/blog-instagram.jpg" alt="Vom Creator zum Unternehmer &mdash; Business aufbauen" loading="lazy" style="padding: 0 40px;">
+
+<div class="article-body">
+
+  <p>Die meisten Creator starten gleich: Sie bauen Reichweite auf, posten regelm&auml;&szlig;ig, wachsen. Irgendwann kommt das erste Produkt &mdash; ein E-Book, ein Kurs, ein Coaching. Und es l&auml;uft. Zumindest am Anfang.</p>
+
+  <p>Dann merken sie: <strong>Reichweite und ein Produkt reichen nicht.</strong> Es fehlt Struktur. Es fehlt Wissen. Es fehlen die Systeme, die aus einem Nebenprojekt ein echtes Unternehmen machen.</p>
+
+  <p>Dieser Artikel ist f&uuml;r Creator, die an diesem Punkt stehen. Und f&uuml;r alle, die gar nicht erst in diese Falle tappen wollen.</p>
+
+  <h2>Das Problem: Creator denken wie Creator</h2>
+
+  <p>Das ist kein Vorwurf &mdash; es ist logisch. Wer mit Content gewachsen ist, denkt in Reichweite, Engagement und Followerzahlen. Das sind wichtige Metriken f&uuml;r Sichtbarkeit. Aber sie sagen nichts dar&uuml;ber aus, ob du ein nachhaltiges Business hast.</p>
+
+  <p>Ein echtes Business braucht mehr:</p>
+
+  <ul>
+    <li><strong>Einnahmen, die planbar sind</strong> &mdash; nicht nur Launch-Peaks</li>
+    <li><strong>Prozesse, die ohne dich funktionieren</strong> &mdash; nicht alles manuell</li>
+    <li><strong>Finanzen, die du verstehst</strong> &mdash; nicht nur &bdquo;es kommt Geld rein&ldquo;</li>
+    <li><strong>Eine Strategie f&uuml;r Wachstum</strong> &mdash; nicht nur der n&auml;chste Post</li>
+  </ul>
+
+  <h2>Schritt 1: Unternehmer-Mindset aufbauen</h2>
+
+  <p>Der wichtigste Shift passiert im Kopf. <strong>Du bist nicht mehr nur Creator &mdash; du bist Unternehmer.</strong> Das bedeutet:</p>
+
+  <ul>
+    <li>Du triffst Entscheidungen auf Basis von Zahlen, nicht von Gef&uuml;hlen</li>
+    <li>Du investierst in Dinge, die sich nicht sofort auszahlen (Systeme, Tools, Wissen)</li>
+    <li>Du sagst Nein zu Projekten, die nicht zu deiner Strategie passen</li>
+    <li>Du denkst in Quartalen, nicht in Wochen</li>
+  </ul>
+
+  <blockquote>
+    <p>Creator fragen: &bdquo;Was soll ich als N&auml;chstes posten?&ldquo; Unternehmer fragen: &bdquo;Was bringt mein Business am meisten voran?&ldquo;</p>
+  </blockquote>
+
+  <p>Das klingt abstrakt, hat aber konkrete Auswirkungen. Du h&ouml;rst auf, jede Stunde in Content zu stecken &mdash; und f&auml;ngst an, in Systeme zu bauen, die f&uuml;r dich arbeiten.</p>
+
+  <h2>Schritt 2: Finanzen verstehen</h2>
+
+  <p>Viele Creator wissen nicht, wie viel sie wirklich verdienen. Umsatz ist nicht gleich Gewinn. Und &bdquo;es l&auml;uft gut&ldquo; ist keine Finanzplanung.</p>
+
+  <h3>Was du brauchst:</h3>
+
+  <ul>
+    <li><strong>Gewerbeanmeldung:</strong> Falls noch nicht geschehen &mdash; ab dem ersten Euro Einnahme bist du dazu verpflichtet.</li>
+    <li><strong>Buchhaltung:</strong> Nicht n&auml;chstes Jahr, sondern ab Tag 1. Jede Rechnung, jede Ausgabe, jede Einnahme.</li>
+    <li><strong>Steuerberater:</strong> Sp&auml;testens wenn dein Umsatz &uuml;ber die Kleinunternehmergrenze steigt. Ein guter Steuerberater spart dir mehr, als er kostet.</li>
+    <li><strong>Gesch&auml;ftskonto:</strong> Trenne private und gesch&auml;ftliche Finanzen. Ab Tag 1.</li>
+  </ul>
+
+  <h3>Die h&auml;ufigsten Fehler:</h3>
+
+  <ul>
+    <li>Keine R&uuml;cklagen f&uuml;r Steuern &mdash; das b&ouml;se Erwachen kommt mit dem ersten Steuerbescheid</li>
+    <li>Umsatz mit Gewinn verwechseln &mdash; 10.000 &euro; Umsatz sind nicht 10.000 &euro; in deiner Tasche</li>
+    <li>Rechnungen nicht korrekt schreiben &mdash; fehlende Pflichtangaben k&ouml;nnen teuer werden</li>
+  </ul>
+
+  <h2>Schritt 3: Verkaufen lernen</h2>
+
+  <p>Content erstellen und Verkaufen sind zwei verschiedene F&auml;higkeiten. Viele Creator k&ouml;nnen das eine &mdash; aber nicht das andere.</p>
+
+  <p><strong>Verkaufen hei&szlig;t nicht, aufdringlich zu sein.</strong> Es hei&szlig;t, ein Angebot so zu kommunizieren, dass die richtigen Menschen verstehen, warum es f&uuml;r sie relevant ist.</p>
+
+  <h3>Was daf&uuml;r hilft:</h3>
+
+  <ul>
+    <li><strong>Ein klares Angebot:</strong> Was genau bekommt der Kunde? Was kostet es? Was ist das Ergebnis?</li>
+    <li><strong>Eine Verkaufsseite:</strong> Nicht nur ein Link in der Bio, sondern eine Seite, die erkl&auml;rt, &uuml;berzeugt und zum Kauf f&uuml;hrt.</li>
+    <li><strong>E-Mail-Marketing:</strong> Deine E-Mail-Liste geh&ouml;rt dir &mdash; im Gegensatz zu Followern. Und E-Mails verkaufen nachweislich besser als Social-Media-Posts.</li>
+    <li><strong>Follow-up:</strong> Die meisten Kunden kaufen nicht beim ersten Kontakt. Bleib dran &mdash; ohne zu nerven.</li>
+  </ul>
+
+  <h2>Schritt 4: Systeme aufbauen</h2>
+
+  <p>Als Creator machst du alles selbst. Als Unternehmer baust du Systeme, die f&uuml;r dich arbeiten. Das hei&szlig;t nicht, dass du sofort ein Team brauchst &mdash; aber du brauchst <strong>Prozesse und Tools</strong>.</p>
+
+  <h3>Die wichtigsten Systeme:</h3>
+
+  <div class="step-card">
+    <span class="step-number">1</span>
+    <h3>CRM-System</h3>
+    <p>Alle Kontakte, Anfragen und Kunden an einem Ort. Wer hat sich wann gemeldet? Was wurde besprochen? Was steht als N&auml;chstes an?</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">2</span>
+    <h3>E-Mail-Marketing</h3>
+    <p>Newsletter, automatisierte Sequenzen, Produktank&uuml;ndigungen. Deine E-Mail-Liste ist dein wertvollstes Asset &mdash; baue sie fr&uuml;h auf.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">3</span>
+    <h3>Buchhaltungssoftware</h3>
+    <p>Rechnungen schreiben, Ausgaben erfassen, Umsatzsteuer im Blick behalten. Kein Excel, kein Zettelchaos.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">4</span>
+    <h3>Projektmanagement</h3>
+    <p>Aufgaben organisieren, Deadlines setzen, den &Uuml;berblick behalten &mdash; auch wenn du alleine arbeitest.</p>
+  </div>
+
+  <h2>Tools, die dir helfen</h2>
+
+  <p>Du brauchst nicht viele Tools. Du brauchst die richtigen:</p>
+
+  <div class="tool-grid">
+    <div class="tool-item">
+      <strong>HubSpot</strong>
+      <span>CRM (kostenlos)</span>
+    </div>
+    <div class="tool-item">
+      <strong>sevDesk</strong>
+      <span>Buchhaltung</span>
+    </div>
+    <div class="tool-item">
+      <strong>Gumroad</strong>
+      <span>Digitale Produkte</span>
+    </div>
+    <div class="tool-item">
+      <strong>Notion</strong>
+      <span>Projektmanagement</span>
+    </div>
+    <div class="tool-item">
+      <strong>Mailchimp</strong>
+      <span>E-Mail-Marketing</span>
+    </div>
+    <div class="tool-item">
+      <strong>Canva</strong>
+      <span>Design &amp; Grafiken</span>
+    </div>
+    <div class="tool-item">
+      <strong>Google Workspace</strong>
+      <span>E-Mail &amp; Dokumente</span>
+    </div>
+    <div class="tool-item">
+      <strong>Calendly</strong>
+      <span>Terminbuchung</span>
+    </div>
+  </div>
+
+  <p>Die meisten dieser Tools sind kostenlos oder g&uuml;nstig. Der Schl&uuml;ssel ist nicht das Tool &mdash; sondern dass du es konsequent nutzt.</p>
+
+  <h2>Schritt 5: Einnahmen diversifizieren</h2>
+
+  <p>Ein Produkt reicht nicht. Wenn dein gesamter Umsatz von einem einzigen E-Book oder Kurs abh&auml;ngt, bist du verwundbar. Was wenn der Launch floppt? Was wenn die Plattform die Regeln &auml;ndert?</p>
+
+  <p><strong>Baue mehrere Einnahmequellen auf:</strong></p>
+
+  <ul>
+    <li><strong>Digitale Produkte:</strong> E-Books, Workbooks, Templates &mdash; einmal erstellen, dauerhaft verkaufen</li>
+    <li><strong>Dienstleistungen:</strong> 1:1-Beratung, Coaching, Workshops &mdash; h&ouml;here Preise, pers&ouml;nlicher Kontakt</li>
+    <li><strong>Kooperationen:</strong> Bezahlte Partnerschaften, aber nur mit Marken, die zu dir passen</li>
+    <li><strong>Affiliate:</strong> Produkte empfehlen, die du selbst nutzt &mdash; mit Provision</li>
+  </ul>
+
+  <p>Nicht alles gleichzeitig. Aber Schritt f&uuml;r Schritt &mdash; so dass du nicht von einer einzigen Quelle abh&auml;ngig bist.</p>
+
+  <h2>Der Unterschied zwischen Creator und Unternehmer</h2>
+
+  <p>Es geht nicht darum, mit dem Content aufzuh&ouml;ren. Content ist weiterhin dein Motor f&uuml;r Sichtbarkeit. Aber Content allein baut kein Business.</p>
+
+  <blockquote>
+    <p>Ein Creator erstellt Inhalte. Ein Unternehmer baut ein System um diese Inhalte herum, das planbar Einnahmen generiert.</p>
+  </blockquote>
+
+  <p>Der Shift passiert nicht &uuml;ber Nacht. Aber er beginnt mit einer Entscheidung: Ich will mehr als Reichweite. Ich will ein Business.</p>
+
+  <h2>Checkliste: Dein Weg vom Creator zum Unternehmer</h2>
+
+  <ul class="checklist">
+    <li>Gewerbe angemeldet und Finanzen getrennt</li>
+    <li>Buchhaltung eingerichtet (Software, nicht Excel)</li>
+    <li>Steuerberater kontaktiert</li>
+    <li>Klares Angebot definiert (Was, f&uuml;r wen, zu welchem Preis)</li>
+    <li>Verkaufsseite erstellt</li>
+    <li>E-Mail-Liste aufgebaut</li>
+    <li>CRM-System eingerichtet</li>
+    <li>Mindestens zwei Einnahmequellen geplant</li>
+    <li>Quartalsplanung statt Wochenplanung</li>
+  </ul>
+
+  <p>Reichweite ist der Anfang. Aber das echte Spiel beginnt dahinter. Und je fr&uuml;her du die richtigen Strukturen aufbaust, desto schneller wird aus deiner Reichweite ein echtes Business.</p>
+
+  <div class="article-cta">
+    <h3>Du willst dein Creator-Business professionell aufstellen?</h3>
+    <p>Ich helfe dir, die richtigen Strukturen aufzubauen &mdash; von der Strategie &uuml;ber die Tools bis zur Umsetzung. Individuell, nicht von der Stange.</p>
+    <a href="/#kontakt" class="cta-btn">Kostenloses Erstgespr&auml;ch &rarr;</a>
+  </div>
+
+</div>
+
+<section class="newsletter-section">
+  <h2>Nichts mehr verpassen</h2>
+  <p>Neue Artikel, Tipps und Praxiswissen &mdash; direkt in dein Postfach. Kein Spam, nur Inhalte, die dir weiterhelfen.</p>
+  <form class="newsletter-form" id="nlForm" onsubmit="return submitNewsletter(event)" style="flex-direction:column;align-items:center;gap:14px">
+    <div style="display:flex;gap:12px;width:100%;max-width:440px">
+      <input type="text" class="newsletter-input" id="nl-name" required placeholder="Dein Vorname" style="flex:1">
+      <input type="email" class="newsletter-input" id="nl-email" required placeholder="deine@email.de" style="flex:1">
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;max-width:440px;width:100%">
+      <input type="checkbox" id="nl-dsgvo" required style="accent-color:var(--coral);width:18px;height:18px;flex-shrink:0">
+      <label for="nl-dsgvo" style="font-size:12px;color:var(--muted);line-height:1.4;text-align:left">Ich stimme der <a href="datenschutz.html" style="color:var(--coral)">Datenschutzerkl&auml;rung</a> zu.</label>
+    </div>
+    <button type="submit" class="newsletter-btn">Eintragen &rarr;</button>
+    <p id="nl-success" style="display:none;color:var(--teal);font-weight:600;font-size:14px;margin-top:4px">Super, du bist dabei!</p>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">B&auml;umler<span class="dot">.</span></span>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="meine-geschichte.html">&Uuml;ber mich</a>
+      <a href="workbooks.html">Workbooks</a>
+      <a href="blog.html">Blog</a>
+      <a href="/#kontakt">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+      <a href="#" data-cookie-settings>Cookie-Einstellungen</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var bar = document.getElementById('progressBar');
+  if (!bar) return;
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    bar.style.width = pct + '%';
+  }, { passive: true });
+})();
+
+function submitNewsletter(e) {
+  e.preventDefault();
+  var name = document.getElementById('nl-name').value.trim();
+  var email = document.getElementById('nl-email').value.trim();
+  if (!name || !email) return false;
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/49329498/3da277bf-6e73-44ea-892c-71358b35552b', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      fields: [
+        { objectTypeId: '0-1', name: 'firstname', value: name },
+        { objectTypeId: '0-1', name: 'email', value: email }
+      ],
+      context: { pageUri: window.location.href, pageName: document.title }
+    })
+  }).then(function() {
+    document.getElementById('nl-success').style.display = 'block';
+    document.getElementById('nlForm').reset();
+  });
+  return false;
+}
+</script>
+<script src="cookie-banner.js" defer></script>
+</body>
+</html>

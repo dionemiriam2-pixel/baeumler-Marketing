@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meta Ads: Warum du jetzt damit anfangen solltest | Baeumler Marketing</title>
+<meta name="description" content="Facebook und Instagram Ads f&uuml;r Selbstst&auml;ndige und kleine Unternehmen. Warum Meta Ads das effektivste Werbeformat sind &mdash; und wie du mit kleinem Budget startest.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/favicon-192x192.png">
+<meta name="theme-color" content="#e8604c">
+<meta property="og:title" content="Meta Ads: Warum du jetzt damit anfangen solltest">
+<meta property="og:description" content="Facebook- und Instagram-Werbung f&uuml;r Selbstst&auml;ndige. Warum Meta Ads sich lohnen &mdash; und wie du mit kleinem Budget startest.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://baeumlermarketing.de/images/blog-content-strategie.avif">
+<link rel="canonical" href="https://baeumlermarketing.de/blog-meta-ads.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg2: #f7f7f5; --text: #303030;
+    --muted: rgba(17,17,16,0.65); --border: rgba(0,0,0,0.08);
+    --coral: #e8604c; --teal: #2db8a8;
+    --sans: 'Inter', system-ui, sans-serif;
+    --heading: 'Antonio', sans-serif;
+    --serif: 'Playfair Display', Georgia, serif;
+    --pill: 100px; --r: 20px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100; padding: 16px 40px;
+    display: flex; justify-content: center;
+  }
+  .nav-bar {
+    background: #fff; border-radius: var(--pill); padding: 8px 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    display: inline-flex; align-items: center; gap: 24px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; text-transform: uppercase; }
+  .nav-back { font-size: 14px; color: var(--coral); text-decoration: none; transition: color 0.2s; }
+
+  .progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0;
+    background: var(--coral); z-index: 200; transition: width 0.15s linear;
+  }
+
+  .article-header {
+    max-width: 720px; margin: 0 auto; padding: 48px 40px 0; text-align: center;
+  }
+  .article-meta { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; }
+  .article-tag {
+    background: var(--coral); color: #fff; font-size: 12px; font-weight: 600;
+    padding: 4px 12px; border-radius: var(--pill); text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .article-date { font-size: 13px; color: var(--muted); }
+  .article-header h1 {
+    font-family: var(--heading); font-size: clamp(32px,5vw,56px);
+    font-weight: 700; line-height: 1.1; margin-bottom: 16px; text-transform: uppercase;
+  }
+  .article-intro {
+    font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 600px; margin: 0 auto;
+  }
+  .article-hero-img {
+    width: 100%; max-height: 480px; object-fit: cover; margin: 40px auto 0; border-radius: var(--r);
+    max-width: 960px;
+  }
+  .article-body {
+    max-width: 680px; margin: 0 auto; padding: 48px 40px 80px;
+    font-size: 16px; line-height: 1.8;
+  }
+  .article-body h2 {
+    font-family: var(--heading); font-size: clamp(22px,3vw,32px);
+    font-weight: 700; margin: 48px 0 16px; text-transform: uppercase; line-height: 1.2;
+  }
+  .article-body h3 {
+    font-family: var(--sans); font-size: 18px; font-weight: 600; margin: 32px 0 8px;
+  }
+  .article-body p { margin-bottom: 20px; }
+  .article-body ul, .article-body ol { margin: 0 0 20px 24px; }
+  .article-body li { margin-bottom: 8px; }
+  .article-body strong { font-weight: 600; }
+  .article-body blockquote {
+    border-left: 3px solid var(--coral); margin: 28px 0; padding: 16px 24px;
+    font-style: italic; color: var(--muted); background: var(--bg2); border-radius: 0 var(--r) var(--r) 0;
+  }
+  .article-body blockquote p { margin-bottom: 0; }
+  .article-body a { color: var(--coral); text-decoration: underline; }
+  .muted { color: var(--muted); font-size: 14px; font-style: italic; }
+
+  .step-card {
+    background: var(--bg2); border-radius: var(--r); padding: 24px 28px;
+    margin: 16px 0; position: relative; padding-left: 72px;
+  }
+  .step-number {
+    position: absolute; left: 24px; top: 24px; width: 36px; height: 36px;
+    background: var(--coral); color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 15px;
+  }
+  .step-card h3 { font-family: var(--sans); font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .step-card p { font-size: 14px; color: var(--muted); margin-bottom: 0; }
+
+  .checklist { list-style: none; margin: 0 0 20px 0; padding: 0; }
+  .checklist li {
+    padding: 8px 0 8px 32px; position: relative; border-bottom: 1px solid var(--border);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: "\2713"; position: absolute; left: 0; top: 8px;
+    color: var(--teal); font-weight: 700; font-size: 16px;
+  }
+
+  .article-cta {
+    background: var(--text); color: #fff; border-radius: var(--r);
+    padding: 36px 32px; text-align: center; margin: 40px 0;
+  }
+  .article-cta h3 { font-family: var(--heading); font-size: 24px; text-transform: uppercase; margin-bottom: 8px; }
+  .article-cta p { color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 15px; }
+  .cta-btn {
+    display: inline-block; background: var(--coral); color: #fff; padding: 14px 32px;
+    border-radius: var(--pill); font-weight: 600; font-size: 15px; text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); background: #d4553f; }
+
+  .newsletter-section {
+    max-width: 600px; margin: 0 auto; padding: 60px 40px; text-align: center;
+  }
+  .newsletter-section h2 {
+    font-family: var(--heading); font-size: clamp(24px,3vw,36px);
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .newsletter-section p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
+  .newsletter-form { display: flex; gap: 12px; justify-content: center; }
+  .newsletter-input {
+    padding: 14px 20px; border-radius: var(--pill); border: 1px solid var(--border);
+    font-size: 15px; font-family: var(--sans); outline: none; transition: border 0.2s;
+  }
+  .newsletter-input:focus { border-color: var(--coral); }
+  .newsletter-btn {
+    padding: 14px 28px; background: var(--coral); color: #fff; border: none;
+    border-radius: var(--pill); font-weight: 600; font-size: 15px; cursor: pointer;
+    font-family: var(--sans); transition: background 0.2s, transform 0.2s;
+  }
+  .newsletter-btn:hover { background: #d4553f; transform: translateY(-1px); }
+
+  footer {
+    border-top: 1px solid var(--border); padding: 36px 40px; text-align: center;
+  }
+  .footer-inner { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .footer-brand { font-family: var(--heading); font-size: 20px; font-weight: 700; text-transform: uppercase; }
+  .footer-brand .dot { color: var(--coral); }
+  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--coral); }
+  .footer-copy { font-size: 12px; color: var(--muted); }
+
+  @media (max-width: 860px) {
+    .article-header { padding: 36px 20px 0; }
+    .article-body { padding: 36px 20px 60px; }
+    .article-hero-img { max-height: 360px; padding: 0 20px !important; }
+    nav { padding: 12px 20px; }
+    .nav-bar { padding: 8px 20px; gap: 16px; }
+    .step-card { padding: 20px; padding-left: 64px; }
+    .article-cta { padding: 28px 20px; }
+    .newsletter-form { flex-direction: column; }
+    .newsletter-section { padding: 40px 20px; }
+    footer { padding: 28px 16px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+  }
+  @media (max-width: 380px) {
+    .article-header { padding: 32px 14px 0; }
+    .article-body { padding: 24px 14px 48px; }
+    .article-hero-img { max-height: 300px; }
+    nav { padding: 10px 12px; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Meta Ads: Warum du jetzt damit anfangen solltest",
+  "description": "Facebook und Instagram Ads f\u00fcr Selbstst\u00e4ndige. Warum Meta Ads sich lohnen und wie du mit kleinem Budget startest.",
+  "author": {
+    "@type": "Person",
+    "name": "Miriam B\u00e4umler",
+    "url": "https://baeumlermarketing.de/meine-geschichte.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "B\u00e4umler Marketing"
+  },
+  "datePublished": "2026-03-11",
+  "dateModified": "2026-03-11",
+  "mainEntityOfPage": "https://baeumlermarketing.de/blog-meta-ads.html",
+  "keywords": ["Meta Ads", "Facebook Ads", "Instagram Ads", "SEA", "Online Werbung", "Selbstst\u00e4ndige", "bezahlte Werbung"]
+}
+</script>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <div class="nav-bar">
+    <a href="/" class="nav-logo">Baeumler.</a>
+    <a href="blog.html" class="nav-back">&larr; Alle Artikel</a>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="article-meta">
+    <span class="article-tag" style="background:var(--coral)">SEA</span>
+    <span class="article-date">11. M&auml;rz 2026 &middot; 5 Min. Lesezeit</span>
+  </div>
+  <h1>Meta Ads: Warum du jetzt damit anfangen solltest</h1>
+  <p class="article-intro">Organische Reichweite sinkt. Werbung auf Facebook und Instagram ist l&auml;ngst kein Luxus mehr &mdash; sondern das effektivste Werkzeug f&uuml;r Selbstst&auml;ndige mit kleinem Budget.</p>
+</header>
+
+<img class="article-hero-img" src="images/blog-content-strategie.avif" alt="Meta Ads &mdash; Facebook und Instagram Werbung f&uuml;r Selbstst&auml;ndige" loading="lazy" style="padding: 0 40px;">
+
+<div class="article-body">
+
+  <p>Viele Selbstst&auml;ndige posten regelm&auml;&szlig;ig auf Instagram oder Facebook &mdash; und wundern sich, warum kaum jemand reagiert. Die Wahrheit: <strong>Organische Reichweite liegt auf den meisten Plattformen bei unter 5 %.</strong> Das hei&szlig;t, von 1.000 Followern sehen weniger als 50 deinen Beitrag.</p>
+
+  <p>Meta Ads &auml;ndern das. Du erreichst genau die Menschen, die zu deinem Angebot passen &mdash; unabh&auml;ngig davon, ob sie dir schon folgen oder nicht.</p>
+
+  <h2>Was sind Meta Ads?</h2>
+
+  <p>Meta Ads sind bezahlte Anzeigen auf <strong>Facebook und Instagram</strong>. Du erstellst sie &uuml;ber den Meta Business Manager (fr&uuml;her Facebook Ads Manager). Dort legst du fest:</p>
+
+  <ul>
+    <li><strong>Wer</strong> die Anzeige sehen soll (Zielgruppe)</li>
+    <li><strong>Was</strong> gezeigt wird (Bild, Video, Text)</li>
+    <li><strong>Wie viel</strong> du ausgeben willst (Budget)</li>
+    <li><strong>Was</strong> das Ziel ist (Website-Besuche, Anfragen, Verk&auml;ufe)</li>
+  </ul>
+
+  <p>Das Besondere: Meta hat mehr Daten &uuml;ber seine Nutzer als jede andere Plattform. Dadurch kannst du deine Anzeigen extrem pr&auml;zise an die richtigen Menschen ausspielen.</p>
+
+  <h2>Warum gerade jetzt?</h2>
+
+  <h3>1. Organische Reichweite sinkt weiter</h3>
+  <p>Alle gro&szlig;en Plattformen dr&auml;ngen Unternehmen in Richtung bezahlte Werbung. Wer nur auf organische Posts setzt, erreicht immer weniger Menschen. Das ist kein Trend &mdash; das ist die Realit&auml;t seit Jahren.</p>
+
+  <h3>2. Die Kosten sind (noch) niedrig</h3>
+  <p>Im Vergleich zu Google Ads oder Print-Werbung sind Meta Ads g&uuml;nstig. <strong>Mit 5&ndash;10 &euro; am Tag</strong> kannst du bereits Tausende Menschen in deiner Region erreichen. Je fr&uuml;her du anf&auml;ngst, desto g&uuml;nstiger lernst du, was funktioniert.</p>
+
+  <h3>3. Du erreichst Menschen, bevor sie suchen</h3>
+  <p>Google Ads funktionieren, wenn jemand aktiv sucht. Meta Ads funktionieren fr&uuml;her &mdash; sie zeigen dein Angebot Menschen, die noch nicht wissen, dass sie es brauchen. Das ist besonders stark f&uuml;r Dienstleistungen und Beratung.</p>
+
+  <h3>4. KI macht Anzeigen einfacher</h3>
+  <p>Meta setzt massiv auf KI-gest&uuml;tzte Kampagnen (Advantage+). Das hei&szlig;t: Du gibst weniger vor, die KI optimiert mehr. F&uuml;r Einsteiger wird der Einstieg dadurch deutlich einfacher als noch vor zwei Jahren.</p>
+
+  <h2>So startest du &mdash; Schritt f&uuml;r Schritt</h2>
+
+  <div class="step-card">
+    <span class="step-number">1</span>
+    <h3>Meta Business Suite einrichten</h3>
+    <p>Erstelle ein Business-Konto unter business.facebook.com. Verbinde deine Facebook-Seite und dein Instagram-Profil. Das dauert 10 Minuten.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">2</span>
+    <h3>Meta Pixel installieren</h3>
+    <p>Der Meta Pixel ist ein kleines Code-Snippet auf deiner Website. Er trackt, was Besucher nach dem Klick auf deine Anzeige tun. Ohne Pixel kannst du nicht messen, ob deine Anzeigen funktionieren.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">3</span>
+    <h3>Zielgruppe definieren</h3>
+    <p>Wer soll deine Anzeige sehen? Standort, Alter, Interessen &mdash; Meta bietet extrem detaillierte Targeting-Optionen. Starte mit einer klar definierten Zielgruppe, nicht zu breit.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">4</span>
+    <h3>Erste Anzeige erstellen</h3>
+    <p>Ein gutes Bild, ein klarer Text, ein deutlicher Call-to-Action. Deine erste Anzeige muss nicht perfekt sein &mdash; sie muss laufen. Optimieren kommt danach.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">5</span>
+    <h3>Budget festlegen und starten</h3>
+    <p>Beginne mit 5&ndash;10 &euro; am Tag. Lass die Anzeige mindestens 5&ndash;7 Tage laufen, bevor du Ergebnisse bewertest. Meta braucht diese Zeit, um die Auslieferung zu optimieren.</p>
+  </div>
+
+  <h2>Was funktioniert &mdash; und was nicht</h2>
+
+  <h3>Das funktioniert:</h3>
+  <ul>
+    <li><strong>Klare Angebote:</strong> &bdquo;Kostenloses Erstgespr&auml;ch&ldquo;, &bdquo;Jetzt Workbook sichern&ldquo;, &bdquo;Termin buchen&ldquo;</li>
+    <li><strong>Echte Bilder:</strong> Fotos von dir oder deiner Arbeit performen besser als Stockfotos</li>
+    <li><strong>Lokales Targeting:</strong> Anzeigen nur in deiner Stadt oder Region ausspielen</li>
+    <li><strong>Video-Anzeigen:</strong> Kurze Videos (15&ndash;30 Sekunden) haben oft die beste Performance</li>
+  </ul>
+
+  <h3>Das funktioniert nicht:</h3>
+  <ul>
+    <li><strong>&bdquo;Boost&ldquo;-Button:</strong> Der blaue Button unter deinem Post ist nicht dasselbe wie eine richtige Kampagne im Ads Manager. Er bietet kaum Kontrolle.</li>
+    <li><strong>Zu breite Zielgruppen:</strong> &bdquo;Alle Frauen zwischen 18 und 65&ldquo; ist keine Zielgruppe. Je spezifischer, desto besser.</li>
+    <li><strong>Anzeige einmal schalten und vergessen:</strong> Meta Ads brauchen Beobachtung und Optimierung. Mindestens einmal pro Woche reinschauen.</li>
+  </ul>
+
+  <h2>Was kostet das realistisch?</h2>
+
+  <p>F&uuml;r Selbstst&auml;ndige und kleine Unternehmen empfehle ich:</p>
+
+  <ul>
+    <li><strong>Testphase:</strong> 150&ndash;300 &euro; f&uuml;r den ersten Monat. Damit lernst du, was bei deiner Zielgruppe funktioniert.</li>
+    <li><strong>Laufend:</strong> 300&ndash;500 &euro; pro Monat reichen f&uuml;r kontinuierliche Sichtbarkeit in deiner Region.</li>
+    <li><strong>Kosten pro Klick:</strong> Typisch 0,20&ndash;1,00 &euro; &mdash; abh&auml;ngig von Branche und Zielgruppe.</li>
+  </ul>
+
+  <p>Zum Vergleich: Ein Flyer-Mailing an 5.000 Haushalte kostet &auml;hnlich viel &mdash; aber du wei&szlig;t nicht, wer es liest. Bei Meta Ads siehst du <strong>jeden Klick, jede Anfrage, jeden Euro</strong>.</p>
+
+  <h2>Meta Ads vs. Google Ads</h2>
+
+  <p>Beide haben ihre Berechtigung. Der Unterschied:</p>
+
+  <ul>
+    <li><strong>Google Ads:</strong> Erreicht Menschen, die aktiv suchen. Gut f&uuml;r konkrete Dienstleistungen (&bdquo;Friseur Langenfeld&ldquo;).</li>
+    <li><strong>Meta Ads:</strong> Erreicht Menschen, bevor sie suchen. Gut f&uuml;r Bekanntheit, Angebote und Dienstleistungen, nach denen nicht aktiv gesucht wird.</li>
+  </ul>
+
+  <p>F&uuml;r die meisten Selbstst&auml;ndigen ist der Einstieg &uuml;ber Meta Ads einfacher und g&uuml;nstiger. Google Ads kommen sp&auml;ter dazu &mdash; wenn du wei&szlig;t, was funktioniert.</p>
+
+  <h2>Zusammenfassung</h2>
+
+  <ul class="checklist">
+    <li>Organische Reichweite reicht nicht mehr &mdash; bezahlte Werbung ist notwendig</li>
+    <li>Meta Ads sind g&uuml;nstig, messbar und extrem pr&auml;zise</li>
+    <li>Starte mit 5&ndash;10 &euro; am Tag und einer klaren Zielgruppe</li>
+    <li>Nutze den Ads Manager, nicht den Boost-Button</li>
+    <li>Installiere den Meta Pixel, um Ergebnisse zu messen</li>
+    <li>Teste, beobachte, optimiere &mdash; nicht einmal schalten und vergessen</li>
+  </ul>
+
+  <p>Meta Ads sind kein Geheimnis und kein Luxus. Sie sind ein Werkzeug &mdash; und eines der effektivsten, das Selbstst&auml;ndigen zur Verf&uuml;gung steht. Der beste Zeitpunkt anzufangen war gestern. Der zweitbeste ist heute.</p>
+
+  <div class="article-cta">
+    <h3>Du willst Meta Ads schalten, aber wei&szlig;t nicht wo anfangen?</h3>
+    <p>Ich helfe dir, deine erste Kampagne aufzusetzen &mdash; mit der richtigen Strategie, dem richtigen Targeting und einem Budget, das zu dir passt.</p>
+    <a href="/#kontakt" class="cta-btn">Kostenloses Erstgespr&auml;ch &rarr;</a>
+  </div>
+
+</div>
+
+<section class="newsletter-section">
+  <h2>Nichts mehr verpassen</h2>
+  <p>Neue Artikel, Tipps und Praxiswissen &mdash; direkt in dein Postfach. Kein Spam, nur Inhalte, die dir weiterhelfen.</p>
+  <form class="newsletter-form" id="nlForm" onsubmit="return submitNewsletter(event)" style="flex-direction:column;align-items:center;gap:14px">
+    <div style="display:flex;gap:12px;width:100%;max-width:440px">
+      <input type="text" class="newsletter-input" id="nl-name" required placeholder="Dein Vorname" style="flex:1">
+      <input type="email" class="newsletter-input" id="nl-email" required placeholder="deine@email.de" style="flex:1">
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;max-width:440px;width:100%">
+      <input type="checkbox" id="nl-dsgvo" required style="accent-color:var(--coral);width:18px;height:18px;flex-shrink:0">
+      <label for="nl-dsgvo" style="font-size:12px;color:var(--muted);line-height:1.4;text-align:left">Ich stimme der <a href="datenschutz.html" style="color:var(--coral)">Datenschutzerkl&auml;rung</a> zu.</label>
+    </div>
+    <button type="submit" class="newsletter-btn">Eintragen &rarr;</button>
+    <p id="nl-success" style="display:none;color:var(--teal);font-weight:600;font-size:14px;margin-top:4px">Super, du bist dabei!</p>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">B&auml;umler<span class="dot">.</span></span>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="meine-geschichte.html">&Uuml;ber mich</a>
+      <a href="workbooks.html">Workbooks</a>
+      <a href="blog.html">Blog</a>
+      <a href="/#kontakt">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+      <a href="#" data-cookie-settings>Cookie-Einstellungen</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var bar = document.getElementById('progressBar');
+  if (!bar) return;
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    bar.style.width = pct + '%';
+  }, { passive: true });
+})();
+
+function submitNewsletter(e) {
+  e.preventDefault();
+  var name = document.getElementById('nl-name').value.trim();
+  var email = document.getElementById('nl-email').value.trim();
+  if (!name || !email) return false;
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/49329498/3da277bf-6e73-44ea-892c-71358b35552b', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      fields: [
+        { objectTypeId: '0-1', name: 'firstname', value: name },
+        { objectTypeId: '0-1', name: 'email', value: email }
+      ],
+      context: { pageUri: window.location.href, pageName: document.title }
+    })
+  }).then(function() {
+    document.getElementById('nl-success').style.display = 'block';
+    document.getElementById('nlForm').reset();
+  });
+  return false;
+}
+</script>
+<script src="cookie-banner.js" defer></script>
+</body>
+</html>

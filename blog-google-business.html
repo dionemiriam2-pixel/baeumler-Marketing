@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Business Profil richtig nutzen &mdash; in 15 Minuten | Baeumler Marketing</title>
+<meta name="description" content="So richtest du dein Google Business Profil richtig ein &mdash; Schritt f&uuml;r Schritt in 15 Minuten. Mehr lokale Sichtbarkeit, mehr Anfragen, kostenlos.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/favicon-192x192.png">
+<meta name="theme-color" content="#e8604c">
+<meta property="og:title" content="Google Business Profil richtig nutzen &mdash; in 15 Minuten">
+<meta property="og:description" content="Schritt f&uuml;r Schritt zum perfekten Google-Eintrag. Mehr Sichtbarkeit, mehr Anfragen &mdash; kostenlos.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://baeumlermarketing.de/images/blog-google-business.avif">
+<link rel="canonical" href="https://baeumlermarketing.de/blog-google-business.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg2: #f7f7f5; --text: #303030;
+    --muted: rgba(17,17,16,0.65); --border: rgba(0,0,0,0.08);
+    --coral: #e8604c; --teal: #2db8a8;
+    --sans: 'Inter', system-ui, sans-serif;
+    --heading: 'Antonio', sans-serif;
+    --serif: 'Playfair Display', Georgia, serif;
+    --pill: 100px; --r: 20px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100; padding: 16px 40px;
+    display: flex; justify-content: center;
+  }
+  .nav-bar {
+    background: #fff; border-radius: var(--pill); padding: 8px 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    display: inline-flex; align-items: center; gap: 24px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--text); text-decoration: none; text-transform: uppercase; }
+  .nav-back { font-size: 14px; color: var(--coral); text-decoration: none; transition: color 0.2s; }
+
+  .progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0;
+    background: var(--coral); z-index: 200; transition: width 0.15s linear;
+  }
+
+  .article-header {
+    max-width: 720px; margin: 0 auto; padding: 48px 40px 0; text-align: center;
+  }
+  .article-meta { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; }
+  .article-tag {
+    background: var(--teal); color: #fff; font-size: 12px; font-weight: 600;
+    padding: 4px 12px; border-radius: var(--pill); text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .article-date { font-size: 13px; color: var(--muted); }
+  .article-header h1 {
+    font-family: var(--heading); font-size: clamp(32px,5vw,56px);
+    font-weight: 700; line-height: 1.1; margin-bottom: 16px; text-transform: uppercase;
+  }
+  .article-intro {
+    font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 600px; margin: 0 auto;
+  }
+  .article-hero-img {
+    width: 100%; max-height: 480px; object-fit: cover; margin: 40px auto 0; border-radius: var(--r);
+    max-width: 960px;
+  }
+  .article-body {
+    max-width: 680px; margin: 0 auto; padding: 48px 40px 80px;
+    font-size: 16px; line-height: 1.8;
+  }
+  .article-body h2 {
+    font-family: var(--heading); font-size: clamp(22px,3vw,32px);
+    font-weight: 700; margin: 48px 0 16px; text-transform: uppercase; line-height: 1.2;
+  }
+  .article-body h3 {
+    font-family: var(--sans); font-size: 18px; font-weight: 600; margin: 32px 0 8px;
+  }
+  .article-body p { margin-bottom: 20px; }
+  .article-body ul, .article-body ol { margin: 0 0 20px 24px; }
+  .article-body li { margin-bottom: 8px; }
+  .article-body strong { font-weight: 600; }
+  .article-body blockquote {
+    border-left: 3px solid var(--coral); margin: 28px 0; padding: 16px 24px;
+    font-style: italic; color: var(--muted); background: var(--bg2); border-radius: 0 var(--r) var(--r) 0;
+  }
+  .article-body blockquote p { margin-bottom: 0; }
+  .article-body a { color: var(--coral); text-decoration: underline; }
+  .muted { color: var(--muted); font-size: 14px; font-style: italic; }
+
+  .step-card {
+    background: var(--bg2); border-radius: var(--r); padding: 24px 28px;
+    margin: 16px 0; position: relative; padding-left: 72px;
+  }
+  .step-number {
+    position: absolute; left: 24px; top: 24px; width: 36px; height: 36px;
+    background: var(--coral); color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 15px;
+  }
+  .step-card h3 { font-family: var(--sans); font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .step-card p { font-size: 14px; color: var(--muted); margin-bottom: 0; }
+
+  .checklist { list-style: none; margin: 0 0 20px 0; padding: 0; }
+  .checklist li {
+    padding: 8px 0 8px 32px; position: relative; border-bottom: 1px solid var(--border);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: "\2713"; position: absolute; left: 0; top: 8px;
+    color: var(--teal); font-weight: 700; font-size: 16px;
+  }
+
+  .article-cta {
+    background: var(--text); color: #fff; border-radius: var(--r);
+    padding: 36px 32px; text-align: center; margin: 40px 0;
+  }
+  .article-cta h3 { font-family: var(--heading); font-size: 24px; text-transform: uppercase; margin-bottom: 8px; }
+  .article-cta p { color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 15px; }
+  .cta-btn {
+    display: inline-block; background: var(--coral); color: #fff; padding: 14px 32px;
+    border-radius: var(--pill); font-weight: 600; font-size: 15px; text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); background: #d4553f; }
+
+  .newsletter-section {
+    max-width: 600px; margin: 0 auto; padding: 60px 40px; text-align: center;
+  }
+  .newsletter-section h2 {
+    font-family: var(--heading); font-size: clamp(24px,3vw,36px);
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .newsletter-section p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
+  .newsletter-form { display: flex; gap: 12px; justify-content: center; }
+  .newsletter-input {
+    padding: 14px 20px; border-radius: var(--pill); border: 1px solid var(--border);
+    font-size: 15px; font-family: var(--sans); outline: none; transition: border 0.2s;
+  }
+  .newsletter-input:focus { border-color: var(--coral); }
+  .newsletter-btn {
+    padding: 14px 28px; background: var(--coral); color: #fff; border: none;
+    border-radius: var(--pill); font-weight: 600; font-size: 15px; cursor: pointer;
+    font-family: var(--sans); transition: background 0.2s, transform 0.2s;
+  }
+  .newsletter-btn:hover { background: #d4553f; transform: translateY(-1px); }
+
+  footer {
+    border-top: 1px solid var(--border); padding: 36px 40px; text-align: center;
+  }
+  .footer-inner { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .footer-brand { font-family: var(--heading); font-size: 20px; font-weight: 700; text-transform: uppercase; }
+  .footer-brand .dot { color: var(--coral); }
+  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--coral); }
+  .footer-copy { font-size: 12px; color: var(--muted); }
+
+  @media (max-width: 860px) {
+    .article-header { padding: 36px 20px 0; }
+    .article-body { padding: 36px 20px 60px; }
+    .article-hero-img { max-height: 360px; padding: 0 20px !important; }
+    nav { padding: 12px 20px; }
+    .nav-bar { padding: 8px 20px; gap: 16px; }
+    .step-card { padding: 20px; padding-left: 64px; }
+    .article-cta { padding: 28px 20px; }
+    .newsletter-form { flex-direction: column; }
+    .newsletter-section { padding: 40px 20px; }
+    footer { padding: 28px 16px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+  }
+  @media (max-width: 380px) {
+    .article-header { padding: 32px 14px 0; }
+    .article-body { padding: 24px 14px 48px; }
+    .article-hero-img { max-height: 300px; }
+    nav { padding: 10px 12px; }
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Google Business Profil richtig nutzen \u2014 in 15 Minuten",
+  "description": "So richtest du dein Google Business Profil richtig ein. Mehr lokale Sichtbarkeit, mehr Anfragen, kostenlos.",
+  "author": {
+    "@type": "Person",
+    "name": "Miriam B\u00e4umler",
+    "url": "https://baeumlermarketing.de/meine-geschichte.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "B\u00e4umler Marketing"
+  },
+  "datePublished": "2026-03-11",
+  "dateModified": "2026-03-11",
+  "mainEntityOfPage": "https://baeumlermarketing.de/blog-google-business.html",
+  "keywords": ["Google Business Profil", "Google My Business", "lokale Sichtbarkeit", "Google Maps", "Selbstst\u00e4ndige", "lokales Marketing"]
+}
+</script>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <div class="nav-bar">
+    <a href="/" class="nav-logo">Baeumler.</a>
+    <a href="blog.html" class="nav-back">&larr; Alle Artikel</a>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="article-meta">
+    <span class="article-tag">SEO</span>
+    <span class="article-date">11. M&auml;rz 2026 &middot; 3 Min. Lesezeit</span>
+  </div>
+  <h1>Google Business Profil richtig nutzen &mdash; in 15 Minuten</h1>
+  <p class="article-intro">Dein Google Business Profil ist oft das Erste, was potenzielle Kunden von dir sehen. Und die meisten Selbstst&auml;ndigen verschenken hier enormes Potenzial.</p>
+</header>
+
+<img class="article-hero-img" src="images/blog-google-business.avif" alt="Google Business Profil einrichten und optimieren" loading="lazy" style="padding: 0 40px;">
+
+<div class="article-body">
+
+  <p>Wenn jemand nach deiner Dienstleistung in deiner Stadt sucht, zeigt Google zuerst die <strong>lokalen Ergebnisse</strong> &mdash; mit Karte, Bewertungen und Kontaktdaten. Das sind die Google Business Profile. Und ob deins dabei ist oder nicht, h&auml;ngt davon ab, wie gut es eingerichtet ist.</p>
+
+  <p>Die gute Nachricht: Es dauert keine Stunde. In 15 Minuten hast du ein Profil, das arbeitet.</p>
+
+  <h2>Was ist das Google Business Profil?</h2>
+
+  <p>Fr&uuml;her hie&szlig; es &bdquo;Google My Business&ldquo;. Heute ist es einfach dein <strong>Unternehmenseintrag bei Google</strong>. Er erscheint rechts in den Suchergebnissen, wenn jemand direkt nach deinem Namen sucht &mdash; und in den lokalen Ergebnissen, wenn jemand nach deinem Angebot sucht.</p>
+
+  <p>Das Profil zeigt:</p>
+
+  <ul>
+    <li>Deinen Firmennamen und deine Branche</li>
+    <li>Adresse und Standort auf Google Maps</li>
+    <li>&Ouml;ffnungszeiten</li>
+    <li>Telefonnummer und Website-Link</li>
+    <li>Bewertungen und Fotos</li>
+    <li>Beitr&auml;ge und Neuigkeiten</li>
+  </ul>
+
+  <p><strong>Es ist kostenlos</strong> &mdash; und f&uuml;r lokale Unternehmen das wichtigste Marketing-Werkzeug, das es gibt.</p>
+
+  <h2>In 5 Schritten zum optimierten Profil</h2>
+
+  <div class="step-card">
+    <span class="step-number">1</span>
+    <h3>Profil erstellen oder beanspruchen</h3>
+    <p>Geh auf business.google.com und melde dich mit deinem Google-Konto an. Falls dein Unternehmen schon eingetragen ist, kannst du es beanspruchen. Sonst erstellst du ein neues Profil.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">2</span>
+    <h3>Alle Grunddaten eintragen</h3>
+    <p>Name, Adresse, Telefonnummer, Website, &Ouml;ffnungszeiten. Klingt banal &mdash; aber unvollst&auml;ndige Profile werden von Google weniger angezeigt. F&uuml;lle jedes Feld aus.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">3</span>
+    <h3>Die richtige Kategorie w&auml;hlen</h3>
+    <p>Google bietet hunderte Kategorien. W&auml;hle die, die dein Angebot am besten beschreibt. Du kannst eine Hauptkategorie und mehrere Nebenkategorien setzen. Das beeinflusst direkt, f&uuml;r welche Suchen du angezeigt wirst.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">4</span>
+    <h3>Beschreibung und Fotos hinzuf&uuml;gen</h3>
+    <p>Schreib eine klare Beschreibung: Was bietest du an, f&uuml;r wen, wo? Lade echte Fotos hoch &mdash; von dir, deinem Arbeitsplatz, deinen Projekten. Profile mit Fotos bekommen 42 % mehr Routenanfragen und 35 % mehr Klicks auf die Website.</p>
+  </div>
+
+  <div class="step-card">
+    <span class="step-number">5</span>
+    <h3>Bewertungen aktivieren</h3>
+    <p>Bitte deine ersten Kunden um eine Google-Bewertung. Schick ihnen den direkten Link &mdash; den findest du im Profil unter &bdquo;Bewertungslink teilen&ldquo;. Je mehr echte Bewertungen, desto h&ouml;her dein Ranking.</p>
+  </div>
+
+  <h2>Die 5 h&auml;ufigsten Fehler</h2>
+
+  <p>Die meisten Selbstst&auml;ndigen richten ihr Profil einmal ein und vergessen es dann. Hier die typischen Fehler:</p>
+
+  <ul>
+    <li><strong>Unvollst&auml;ndiges Profil:</strong> Fehlende &Ouml;ffnungszeiten, keine Beschreibung, kein Foto. Google stuft das als wenig relevant ein.</li>
+    <li><strong>Falsche Kategorie:</strong> &bdquo;Unternehmensberater&ldquo; statt &bdquo;Marketingberater&ldquo; &mdash; kleine Unterschiede, gro&szlig;e Auswirkung auf die Sichtbarkeit.</li>
+    <li><strong>Keine Bewertungen:</strong> Ohne Bewertungen fehlt das Vertrauenssignal. Google bevorzugt Profile mit aktiven Bewertungen.</li>
+    <li><strong>Inkonsistente Daten:</strong> Andere Adresse auf der Website als bei Google. Das verwirrt Google und senkt dein Ranking.</li>
+    <li><strong>Keine Beitr&auml;ge:</strong> Google Business hat eine Beitragsfunktion. Wer sie nutzt, zeigt Google: Dieses Unternehmen ist aktiv.</li>
+  </ul>
+
+  <h2>Bonus: Beitr&auml;ge nutzen</h2>
+
+  <p>Du kannst direkt in deinem Google Business Profil <strong>Beitr&auml;ge ver&ouml;ffentlichen</strong> &mdash; &auml;hnlich wie Social-Media-Posts. Das k&ouml;nnen Neuigkeiten sein, Angebote oder Tipps.</p>
+
+  <p>Das bringt zwei Vorteile:</p>
+
+  <ul>
+    <li>Google sieht, dass dein Profil aktiv gepflegt wird &mdash; das verbessert dein Ranking</li>
+    <li>Nutzer sehen aktuelle Inhalte direkt in den Suchergebnissen &mdash; das erh&ouml;ht die Klickrate</li>
+  </ul>
+
+  <p>Einmal pro Woche ein kurzer Beitrag reicht. Kein Roman &mdash; 2&ndash;3 S&auml;tze und ein Bild.</p>
+
+  <h2>Checkliste: Dein Profil in 15 Minuten</h2>
+
+  <ul class="checklist">
+    <li>Profil erstellt oder beansprucht</li>
+    <li>Name, Adresse, Telefon vollst&auml;ndig eingetragen</li>
+    <li>&Ouml;ffnungszeiten gesetzt (auch Feiertage)</li>
+    <li>Passende Haupt- und Nebenkategorien gew&auml;hlt</li>
+    <li>Beschreibung geschrieben (Was, f&uuml;r wen, wo)</li>
+    <li>Mindestens 3 echte Fotos hochgeladen</li>
+    <li>Website-Link eingetragen</li>
+    <li>Bewertungslink an erste Kunden geschickt</li>
+  </ul>
+
+  <p>15 Minuten Arbeit &mdash; und dein Unternehmen ist bei Google sichtbar. Kostenlos, dauerhaft und direkt da, wo deine Kunden suchen.</p>
+
+  <div class="article-cta">
+    <h3>Du willst mehr als nur ein Google-Profil?</h3>
+    <p>Ich helfe dir, dein komplettes Online-Marketing aufzustellen &mdash; von SEO &uuml;ber Social Media bis zur Website.</p>
+    <a href="/#kontakt" class="cta-btn">Kostenloses Erstgespr&auml;ch &rarr;</a>
+  </div>
+
+</div>
+
+<section class="newsletter-section">
+  <h2>Nichts mehr verpassen</h2>
+  <p>Neue Artikel, Tipps und Praxiswissen &mdash; direkt in dein Postfach. Kein Spam, nur Inhalte, die dir weiterhelfen.</p>
+  <form class="newsletter-form" id="nlForm" onsubmit="return submitNewsletter(event)" style="flex-direction:column;align-items:center;gap:14px">
+    <div style="display:flex;gap:12px;width:100%;max-width:440px">
+      <input type="text" class="newsletter-input" id="nl-name" required placeholder="Dein Vorname" style="flex:1">
+      <input type="email" class="newsletter-input" id="nl-email" required placeholder="deine@email.de" style="flex:1">
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;max-width:440px;width:100%">
+      <input type="checkbox" id="nl-dsgvo" required style="accent-color:var(--coral);width:18px;height:18px;flex-shrink:0">
+      <label for="nl-dsgvo" style="font-size:12px;color:var(--muted);line-height:1.4;text-align:left">Ich stimme der <a href="datenschutz.html" style="color:var(--coral)">Datenschutzerkl&auml;rung</a> zu.</label>
+    </div>
+    <button type="submit" class="newsletter-btn">Eintragen &rarr;</button>
+    <p id="nl-success" style="display:none;color:var(--teal);font-weight:600;font-size:14px;margin-top:4px">Super, du bist dabei!</p>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">B&auml;umler<span class="dot">.</span></span>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="meine-geschichte.html">&Uuml;ber mich</a>
+      <a href="workbooks.html">Workbooks</a>
+      <a href="blog.html">Blog</a>
+      <a href="/#kontakt">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+      <a href="#" data-cookie-settings>Cookie-Einstellungen</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var bar = document.getElementById('progressBar');
+  if (!bar) return;
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    bar.style.width = pct + '%';
+  }, { passive: true });
+})();
+
+function submitNewsletter(e) {
+  e.preventDefault();
+  var name = document.getElementById('nl-name').value.trim();
+  var email = document.getElementById('nl-email').value.trim();
+  if (!name || !email) return false;
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/49329498/3da277bf-6e73-44ea-892c-71358b35552b', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      fields: [
+        { objectTypeId: '0-1', name: 'firstname', value: name },
+        { objectTypeId: '0-1', name: 'email', value: email }
+      ],
+      context: { pageUri: window.location.href, pageName: document.title }
+    })
+  }).then(function() {
+    document.getElementById('nl-success').style.display = 'block';
+    document.getElementById('nlForm').reset();
+  });
+  return false;
+}
+</script>
+<script src="cookie-banner.js" defer></script>
+</body>
+</html>
