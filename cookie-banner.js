@@ -135,7 +135,7 @@
         font-size: 20px;
         font-weight: 700;
         margin: 0 0 8px 0;
-        color: #1e2d5a;
+        color: #303030;
       }
 
       .cb-text {
