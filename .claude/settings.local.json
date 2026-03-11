@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep \"← Zurück\" \"c:\\\\Users\\\\KOMIKO\\\\OneDrive - Konzept mit Kopf GmbH\\\\Desktop\\\\CLAUD\\\\webseite miriam\"/*.html)"
+    ]
+  }
+}
