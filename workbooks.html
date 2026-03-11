@@ -172,14 +172,6 @@
   .how-card h4 { font-size: 18px; text-transform: none; letter-spacing: 0; }
   .how-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
 
-  /* ── CTA ── */
-  .wb-cta {
-    max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; text-align: center;
-  }
-  .wb-cta h2 { margin-bottom: 16px; font-size: clamp(24px, 3vw, 36px); }
-  .wb-cta p {
-    font-size: 15px; color: var(--muted); max-width: 480px; margin: 0 auto 32px; line-height: 1.7;
-  }
   .cta-btn {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 14px 32px; border-radius: var(--pill);
@@ -243,11 +235,6 @@
   }
 
   /* ── Responsive ── */
-  @media (max-width: 768px) {
-    .wb-card { min-height: 340px; }
-    .wb-body { padding: 28px; }
-    .how-steps { grid-template-columns: 1fr; gap: 24px; }
-  }
   @media (max-width: 860px) {
     .page-hero { padding: 60px 24px 40px; }
     .wb-grid-section { padding: 0 24px 60px; }
@@ -257,10 +244,11 @@
     .nav-avatar { width: 32px; height: 32px; }
     .wb-how { padding: 0 24px 60px; }
     .how-steps { grid-template-columns: 1fr; gap: 20px; }
-    .wb-cta { padding: 0 24px 60px; }
   }
   @media (max-width: 600px) {
     .wb-grid { grid-template-columns: 1fr; }
+    .wb-card { min-height: 340px; }
+    .wb-body { padding: 28px; }
   }
   @media (max-width: 480px) {
     .page-hero { padding: 40px 16px 32px; }
@@ -269,7 +257,6 @@
     .wb-body { padding: 24px; }
     .wb-how { padding: 0 16px 40px; }
     .how-card { padding: 28px 24px; }
-    .wb-cta { padding: 0 16px 40px; }
     footer { padding: 32px 16px 24px; }
     .footer-top { flex-direction: column; gap: 20px; text-align: center; }
     .footer-nav { flex-wrap: wrap; justify-content: center; gap: 16px; }
