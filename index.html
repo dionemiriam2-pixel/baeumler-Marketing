@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="a897db81-b3d5-4cdd-b229-a92558dc7545" data-blockingmode="auto" type="text/javascript"></script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baeumler Marketing — Miriam Bäumler | Marketingberaterin Langenfeld</title>
 <meta name="description" content="Marketingberaterin aus Langenfeld. Ich helfe lokalen Selbstständigen und Creatorn, online sichtbar zu werden, mehr Kunden zu gewinnen und ihr Business nachhaltig zu skalieren.">
@@ -606,15 +606,20 @@ footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 32px 4
 @media (max-width: 480px) {
   :root { --px: 16px; }
   .hero-wrap { padding: 40px var(--px) 60px; }
+  .hero-name { padding-left: 0; }
   .hero-word { font-size: clamp(42px, 12vw, 70px); }
   .hero-img-col { max-width: 220px; }
   .flip-card-hero { height: 260px; }
   .hero-circle-btn { width: 60px; height: 60px; }
-  .fj-leistungen { padding: 20px 0 60px; }
-  .leistungen-sub { font-size: 14px; }
+  /* Sektionsabstände mobil schmälern */
+  #flip-journey, #workbooks, #testimonials, #faq, #blog, #kontakt { padding: 48px 0; }
+  .fj-leistungen { padding: 10px 0 40px; }
+  .leistungen-title { color: var(--text); }
+  .leistungen-sub { font-size: 14px; color: var(--muted); }
   .acc-btn { padding: 20px 0; }
+  .acc-name { color: var(--text); }
   .acc-features li { font-size: 14px; }
-  .fj-ueber { padding: 60px 0 40px; }
+  .fj-ueber { padding: 40px 0 24px; }
   .ueber-bio { font-size: 15px; }
   .stats-row { flex-direction: column; gap: 24px; }
   .ueber-contacts { flex-direction: column; gap: 16px; }
