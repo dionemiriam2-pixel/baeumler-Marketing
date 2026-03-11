@@ -143,34 +143,31 @@
   .wb-card:hover .wb-arrow { transform: scale(1.1) rotate(-5deg); }
   /* Gumroad override removed — switching to Stripe */
 
-  /* ── How It Works ── */
-  .how-section {
-    max-width: 1100px; margin: 0 auto; padding: 0 40px 80px;
+  /* ── Bottom CTA Section ── */
+  .wb-bottom {
+    background: var(--text); color: #fff; padding: 80px 40px;
   }
-  .how-inner {
-    background: var(--bg2); border-radius: var(--r); padding: 56px 48px;
+  .wb-bottom-inner { max-width: 900px; margin: 0 auto; }
+  .wb-bottom-label {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--coral); font-weight: 600; margin-bottom: 32px;
   }
-  .how-inner h2 { margin-bottom: 40px; }
   .how-steps {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+    margin-bottom: 64px; padding-bottom: 64px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
-  .how-step { display: flex; flex-direction: column; gap: 10px; }
+  .how-step { display: flex; flex-direction: column; gap: 8px; }
   .how-num {
-    width: 40px; height: 40px; border-radius: 50%; background: var(--coral);
-    color: #fff; display: flex; align-items: center; justify-content: center;
-    font-family: var(--heading); font-size: 18px; font-weight: 700;
+    font-family: var(--heading); font-size: 48px; font-weight: 700;
+    color: var(--coral); line-height: 1;
   }
-  .how-step h4 { text-transform: none; letter-spacing: 0; }
-  .how-step p { font-size: 14px; color: var(--muted); line-height: 1.7; }
-
-  /* ── CTA ── */
-  .page-cta {
-    background: var(--bg2); border-top: 1px solid var(--border);
-    text-align: center; padding: 80px 40px;
-  }
-  .page-cta h2 { margin-bottom: 16px; }
-  .page-cta p {
-    font-size: 15px; color: var(--muted); max-width: 480px; margin: 0 auto 32px; line-height: 1.7;
+  .how-step h4 { color: #fff; text-transform: none; letter-spacing: 0; font-size: 18px; }
+  .how-step p { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+  .wb-cta-wrap { text-align: center; }
+  .wb-cta-wrap h2 { color: #fff; margin-bottom: 16px; font-size: clamp(24px, 3vw, 36px); }
+  .wb-cta-wrap p {
+    font-size: 15px; color: rgba(255,255,255,0.55); max-width: 480px; margin: 0 auto 32px; line-height: 1.7;
   }
   .cta-btn {
     display: inline-flex; align-items: center; gap: 8px;
@@ -247,10 +244,8 @@
     .nav-links { display: none; }
     .nav-burger { display: flex; }
     .nav-avatar { width: 32px; height: 32px; }
-    .how-section { padding: 0 24px 60px; }
-    .how-steps { grid-template-columns: 1fr; gap: 24px; }
-    .how-inner { padding: 40px 28px; }
-    .page-cta { padding: 60px 24px; }
+    .wb-bottom { padding: 60px 24px; }
+    .how-steps { grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; padding-bottom: 48px; }
   }
   @media (max-width: 600px) {
     .wb-grid { grid-template-columns: 1fr; }
@@ -260,10 +255,8 @@
     .wb-grid-section { padding: 0 16px 40px; }
     .wb-card { min-height: 320px; }
     .wb-body { padding: 24px; }
-    .how-section { padding: 0 16px 40px; }
-    .how-inner { padding: 32px 20px; }
-    .how-steps { gap: 16px; }
-    .page-cta { padding: 40px 16px; }
+    .wb-bottom { padding: 48px 16px; }
+    .how-steps { gap: 24px; }
     footer { padding: 32px 16px 24px; }
     .footer-top { flex-direction: column; gap: 20px; text-align: center; }
     .footer-nav { flex-wrap: wrap; justify-content: center; gap: 16px; }
@@ -375,35 +368,33 @@
   </div>
 </section>
 
-<!-- ════════════════════ SO FUNKTIONIERT'S ════════════════════ -->
-<section class="how-section">
-  <div class="how-inner">
-    <h2>So funktioniert's</h2>
+<!-- ════════════════════ BOTTOM SECTION ════════════════════ -->
+<section class="wb-bottom">
+  <div class="wb-bottom-inner">
+    <div class="wb-bottom-label">So funktioniert&rsquo;s</div>
     <div class="how-steps">
       <div class="how-step">
-        <span class="how-num">1</span>
-        <h4>Workbook auswählen</h4>
-        <p>Wähle das Thema, das zu deiner aktuellen Situation passt.</p>
+        <span class="how-num">01</span>
+        <h4>Workbook ausw&auml;hlen</h4>
+        <p>W&auml;hle das Thema, das zu deiner aktuellen Situation passt.</p>
       </div>
       <div class="how-step">
-        <span class="how-num">2</span>
+        <span class="how-num">02</span>
         <h4>Sicher bezahlen</h4>
-        <p>Einfacher Checkout — per Kreditkarte, PayPal oder Klarna. Kostenlose Produkte direkt ohne Zahlung.</p>
+        <p>Einfacher Checkout &mdash; per Kreditkarte, PayPal oder Klarna. Kostenlose Produkte direkt ohne Zahlung.</p>
       </div>
       <div class="how-step">
-        <span class="how-num">3</span>
+        <span class="how-num">03</span>
         <h4>Sofort loslegen</h4>
         <p>Du bekommst den Download-Link sofort per E-Mail und kannst direkt starten.</p>
       </div>
     </div>
+    <div class="wb-cta-wrap">
+      <h2>Du willst schneller voran?</h2>
+      <p>Die Workbooks sind ein guter Startpunkt &mdash; aber manchmal bringt ein Blick von au&szlig;en mehr als jedes Workbook.</p>
+      <a href="/#kontakt" class="cta-btn">Erstgespr&auml;ch vereinbaren</a>
+    </div>
   </div>
-</section>
-
-<!-- ════════════════════ CTA ════════════════════ -->
-<section class="page-cta">
-  <h2>Du willst schneller voran?</h2>
-  <p>Die Workbooks sind ein guter Startpunkt &mdash; aber manchmal bringt ein Blick von au&szlig;en mehr als jedes Workbook.</p>
-  <a href="/#kontakt" class="cta-btn">Erstgespr&auml;ch vereinbaren</a>
 </section>
 
 <!-- ════════════════════ FOOTER ════════════════════ -->
