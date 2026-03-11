@@ -198,6 +198,13 @@
     nav { padding: 10px 12px; }
     .tool-grid { grid-template-columns: 1fr; }
   }
+  /* ── Accessibility: Focus ── */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; border-radius: 4px; }
+  /* ── Accessibility: Skip Link ── */
+  .skip-link { position: absolute; top: -100%; left: 16px; background: var(--coral); color: #fff; padding: 12px 24px; border-radius: var(--pill); font-size: 14px; font-weight: 600; z-index: 9999; text-decoration: none; transition: top 0.2s; }
+  .skip-link:focus { top: 16px; }
+  .footer-cookie-btn { background: none; border: none; padding: 0; font-size: 13px; color: var(--muted); cursor: pointer; font-family: var(--sans); transition: color 0.2s; }
+  .footer-cookie-btn:hover { color: var(--coral); }
 </style>
 
 <script type="application/ld+json">
@@ -223,6 +230,7 @@
 </script>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
 <div class="progress-bar" id="progressBar"></div>
 
@@ -233,6 +241,7 @@
   </div>
 </nav>
 
+<main id="main-content">
 <header class="article-header">
   <div class="article-meta">
     <span class="article-tag">Business</span>
@@ -467,7 +476,7 @@
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
       <a href="agb.html">AGB</a>
-      <a href="#" data-cookie-settings>Cookie-Einstellungen</a>
+      <button type="button" class="footer-cookie-btn" data-cookie-settings>Cookie-Einstellungen</button>
     </div>
     <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
   </div>

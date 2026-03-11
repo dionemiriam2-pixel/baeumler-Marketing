@@ -313,7 +313,7 @@
 
   /* ── Footer ── */
   footer {
-    background: var(--text); color: rgba(255,255,255,0.45); padding: 32px 40px;
+    background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 40px;
   }
   .footer-inner {
     max-width: 720px; margin: 0 auto; width: 100%;
@@ -324,7 +324,7 @@
   .footer-brand { font-family: var(--body); font-size: 28px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
   .footer-brand .dot { color: var(--coral); }
   .footer-links { display: flex; gap: 20px; }
-  .footer-links a { color: rgba(255,255,255,0.45); font-size: 13px; transition: color 0.2s; }
+  .footer-links a { color: rgba(255,255,255,0.65); font-size: 13px; transition: color 0.2s; }
   .footer-links a:hover { color: #fff; }
   .footer-copy { width: 100%; text-align: center; font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
 
@@ -426,9 +426,17 @@
   @media (hover: none) {
     .bento-card:hover { transform: none; box-shadow: none; }
   }
+  /* ── Accessibility: Focus ── */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; border-radius: 4px; }
+  /* ── Accessibility: Skip Link ── */
+  .skip-link { position: absolute; top: -100%; left: 16px; background: var(--coral); color: #fff; padding: 12px 24px; border-radius: var(--pill); font-size: 14px; font-weight: 600; z-index: 9999; text-decoration: none; transition: top 0.2s; }
+  .skip-link:focus { top: 16px; }
+  .footer-cookie-btn { background: none; border: none; padding: 0; font-size: 13px; color: var(--muted); cursor: pointer; font-family: var(--sans); transition: color 0.2s; }
+  .footer-cookie-btn:hover { color: var(--coral); }
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
 <nav id="nav">
   <div class="nav-inner">
@@ -452,6 +460,8 @@
     </div>
   </div>
 </nav>
+
+<main id="main-content">
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="/">Home</a>
@@ -735,6 +745,8 @@
 </section>
 
 <!-- ════════════════════ FOOTER ════════════════════ -->
+</main>
+
 <footer>
   <div class="footer-inner">
     <span class="footer-brand">Bäumler<span class="dot">.</span></span>
@@ -747,7 +759,7 @@
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
       <a href="agb.html">AGB</a>
-      <a href="#" data-cookie-settings>Cookie-Einstellungen</a>
+      <button type="button" class="footer-cookie-btn" data-cookie-settings>Cookie-Einstellungen</button>
     </div>
     <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
   </div>
