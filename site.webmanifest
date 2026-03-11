@@ -1,0 +1,22 @@
+{
+  "name": "Baeumler Marketing",
+  "short_name": "Baeumler",
+  "description": "Marketingberatung aus Langenfeld — Webdesign, Branding und Online Marketing",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#e8604c",
+  "lang": "de",
+  "icons": [
+    {
+      "src": "/images/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

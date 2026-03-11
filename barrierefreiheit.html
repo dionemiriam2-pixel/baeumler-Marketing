@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Erkl&auml;rung zur Barrierefreiheit | Baeumler Marketing</title>
+<meta name="description" content="Erkl&auml;rung zur Barrierefreiheit von baeumlermarketing.de &mdash; unsere Ma&szlig;nahmen f&uuml;r eine zug&auml;ngliche Website.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/favicon-192x192.png">
+<meta name="theme-color" content="#e8604c">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://baeumlermarketing.de/barrierefreiheit.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff; --bg2: #f7f7f5; --text: #303030;
+    --muted: rgba(17,17,16,0.65); --border: rgba(0,0,0,0.08);
+    --coral: #e8604c; --teal: #2db8a8;
+    --sans: 'Inter', system-ui, sans-serif;
+    --heading: 'Antonio', sans-serif;
+    --serif: 'Playfair Display', Georgia, serif;
+    --pill: 100px; --r: 20px;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  h1, h2, h3 {
+    font-family: var(--heading); font-weight: 700; text-transform: uppercase;
+    letter-spacing: -0.03em; line-height: 1.1;
+  }
+  h1 { font-size: clamp(30px, 4vw, 48px); margin-bottom: 50px; }
+  h2 { font-size: clamp(20px, 2.5vw, 28px); margin: 40px 0 12px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100; padding: 16px 40px;
+    display: flex; justify-content: center;
+  }
+  .nav-bar {
+    background: #fff; border-radius: var(--pill); padding: 8px 28px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    display: inline-flex; align-items: center; gap: 24px;
+  }
+  .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--text); text-transform: uppercase; }
+  .nav-back { font-size: 14px; color: var(--coral); transition: color 0.2s; }
+
+  .legal-content {
+    max-width: 720px; margin: 0 auto; padding: 60px 40px 80px;
+  }
+  .legal-content p { margin-bottom: 16px; font-size: 15px; color: var(--text); }
+  .legal-content ul { margin: 0 0 16px 24px; }
+  .legal-content li { margin-bottom: 8px; font-size: 15px; }
+  .legal-content a { color: var(--coral); text-decoration: underline; }
+  .legal-meta { font-size: 13px; color: var(--muted); margin-bottom: 32px; }
+
+  footer {
+    background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 40px;
+  }
+  .footer-inner {
+    max-width: 720px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+  .footer-brand { font-family: var(--heading); font-size: 18px; font-weight: 700; color: #fff; text-transform: uppercase; }
+  .footer-brand .dot { color: var(--coral); }
+  .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+  .footer-links a { color: rgba(255,255,255,0.65); font-size: 13px; transition: color 0.2s; }
+  .footer-links a:hover { color: #fff; }
+  .footer-copy { width: 100%; text-align: center; font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+  @media (max-width: 860px) {
+    .legal-content { padding: 40px 20px 60px; }
+    nav { padding: 12px 20px; }
+    .nav-bar { padding: 8px 20px; gap: 16px; }
+  }
+  @media (max-width: 480px) {
+    .legal-content { padding: 32px 16px 48px; }
+    nav { padding: 10px 14px; }
+    footer { padding: 28px 16px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+  }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; border-radius: 4px; }
+  .skip-link { position: absolute; top: -100%; left: 16px; background: var(--coral); color: #fff; padding: 12px 24px; border-radius: var(--pill); font-size: 14px; font-weight: 600; z-index: 9999; text-decoration: none; transition: top 0.2s; }
+  .skip-link:focus { top: 16px; }
+  .footer-cookie-btn { background: none; border: none; padding: 0; font-size: 13px; color: rgba(255,255,255,0.65); cursor: pointer; font-family: var(--sans); transition: color 0.2s; }
+  .footer-cookie-btn:hover { color: #fff; }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+
+<nav>
+  <div class="nav-bar">
+    <a href="/" class="nav-logo">Baeumler.</a>
+    <a href="/" class="nav-back">&larr; Zur&uuml;ck</a>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<div class="legal-content">
+  <div class="legal-meta">Stand: M&auml;rz 2026 &middot; Baeumler Marketing &middot; Miriam B&auml;umler</div>
+  <h1>Erkl&auml;rung zur Barrierefreiheit</h1>
+
+  <p>Baeumler Marketing ist bestrebt, die Website <strong>baeumlermarketing.de</strong> barrierefrei zug&auml;nglich zu machen. Diese Erkl&auml;rung gilt f&uuml;r die unter baeumlermarketing.de ver&ouml;ffentlichten Inhalte.</p>
+
+  <h2>Stand der Barrierefreiheit</h2>
+
+  <p>Diese Website ist <strong>weitgehend barrierefrei</strong>. Wir orientieren uns an den Web Content Accessibility Guidelines (WCAG) 2.1 Level AA und setzen folgende Ma&szlig;nahmen um:</p>
+
+  <ul>
+    <li><strong>Tastaturnavigation:</strong> Alle interaktiven Elemente sind per Tastatur erreichbar und haben sichtbare Fokus-Indikatoren.</li>
+    <li><strong>Skip-Link:</strong> Ein &bdquo;Zum Inhalt springen&ldquo;-Link erm&ouml;glicht es, die Navigation zu &uuml;berspringen.</li>
+    <li><strong>Semantisches HTML:</strong> Die Seiten verwenden korrekte Landmark-Elemente (nav, main, footer) und eine logische &Uuml;berschriftenhierarchie.</li>
+    <li><strong>Alternativtexte:</strong> Alle Bilder haben beschreibende Alt-Texte.</li>
+    <li><strong>Kontraste:</strong> Text und Hintergrund erf&uuml;llen die WCAG-AA-Mindestkontrastvorgaben.</li>
+    <li><strong>Responsive Design:</strong> Die Website ist f&uuml;r alle Bildschirmgr&ouml;&szlig;en optimiert.</li>
+    <li><strong>Sprache:</strong> Die Dokumentsprache ist korrekt als Deutsch (de) gekennzeichnet.</li>
+    <li><strong>Formulare:</strong> Alle Formularfelder haben zugeordnete Labels.</li>
+  </ul>
+
+  <h2>Bekannte Einschr&auml;nkungen</h2>
+
+  <ul>
+    <li>Einige &auml;ltere Blog-Bilder verwenden externe URLs (framerusercontent.com), deren Ladezeit wir nicht kontrollieren k&ouml;nnen.</li>
+    <li>Eingebettete Drittanbieter-Inhalte (z.B. Gumroad-Checkout, HubSpot-Tracking) unterliegen nicht unserer direkten Kontrolle in Bezug auf Barrierefreiheit.</li>
+  </ul>
+
+  <h2>Feedback und Kontakt</h2>
+
+  <p>Wenn du auf Barrieren st&ouml;&szlig;t oder Verbesserungsvorschl&auml;ge hast, kontaktiere mich bitte:</p>
+
+  <ul>
+    <li><strong>E-Mail:</strong> <a href="mailto:hi@baeumlermarketing.de">hi@baeumlermarketing.de</a></li>
+    <li><strong>Kontaktformular:</strong> <a href="/#kontakt">baeumlermarketing.de/#kontakt</a></li>
+  </ul>
+
+  <p>Ich bem&uuml;he mich, innerhalb von 2 Wochen auf dein Feedback zu reagieren und festgestellte Probleme zu beheben.</p>
+
+  <h2>Technische Angaben</h2>
+
+  <p>Die Barrierefreiheit von baeumlermarketing.de wird durch folgende Technologien sichergestellt:</p>
+
+  <ul>
+    <li>HTML5</li>
+    <li>CSS3</li>
+    <li>WAI-ARIA</li>
+    <li>JavaScript</li>
+  </ul>
+
+  <p>Diese Erkl&auml;rung wurde am 11. M&auml;rz 2026 erstellt.</p>
+</div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">B&auml;umler<span class="dot">.</span></span>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="meine-geschichte.html">&Uuml;ber mich</a>
+      <a href="workbooks.html">Workbooks</a>
+      <a href="blog.html">Blog</a>
+      <a href="/#kontakt">Kontakt</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+      <a href="barrierefreiheit.html">Barrierefreiheit</a>
+      <button type="button" class="footer-cookie-btn" data-cookie-settings>Cookie-Einstellungen</button>
+    </div>
+    <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
+  </div>
+</footer>
+<script src="cookie-banner.js" defer></script>
+</body>
+</html>
