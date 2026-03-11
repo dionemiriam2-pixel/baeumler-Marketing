@@ -527,6 +527,17 @@ footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 32px 4
 @media (hover: none), (pointer: coarse) { .cursor-dot { display: none !important; } }
 
 
+/* ── Touch-friendly hover states ── */
+@media (hover: hover) {
+  .blog-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.09); }
+  .bento-card:hover, .testi-card:hover { transform: translateY(-4px); }
+  .wb-card:hover .wb-card-img img { transform: scale(1.04); }
+}
+@media (hover: none) {
+  .blog-card:hover { transform: none; box-shadow: none; }
+  .wb-card:hover .wb-card-img img { transform: none; }
+}
+
 /* ═══════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════ */
@@ -542,6 +553,12 @@ footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 32px 4
   .nav-links { gap: 18px; padding: 0 14px; }
   .nav-links a { font-size: 13px; }
   .nav-cta { padding: 9px 18px; font-size: 12px; }
+}
+@media (max-width: 768px) {
+  .faq-grid, .kontakt-grid { grid-template-columns: 1fr; }
+  .faq-left, .kontakt-left { position: static; }
+  .kontakt-portrait { height: 300px; }
+  .blog-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 760px) {
   .nav-links { display: none; }
@@ -607,12 +624,15 @@ footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 32px 4
   :root { --px: 16px; }
   .hero-wrap { padding: 40px var(--px) 60px; }
   .hero-name { padding-left: 0; }
+  .hero-available { margin-bottom: 12px; }
   .hero-word { font-size: clamp(42px, 12vw, 70px); }
   .hero-img-col { max-width: 220px; }
   .flip-card-hero { height: 260px; }
   .hero-circle-btn { width: 60px; height: 60px; }
   /* Sektionsabstände mobil schmälern */
   #flip-journey, #workbooks, #testimonials, #faq, #blog, #kontakt { padding: 48px 0; }
+  .testi-header, .wb-header, .faq-grid, .blog-header { margin-bottom: 32px; }
+  .kontakt-left { margin-bottom: 24px; }
   .fj-leistungen { padding: 10px 0 40px; }
   .leistungen-title { color: var(--text); }
   .leistungen-sub { font-size: 14px; color: var(--muted); }
@@ -657,6 +677,11 @@ footer { background: var(--text); color: rgba(255,255,255,0.45); padding: 32px 4
 /* ══ HERO FLIP CARD (pinned by GSAP) ══ */
 .hero-img-col.is-pinned {
   z-index: 100;
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  #nav { top: 8px; }
+  #hero { min-height: auto; padding-bottom: 40px; }
 }
 </style>
 <script type="application/ld+json">

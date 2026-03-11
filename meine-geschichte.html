@@ -241,12 +241,10 @@
     justify-content: flex-end; min-height: 280px; position: relative; overflow: hidden;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
   }
-  .bento-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
   .bento-img {
     border-radius: var(--r); overflow: hidden; min-height: 280px;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
   }
-  .bento-img:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
   .bento-dark { background: var(--text); color: #fff; }
   .bento-coral { background: var(--coral); color: #fff; }
   .bento-light { background: var(--bg2); color: var(--text); }
@@ -391,6 +389,10 @@
     .kontakt-left { position: static; }
     .form-row { grid-template-columns: 1fr; }
   }
+  @media (max-width: 768px) {
+    .story-main { padding: 0 20px; }
+    .bento-grid { grid-template-columns: 1fr 1fr; }
+  }
   @media (max-width: 600px) {
     .bento-grid { grid-template-columns: 1fr; }
     .bento-wide { grid-column: span 1; }
@@ -398,9 +400,12 @@
   @media (max-width: 480px) {
     .story-main { padding: 0 16px; }
     .story-left { padding: 40px 0 60px; }
-    .story-section { padding-bottom: 40px; }
+    .story-section { min-height: auto; padding-bottom: 40px; }
+    .story-img-sticky { top: 60px; }
     .story-socials { flex-wrap: wrap; }
+    .bento-grid { grid-template-columns: 1fr; }
     .bento-card { min-height: 180px; padding: 24px; }
+    .tool-item { gap: 12px; }
     .process-section { padding: 40px 16px; }
     .kontakt-wrap { padding: 0 16px; }
     .kontakt-grid { gap: 28px; }
@@ -409,6 +414,16 @@
     footer { padding: 28px 16px; }
     .footer-inner { flex-direction: column; text-align: center; }
     .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+
+  /* ── Hover: pointer devices only ── */
+  @media (hover: hover) {
+    .bento-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+    .bento-img:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+    .tool-item:hover { background: var(--bg2, #f7f7f5); }
+  }
+  @media (hover: none) {
+    .bento-card:hover { transform: none; box-shadow: none; }
   }
 </style>
 </head>

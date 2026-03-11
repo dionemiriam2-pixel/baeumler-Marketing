@@ -237,6 +237,11 @@
   }
 
   /* ── Responsive: Tablet ── */
+  @media (max-width: 768px) {
+    .blog-grid { grid-template-columns: 1fr; }
+    .featured-card { grid-template-columns: 1fr; }
+    .newsletter-form { flex-direction: column; }
+  }
   @media (max-width: 1024px) {
     .blog-grid { grid-template-columns: repeat(2, 1fr); }
   }
