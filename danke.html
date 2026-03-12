@@ -56,8 +56,23 @@
     display: inline-flex; align-items: center; gap: 24px;
   }
   .nav-logo { font-family: var(--heading); font-size: 20px; font-weight: 700; color: var(--text); text-transform: uppercase; }
-  .nav-back { font-size: 14px; color: var(--muted); transition: color 0.2s; }
-  .nav-back:hover { color: var(--coral); }
+  .nav-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+  .nav-links { display: flex; align-items: center; gap: 20px; }
+  .nav-links a { font-size: 14px; color: var(--muted); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--coral); }
+  .nav-cta {
+    padding: 8px 20px; border-radius: var(--pill); background: var(--text); color: #fff;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    transition: background 0.25s;
+  }
+  .nav-cta:hover { background: var(--coral); }
+  @media (max-width: 860px) {
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 13px; }
+  }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+  }
 
   /* ── Danke Content ── */
   .danke {
@@ -127,8 +142,16 @@
 
 <nav>
   <div class="nav-bar">
+    <a href="/"><img src="images/Miriam_Foto.JPG" alt="Miriam Bäumler" class="nav-avatar" width="36" height="36"></a>
     <a href="/" class="nav-logo">Baeumler.</a>
-    <a href="/" class="nav-back">&larr; Zur&uuml;ck zur Startseite</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="meine-geschichte.html">&Uuml;ber mich</a>
+      <a href="workbooks.html">Workbooks</a>
+      <a href="blog.html">Blog</a>
+      <a href="/#kontakt">Kontakt</a>
+      <a href="/#kontakt" class="nav-cta">Erstgespr&auml;ch</a>
+    </div>
   </div>
 </nav>
 
