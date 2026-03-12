@@ -202,6 +202,16 @@
   .footer-legal a { font-size: 12px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
   .footer-legal a:hover { color: rgba(255,255,255,0.8); }
   .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+  .footer-nl { padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; text-align: center; }
+  .footer-nl-label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .footer-nl-form { display: flex; gap: 8px; max-width: 420px; margin: 0 auto; }
+  .footer-nl-input { flex: 1; padding: 10px 16px; border-radius: var(--pill); border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #fff; font-size: 13px; font-family: var(--sans); }
+  .footer-nl-input::placeholder { color: rgba(255,255,255,0.4); }
+  .footer-nl-btn { padding: 10px 20px; border-radius: var(--pill); background: var(--coral); color: #fff; border: none; font-size: 13px; font-weight: 600; font-family: var(--sans); cursor: pointer; transition: opacity 0.25s; white-space: nowrap; }
+  .footer-nl-btn:hover { opacity: 0.85; }
+  .footer-nl-consent { display: flex; align-items: flex-start; gap: 6px; max-width: 420px; margin: 8px auto 0; }
+  .footer-nl-consent label { font-size: 10px; color: rgba(255,255,255,0.4); line-height: 1.4; text-align: left; }
+  .footer-nl-consent a { color: rgba(255,255,255,0.6); text-decoration: underline; }
   .footer-cookie-btn { background: none; border: none; padding: 0; font-size: 12px; color: rgba(255,255,255,0.4); cursor: pointer; font-family: var(--sans); transition: color 0.2s; }
   .footer-cookie-btn:hover { color: rgba(255,255,255,0.8); }
 
@@ -508,6 +518,18 @@
         <a href="/#kontakt">Kontakt</a>
       </nav>
     </div>
+    <div class="footer-nl">
+      <p class="footer-nl-label">Newsletter</p>
+      <form class="footer-nl-form" id="footerNlForm" onsubmit="return submitFooterNl(event)">
+        <input type="email" class="footer-nl-input" id="footer-nl-email" required placeholder="Deine E-Mail-Adresse">
+        <button type="submit" class="footer-nl-btn">Eintragen</button>
+      </form>
+      <div class="footer-nl-consent">
+        <input type="checkbox" id="footer-nl-dsgvo" required style="accent-color:var(--coral);width:14px;height:14px;flex-shrink:0;margin-top:1px">
+        <label for="footer-nl-dsgvo">Ich stimme der <a href="datenschutz.html">Datenschutzerkl&auml;rung</a> zu.</label>
+      </div>
+      <p id="footer-nl-success" style="display:none;color:var(--teal);font-weight:600;font-size:12px;margin-top:4px">Danke, du bist dabei!</p>
+    </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
       <div class="footer-legal">
@@ -551,6 +573,28 @@ function submitNewsletter(e) {
     if(r.ok){document.getElementById('nl-success').style.display='block';document.getElementById('nlForm').reset();}
     else{r.json().then(function(d){console.error('HS Error:',d);alert('Fehler: '+(d.message||'Unbekannt'));}).catch(function(){alert('Fehler beim Absenden.');});}
   }).catch(function(){alert('Verbindungsfehler.');});
+  return false;
+}
+</script>
+<script>
+function submitFooterNl(e){
+  e.preventDefault();
+  if(!document.getElementById('footer-nl-dsgvo').checked)return false;
+  var btn=document.querySelector('.footer-nl-btn');
+  btn.disabled=true;btn.textContent='...';
+  var email=document.getElementById('footer-nl-email').value.trim();
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/0ca9c402-9b0b-4b59-bb8f-23fe7bd65411',{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      fields:[{name:'email',value:email}],
+      context:{pageUri:window.location.href,pageName:'Footer Newsletter'},
+      legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Speicherung und Verarbeitung meiner personenbezogenen Daten durch Baeumler Marketing zu.',communications:[{value:true,subscriptionTypeId:2273981170,text:'Ich stimme zu, andere Benachrichtigungen von Baeumler Marketing zu erhalten.'}]}}
+    })
+  }).then(function(r){
+    if(r.ok){document.getElementById('footerNlForm').reset();document.getElementById('footer-nl-success').style.display='block';setTimeout(function(){document.getElementById('footer-nl-success').style.display='none'},5000);}
+    else{alert('Etwas ist schiefgelaufen. Bitte schreib mir an hi@baeumlermarketing.de');}
+    btn.disabled=false;btn.textContent='Eintragen';
+  }).catch(function(){alert('Verbindungsfehler.');btn.disabled=false;btn.textContent='Eintragen';});
   return false;
 }
 </script>

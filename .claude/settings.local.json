@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(grep \"← Zurück\" \"c:\\\\Users\\\\KOMIKO\\\\OneDrive - Konzept mit Kopf GmbH\\\\Desktop\\\\CLAUD\\\\webseite miriam\"/*.html)"
+      "Bash(grep \"← Zurück\" \"c:\\\\Users\\\\KOMIKO\\\\OneDrive - Konzept mit Kopf GmbH\\\\Desktop\\\\CLAUD\\\\webseite miriam\"/*.html)",
+      "WebSearch",
+      "Bash(FILES=\"agb.html blog-creator-business.html blog-google-business.html blog-ki-marketing.html blog-lokale-seo.html blog-meta-ads.html blog-reichweite-business.html blog-social-media-ki.html blog.html danke.html datenschutz.html impressum.html index.html meine-geschichte.html workbooks.html\")",
+      "Bash(for f:*)",
+      "Bash(do sed:*)",
+      "Bash(done)"
     ]
   }
 }
