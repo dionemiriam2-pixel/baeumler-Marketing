@@ -410,56 +410,12 @@ section { position: relative; overflow: visible; }
 /* ═══════════════════════════════════════════════
    ONLINE CHECK TEASER
 ═══════════════════════════════════════════════ */
-#online-check-teaser { padding: 80px 0; }
-.oc-teaser {
-  display: flex; align-items: center; gap: 64px;
-  background: var(--bg2); border-radius: var(--r);
-  padding: 56px 56px; position: relative; overflow: hidden;
-}
-.oc-teaser-content { flex: 1; }
-.oc-teaser-label {
+#online-check-teaser { padding: 80px 0; position: relative; }
+#online-check-teaser .blob { background: radial-gradient(circle, var(--teal), transparent 70%); width:400px; height:400px; top:-80px; right:-60px; --d:22s; --tx:15px; --ty:-20px; }
+.oc-label {
   display: inline-block; font-size: 12px; font-weight: 600;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--coral); margin-bottom: 16px;
-}
-.oc-teaser-content .sec-title { margin-bottom: 16px; }
-.oc-teaser-text {
-  font-size: 16px; color: var(--muted); line-height: 1.7;
-  max-width: 440px; margin-bottom: 28px;
-}
-.oc-teaser-btns { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
-.oc-teaser-wb-link {
-  font-size: 13px; color: var(--muted); transition: color 0.2s;
-  border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 1px;
-}
-.oc-teaser-wb-link:hover { color: var(--coral); border-color: var(--coral); }
-
-.oc-teaser-visual { flex-shrink: 0; text-align: center; }
-.oc-teaser-circle {
-  width: 160px; height: 160px; border-radius: 50%;
-  border: 4px solid var(--border); display: flex;
-  flex-direction: column; align-items: center; justify-content: center;
-  margin: 0 auto 20px; background: #fff;
-}
-.oc-teaser-score {
-  font-family: var(--heading); font-size: 48px; font-weight: 700;
-  color: var(--coral); line-height: 1;
-}
-.oc-teaser-max { font-size: 13px; color: var(--muted); margin-top: 2px; }
-.oc-teaser-cats { display: flex; flex-direction: column; gap: 8px; }
-.oc-teaser-cat {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 13px; font-weight: 500; color: var(--muted);
-}
-.oc-cat-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-.oc-dot-teal { background: var(--teal); }
-.oc-dot-orange { background: var(--orange); }
-.oc-dot-coral { background: var(--coral); }
-
-@media (max-width: 760px) {
-  .oc-teaser { flex-direction: column; gap: 40px; padding: 40px 28px; text-align: center; }
-  .oc-teaser-btns { align-items: center; }
-  .oc-teaser-text { margin-left: auto; margin-right: auto; }
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--coral); margin-bottom: 20px;
 }
 
 #testimonials { padding: 80px 0; position: relative; }
@@ -1092,34 +1048,6 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
   <div class="blog-more reveal" style="margin-top:24px;"><a href="workbooks.html" class="btn btn-coral">Alle Workbooks ansehen →</a></div>
 </section>
 
-<!-- ════════════════════ ONLINE CHECK TEASER ════════════════════ -->
-<section id="online-check-teaser">
-  <div class="container">
-    <div class="oc-teaser reveal">
-      <div class="oc-teaser-content">
-        <span class="oc-teaser-label">Kostenlos · 2 Minuten</span>
-        <h2 class="sec-title">Wie gut bist du <em>online</em> aufgestellt?</h2>
-        <p class="oc-teaser-text">Finde in 12 Fragen heraus, wo dein Online-Auftritt steht — und wo du als Erstes ansetzen solltest. Kostenlos, anonym und mit persönlicher Auswertung.</p>
-        <div class="oc-teaser-btns">
-          <a href="online-check.html" class="btn btn-coral">Jetzt Selbstcheck starten →</a>
-          <a href="workbooks.html" class="oc-teaser-wb-link">Oder stöbere in meinen Workbooks</a>
-        </div>
-      </div>
-      <div class="oc-teaser-visual">
-        <div class="oc-teaser-circle">
-          <span class="oc-teaser-score">?</span>
-          <span class="oc-teaser-max">von 100</span>
-        </div>
-        <div class="oc-teaser-cats">
-          <div class="oc-teaser-cat"><span class="oc-cat-dot oc-dot-teal"></span>Gut aufgestellt</div>
-          <div class="oc-teaser-cat"><span class="oc-cat-dot oc-dot-orange"></span>Auf dem Weg</div>
-          <div class="oc-teaser-cat"><span class="oc-cat-dot oc-dot-coral"></span>Nachholbedarf</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ════════════════════ TESTIMONIALS ════════════════════ -->
 <section id="testimonials">
   <div class="blob"></div>
@@ -1257,6 +1185,19 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
       </a>
     </div>
     <div class="blog-more reveal"><a href="blog.html" class="btn btn-navy">Zum vollständigen Blog →</a></div>
+  </div>
+</section>
+
+<!-- ════════════════════ ONLINE CHECK ════════════════════ -->
+<section id="online-check-teaser">
+  <div class="blob"></div>
+  <div class="container">
+    <div class="oc-section reveal" style="text-align:center;max-width:600px;margin:0 auto">
+      <span class="oc-label">Kostenlos · 2 Minuten · 12 Fragen</span>
+      <h2 class="sec-title">Wie gut bist du<br><em>online</em> aufgestellt?</h2>
+      <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:36px">Finde heraus, wo dein Online-Auftritt steht — und wo du als Erstes ansetzen solltest. Komplett kostenlos, mit sofortiger Auswertung.</p>
+      <a href="online-check.html" class="btn btn-coral" style="padding:16px 40px;font-size:15px">Jetzt Selbstcheck starten →</a>
+    </div>
   </div>
 </section>
 
