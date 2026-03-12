@@ -813,8 +813,25 @@ var tipps = {
   }
 };
 
-// Show first question
-questions[0].classList.add('active');
+// Check if Q1 was pre-answered from homepage
+var urlParams = new URLSearchParams(window.location.search);
+var preQ0 = urlParams.get('q0');
+if (preQ0 !== null) {
+  answers[0] = parseInt(preQ0);
+  // Mark the answer visually
+  var q0btns = questions[0].querySelectorAll('.quiz-answer');
+  q0btns.forEach(function(b) { if (parseInt(b.dataset.val) === answers[0]) b.classList.add('selected'); });
+  // Start at Q2
+  current = 1;
+  questions[0].classList.remove('active');
+  questions[1].classList.add('active');
+  // Skip intro screen, show progress bar
+  document.querySelector('.check-hero').style.display = 'none';
+  document.getElementById('progressWrap').style.display = 'block';
+  updateProgress();
+} else {
+  questions[0].classList.add('active');
+}
 
 // Answer click
 document.querySelectorAll('.quiz-answer').forEach(function(btn) {

@@ -412,10 +412,62 @@ section { position: relative; overflow: visible; }
 ═══════════════════════════════════════════════ */
 #online-check-teaser { padding: 80px 0; position: relative; }
 #online-check-teaser .blob { background: radial-gradient(circle, var(--teal), transparent 70%); width:400px; height:400px; top:-80px; right:-60px; --d:22s; --tx:15px; --ty:-20px; }
+.oc-wrap {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+}
+.oc-left { min-width: 0; }
 .oc-label {
   display: inline-block; font-size: 12px; font-weight: 600;
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--coral); margin-bottom: 20px;
+}
+.oc-left .sec-title { margin-bottom: 16px; }
+.oc-desc { font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 420px; }
+.oc-right {
+  background: var(--bg2); border-radius: var(--r); padding: 36px 32px;
+  border: 1px solid var(--border);
+}
+.oc-q-label {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
+}
+.oc-q-title {
+  font-family: var(--heading); font-size: clamp(18px, 2vw, 22px);
+  font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em;
+  line-height: 1.2; margin-bottom: 20px;
+}
+.oc-answers { display: flex; flex-direction: column; gap: 10px; }
+.oc-answer {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 18px; border-radius: 12px; border: 1.5px solid var(--border);
+  background: #fff; cursor: pointer; transition: all 0.2s;
+  font-size: 14px; color: var(--text); font-family: var(--sans);
+  text-align: left; width: 100%;
+}
+.oc-answer:hover { border-color: var(--coral); background: rgba(232,96,76,0.04); }
+.oc-answer-dot {
+  width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+  border: 2px solid var(--border); transition: all 0.2s;
+}
+.oc-answer:hover .oc-answer-dot { border-color: var(--coral); }
+.oc-q-meta {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);
+}
+.oc-q-step { font-size: 12px; color: var(--muted); }
+.oc-q-step strong { color: var(--text); }
+.oc-q-progress {
+  width: 80px; height: 4px; border-radius: 2px;
+  background: var(--border); overflow: hidden;
+}
+.oc-q-progress-bar {
+  width: 8.33%; height: 100%; border-radius: 2px;
+  background: var(--coral); transition: width 0.3s;
+}
+
+@media (max-width: 760px) {
+  .oc-wrap { grid-template-columns: 1fr; gap: 32px; }
+  .oc-desc { max-width: 100%; }
 }
 
 #testimonials { padding: 80px 0; position: relative; }
@@ -1192,11 +1244,25 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
 <section id="online-check-teaser">
   <div class="blob"></div>
   <div class="container">
-    <div class="oc-section reveal" style="text-align:center;max-width:600px;margin:0 auto">
-      <span class="oc-label">Kostenlos · 2 Minuten · 12 Fragen</span>
-      <h2 class="sec-title">Wie gut bist du<br><em>online</em> aufgestellt?</h2>
-      <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:36px">Finde heraus, wo dein Online-Auftritt steht — und wo du als Erstes ansetzen solltest. Komplett kostenlos, mit sofortiger Auswertung.</p>
-      <a href="online-check.html" class="btn btn-coral" style="padding:16px 40px;font-size:15px">Jetzt Selbstcheck starten →</a>
+    <div class="oc-wrap reveal">
+      <div class="oc-left">
+        <span class="oc-label">Kostenloser Selbstcheck</span>
+        <h2 class="sec-title">Wie gut bist du<br><em>online</em> aufgestellt?</h2>
+        <p class="oc-desc">12 Fragen, 2 Minuten — und du weißt genau, wo dein Online-Auftritt steht und wo du als Erstes ansetzen solltest.</p>
+      </div>
+      <div class="oc-right">
+        <div class="oc-q-label">Frage 1 von 12 — Website Basics</div>
+        <h3 class="oc-q-title">Hast du eine professionelle Website?</h3>
+        <div class="oc-answers">
+          <button class="oc-answer" onclick="startQuiz(3)"><span class="oc-answer-dot"></span>Ja, professionell und aktuell</button>
+          <button class="oc-answer" onclick="startQuiz(1)"><span class="oc-answer-dot"></span>Teilweise — sie braucht ein Update</button>
+          <button class="oc-answer" onclick="startQuiz(0)"><span class="oc-answer-dot"></span>Nein, keine oder veraltet</button>
+        </div>
+        <div class="oc-q-meta">
+          <span class="oc-q-step"><strong>1</strong> / 12</span>
+          <div class="oc-q-progress"><div class="oc-q-progress-bar"></div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1461,6 +1527,11 @@ document.querySelectorAll('.count-up').forEach(el => {
     el.addEventListener('mouseleave', () => dot.classList.remove('hover'));
   });
 })();
+
+/* ── ONLINE CHECK: Start quiz with Q1 pre-answered ── */
+function startQuiz(val) {
+  window.location.href = 'online-check.html?q0=' + val;
+}
 
 </script>
 <!-- Start of HubSpot Embed Code -->
