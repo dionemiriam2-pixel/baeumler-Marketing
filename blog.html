@@ -414,10 +414,7 @@
   <h2>Nichts mehr verpassen</h2>
   <p>Neue Artikel, Tipps und Praxiswissen — direkt in dein Postfach. Kein Spam, nur Inhalte, die dir weiterhelfen.</p>
   <form class="newsletter-form" id="nlForm" onsubmit="return submitNewsletter(event)">
-    <div class="nl-row">
-      <input type="text" class="newsletter-input" id="nl-name" required placeholder="Name">
-      <input type="email" class="newsletter-input" id="nl-email" required placeholder="E-Mail">
-    </div>
+    <input type="email" class="newsletter-input" id="nl-email" required placeholder="Deine E-Mail-Adresse" style="width:100%">
     <div style="display:flex;align-items:flex-start;gap:8px;width:100%">
       <input type="checkbox" id="nl-dsgvo" required style="accent-color:var(--coral);width:16px;height:16px;flex-shrink:0;margin-top:2px">
       <label for="nl-dsgvo" style="font-size:11px;color:var(--muted);line-height:1.4;text-align:left">Ich stimme der <a href="datenschutz.html" style="color:var(--coral)">Datenschutzerkl&auml;rung</a> zu und m&ouml;chte den Newsletter erhalten.</label>
@@ -485,15 +482,9 @@ function submitNewsletter(e){
   e.preventDefault();
   var btn=document.querySelector('.newsletter-btn');
   btn.disabled=true;btn.textContent='Wird gesendet...';
-  var fullName=document.getElementById('nl-name').value.trim();
-  var parts=fullName.split(/\s+/);
-  var first=parts[0]||'';
-  var last=parts.slice(1).join(' ')||'';
   var email=document.getElementById('nl-email').value.trim();
   var payload={
     fields:[
-      {name:'firstname',value:first},
-      {name:'lastname',value:last},
       {name:'email',value:email}
     ],
     context:{pageUri:window.location.href,pageName:'Blog Newsletter'},
