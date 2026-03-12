@@ -859,7 +859,7 @@ function submitKontakt(e){
         {name:'message',value:msg}
       ],
       context:{pageUri:window.location.href,pageName:'Über mich – Kontakt'},
-      legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Datenschutzerklärung zu.',communications:[{value:true,subscriptionTypeId:2273981170,text:'Ich stimme zu, Marketing-Informationen von Baeumler Marketing zu erhalten.'}]}}
+      legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Datenschutzerklärung zu.'}}
     })
   }).then(function(r){
     if(r.ok){

@@ -493,7 +493,7 @@ function submitNewsletter(e){
       {name:'email',value:email}
     ],
     context:{pageUri:window.location.href,pageName:'Blog Newsletter'},
-    legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Datenschutzerklärung zu und möchte den Newsletter erhalten.',communications:[{value:true,subscriptionTypeId:2273981170,text:'Ich stimme zu, Marketing-Informationen von Baeumler Marketing zu erhalten.'}]}}
+    legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Datenschutzerklärung zu und möchte den Newsletter erhalten.'}}
   };
   fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/0ca9c402-9b0b-4b59-bb8f-23fe7bd65411',{
     method:'POST',

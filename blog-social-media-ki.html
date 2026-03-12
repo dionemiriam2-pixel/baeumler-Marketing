@@ -721,7 +721,7 @@ function submitNewsletter(e){
         {name:'email',value:email}
       ],
       context:{pageUri:window.location.href,pageName:'Blog - Social Media KI'},
-      legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Datenschutzerklärung zu.',communications:[{value:true,subscriptionTypeId:2273981170,text:'Ich stimme zu, Marketing-Informationen von Baeumler Marketing zu erhalten.'}]}}
+      legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Datenschutzerklärung zu.'}}
     })
   }).then(function(r){
     if(r.ok){
