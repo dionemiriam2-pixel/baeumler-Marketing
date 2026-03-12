@@ -485,11 +485,15 @@ function submitNewsletter(e){
   e.preventDefault();
   var btn=document.querySelector('.newsletter-btn');
   btn.disabled=true;btn.textContent='Wird gesendet...';
-  var name=document.getElementById('nl-name').value.trim();
+  var fullName=document.getElementById('nl-name').value.trim();
+  var parts=fullName.split(/\s+/);
+  var first=parts[0]||'';
+  var last=parts.slice(1).join(' ')||'';
   var email=document.getElementById('nl-email').value.trim();
   var payload={
     fields:[
-      {name:'firstname',value:name},
+      {name:'firstname',value:first},
+      {name:'lastname',value:last},
       {name:'email',value:email}
     ],
     context:{pageUri:window.location.href,pageName:'Blog Newsletter'},
