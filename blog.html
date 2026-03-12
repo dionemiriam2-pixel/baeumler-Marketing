@@ -188,32 +188,6 @@
   }
   .newsletter-btn:hover { background: #d44f3b; }
 
-    footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 48px 40px 32px; }
-  .footer-inner { max-width: 900px; margin: 0 auto; }
-  .footer-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
-  .footer-brand { font-family: var(--heading); font-size: 24px; font-weight: 700; color: #fff; text-transform: uppercase; }
-  .footer-brand .dot { color: var(--coral); }
-  .footer-nav { display: flex; gap: 24px; }
-  .footer-nav a { font-size: 14px; color: rgba(255,255,255,0.65); transition: color 0.2s; }
-  .footer-nav a:hover { color: #fff; }
-  .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
-  .footer-legal { display: flex; gap: 20px; align-items: center; }
-  .footer-legal a { font-size: 12px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
-  .footer-legal a:hover { color: rgba(255,255,255,0.8); }
-  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
-  .footer-nl { padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; text-align: center; }
-  .footer-nl-label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
-  .footer-nl-form { display: flex; gap: 8px; max-width: 420px; margin: 0 auto; }
-  .footer-nl-input { flex: 1; padding: 10px 16px; border-radius: var(--pill); border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #fff; font-size: 13px; font-family: var(--sans); }
-  .footer-nl-input::placeholder { color: rgba(255,255,255,0.4); }
-  .footer-nl-btn { padding: 10px 20px; border-radius: var(--pill); background: var(--coral); color: #fff; border: none; font-size: 13px; font-weight: 600; font-family: var(--sans); cursor: pointer; transition: opacity 0.25s; white-space: nowrap; }
-  .footer-nl-btn:hover { opacity: 0.85; }
-  .footer-nl-consent { display: flex; align-items: flex-start; gap: 6px; max-width: 420px; margin: 8px auto 0; }
-  .footer-nl-consent label { font-size: 10px; color: rgba(255,255,255,0.4); line-height: 1.4; text-align: left; }
-  .footer-nl-consent a { color: rgba(255,255,255,0.6); text-decoration: underline; }
-  .footer-cookie-btn { background: none; border: none; padding: 0; font-size: 12px; color: rgba(255,255,255,0.4); cursor: pointer; font-family: var(--sans); transition: color 0.2s; }
-  .footer-cookie-btn:hover { color: rgba(255,255,255,0.8); }
-
   /* ── Mobile Nav ── */
   .nav-burger {
     display: none; width: 44px; height: 44px; border-radius: 50%;
@@ -252,7 +226,29 @@
   }
 
   /* ── Responsive: Tablet ── */
-  @media (max-width: 768px) {
+  footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 40px 24px; }
+  .footer-inner { max-width: 900px; margin: 0 auto; }
+  .footer-row1 { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 16px; position: relative; }
+  .footer-brand { font-family: var(--heading); font-size: 22px; font-weight: 700; color: #fff; text-transform: uppercase; white-space: nowrap; }
+  .footer-brand .dot { color: var(--coral); }
+  .footer-nl-form { display: flex; align-items: center; gap: 8px; }
+  .footer-nl-input { width: 200px; padding: 8px 14px; border-radius: var(--pill); border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #fff; font-size: 12px; font-family: var(--sans); }
+  .footer-nl-input::placeholder { color: rgba(255,255,255,0.35); }
+  .footer-nl-check { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+  .footer-nl-check input { accent-color: var(--coral); width: 13px; height: 13px; cursor: pointer; }
+  .footer-nl-check span { font-size: 10px; color: rgba(255,255,255,0.4); }
+  .footer-nl-check a { color: rgba(255,255,255,0.55); text-decoration: underline; }
+  .footer-nl-btn { padding: 8px 16px; border-radius: var(--pill); background: var(--coral); color: #fff; border: none; font-size: 12px; font-weight: 600; font-family: var(--sans); cursor: pointer; transition: opacity 0.25s; white-space: nowrap; }
+  .footer-nl-btn:hover { opacity: 0.85; }
+  .footer-row2 { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); }
+  .footer-legal { display: flex; gap: 18px; align-items: center; }
+  .footer-legal a { font-size: 11px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+  .footer-legal a:hover { color: rgba(255,255,255,0.8); }
+  .footer-copy { font-size: 11px; color: rgba(255,255,255,0.3); }
+  .footer-cookie-btn { background: none; border: none; padding: 0; font-size: 11px; color: rgba(255,255,255,0.4); cursor: pointer; font-family: var(--sans); transition: color 0.2s; }
+  .footer-cookie-btn:hover { color: rgba(255,255,255,0.8); }
+
+@media (max-width: 768px) {
     .blog-grid { grid-template-columns: 1fr; }
     .featured-card { grid-template-columns: 1fr; }
     .newsletter-form { flex-direction: column; }
@@ -286,11 +282,11 @@
     .blog-img { height: 180px; }
     .newsletter-section { padding: 32px 16px; }
     .nl-row { flex-direction: column; }
-    footer { padding: 32px 16px 24px; }
-    .footer-top { flex-direction: column; gap: 20px; text-align: center; }
-    .footer-nav { flex-wrap: wrap; justify-content: center; gap: 16px; }
-    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-    .footer-legal { flex-wrap: wrap; justify-content: center; gap: 12px; }
+      .footer-row1 { flex-direction: column; gap: 12px; text-align: center; }
+    .footer-nl-form { flex-wrap: wrap; justify-content: center; }
+    .footer-nl-input { width: 100%; }
+    .footer-row2 { flex-direction: column; gap: 10px; text-align: center; }
+    .footer-legal { flex-wrap: wrap; justify-content: center; gap: 10px; }
   }
   /* ── Accessibility: Focus ── */
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; border-radius: 4px; }
@@ -439,29 +435,16 @@
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-top">
+    <div class="footer-row1">
       <span class="footer-brand">B&auml;umler<span class="dot">.</span></span>
-      <nav class="footer-nav" aria-label="Footer-Navigation">
-        <a href="/">Home</a>
-        <a href="meine-geschichte.html">&Uuml;ber mich</a>
-        <a href="workbooks.html">Workbooks</a>
-        <a href="blog.html">Blog</a>
-        <a href="/#kontakt">Kontakt</a>
-      </nav>
-    </div>
-    <div class="footer-nl">
-      <p class="footer-nl-label">Newsletter</p>
       <form class="footer-nl-form" id="footerNlForm" onsubmit="return submitFooterNl(event)">
         <input type="email" class="footer-nl-input" id="footer-nl-email" required placeholder="Deine E-Mail-Adresse">
+        <label class="footer-nl-check"><input type="checkbox" id="footer-nl-dsgvo" required><span><a href="datenschutz.html">Datenschutz</a></span></label>
         <button type="submit" class="footer-nl-btn">Eintragen</button>
       </form>
-      <div class="footer-nl-consent">
-        <input type="checkbox" id="footer-nl-dsgvo" required style="accent-color:var(--coral);width:14px;height:14px;flex-shrink:0;margin-top:1px">
-        <label for="footer-nl-dsgvo">Ich stimme der <a href="datenschutz.html">Datenschutzerkl&auml;rung</a> zu.</label>
-      </div>
-      <p id="footer-nl-success" style="display:none;color:var(--teal);font-weight:600;font-size:12px;margin-top:4px">Danke, du bist dabei!</p>
+      <p id="footer-nl-success" style="display:none;color:var(--teal);font-weight:600;font-size:11px;position:absolute;right:0;top:100%">Danke!</p>
     </div>
-    <div class="footer-bottom">
+    <div class="footer-row2">
       <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
       <div class="footer-legal">
         <a href="impressum.html">Impressum</a>
