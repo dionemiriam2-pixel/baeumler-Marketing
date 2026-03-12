@@ -264,26 +264,6 @@ h4 { font-size: clamp(16px, 1.6vw, 20px); }
 .results-cat-bar.mid { background: var(--orange); }
 .results-cat-bar.bad { background: var(--coral); }
 
-/* Tipps section */
-.results-tipps { margin-bottom: 56px; }
-.results-tipps-title {
-  font-family: var(--heading); font-size: 24px; font-weight: 700;
-  text-transform: uppercase; margin-bottom: 24px;
-}
-.tipp-card {
-  background: var(--bg2); border-radius: var(--r);
-  padding: 28px; margin-bottom: 16px;
-}
-.tipp-card-cat {
-  font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--coral); margin-bottom: 8px;
-}
-.tipp-card-title {
-  font-family: var(--heading); font-size: 20px; font-weight: 700;
-  text-transform: uppercase; margin-bottom: 8px;
-}
-.tipp-card-text { font-size: 15px; color: var(--muted); line-height: 1.7; }
-
 /* CTA Box */
 .results-cta-box {
   background: var(--bg2); border-radius: var(--r);
@@ -407,7 +387,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .quiz-answer { padding: 16px 20px; font-size: 14px; }
   .results-cat { flex-wrap: wrap; gap: 12px; }
   .results-cat-bar-wrap { width: 100%; }
-  .tipp-card { padding: 22px; }
   .results-cta-box { padding: 32px 20px; }
   .results-cta-form-row { flex-direction: column; }
 }
@@ -660,21 +639,15 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <div id="catBreakdown"></div>
   </div>
 
-  <!-- Tipps -->
-  <div class="results-tipps" id="resultsTipps">
-    <h3 class="results-tipps-title">Das kannst du verbessern</h3>
-    <div id="tippsContainer"></div>
-  </div>
-
-  <!-- CTA: Persönlicher Check + Strategy Call -->
+  <!-- CTA: Tipps per E-Mail -->
   <div class="results-cta-box" id="resultsCta">
     <div class="results-cta-badge" id="ctaBadge"></div>
-    <h3 class="results-cta-title">Dein persönlicher Online Check</h3>
-    <p class="results-cta-text">Ich schaue mir deinen Online-Auftritt persönlich an und zeige dir in einem <strong>30-Minuten Strategy Call</strong> genau, wo du ansetzen solltest — individuell, ehrlich und auf den Punkt.</p>
+    <h3 class="results-cta-title">Deine persönlichen Verbesserungstipps</h3>
+    <p class="results-cta-text">Ich schicke dir eine <strong>ausführliche Auswertung per E-Mail</strong> — mit konkreten Tipps, die genau zu deinem Ergebnis passen. Kostenlos und sofort in deinem Postfach.</p>
     <div class="results-cta-includes">
-      <div class="results-cta-item">Persönliche Analyse deines Online-Auftritts</div>
-      <div class="results-cta-item">30-Min Strategy Call mit mir (Miriam)</div>
-      <div class="results-cta-item">Konkrete Handlungsempfehlungen zum Umsetzen</div>
+      <div class="results-cta-item">Detaillierte Analyse deiner Schwachstellen</div>
+      <div class="results-cta-item">Konkrete Verbesserungsvorschläge pro Bereich</div>
+      <div class="results-cta-item">Priorisierte nächste Schritte zum Umsetzen</div>
     </div>
 
     <form class="results-cta-form" id="ctaForm" onsubmit="return submitCtaForm(event)">
@@ -686,16 +659,16 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         <input type="checkbox" id="cta-dsgvo" required>
         <label for="cta-dsgvo">Ich stimme der <a href="datenschutz.html">Datenschutzerklärung</a> zu.</label>
       </div>
-      <button type="submit" class="results-cta-submit" id="ctaSubmitBtn">Kostenlosen Strategy Call sichern</button>
+      <button type="submit" class="results-cta-submit" id="ctaSubmitBtn">Tipps per E-Mail erhalten</button>
     </form>
-    <p class="results-cta-note">100 % kostenlos — kein Abo, keine Verpflichtung.</p>
-    <p id="ctaSuccess" class="results-cta-success" style="display:none">Perfekt! Ich melde mich bei dir.</p>
+    <p class="results-cta-note">100 % kostenlos — kein Spam, kein Abo.</p>
+    <p id="ctaSuccess" class="results-cta-success" style="display:none">Perfekt! Schau in dein Postfach — deine Tipps sind unterwegs.</p>
   </div>
 
   <!-- Erstgespräch fallback -->
   <div class="results-cta-alt">
-    <p>Oder direkt loslegen:</p>
-    <a href="index.html#kontakt" class="btn btn-coral" style="padding:14px 36px;font-size:15px">Erstgespräch buchen</a>
+    <p>Du möchtest direkt mit mir sprechen?</p>
+    <a href="index.html#kontakt" class="btn btn-coral" style="padding:14px 36px;font-size:15px">Kostenloses Erstgespräch buchen →</a>
   </div>
 
 </section>
@@ -1059,31 +1032,6 @@ function showResults() {
     '</div>';
   }
   document.getElementById('catBreakdown').innerHTML = breakdownHTML;
-
-  // Tipps (only for weak categories)
-  var tippsHTML = '';
-  var hasTipps = false;
-  for (var j = 0; j < catOrder.length; j++) {
-    var tKey = catOrder[j];
-    var tCat = categories[tKey];
-    var tScore = catScores[tKey];
-    var tPct = Math.round((tScore / tCat.max) * 100);
-
-    if (tPct < 80) {
-      hasTipps = true;
-      tippsHTML += '<div class="tipp-card">' +
-        '<div class="tipp-card-cat">' + tCat.name + '</div>' +
-        '<h4 class="tipp-card-title">' + tipps[tKey].title + '</h4>' +
-        '<p class="tipp-card-text">' + tipps[tKey].text + '</p>' +
-      '</div>';
-    }
-  }
-
-  if (hasTipps) {
-    document.getElementById('tippsContainer').innerHTML = tippsHTML;
-  } else {
-    document.getElementById('resultsTipps').style.display = 'none';
-  }
 
   // Show results
   document.getElementById('resultsWrap').classList.add('active');
