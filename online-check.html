@@ -264,6 +264,34 @@ h4 { font-size: clamp(16px, 1.6vw, 20px); }
 .results-cat-bar.mid { background: var(--orange); }
 .results-cat-bar.bad { background: var(--coral); }
 
+/* Tipps Grid */
+.results-tipps { margin-bottom: 48px; }
+.results-tipps-title {
+  font-family: var(--heading); font-size: 24px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: 20px;
+}
+.tipps-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.tipp-tile {
+  border-radius: 16px; padding: 22px 20px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.tipp-tile.bad { background: var(--coral); color: #fff; }
+.tipp-tile.mid { background: var(--text); color: #fff; }
+.tipp-tile.good { background: var(--teal); color: #fff; }
+.tipp-tile-cat {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; opacity: 0.55;
+}
+.tipp-tile-title {
+  font-family: var(--heading); font-size: 17px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.2;
+}
+.tipp-tile-text {
+  font-size: 13px; line-height: 1.55; opacity: 0.8; margin-top: 2px;
+}
+
 /* CTA Box */
 .results-cta-box {
   background: var(--bg2); border-radius: var(--r);
@@ -387,6 +415,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .quiz-answer { padding: 16px 20px; font-size: 14px; }
   .results-cat { flex-wrap: wrap; gap: 12px; }
   .results-cat-bar-wrap { width: 100%; }
+  .tipps-grid { grid-template-columns: 1fr; }
   .results-cta-box { padding: 32px 20px; }
   .results-cta-form-row { flex-direction: column; }
 }
@@ -639,6 +668,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <div id="catBreakdown"></div>
   </div>
 
+  <!-- Tipps Kacheln -->
+  <div class="results-tipps" id="resultsTipps">
+    <h3 class="results-tipps-title">Hier kannst du ansetzen</h3>
+    <div class="tipps-grid" id="tippsGrid"></div>
+  </div>
+
   <!-- CTA: Tipps per E-Mail -->
   <div class="results-cta-box" id="resultsCta">
     <div class="results-cta-badge" id="ctaBadge"></div>
@@ -753,36 +788,36 @@ var categories = {
 // Tipps for weak categories
 var tipps = {
   website: {
-    title: 'Website überarbeiten',
-    text: 'Deine Website ist das Fundament deines Online-Auftritts. Achte auf ein modernes Design, schnelle Ladezeiten, Mobiloptimierung und klare Handlungsaufforderungen (CTAs). Eine gute Website verwandelt Besucher in Kunden.'
+    title: 'Website aufbauen',
+    text: 'Modernes Design, schnelle Ladezeiten und klare CTAs — dein digitales Schaufenster muss überzeugen.'
   },
   branding: {
-    title: 'Einheitliches Branding aufbauen',
-    text: 'Definiere deine Markenfarben, Schriften und eine klare Bildsprache. Nutze sie konsequent auf allen Kanälen — Website, Social Media, E-Mails und Drucksachen. Wiedererkennung schafft Vertrauen.'
+    title: 'Branding vereinheitlichen',
+    text: 'Farben, Schriften und Bildsprache konsequent auf allen Kanälen nutzen.'
   },
   google: {
-    title: 'Google richtig einrichten',
-    text: 'Erstelle ein Google Business Profil mit aktuellen Infos, Fotos und Öffnungszeiten. Richte Google Analytics und die Google Search Console ein, um deine Website-Daten im Blick zu behalten.'
+    title: 'Google einrichten',
+    text: 'Business Profil anlegen, Analytics und Search Console aktivieren.'
   },
   seo: {
-    title: 'SEO-Grundlagen umsetzen',
-    text: 'Recherchiere die Suchbegriffe, die deine Kunden nutzen, und baue sie in deine Seitentitel, Überschriften und Texte ein. Schreibe für jeden Seite einen individuellen Meta-Titel und eine Meta-Beschreibung.'
+    title: 'SEO-Basics umsetzen',
+    text: 'Suchbegriffe recherchieren, Meta-Titel und Beschreibungen für jede Seite schreiben.'
   },
   social: {
-    title: 'Social Media strategisch nutzen',
-    text: 'Wähle 1–2 Kanäle, auf denen deine Zielgruppe aktiv ist, und erstelle einen Content-Plan. Poste regelmäßig (2–3× pro Woche reicht), mische Mehrwert mit Persönlichkeit und nutze Hashtags und Trends.'
+    title: 'Social Media starten',
+    text: '1–2 Kanäle wählen, Content-Plan erstellen, 2–3× pro Woche posten.'
   },
   ads: {
-    title: 'Mit Ads gezielt Kunden erreichen',
-    text: 'Starte mit einem kleinen Budget auf Google oder Meta (Facebook/Instagram). Definiere deine Zielgruppe klar, teste verschiedene Anzeigen und messe, was funktioniert. Schon 5–10 € pro Tag können einen Unterschied machen.'
+    title: 'Ads gezielt nutzen',
+    text: 'Klein starten (5–10 €/Tag), Zielgruppe definieren, testen und messen.'
   },
   email: {
-    title: 'E-Mail Marketing starten',
-    text: 'Baue eine E-Mail-Liste auf — z.B. mit einem Freebie oder Newsletter-Angebot auf deiner Website. Versende regelmäßig wertvolle Inhalte. Deine Liste gehört dir, unabhängig von Social-Media-Algorithmen.'
+    title: 'E-Mail-Liste aufbauen',
+    text: 'Freebie oder Newsletter anbieten — deine Liste gehört dir, kein Algorithmus.'
   },
   tracking: {
-    title: 'Daten verstehen und nutzen',
-    text: 'Richte Tracking ein und schaue monatlich rein: Woher kommen deine Besucher? Welche Seiten funktionieren? Wo springen Leute ab? Diese Daten zeigen dir, wo du deine Zeit und dein Budget am besten investierst.'
+    title: 'Daten verstehen',
+    text: 'Monatlich reinschauen: Woher kommen Besucher, was funktioniert, wo springen sie ab?'
   }
 };
 
@@ -1032,6 +1067,32 @@ function showResults() {
     '</div>';
   }
   document.getElementById('catBreakdown').innerHTML = breakdownHTML;
+
+  // Tipp-Kacheln (nur für schwache Bereiche)
+  var tippsHTML = '';
+  var tippCount = 0;
+  for (var j = 0; j < catOrder.length; j++) {
+    var tKey = catOrder[j];
+    var tCat = categories[tKey];
+    var tScore = catScores[tKey];
+    var tPct = Math.round((tScore / tCat.max) * 100);
+
+    if (tPct < 80) {
+      var tLevel = tPct >= 40 ? 'mid' : 'bad';
+      tippCount++;
+      tippsHTML += '<div class="tipp-tile ' + tLevel + '">' +
+        '<div class="tipp-tile-cat">' + tCat.name + '</div>' +
+        '<div class="tipp-tile-title">' + tipps[tKey].title + '</div>' +
+        '<div class="tipp-tile-text">' + tipps[tKey].text + '</div>' +
+      '</div>';
+    }
+  }
+
+  if (tippCount > 0) {
+    document.getElementById('tippsGrid').innerHTML = tippsHTML;
+  } else {
+    document.getElementById('resultsTipps').style.display = 'none';
+  }
 
   // Show results
   document.getElementById('resultsWrap').classList.add('active');
