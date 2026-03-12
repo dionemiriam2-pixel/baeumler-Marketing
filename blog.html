@@ -165,24 +165,44 @@
     font-size: 15px; color: var(--muted); max-width: 480px;
     margin: 0 auto 32px; line-height: 1.7;
   }
-  .newsletter-form {
-    display: flex; gap: 12px; max-width: 440px; margin: 0 auto;
-  }
-  .newsletter-input {
-    flex: 1; padding: 14px 18px; border-radius: var(--pill);
+  /* ── HubSpot Form Styling ── */
+  .hs-newsletter-wrap .hs-form input[type="text"],
+  .hs-newsletter-wrap .hs-form input[type="email"] {
+    width: 100%; padding: 14px 18px; border-radius: var(--pill);
     border: 1px solid var(--border); background: #fff;
-    color: var(--text); font-family: var(--sans); font-size: 14px; outline: none;
-    transition: border-color 0.2s;
+    color: var(--text); font-family: var(--sans); font-size: 14px;
+    outline: none; transition: border-color 0.2s;
   }
-  .newsletter-input::placeholder { color: rgba(0,0,0,0.3); }
-  .newsletter-input:focus { border-color: var(--coral); }
-  .newsletter-btn {
+  .hs-newsletter-wrap .hs-form input:focus {
+    border-color: var(--coral);
+  }
+  .hs-newsletter-wrap .hs-form input[type="submit"],
+  .hs-newsletter-wrap .hs-form .hs-button {
     padding: 14px 28px; border-radius: var(--pill); border: none;
     background: var(--coral); color: #fff; font-family: var(--sans);
     font-size: 14px; font-weight: 600; cursor: pointer;
-    transition: background 0.25s;
+    transition: background 0.25s; width: 100%;
   }
-  .newsletter-btn:hover { background: #d44f3b; }
+  .hs-newsletter-wrap .hs-form input[type="submit"]:hover,
+  .hs-newsletter-wrap .hs-form .hs-button:hover {
+    background: #d44f3b;
+  }
+  .hs-newsletter-wrap .hs-form label {
+    font-family: var(--sans); font-size: 13px; color: var(--muted);
+    display: block; margin-bottom: 6px;
+  }
+  .hs-newsletter-wrap .hs-form .hs-form-field {
+    margin-bottom: 14px;
+  }
+  .hs-newsletter-wrap .hs-form .hs-error-msgs {
+    color: var(--coral); font-size: 12px; margin-top: 4px; list-style: none; padding: 0;
+  }
+  .hs-newsletter-wrap .hs-form .legal-consent-container {
+    font-size: 12px; color: var(--muted); line-height: 1.4;
+  }
+  .hs-newsletter-wrap .hs-form .legal-consent-container a {
+    color: var(--coral);
+  }
 
     footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 48px 40px 32px; }
   .footer-inner { max-width: 900px; margin: 0 auto; }
@@ -255,7 +275,6 @@
     .blog-grid-section { padding: 0 24px 60px; }
     .newsletter-section { padding: 60px 24px; }
     .newsletter-form { flex-direction: column; }
-    .nl-inputs { flex-direction: column !important; }
     .nav-links { display: none; }
     .nav-burger { display: flex; }
     .nav-avatar { width: 32px; height: 32px; }
@@ -410,18 +429,10 @@
 <section class="newsletter-section">
   <h2>Nichts mehr verpassen</h2>
   <p>Neue Artikel, Tipps und Praxiswissen — direkt in dein Postfach. Kein Spam, nur Inhalte, die dir weiterhelfen.</p>
-  <form class="newsletter-form" id="nlForm" onsubmit="return submitNewsletter(event)" style="flex-direction:column;align-items:center;gap:14px">
-    <div class="nl-inputs" style="display:flex;gap:12px;width:100%;max-width:440px">
-      <input type="text" class="newsletter-input" id="nl-name" required placeholder="Dein Vorname" style="flex:1">
-      <input type="email" class="newsletter-input" id="nl-email" required placeholder="deine@email.de" style="flex:1">
-    </div>
-    <div style="display:flex;align-items:flex-start;gap:10px;max-width:440px;width:100%">
-      <input type="checkbox" id="nl-dsgvo" required style="accent-color:var(--coral);width:18px;height:18px;flex-shrink:0;margin-top:2px">
-      <label for="nl-dsgvo" style="font-size:12px;color:var(--muted);line-height:1.4;text-align:left">Ich stimme der <a href="datenschutz.html" style="color:var(--coral)">Datenschutzerkl&auml;rung</a> zu.</label>
-    </div>
-    <button type="submit" class="newsletter-btn">Eintragen &rarr;</button>
-    <p id="nl-success" style="display:none;color:var(--teal);font-weight:600;font-size:14px;margin-top:4px">Super, du bist dabei!</p>
-  </form>
+  <div class="hs-newsletter-wrap" style="max-width:480px;margin:0 auto">
+    <script src="https://js-eu1.hsforms.net/forms/embed/147985028.js" defer></script>
+    <div class="hs-form-frame" data-region="eu1" data-form-id="0ca9c402-9b0b-4b59-bb8f-23fe7bd65411" data-portal-id="147985028"></div>
+  </div>
 </section>
 
 <!-- ════════════════════ FOOTER ════════════════════ -->
@@ -475,33 +486,6 @@
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147985028.js"></script>
 <!-- End of HubSpot Embed Code -->
-
-<!-- HubSpot Newsletter Submit -->
-<script>
-function submitNewsletter(e){
-  e.preventDefault();
-  var name=document.getElementById('nl-name').value.trim();
-  var email=document.getElementById('nl-email').value.trim();
-  fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/0ca9c402-9b0b-4b59-bb8f-23fe7bd65411',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      fields:[
-        {name:'firstname',value:name},
-        {name:'email',value:email}
-      ],
-      context:{pageUri:window.location.href,pageName:'Blog Newsletter'},
-      legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Datenschutzerklärung zu.'}}
-    })
-  }).then(function(r){
-    if(r.ok){
-      document.getElementById('nlForm').reset();
-      document.getElementById('nl-success').style.display='block';
-      setTimeout(function(){document.getElementById('nl-success').style.display='none'},5000);
-    }else{alert('Etwas ist schiefgelaufen. Bitte schreib mir an hi@baeumlermarketing.de');}
-  }).catch(function(){alert('Verbindungsfehler. Bitte schreib mir an hi@baeumlermarketing.de');});
-  return false;
-}
 
 var burger = document.getElementById('navBurger');
 var mobileMenu = document.getElementById('mobileMenu');
