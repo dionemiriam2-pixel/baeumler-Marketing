@@ -13,8 +13,8 @@
   // HIER DEINE IDs EINTRAGEN:
   // ============================================
   const CONFIG = {
-    gtmId: 'GTM-XXXXXXX',           // Deine Google Tag Manager ID
-    analyticsId: 'G-XXXXXXXXXX',     // Deine Google Analytics 4 ID
+    gtmId: 'GTM-TGJBX7Q4',            // Google Tag Manager ID
+    analyticsId: 'G-F7QCKPKZVT',     // Deine Google Analytics 4 ID
     facebookPixelId: '0000000000',   // Deine Facebook Pixel ID
     cookieName: 'baeumler_consent',
     cookieDays: 365,
@@ -44,6 +44,7 @@
   // ============================================
 
   function loadGTM() {
+    if (!CONFIG.gtmId || CONFIG.gtmId.includes('XXXXXXX')) return;
     if (document.querySelector('script[src*="googletagmanager.com/gtm.js"]')) return;
     (function (w, d, s, l, i) {
       w[l] = w[l] || [];
@@ -69,6 +70,7 @@
   }
 
   function loadFacebookPixel() {
+    if (!CONFIG.facebookPixelId || CONFIG.facebookPixelId === '0000000000') return;
     if (window.fbq) return;
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
