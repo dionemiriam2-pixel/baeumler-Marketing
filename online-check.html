@@ -203,57 +203,6 @@ h4 { font-size: clamp(16px, 1.6vw, 20px); }
 .quiz-back:hover { color: var(--text); }
 .quiz-back.hidden { visibility: hidden; }
 
-/* ═══════════════════════════════════════════════
-   LEAD CAPTURE
-═══════════════════════════════════════════════ */
-.lead-card {
-  display: none; animation: fadeUp 0.4s ease;
-  text-align: center;
-}
-.lead-card.active { display: block; }
-.lead-card h2 {
-  font-size: clamp(28px, 4vw, 44px);
-  margin-bottom: 12px;
-}
-.lead-card-sub {
-  font-size: 16px; color: var(--muted); line-height: 1.7;
-  margin-bottom: 36px; max-width: 460px; margin-left: auto; margin-right: auto;
-}
-.lead-form { max-width: 400px; margin: 0 auto; }
-.lead-form .form-group { margin-bottom: 16px; text-align: left; }
-.lead-form .form-label {
-  display: block; font-size: 13px; font-weight: 600;
-  color: var(--text); margin-bottom: 6px;
-}
-.lead-form .form-input {
-  width: 100%; padding: 14px 18px; border: 1.5px solid var(--border);
-  border-radius: var(--r); font-size: 15px; font-family: var(--sans);
-  color: var(--text); background: #fff; transition: border-color 0.2s;
-}
-.lead-form .form-input:focus {
-  outline: none; border-color: var(--coral);
-}
-.lead-form .form-input::placeholder { color: rgba(17,17,16,0.35); }
-.lead-dsgvo {
-  display: flex; align-items: flex-start; gap: 10px;
-  margin: 20px 0 24px; text-align: left;
-}
-.lead-dsgvo input { accent-color: var(--coral); width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; }
-.lead-dsgvo label { font-size: 13px; color: var(--muted); line-height: 1.4; }
-.lead-dsgvo a { color: var(--coral); }
-.lead-submit {
-  width: 100%; padding: 16px 32px; border-radius: var(--pill);
-  border: 1.5px solid var(--coral); color: var(--coral); background: transparent;
-  font-size: 15px; font-weight: 600; font-family: var(--sans);
-  cursor: pointer; transition: all 0.22s;
-}
-.lead-submit:hover { background: var(--coral); color: #fff; }
-.lead-skip {
-  display: block; margin: 16px auto 0; font-size: 13px; color: var(--muted);
-  background: none; border: none; cursor: pointer; font-family: var(--sans);
-  transition: color 0.2s;
-}
-.lead-skip:hover { color: var(--text); }
 
 /* ═══════════════════════════════════════════════
    RESULTS
@@ -335,16 +284,85 @@ h4 { font-size: clamp(16px, 1.6vw, 20px); }
 }
 .tipp-card-text { font-size: 15px; color: var(--muted); line-height: 1.7; }
 
-/* CTA */
-.results-cta {
-  text-align: center; padding: 48px 0 0;
-  border-top: 1px solid var(--border);
+/* CTA Box */
+.results-cta-box {
+  background: var(--bg2); border-radius: var(--r);
+  padding: 48px 40px; text-align: center; margin-bottom: 32px;
+  border: 1.5px solid var(--border);
 }
-.results-cta h3 { margin-bottom: 12px; }
-.results-cta p {
-  font-size: 16px; color: var(--muted); margin-bottom: 24px; line-height: 1.7;
+.results-cta-badge {
+  display: inline-block; padding: 6px 16px; border-radius: var(--pill);
+  font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; margin-bottom: 20px;
 }
-.results-cta .btn { padding: 16px 36px; font-size: 15px; }
+.results-cta-badge.badge-good { background: rgba(45,184,168,0.12); color: var(--teal); }
+.results-cta-badge.badge-mid { background: rgba(240,135,43,0.12); color: var(--orange); }
+.results-cta-badge.badge-bad { background: rgba(232,96,76,0.12); color: var(--coral); }
+.results-cta-title {
+  font-family: var(--heading); font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700; text-transform: uppercase; margin-bottom: 12px;
+}
+.results-cta-text {
+  font-size: 16px; color: var(--muted); line-height: 1.7;
+  max-width: 500px; margin: 0 auto 28px;
+}
+.results-cta-text strong { color: var(--text); font-weight: 600; }
+.results-cta-includes {
+  display: flex; flex-direction: column; gap: 10px;
+  max-width: 400px; margin: 0 auto 32px; text-align: left;
+}
+.results-cta-item {
+  font-size: 15px; font-weight: 500; padding-left: 28px;
+  position: relative; line-height: 1.5;
+}
+.results-cta-item::before {
+  content: ''; position: absolute; left: 0; top: 6px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--teal); display: flex; align-items: center; justify-content: center;
+}
+.results-cta-item::after {
+  content: ''; position: absolute; left: 4px; top: 10px;
+  width: 4px; height: 7px; border: solid #fff; border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.results-cta-form { max-width: 440px; margin: 0 auto; }
+.results-cta-form-row { display: flex; gap: 10px; margin-bottom: 12px; }
+.results-cta-input {
+  flex: 1; padding: 14px 18px; border: 1.5px solid var(--border);
+  border-radius: var(--r); font-size: 15px; font-family: var(--sans);
+  color: var(--text); background: #fff; transition: border-color 0.2s;
+}
+.results-cta-input:focus { outline: none; border-color: var(--coral); }
+.results-cta-input::placeholder { color: rgba(17,17,16,0.35); }
+.results-cta-dsgvo {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin: 0 0 20px; text-align: left;
+}
+.results-cta-dsgvo input { accent-color: var(--coral); width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; }
+.results-cta-dsgvo label { font-size: 13px; color: var(--muted); line-height: 1.4; }
+.results-cta-dsgvo a { color: var(--coral); }
+.results-cta-submit {
+  width: 100%; padding: 16px 32px; border-radius: var(--pill);
+  border: none; background: var(--coral); color: #fff;
+  font-size: 15px; font-weight: 600; font-family: var(--sans);
+  cursor: pointer; transition: all 0.22s;
+}
+.results-cta-submit:hover { background: #d4553f; }
+.results-cta-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.results-cta-note {
+  font-size: 12px; color: var(--muted); margin-top: 12px; opacity: 0.7;
+}
+.results-cta-success {
+  font-size: 16px; font-weight: 600; color: var(--teal); margin-top: 16px;
+}
+
+/* Erstgespräch alt */
+.results-cta-alt {
+  text-align: center; padding: 32px 0 0;
+}
+.results-cta-alt p {
+  font-size: 14px; color: var(--muted); margin-bottom: 14px;
+}
 
 /* ═══════════════════════════════════════════════
    FOOTER
@@ -390,6 +408,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .results-cat { flex-wrap: wrap; gap: 12px; }
   .results-cat-bar-wrap { width: 100%; }
   .tipp-card { padding: 22px; }
+  .results-cta-box { padding: 32px 20px; }
+  .results-cta-form-row { flex-direction: column; }
 }
 @media (max-width: 480px) {
   :root { --px: 16px; }
@@ -620,29 +640,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 </section>
 
-<!-- Lead Capture -->
-<section class="quiz-wrap">
-  <div class="lead-card" id="leadCard">
-    <h2>Dein Ergebnis ist <em>fertig!</em></h2>
-    <p class="lead-card-sub">Trage deine E-Mail ein und erhalte deine persönliche Auswertung mit konkreten Tipps — direkt in dein Postfach.</p>
-    <form class="lead-form" id="leadForm" onsubmit="return submitLead(event)">
-      <div class="form-group">
-        <label class="form-label" for="lead-name">Name</label>
-        <input class="form-input" type="text" id="lead-name" required placeholder="Dein Name">
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="lead-email">E-Mail</label>
-        <input class="form-input" type="email" id="lead-email" required placeholder="deine@email.de">
-      </div>
-      <div class="lead-dsgvo">
-        <input type="checkbox" id="lead-dsgvo" required>
-        <label for="lead-dsgvo">Ich stimme der <a href="datenschutz.html">Datenschutzerklärung</a> zu.</label>
-      </div>
-      <button type="submit" class="lead-submit">Auswertung erhalten →</button>
-    </form>
-    <button class="lead-skip" onclick="showResults()">Ohne E-Mail fortfahren</button>
-  </div>
-</section>
 
 <!-- Results -->
 <section class="results-wrap" id="resultsWrap">
@@ -651,7 +648,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="results-score-section">
     <div class="results-score-circle" id="scoreCircle">
       <span class="results-score-num" id="scoreNum">0</span>
-      <span class="results-score-max">von 36</span>
+      <span class="results-score-max">von 100</span>
     </div>
     <h2 class="results-level" id="resultLevel"></h2>
     <p class="results-summary" id="resultSummary"></p>
@@ -669,11 +666,36 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <div id="tippsContainer"></div>
   </div>
 
-  <!-- CTA -->
-  <div class="results-cta">
-    <h3>Bereit für den nächsten Schritt?</h3>
-    <p>Lass uns in einem kostenlosen Erstgespräch besprechen, wie du deinen Online-Auftritt auf das nächste Level bringst.</p>
-    <a href="index.html#kontakt" class="btn btn-coral" style="padding:16px 40px;font-size:15px">Kostenloses Erstgespräch buchen →</a>
+  <!-- CTA: Persönlicher Check + Strategy Call -->
+  <div class="results-cta-box" id="resultsCta">
+    <div class="results-cta-badge" id="ctaBadge"></div>
+    <h3 class="results-cta-title">Dein persönlicher Online Check</h3>
+    <p class="results-cta-text">Ich schaue mir deinen Online-Auftritt persönlich an und zeige dir in einem <strong>30-Minuten Strategy Call</strong> genau, wo du ansetzen solltest — individuell, ehrlich und auf den Punkt.</p>
+    <div class="results-cta-includes">
+      <div class="results-cta-item">Persönliche Analyse deines Online-Auftritts</div>
+      <div class="results-cta-item">30-Min Strategy Call mit mir (Miriam)</div>
+      <div class="results-cta-item">Konkrete Handlungsempfehlungen zum Umsetzen</div>
+    </div>
+
+    <form class="results-cta-form" id="ctaForm" onsubmit="return submitCtaForm(event)">
+      <div class="results-cta-form-row">
+        <input class="results-cta-input" type="text" id="cta-name" required placeholder="Dein Name">
+        <input class="results-cta-input" type="email" id="cta-email" required placeholder="Deine E-Mail-Adresse">
+      </div>
+      <div class="results-cta-dsgvo">
+        <input type="checkbox" id="cta-dsgvo" required>
+        <label for="cta-dsgvo">Ich stimme der <a href="datenschutz.html">Datenschutzerklärung</a> zu.</label>
+      </div>
+      <button type="submit" class="results-cta-submit" id="ctaSubmitBtn">Kostenlosen Strategy Call sichern</button>
+    </form>
+    <p class="results-cta-note">100 % kostenlos — kein Abo, keine Verpflichtung.</p>
+    <p id="ctaSuccess" class="results-cta-success" style="display:none">Perfekt! Ich melde mich bei dir.</p>
+  </div>
+
+  <!-- Erstgespräch fallback -->
+  <div class="results-cta-alt">
+    <p>Oder direkt loslegen:</p>
+    <a href="index.html#kontakt" class="btn btn-coral" style="padding:14px 36px;font-size:15px">Erstgespräch buchen</a>
   </div>
 
 </section>
@@ -842,63 +864,68 @@ function updateProgress() {
 }
 
 function showLeadCapture() {
-  // Hide quiz
-  questions.forEach(function(q) { q.classList.remove('active'); });
-  document.getElementById('progressWrap').style.display = 'none';
-
-  // Show lead form
-  document.getElementById('leadCard').classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Skip lead capture — go straight to results
+  showResults();
 }
 
 /* ═══════════════════════════════════════════════
-   LEAD CAPTURE + HUBSPOT
+   CTA FORM: Strategy Call + persönlicher Check
 ═══════════════════════════════════════════════ */
-var leadData = null;
+// ⚠️ HIER DIE FORMULAR-ID EINTRAGEN, sobald HubSpot das Quiz-Formular erstellt hat:
+var QUIZ_FORM_ID = 'HIER_FORMULAR_ID_EINTRAGEN';
 
-function submitLead(e) {
+function submitCtaForm(e) {
   e.preventDefault();
-  var name = document.getElementById('lead-name').value;
-  var email = document.getElementById('lead-email').value;
+  var name = document.getElementById('cta-name').value;
+  var email = document.getElementById('cta-email').value;
+  var btn = document.getElementById('ctaSubmitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Wird gesendet...';
 
-  leadData = { name: name, email: email };
+  var pct = getScorePercent();
+  var kategorie = getQuizKategorie(pct);
+  var today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
 
-  // Calculate scores for HubSpot
-  var catScores = getCategoryScores();
-  var totalScore = getTotalScore();
-
-  // Send to HubSpot
-  var parts = name.trim().split(' ');
-  var first = parts[0] || '';
-  var last = parts.slice(1).join(' ') || '';
-
-  fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/908c2aa2-11a7-439c-b2a7-207c37419536', {
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/' + QUIZ_FORM_ID, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       fields: [
-        { name: 'firstname', value: first },
-        { name: 'lastname', value: last },
         { name: 'email', value: email },
-        { name: 'message', value: buildHubSpotMessage(totalScore, catScores) }
+        { name: 'digitalisierungs_score', value: String(pct) },
+        { name: 'quiz_kategorie', value: kategorie },
+        { name: 'quiz_datum', value: today }
       ],
-      context: { pageUri: window.location.href, pageName: 'Online Selbstcheck' },
+      context: { pageUri: window.location.href, pageName: 'Online Selbstcheck — Strategy Call Anfrage' },
       legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Speicherung und Verarbeitung meiner personenbezogenen Daten durch Baeumler Marketing zu.',communications:[{value:true,subscriptionTypeId:2273981170,text:'Ich stimme zu, andere Benachrichtigungen von Baeumler Marketing zu erhalten.'}]}}
     })
-  }).catch(function() { /* silently fail — results still show */ });
-
-  showResults();
+  }).then(function(r) {
+    if (r.ok) {
+      document.getElementById('ctaForm').style.display = 'none';
+      document.getElementById('ctaSuccess').style.display = 'block';
+    } else {
+      alert('Etwas ist schiefgelaufen. Bitte schreib mir an hi@baeumlermarketing.de');
+      btn.disabled = false;
+      btn.textContent = 'Kostenlosen Strategy Call sichern';
+    }
+  }).catch(function() {
+    alert('Verbindungsfehler.');
+    btn.disabled = false;
+    btn.textContent = 'Kostenlosen Strategy Call sichern';
+  });
   return false;
 }
 
-function buildHubSpotMessage(total, catScores) {
+function buildHubSpotMessage(catScores) {
+  var pct = getScorePercent();
   var msg = '--- ONLINE SELBSTCHECK ERGEBNIS ---\n';
-  msg += 'Gesamtscore: ' + total + '/36\n\n';
+  msg += 'Gesamtscore: ' + pct + '/100 (' + getQuizKategorie(pct) + ')\n\n';
   for (var key in catScores) {
     var cat = categories[key];
     var score = catScores[key];
-    var status = score >= cat.max * 0.8 ? 'Gut' : score >= cat.max * 0.4 ? 'Ausbaufähig' : 'Fehlt';
-    msg += cat.name + ': ' + score + '/' + cat.max + ' (' + status + ')\n';
+    var catPct = Math.round((score / cat.max) * 100);
+    var status = catPct >= 80 ? 'Gut' : catPct >= 40 ? 'Ausbaufähig' : 'Fehlt';
+    msg += cat.name + ': ' + catPct + '% (' + status + ')\n';
   }
   return msg;
 }
@@ -927,40 +954,62 @@ function getCategoryScores() {
   return scores;
 }
 
+function getScorePercent() {
+  return Math.round((getTotalScore() / 36) * 100);
+}
+
+function getQuizKategorie(pct) {
+  if (pct >= 80) return 'Gut aufgestellt';
+  if (pct >= 50) return 'Auf dem Weg';
+  return 'Nachholbedarf';
+}
+
 function showResults() {
-  // Hide lead card
-  document.getElementById('leadCard').classList.remove('active');
+  // Hide everything
   document.getElementById('progressWrap').style.display = 'none';
   document.querySelector('.check-hero').style.display = 'none';
   questions.forEach(function(q) { q.classList.remove('active'); });
 
   var total = getTotalScore();
+  var pct = getScorePercent();
+  var kategorie = getQuizKategorie(pct);
   var catScores = getCategoryScores();
 
   // Score circle
   var circle = document.getElementById('scoreCircle');
   var levelEl = document.getElementById('resultLevel');
   var summaryEl = document.getElementById('resultSummary');
-  document.getElementById('scoreNum').textContent = total;
+  var badge = document.getElementById('ctaBadge');
+  document.getElementById('scoreNum').textContent = pct;
 
-  if (total <= 12) {
-    circle.style.borderColor = 'var(--coral)';
-    document.getElementById('scoreNum').style.color = 'var(--coral)';
-    levelEl.textContent = 'Hier ist viel Potenzial!';
-    levelEl.style.color = 'var(--coral)';
-    summaryEl.textContent = 'Du stehst noch am Anfang deines Online-Auftritts — und das ist völlig okay. Die gute Nachricht: Mit den richtigen Schritten kannst du schnell aufholen und online sichtbar werden.';
-  } else if (total <= 24) {
-    circle.style.borderColor = 'var(--orange)';
-    document.getElementById('scoreNum').style.color = 'var(--orange)';
-    levelEl.textContent = 'Gute Basis, aber da geht mehr!';
-    levelEl.style.color = 'var(--orange)';
-    summaryEl.textContent = 'Du hast schon einiges aufgebaut — das ist super. Aber es gibt noch Lücken, die dich Kunden und Sichtbarkeit kosten. Mit gezielten Maßnahmen kannst du deutlich mehr rausholen.';
-  } else {
+  // 3 Ergebnis-Kategorien
+  if (pct >= 80) {
+    // Gut aufgestellt
     circle.style.borderColor = 'var(--teal)';
     document.getElementById('scoreNum').style.color = 'var(--teal)';
-    levelEl.textContent = 'Stark aufgestellt!';
+    levelEl.textContent = 'Gut aufgestellt!';
     levelEl.style.color = 'var(--teal)';
     summaryEl.textContent = 'Du machst vieles richtig und bist online gut sichtbar. Jetzt geht es darum, das letzte Stück rauszuholen — durch Feintuning, Automatisierung und strategische Optimierung.';
+    badge.textContent = 'Gut aufgestellt';
+    badge.className = 'results-cta-badge badge-good';
+  } else if (pct >= 50) {
+    // Auf dem Weg
+    circle.style.borderColor = 'var(--orange)';
+    document.getElementById('scoreNum').style.color = 'var(--orange)';
+    levelEl.textContent = 'Auf dem Weg!';
+    levelEl.style.color = 'var(--orange)';
+    summaryEl.textContent = 'Du hast schon einiges aufgebaut — das ist super. Aber es gibt noch Lücken, die dich Kunden und Sichtbarkeit kosten. Mit gezielten Maßnahmen kannst du deutlich mehr rausholen.';
+    badge.textContent = 'Auf dem Weg';
+    badge.className = 'results-cta-badge badge-mid';
+  } else {
+    // Nachholbedarf
+    circle.style.borderColor = 'var(--coral)';
+    document.getElementById('scoreNum').style.color = 'var(--coral)';
+    levelEl.textContent = 'Nachholbedarf!';
+    levelEl.style.color = 'var(--coral)';
+    summaryEl.textContent = 'Dein Online-Auftritt hat viel Potenzial, das noch nicht ausgeschöpft ist. Die gute Nachricht: Mit den richtigen Schritten kannst du schnell sichtbar werden und online Kunden gewinnen.';
+    badge.textContent = 'Nachholbedarf';
+    badge.className = 'results-cta-badge badge-bad';
   }
 
   // Category breakdown
