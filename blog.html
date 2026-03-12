@@ -158,19 +158,19 @@
 
   /* ── Newsletter CTA ── */
   .newsletter-section {
-    background: var(--bg2); padding: 80px 40px; text-align: center;
+    background: var(--bg2); padding: 48px 40px; text-align: center;
   }
-  .newsletter-section h2 { margin-bottom: 12px; font-size: clamp(24px, 3vw, 36px); }
+  .newsletter-section h2 { margin-bottom: 8px; font-size: clamp(18px, 2.2vw, 24px); }
   .newsletter-section p {
-    font-size: 15px; color: var(--muted); max-width: 480px;
-    margin: 0 auto 32px; line-height: 1.7;
+    font-size: 14px; color: var(--muted); max-width: 400px;
+    margin: 0 auto 20px; line-height: 1.6;
   }
   /* ── HubSpot Form Styling ── */
   .hs-newsletter-wrap .hs-form input[type="text"],
   .hs-newsletter-wrap .hs-form input[type="email"] {
-    width: 100%; padding: 14px 18px; border-radius: var(--pill);
+    width: 100%; padding: 10px 16px; border-radius: var(--pill);
     border: 1px solid var(--border); background: #fff;
-    color: var(--text); font-family: var(--sans); font-size: 14px;
+    color: var(--text); font-family: var(--sans); font-size: 13px;
     outline: none; transition: border-color 0.2s;
   }
   .hs-newsletter-wrap .hs-form input:focus {
@@ -178,9 +178,9 @@
   }
   .hs-newsletter-wrap .hs-form input[type="submit"],
   .hs-newsletter-wrap .hs-form .hs-button {
-    padding: 14px 28px; border-radius: var(--pill); border: none;
+    padding: 10px 24px; border-radius: var(--pill); border: none;
     background: var(--coral); color: #fff; font-family: var(--sans);
-    font-size: 14px; font-weight: 600; cursor: pointer;
+    font-size: 13px; font-weight: 600; cursor: pointer;
     transition: background 0.25s; width: 100%;
   }
   .hs-newsletter-wrap .hs-form input[type="submit"]:hover,
@@ -188,20 +188,25 @@
     background: #d44f3b;
   }
   .hs-newsletter-wrap .hs-form label {
-    font-family: var(--sans); font-size: 13px; color: var(--muted);
-    display: block; margin-bottom: 6px;
+    font-family: var(--sans); font-size: 12px; color: var(--muted);
+    display: block; margin-bottom: 4px;
   }
   .hs-newsletter-wrap .hs-form .hs-form-field {
-    margin-bottom: 14px;
+    margin-bottom: 10px;
   }
   .hs-newsletter-wrap .hs-form .hs-error-msgs {
-    color: var(--coral); font-size: 12px; margin-top: 4px; list-style: none; padding: 0;
+    color: var(--coral); font-size: 11px; margin-top: 3px; list-style: none; padding: 0;
   }
   .hs-newsletter-wrap .hs-form .legal-consent-container {
-    font-size: 12px; color: var(--muted); line-height: 1.4;
+    font-size: 11px; color: var(--muted); line-height: 1.4;
   }
   .hs-newsletter-wrap .hs-form .legal-consent-container a {
     color: var(--coral);
+  }
+  .hs-newsletter-wrap .sprocket-icon,
+  .hs-newsletter-wrap .hubspot-link__container,
+  .hs-newsletter-wrap .hubspot-link {
+    display: none !important;
   }
 
     footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 48px 40px 32px; }
@@ -273,8 +278,7 @@
     .featured-img { min-height: 240px; }
     .featured-info { padding: 32px; }
     .blog-grid-section { padding: 0 24px 60px; }
-    .newsletter-section { padding: 60px 24px; }
-    .newsletter-form { flex-direction: column; }
+    .newsletter-section { padding: 36px 24px; }
     .nav-links { display: none; }
     .nav-burger { display: flex; }
     .nav-avatar { width: 32px; height: 32px; }
@@ -429,7 +433,7 @@
 <section class="newsletter-section">
   <h2>Nichts mehr verpassen</h2>
   <p>Neue Artikel, Tipps und Praxiswissen — direkt in dein Postfach. Kein Spam, nur Inhalte, die dir weiterhelfen.</p>
-  <div class="hs-newsletter-wrap" style="max-width:480px;margin:0 auto">
+  <div class="hs-newsletter-wrap" style="max-width:360px;margin:0 auto">
     <script src="https://js-eu1.hsforms.net/forms/embed/147985028.js" defer></script>
     <div class="hs-form-frame" data-region="eu1" data-form-id="0ca9c402-9b0b-4b59-bb8f-23fe7bd65411" data-portal-id="147985028"></div>
   </div>
