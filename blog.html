@@ -165,49 +165,28 @@
     font-size: 14px; color: var(--muted); max-width: 400px;
     margin: 0 auto 20px; line-height: 1.6;
   }
-  /* ── HubSpot Form Styling ── */
-  .hs-newsletter-wrap .hs-form input[type="text"],
-  .hs-newsletter-wrap .hs-form input[type="email"] {
-    width: 100%; padding: 10px 16px; border-radius: var(--pill);
+  .newsletter-form {
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    max-width: 380px; margin: 0 auto;
+  }
+  .nl-row {
+    display: flex; gap: 10px; width: 100%;
+  }
+  .newsletter-input {
+    flex: 1; padding: 10px 16px; border-radius: var(--pill);
     border: 1px solid var(--border); background: #fff;
-    color: var(--text); font-family: var(--sans); font-size: 13px;
-    outline: none; transition: border-color 0.2s;
+    color: var(--text); font-family: var(--sans); font-size: 13px; outline: none;
+    transition: border-color 0.2s;
   }
-  .hs-newsletter-wrap .hs-form input:focus {
-    border-color: var(--coral);
-  }
-  .hs-newsletter-wrap .hs-form input[type="submit"],
-  .hs-newsletter-wrap .hs-form .hs-button {
+  .newsletter-input::placeholder { color: rgba(0,0,0,0.3); }
+  .newsletter-input:focus { border-color: var(--coral); }
+  .newsletter-btn {
     padding: 10px 24px; border-radius: var(--pill); border: none;
     background: var(--coral); color: #fff; font-family: var(--sans);
     font-size: 13px; font-weight: 600; cursor: pointer;
-    transition: background 0.25s; width: 100%;
+    transition: background 0.25s;
   }
-  .hs-newsletter-wrap .hs-form input[type="submit"]:hover,
-  .hs-newsletter-wrap .hs-form .hs-button:hover {
-    background: #d44f3b;
-  }
-  .hs-newsletter-wrap .hs-form label {
-    font-family: var(--sans); font-size: 12px; color: var(--muted);
-    display: block; margin-bottom: 4px;
-  }
-  .hs-newsletter-wrap .hs-form .hs-form-field {
-    margin-bottom: 10px;
-  }
-  .hs-newsletter-wrap .hs-form .hs-error-msgs {
-    color: var(--coral); font-size: 11px; margin-top: 3px; list-style: none; padding: 0;
-  }
-  .hs-newsletter-wrap .hs-form .legal-consent-container {
-    font-size: 11px; color: var(--muted); line-height: 1.4;
-  }
-  .hs-newsletter-wrap .hs-form .legal-consent-container a {
-    color: var(--coral);
-  }
-  .hs-newsletter-wrap .sprocket-icon,
-  .hs-newsletter-wrap .hubspot-link__container,
-  .hs-newsletter-wrap .hubspot-link {
-    display: none !important;
-  }
+  .newsletter-btn:hover { background: #d44f3b; }
 
     footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 48px 40px 32px; }
   .footer-inner { max-width: 900px; margin: 0 auto; }
@@ -279,6 +258,7 @@
     .featured-info { padding: 32px; }
     .blog-grid-section { padding: 0 24px 60px; }
     .newsletter-section { padding: 36px 24px; }
+    .nl-row { flex-direction: column; }
     .nav-links { display: none; }
     .nav-burger { display: flex; }
     .nav-avatar { width: 32px; height: 32px; }
@@ -294,8 +274,8 @@
     .blog-grid-section { padding: 0 16px 40px; }
     .blog-info { padding: 20px; }
     .blog-img { height: 180px; }
-    .newsletter-section { padding: 40px 16px; }
-    .nl-inputs { flex-direction: column !important; }
+    .newsletter-section { padding: 32px 16px; }
+    .nl-row { flex-direction: column; }
     footer { padding: 32px 16px 24px; }
     .footer-top { flex-direction: column; gap: 20px; text-align: center; }
     .footer-nav { flex-wrap: wrap; justify-content: center; gap: 16px; }
@@ -433,10 +413,18 @@
 <section class="newsletter-section">
   <h2>Nichts mehr verpassen</h2>
   <p>Neue Artikel, Tipps und Praxiswissen — direkt in dein Postfach. Kein Spam, nur Inhalte, die dir weiterhelfen.</p>
-  <div class="hs-newsletter-wrap" style="max-width:360px;margin:0 auto">
-    <script src="https://js-eu1.hsforms.net/forms/embed/147985028.js" defer></script>
-    <div class="hs-form-frame" data-region="eu1" data-form-id="0ca9c402-9b0b-4b59-bb8f-23fe7bd65411" data-portal-id="147985028"></div>
-  </div>
+  <form class="newsletter-form" id="nlForm" onsubmit="return submitNewsletter(event)">
+    <div class="nl-row">
+      <input type="text" class="newsletter-input" id="nl-name" required placeholder="Vorname">
+      <input type="email" class="newsletter-input" id="nl-email" required placeholder="E-Mail">
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:8px;width:100%">
+      <input type="checkbox" id="nl-dsgvo" required style="accent-color:var(--coral);width:16px;height:16px;flex-shrink:0;margin-top:2px">
+      <label for="nl-dsgvo" style="font-size:11px;color:var(--muted);line-height:1.4;text-align:left">Ich stimme der <a href="datenschutz.html" style="color:var(--coral)">Datenschutzerkl&auml;rung</a> zu und m&ouml;chte den Newsletter erhalten.</label>
+    </div>
+    <button type="submit" class="newsletter-btn">Eintragen &rarr;</button>
+    <p id="nl-success" style="display:none;color:var(--teal);font-weight:600;font-size:13px;margin-top:2px">Danke, du bist dabei!</p>
+  </form>
 </section>
 
 <!-- ════════════════════ FOOTER ════════════════════ -->
@@ -491,6 +479,45 @@
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147985028.js"></script>
 <!-- End of HubSpot Embed Code -->
 
+<!-- Newsletter Submit -->
+<script>
+function submitNewsletter(e){
+  e.preventDefault();
+  var name=document.getElementById('nl-name').value.trim();
+  var email=document.getElementById('nl-email').value.trim();
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/0ca9c402-9b0b-4b59-bb8f-23fe7bd65411',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      fields:[
+        {name:'firstname',value:name},
+        {name:'email',value:email}
+      ],
+      context:{pageUri:window.location.href,pageName:'Blog Newsletter'},
+      legalConsentOptions:{
+        consent:{
+          consentToProcess:true,
+          text:'Ich stimme der Datenschutzerklärung zu und möchte den Newsletter erhalten.',
+          communications:[{
+            value:true,
+            subscriptionTypeId:999,
+            text:'Ich stimme zu, andere Benachrichtigungen von Baeumler Marketing zu erhalten.'
+          }]
+        }
+      }
+    })
+  }).then(function(r){
+    if(r.ok){
+      document.getElementById('nlForm').reset();
+      document.getElementById('nl-success').style.display='block';
+      setTimeout(function(){document.getElementById('nl-success').style.display='none'},5000);
+    }else{alert('Etwas ist schiefgelaufen. Bitte schreib mir an hi@baeumlermarketing.de');}
+  }).catch(function(){alert('Verbindungsfehler. Bitte schreib mir an hi@baeumlermarketing.de');});
+  return false;
+}
+</script>
+
+<script>
 var burger = document.getElementById('navBurger');
 var mobileMenu = document.getElementById('mobileMenu');
 burger.addEventListener('click', function(){
