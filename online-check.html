@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Selbstcheck | Baeumler Marketing — Wie gut bist du online aufgestellt?</title>
+<meta name="description" content="Finde in 2 Minuten heraus, wie professionell dein Online-Auftritt ist. Kostenloser Selbstcheck von Baeumler Marketing.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/favicon-192x192.png">
+<meta name="theme-color" content="#e8604c">
+<meta property="og:title" content="Online Selbstcheck | Wie gut bist du online aufgestellt?">
+<meta property="og:description" content="Finde in 2 Minuten heraus, wo du stehst — und was du verbessern kannst.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://baeumlermarketing.de/online-check.html">
+<meta property="og:image" content="https://baeumlermarketing.de/images/Miriam_Foto.JPG">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   RESET & VARIABLES
+═══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --max: 1160px; --px: 56px; --nav-h: 80px;
+  --bg: #ffffff; --bg2: #f7f7f5; --text: #303030;
+  --muted: rgba(17,17,16,0.65); --border: rgba(0,0,0,0.08);
+  --coral: #e8604c; --orange: #f0872b; --yellow: #f5c842;
+  --teal: #2db8a8; --navy: #1e2d5a; --pink: #d94f8a; --purple: #7c5cbf;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  --heading: 'Antonio', sans-serif;
+  --r: 20px; --pill: 100px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+h1 em, h2 em, h3 em { font-family: var(--serif); font-style: italic; }
+ul { list-style: none; }
+button { font-family: var(--sans); cursor: pointer; border: none; background: none; }
+
+/* ── Global Typography ── */
+h1, h2, h3, h4 {
+  font-family: var(--heading); font-weight: 700; text-transform: uppercase;
+  letter-spacing: -0.03em; line-height: 1.1;
+}
+h1 { font-size: clamp(40px, 5.5vw, 72px); }
+h2 { font-size: clamp(36px, 5vw, 64px); }
+h3 { font-size: clamp(22px, 2.5vw, 32px); }
+h4 { font-size: clamp(16px, 1.6vw, 20px); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); position: relative; z-index: 1; }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border-radius: var(--pill);
+  font-size: 14px; font-weight: 500; transition: all 0.22s;
+  cursor: pointer; font-family: var(--sans); background: transparent;
+}
+.btn-coral { border: 1.5px solid var(--coral); color: var(--coral); background: transparent; }
+.btn-coral:hover { background: var(--coral); color: #fff; }
+
+/* ═══════════════════════════════════════════════
+   MINIMAL NAV (Landing page style)
+═══════════════════════════════════════════════ */
+.check-nav {
+  position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+  z-index: 1000;
+}
+.check-nav-inner {
+  background: #fff; border-radius: var(--pill);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+  border: 1px solid var(--border);
+  padding: 8px 20px 8px 10px;
+  display: flex; align-items: center; gap: 12px;
+}
+.check-nav-avatar {
+  width: 38px; height: 38px; border-radius: 50%; object-fit: cover;
+  border: 2px solid var(--border); flex-shrink: 0;
+}
+.check-nav-brand {
+  font-family: var(--heading); font-size: 16px; font-weight: 700;
+  text-transform: uppercase; color: var(--text); white-space: nowrap;
+}
+.check-nav-brand .dot { color: var(--coral); }
+
+/* ═══════════════════════════════════════════════
+   HERO SECTION
+═══════════════════════════════════════════════ */
+.check-hero {
+  padding: 140px 0 60px;
+  text-align: center;
+}
+.check-hero h1 {
+  font-size: clamp(36px, 5vw, 64px);
+  margin-bottom: 16px;
+}
+.check-hero-sub {
+  font-size: 18px; color: var(--muted); max-width: 560px;
+  margin: 0 auto 12px; line-height: 1.7;
+}
+.check-hero-meta {
+  font-size: 14px; color: var(--muted); opacity: 0.7;
+  margin-bottom: 40px;
+}
+.check-hero-meta span { margin: 0 8px; }
+
+/* ═══════════════════════════════════════════════
+   PROGRESS BAR
+═══════════════════════════════════════════════ */
+.progress-wrap {
+  max-width: 600px; margin: 0 auto 48px; padding: 0 var(--px);
+}
+.progress-bar-bg {
+  width: 100%; height: 6px; background: var(--bg2);
+  border-radius: 3px; overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%; background: var(--coral);
+  border-radius: 3px; transition: width 0.4s ease;
+  width: 0%;
+}
+.progress-text {
+  font-size: 13px; color: var(--muted); text-align: center;
+  margin-top: 10px;
+}
+
+/* ═══════════════════════════════════════════════
+   QUIZ CARD
+═══════════════════════════════════════════════ */
+.quiz-wrap {
+  max-width: 640px; margin: 0 auto; padding: 0 var(--px);
+  min-height: 400px;
+}
+.quiz-card {
+  display: none; animation: fadeUp 0.4s ease;
+}
+.quiz-card.active { display: block; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.quiz-category {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--coral); margin-bottom: 12px;
+}
+.quiz-question {
+  font-family: var(--heading); font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em;
+  line-height: 1.15; margin-bottom: 16px;
+}
+.quiz-explain {
+  font-size: 15px; color: var(--muted); line-height: 1.7;
+  margin-bottom: 36px; max-width: 520px;
+}
+
+/* Answer buttons */
+.quiz-answers { display: flex; flex-direction: column; gap: 12px; }
+.quiz-answer {
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px 24px; border-radius: var(--r);
+  border: 1.5px solid var(--border); background: #fff;
+  cursor: pointer; transition: all 0.2s; text-align: left;
+  font-size: 15px; color: var(--text); font-weight: 500;
+  font-family: var(--sans);
+  width: 100%;
+}
+.quiz-answer:hover {
+  border-color: var(--coral); background: rgba(232,96,76,0.04);
+}
+.quiz-answer-dot {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 2px solid var(--border); flex-shrink: 0;
+  transition: all 0.2s; display: flex; align-items: center; justify-content: center;
+}
+.quiz-answer:hover .quiz-answer-dot { border-color: var(--coral); }
+.quiz-answer.selected {
+  border-color: var(--coral); background: rgba(232,96,76,0.06);
+}
+.quiz-answer.selected .quiz-answer-dot {
+  border-color: var(--coral); background: var(--coral);
+}
+.quiz-answer.selected .quiz-answer-dot::after {
+  content: ''; width: 8px; height: 8px; border-radius: 50%; background: #fff;
+}
+
+/* Navigation */
+.quiz-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 40px;
+}
+.quiz-back {
+  font-size: 14px; color: var(--muted); cursor: pointer;
+  background: none; border: none; font-family: var(--sans);
+  transition: color 0.2s; padding: 10px 0;
+}
+.quiz-back:hover { color: var(--text); }
+.quiz-back.hidden { visibility: hidden; }
+
+/* ═══════════════════════════════════════════════
+   LEAD CAPTURE
+═══════════════════════════════════════════════ */
+.lead-card {
+  display: none; animation: fadeUp 0.4s ease;
+  text-align: center;
+}
+.lead-card.active { display: block; }
+.lead-card h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  margin-bottom: 12px;
+}
+.lead-card-sub {
+  font-size: 16px; color: var(--muted); line-height: 1.7;
+  margin-bottom: 36px; max-width: 460px; margin-left: auto; margin-right: auto;
+}
+.lead-form { max-width: 400px; margin: 0 auto; }
+.lead-form .form-group { margin-bottom: 16px; text-align: left; }
+.lead-form .form-label {
+  display: block; font-size: 13px; font-weight: 600;
+  color: var(--text); margin-bottom: 6px;
+}
+.lead-form .form-input {
+  width: 100%; padding: 14px 18px; border: 1.5px solid var(--border);
+  border-radius: var(--r); font-size: 15px; font-family: var(--sans);
+  color: var(--text); background: #fff; transition: border-color 0.2s;
+}
+.lead-form .form-input:focus {
+  outline: none; border-color: var(--coral);
+}
+.lead-form .form-input::placeholder { color: rgba(17,17,16,0.35); }
+.lead-dsgvo {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin: 20px 0 24px; text-align: left;
+}
+.lead-dsgvo input { accent-color: var(--coral); width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; }
+.lead-dsgvo label { font-size: 13px; color: var(--muted); line-height: 1.4; }
+.lead-dsgvo a { color: var(--coral); }
+.lead-submit {
+  width: 100%; padding: 16px 32px; border-radius: var(--pill);
+  border: 1.5px solid var(--coral); color: var(--coral); background: transparent;
+  font-size: 15px; font-weight: 600; font-family: var(--sans);
+  cursor: pointer; transition: all 0.22s;
+}
+.lead-submit:hover { background: var(--coral); color: #fff; }
+.lead-skip {
+  display: block; margin: 16px auto 0; font-size: 13px; color: var(--muted);
+  background: none; border: none; cursor: pointer; font-family: var(--sans);
+  transition: color 0.2s;
+}
+.lead-skip:hover { color: var(--text); }
+
+/* ═══════════════════════════════════════════════
+   RESULTS
+═══════════════════════════════════════════════ */
+.results-wrap {
+  display: none; animation: fadeUp 0.5s ease;
+  max-width: 720px; margin: 0 auto; padding: 0 var(--px);
+}
+.results-wrap.active { display: block; }
+
+.results-score-section { text-align: center; margin-bottom: 56px; }
+.results-score-circle {
+  width: 160px; height: 160px; border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  margin: 0 auto 24px; border: 4px solid;
+}
+.results-score-num {
+  font-family: var(--heading); font-size: 48px; font-weight: 700;
+  line-height: 1;
+}
+.results-score-max { font-size: 14px; color: var(--muted); margin-top: 2px; }
+.results-level {
+  font-family: var(--heading); font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 700; text-transform: uppercase; margin-bottom: 12px;
+}
+.results-summary {
+  font-size: 16px; color: var(--muted); line-height: 1.7;
+  max-width: 520px; margin: 0 auto;
+}
+
+/* Category breakdown */
+.results-categories { margin-bottom: 48px; }
+.results-cat-title {
+  font-family: var(--heading); font-size: 24px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: 24px;
+}
+.results-cat {
+  display: flex; align-items: center; gap: 16px;
+  padding: 20px 0; border-bottom: 1px solid var(--border);
+}
+.results-cat:first-of-type { border-top: 1px solid var(--border); }
+.results-cat-icon {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.results-cat-icon.good { background: rgba(45,184,168,0.12); color: var(--teal); }
+.results-cat-icon.mid { background: rgba(240,135,43,0.12); color: var(--orange); }
+.results-cat-icon.bad { background: rgba(232,96,76,0.12); color: var(--coral); }
+.results-cat-info { flex: 1; }
+.results-cat-name { font-weight: 600; font-size: 15px; margin-bottom: 2px; }
+.results-cat-status { font-size: 13px; }
+.results-cat-status.good { color: var(--teal); }
+.results-cat-status.mid { color: var(--orange); }
+.results-cat-status.bad { color: var(--coral); }
+.results-cat-bar-wrap { width: 80px; height: 6px; background: var(--bg2); border-radius: 3px; overflow: hidden; flex-shrink: 0; }
+.results-cat-bar { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+.results-cat-bar.good { background: var(--teal); }
+.results-cat-bar.mid { background: var(--orange); }
+.results-cat-bar.bad { background: var(--coral); }
+
+/* Tipps section */
+.results-tipps { margin-bottom: 56px; }
+.results-tipps-title {
+  font-family: var(--heading); font-size: 24px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: 24px;
+}
+.tipp-card {
+  background: var(--bg2); border-radius: var(--r);
+  padding: 28px; margin-bottom: 16px;
+}
+.tipp-card-cat {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--coral); margin-bottom: 8px;
+}
+.tipp-card-title {
+  font-family: var(--heading); font-size: 20px; font-weight: 700;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.tipp-card-text { font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+/* CTA */
+.results-cta {
+  text-align: center; padding: 48px 0 0;
+  border-top: 1px solid var(--border);
+}
+.results-cta h3 { margin-bottom: 12px; }
+.results-cta p {
+  font-size: 16px; color: var(--muted); margin-bottom: 24px; line-height: 1.7;
+}
+.results-cta .btn { padding: 16px 36px; font-size: 15px; }
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 48px 40px 32px; }
+.footer-inner { max-width: 900px; margin: 0 auto; }
+.footer-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+.footer-brand { font-family: var(--heading); font-size: 24px; font-weight: 700; color: #fff; text-transform: uppercase; }
+.footer-brand .dot { color: var(--coral); }
+.footer-nav { display: flex; gap: 24px; }
+.footer-nav a { font-size: 14px; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+.footer-nav a:hover { color: #fff; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+.footer-legal { display: flex; gap: 20px; align-items: center; }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.8); }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+.footer-cookie-btn { background: none; border: none; padding: 0; font-size: 12px; color: rgba(255,255,255,0.4); cursor: pointer; font-family: var(--sans); transition: color 0.2s; }
+.footer-cookie-btn:hover { color: rgba(255,255,255,0.8); }
+
+/* ── Accessibility ── */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; border-radius: 4px; }
+.skip-link { position: absolute; top: -100%; left: 16px; background: var(--coral); color: #fff; padding: 12px 24px; border-radius: var(--pill); font-size: 14px; font-weight: 600; z-index: 9999; text-decoration: none; transition: top 0.2s; }
+.skip-link:focus { top: 16px; }
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media (max-width: 760px) {
+  :root { --px: 20px; }
+  .check-hero { padding: 120px 0 40px; }
+  .check-hero h1 { font-size: clamp(28px, 7vw, 44px); }
+  .check-hero-sub { font-size: 16px; }
+  .quiz-question { font-size: clamp(22px, 5vw, 30px); }
+  .quiz-answer { padding: 16px 20px; font-size: 14px; }
+  .results-cat { flex-wrap: wrap; gap: 12px; }
+  .results-cat-bar-wrap { width: 100%; }
+  .tipp-card { padding: 22px; }
+}
+@media (max-width: 480px) {
+  :root { --px: 16px; }
+  .check-hero { padding: 100px 0 32px; }
+  .quiz-nav { flex-direction: column-reverse; gap: 12px; align-items: stretch; }
+  .quiz-nav .btn { text-align: center; justify-content: center; }
+  .footer-top { flex-direction: column; gap: 20px; text-align: center; }
+  .footer-nav { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .footer-legal { flex-wrap: wrap; justify-content: center; gap: 12px; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<!-- ════════════════════ MINIMAL NAV ════════════════════ -->
+<nav class="check-nav" aria-label="Navigation">
+  <a href="/" class="check-nav-inner">
+    <img src="images/miriam-gesicht.jpg" class="check-nav-avatar" alt="Miriam — Zur Startseite">
+    <span class="check-nav-brand">Bäumler<span class="dot">.</span></span>
+  </a>
+</nav>
+
+<!-- ════════════════════ MAIN ════════════════════ -->
+<main id="main">
+
+<!-- Hero -->
+<section class="check-hero">
+  <div class="container">
+    <h1>Online <em>Selbstcheck</em></h1>
+    <p class="check-hero-sub">Finde in 2 Minuten heraus, wie professionell dein Online-Auftritt wirklich ist — und wo du noch Potenzial hast.</p>
+    <p class="check-hero-meta">12 Fragen <span>·</span> ca. 2 Minuten <span>·</span> kostenlos</p>
+  </div>
+</section>
+
+<!-- Progress -->
+<div class="progress-wrap" id="progressWrap">
+  <div class="progress-bar-bg">
+    <div class="progress-bar-fill" id="progressFill"></div>
+  </div>
+  <p class="progress-text" id="progressText">Frage 1 von 12</p>
+</div>
+
+<!-- Quiz -->
+<section class="quiz-wrap" id="quizWrap">
+
+  <!-- Q1 -->
+  <div class="quiz-card" data-q="0" data-cat="website">
+    <span class="quiz-category">Website Basics</span>
+    <h2 class="quiz-question">Hast du eine professionelle Website?</h2>
+    <p class="quiz-explain">Deine Website ist dein digitales Schaufenster — der erste Eindruck zählt. Eine professionelle Website vermittelt Vertrauen und zeigt, dass du es ernst meinst.</p>
+    <div class="quiz-answers">
+      <button class="quiz-answer" data-val="3"><span class="quiz-answer-dot"></span>Ja, professionell und aktuell</button>
+      <button class="quiz-answer" data-val="1"><span class="quiz-answer-dot"></span>Teilweise — es gibt sie, aber sie braucht ein Update</button>
+      <button class="quiz-answer" data-val="0"><span class="quiz-answer-dot"></span>Nein, ich habe keine oder nur eine veraltete Seite</button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-back hidden" onclick="prevQuestion()">← Zurück</button>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card" data-q="1" data-cat="website">
+    <span class="quiz-category">Website Basics</span>
+    <h2 class="quiz-question">Ist deine Website mobiloptimiert?</h2>
+    <p class="quiz-explain">Über 70 % der Besucher kommen übers Handy. Wenn deine Seite mobil nicht gut aussieht oder funktioniert, verlierst du die meisten Interessenten sofort.</p>
+    <div class="quiz-answers">
+      <button class="quiz-answer" data-val="3"><span class="quiz-answer-dot"></span>Ja, sieht auf dem Handy top aus</button>
+      <button class="quiz-answer" data-val="1"><span class="quiz-answer-dot"></span>Teilweise — es geht, aber nicht perfekt</button>
+      <button class="quiz-answer" data-val="0"><span class="quiz-answer-dot"></span>Nein oder ich weiß es nicht</button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-back" onclick="prevQuestion()">← Zurück</button>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card" data-q="2" data-cat="branding">
+    <span class="quiz-category">Branding & Design</span>
+    <h2 class="quiz-question">Hast du ein einheitliches Erscheinungsbild?</h2>
+    <p class="quiz-explain">Farben, Schriften, Logo — konsistentes Branding sorgt für Wiedererkennung und Vertrauen. Dein Auftritt sollte überall gleich aussehen: Website, Social Media, Visitenkarte.</p>
+    <div class="quiz-answers">
+      <button class="quiz-answer" data-val="3"><span class="quiz-answer-dot"></span>Ja, durchgängig einheitlich</button>
+      <button class="quiz-answer" data-val="1"><span class="quiz-answer-dot"></span>Teilweise — ein paar Elemente stehen, aber nicht alles</button>
+      <button class="quiz-answer" data-val="0"><span class="quiz-answer-dot"></span>Nein, kein klares Branding</button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-back" onclick="prevQuestion()">← Zurück</button>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card" data-q="3" data-cat="google">
+    <span class="quiz-category">Google Einrichtung</span>
+    <h2 class="quiz-question">Hast du ein Google Business Profil?</h2>
+    <p class="quiz-explain">Damit wirst du bei lokalen Google-Suchen und auf Google Maps gefunden — komplett kostenlos. Für lokale Unternehmen und Selbstständige ist das ein Muss.</p>
+    <div class="quiz-answers">
+      <button class="quiz-answer" data-val="3"><span class="quiz-answer-dot"></span>Ja, eingerichtet und gepflegt</button>
+      <button class="quiz-answer" data-val="1"><span class="quiz-answer-dot"></span>Ja, aber nicht wirklich aktuell</button>
+      <button class="quiz-answer" data-val="0"><span class="quiz-answer-dot"></span>Nein oder ich weiß nicht, was das ist</button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-back" onclick="prevQuestion()">← Zurück</button>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card" data-q="4" data-cat="google">
+    <span class="quiz-category">Google Einrichtung</span>
+    <h2 class="quiz-question">Nutzt du ein Tracking-Tool wie Google Analytics?</h2>
+    <p class="quiz-explain">Ohne Daten fliegst du blind. Tracking zeigt dir, woher deine Besucher kommen, was sie machen und was funktioniert — die Basis für jede Verbesserung.</p>
+    <div class="quiz-answers">
+      <button class="quiz-answer" data-val="3"><span class="quiz-answer-dot"></span>Ja, ist eingerichtet und ich schaue rein</button>
+      <button class="quiz-answer" data-val="1"><span class="quiz-answer-dot"></span>Eingerichtet, aber ich nutze es nicht wirklich</button>
+      <button class="quiz-answer" data-val="0"><span class="quiz-answer-dot"></span>Nein, kein Tracking aktiv</button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-back" onclick="prevQuestion()">← Zurück</button>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card" data-q="5" data-cat="seo">
+    <span class="quiz-category">SEO — Suchmaschinenoptimierung</span>
+    <h2 class="quiz-question">Sind deine Seiten für Suchbegriffe optimiert?</h2>
+    <p class="quiz-explain">SEO sorgt dafür, dass Kunden dich über Google finden — ohne Werbebudget. Es geht darum, die richtigen Begriffe an den richtigen Stellen zu verwenden.</p>
+    <div class="quiz-answers">
+      <button class="quiz-answer" data-val="3"><span class="quiz-answer-dot"></span>Ja, ich mache aktiv SEO</button>
+      <button class="quiz-answer" data-val="1"><span class="quiz-answer-dot"></span>Teilweise — ein bisschen, aber nicht strategisch</button>
+      <button class="quiz-answer" data-val="0"><span class="quiz-answer-dot"></span>Nein, gar nicht</button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-back" onclick="prevQuestion()">← Zurück</button>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card" data-q="6" data-cat="seo">
+    <span class="quiz-category">SEO — Suchmaschinenoptimierung</span>
+    <h2 class="quiz-question">Hast du Meta-Titel und Beschreibungen auf deinen Seiten?</h2>
+    <p class="quiz-explain">Das ist, was Google in den Suchergebnissen anzeigt. Ohne gute Meta-Texte entscheidet Google selbst, was potenzielle Kunden von dir sehen — und das ist selten optimal.</p>
+    <div class="quiz-answers">
+      <button class="quiz-answer" data-val="3"><span class="quiz-answer-dot"></span>Ja, auf allen Seiten</button>
+      <button class="quiz-answer" data-val="1"><span class="quiz-answer-dot"></span>Teilweise oder ich bin nicht sicher</button>
+      <button class="quiz-answer" data-val="0"><span class="quiz-answer-dot"></span>Nein oder ich weiß nicht, was das ist</button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-back" onclick="prevQuestion()">← Zurück</button>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-card" data-q="7" data-cat="social">
+    <span class="quiz-category">Social Media</span>
+    <h2 class="quiz-question">Bist du regelmäßig auf Social Media aktiv?</h2>
+    <p class="quiz-explain">Regelmäßige Präsenz baut Vertrauen und Reichweite auf. Es reicht ein Kanal — aber den solltest du konsequent bespielen.</p>
+    <div class="quiz-answers">
+      <button class="quiz-answer" data-val="3"><span class="quiz-answer-dot"></span>Ja, mindestens wöchentlich</button>
+      <button class="quiz-answer" data-val="1"><span class="quiz-answer-dot"></span>Ab und zu, aber nicht regelmäßig</button>
+      <button class="quiz-answer" data-val="0"><span class="quiz-answer-dot"></span>Nein, kaum oder gar nicht</button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-back" onclick="prevQuestion()">← Zurück</button>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-card" data-q="8" data-cat="social">
+    <span class="quiz-category">Social Media</span>
+    <h2 class="quiz-question">Hast du eine Content-Strategie?</h2>
+    <p class="quiz-explain">Ohne Strategie postest du ins Leere. Ein Plan hilft dir, die richtigen Leute zu erreichen, Zeit zu sparen und aus jedem Beitrag mehr rauszuholen.</p>
+    <div class="quiz-answers">
+      <button class="quiz-answer" data-val="3"><span class="quiz-answer-dot"></span>Ja, ich poste nach Plan</button>
+      <button class="quiz-answer" data-val="1"><span class="quiz-answer-dot"></span>Teilweise — ich habe eine grobe Idee</button>
+      <button class="quiz-answer" data-val="0"><span class="quiz-answer-dot"></span>Nein, ich poste spontan oder gar nicht</button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-back" onclick="prevQuestion()">← Zurück</button>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-card" data-q="9" data-cat="ads">
+    <span class="quiz-category">Werbeanzeigen</span>
+    <h2 class="quiz-question">Schaltest du bezahlte Anzeigen?</h2>
+    <p class="quiz-explain">Google Ads, Meta Ads, LinkedIn — bezahlte Werbung ist der schnellste Weg, gezielt neue Kunden zu erreichen. Besonders effektiv in Kombination mit einer guten Website.</p>
+    <div class="quiz-answers">
+      <button class="quiz-answer" data-val="3"><span class="quiz-answer-dot"></span>Ja, regelmäßig und mit Strategie</button>
+      <button class="quiz-answer" data-val="1"><span class="quiz-answer-dot"></span>Ab und zu oder ich hab's mal probiert</button>
+      <button class="quiz-answer" data-val="0"><span class="quiz-answer-dot"></span>Nein, noch nie</button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-back" onclick="prevQuestion()">← Zurück</button>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="quiz-card" data-q="10" data-cat="email">
+    <span class="quiz-category">E-Mail Marketing</span>
+    <h2 class="quiz-question">Sammelst du E-Mail-Adressen und versendest Newsletter?</h2>
+    <p class="quiz-explain">Deine E-Mail-Liste gehört dir — unabhängig von Algorithmen und Plattformen. E-Mail Marketing hat die höchste Conversion-Rate aller Online-Kanäle.</p>
+    <div class="quiz-answers">
+      <button class="quiz-answer" data-val="3"><span class="quiz-answer-dot"></span>Ja, ich baue aktiv meine Liste auf</button>
+      <button class="quiz-answer" data-val="1"><span class="quiz-answer-dot"></span>Ich sammle Adressen, aber versende selten</button>
+      <button class="quiz-answer" data-val="0"><span class="quiz-answer-dot"></span>Nein, kein E-Mail Marketing</button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-back" onclick="prevQuestion()">← Zurück</button>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="quiz-card" data-q="11" data-cat="tracking">
+    <span class="quiz-category">Tracking & Analyse</span>
+    <h2 class="quiz-question">Weißt du, woher deine Besucher kommen?</h2>
+    <p class="quiz-explain">Nur wer misst, kann verbessern. Zu wissen, welche Kanäle funktionieren, hilft dir, dein Budget und deine Zeit richtig einzusetzen.</p>
+    <div class="quiz-answers">
+      <button class="quiz-answer" data-val="3"><span class="quiz-answer-dot"></span>Ja, ich werte regelmäßig aus</button>
+      <button class="quiz-answer" data-val="1"><span class="quiz-answer-dot"></span>Grob, aber nicht im Detail</button>
+      <button class="quiz-answer" data-val="0"><span class="quiz-answer-dot"></span>Nein, keine Ahnung</button>
+    </div>
+    <div class="quiz-nav">
+      <button class="quiz-back" onclick="prevQuestion()">← Zurück</button>
+    </div>
+  </div>
+
+</section>
+
+<!-- Lead Capture -->
+<section class="quiz-wrap">
+  <div class="lead-card" id="leadCard">
+    <h2>Dein Ergebnis ist <em>fertig!</em></h2>
+    <p class="lead-card-sub">Trage deine E-Mail ein und erhalte deine persönliche Auswertung mit konkreten Tipps — direkt in dein Postfach.</p>
+    <form class="lead-form" id="leadForm" onsubmit="return submitLead(event)">
+      <div class="form-group">
+        <label class="form-label" for="lead-name">Name</label>
+        <input class="form-input" type="text" id="lead-name" required placeholder="Dein Name">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="lead-email">E-Mail</label>
+        <input class="form-input" type="email" id="lead-email" required placeholder="deine@email.de">
+      </div>
+      <div class="lead-dsgvo">
+        <input type="checkbox" id="lead-dsgvo" required>
+        <label for="lead-dsgvo">Ich stimme der <a href="datenschutz.html">Datenschutzerklärung</a> zu.</label>
+      </div>
+      <button type="submit" class="lead-submit">Auswertung erhalten →</button>
+    </form>
+    <button class="lead-skip" onclick="showResults()">Ohne E-Mail fortfahren</button>
+  </div>
+</section>
+
+<!-- Results -->
+<section class="results-wrap" id="resultsWrap">
+
+  <!-- Score -->
+  <div class="results-score-section">
+    <div class="results-score-circle" id="scoreCircle">
+      <span class="results-score-num" id="scoreNum">0</span>
+      <span class="results-score-max">von 36</span>
+    </div>
+    <h2 class="results-level" id="resultLevel"></h2>
+    <p class="results-summary" id="resultSummary"></p>
+  </div>
+
+  <!-- Category breakdown -->
+  <div class="results-categories">
+    <h3 class="results-cat-title">Deine Bereiche im Überblick</h3>
+    <div id="catBreakdown"></div>
+  </div>
+
+  <!-- Tipps -->
+  <div class="results-tipps" id="resultsTipps">
+    <h3 class="results-tipps-title">Das kannst du verbessern</h3>
+    <div id="tippsContainer"></div>
+  </div>
+
+  <!-- CTA -->
+  <div class="results-cta">
+    <h3>Bereit für den nächsten Schritt?</h3>
+    <p>Lass uns in einem kostenlosen Erstgespräch besprechen, wie du deinen Online-Auftritt auf das nächste Level bringst.</p>
+    <a href="index.html#kontakt" class="btn btn-coral" style="padding:16px 40px;font-size:15px">Kostenloses Erstgespräch buchen →</a>
+  </div>
+
+</section>
+
+</main>
+
+<!-- Spacer before footer -->
+<div style="height:80px"></div>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <span class="footer-brand">Bäumler<span class="dot">.</span></span>
+      <nav class="footer-nav" aria-label="Footer-Navigation">
+        <a href="/">Home</a>
+        <a href="meine-geschichte.html">Über mich</a>
+        <a href="workbooks.html">Workbooks</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
+      <div class="footer-legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+        <a href="barrierefreiheit.html">Barrierefreiheit</a>
+        <button type="button" class="footer-cookie-btn" data-cookie-settings>Cookie-Einstellungen</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="cookie-banner.js"></script>
+<!-- HubSpot -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147985028.js"></script>
+
+<script>
+/* ═══════════════════════════════════════════════
+   QUIZ ENGINE
+═══════════════════════════════════════════════ */
+var questions = document.querySelectorAll('.quiz-card');
+var totalQ = questions.length;
+var current = 0;
+var answers = new Array(totalQ).fill(null);
+
+// Category definitions
+var categories = {
+  website:  { name: 'Website Basics', questions: [0,1], max: 6 },
+  branding: { name: 'Branding & Design', questions: [2], max: 3 },
+  google:   { name: 'Google Einrichtung', questions: [3,4], max: 6 },
+  seo:      { name: 'SEO', questions: [5,6], max: 6 },
+  social:   { name: 'Social Media', questions: [7,8], max: 6 },
+  ads:      { name: 'Werbeanzeigen', questions: [9], max: 3 },
+  email:    { name: 'E-Mail Marketing', questions: [10], max: 3 },
+  tracking: { name: 'Tracking & Analyse', questions: [11], max: 3 }
+};
+
+// Tipps for weak categories
+var tipps = {
+  website: {
+    title: 'Website überarbeiten',
+    text: 'Deine Website ist das Fundament deines Online-Auftritts. Achte auf ein modernes Design, schnelle Ladezeiten, Mobiloptimierung und klare Handlungsaufforderungen (CTAs). Eine gute Website verwandelt Besucher in Kunden.'
+  },
+  branding: {
+    title: 'Einheitliches Branding aufbauen',
+    text: 'Definiere deine Markenfarben, Schriften und eine klare Bildsprache. Nutze sie konsequent auf allen Kanälen — Website, Social Media, E-Mails und Drucksachen. Wiedererkennung schafft Vertrauen.'
+  },
+  google: {
+    title: 'Google richtig einrichten',
+    text: 'Erstelle ein Google Business Profil mit aktuellen Infos, Fotos und Öffnungszeiten. Richte Google Analytics und die Google Search Console ein, um deine Website-Daten im Blick zu behalten.'
+  },
+  seo: {
+    title: 'SEO-Grundlagen umsetzen',
+    text: 'Recherchiere die Suchbegriffe, die deine Kunden nutzen, und baue sie in deine Seitentitel, Überschriften und Texte ein. Schreibe für jeden Seite einen individuellen Meta-Titel und eine Meta-Beschreibung.'
+  },
+  social: {
+    title: 'Social Media strategisch nutzen',
+    text: 'Wähle 1–2 Kanäle, auf denen deine Zielgruppe aktiv ist, und erstelle einen Content-Plan. Poste regelmäßig (2–3× pro Woche reicht), mische Mehrwert mit Persönlichkeit und nutze Hashtags und Trends.'
+  },
+  ads: {
+    title: 'Mit Ads gezielt Kunden erreichen',
+    text: 'Starte mit einem kleinen Budget auf Google oder Meta (Facebook/Instagram). Definiere deine Zielgruppe klar, teste verschiedene Anzeigen und messe, was funktioniert. Schon 5–10 € pro Tag können einen Unterschied machen.'
+  },
+  email: {
+    title: 'E-Mail Marketing starten',
+    text: 'Baue eine E-Mail-Liste auf — z.B. mit einem Freebie oder Newsletter-Angebot auf deiner Website. Versende regelmäßig wertvolle Inhalte. Deine Liste gehört dir, unabhängig von Social-Media-Algorithmen.'
+  },
+  tracking: {
+    title: 'Daten verstehen und nutzen',
+    text: 'Richte Tracking ein und schaue monatlich rein: Woher kommen deine Besucher? Welche Seiten funktionieren? Wo springen Leute ab? Diese Daten zeigen dir, wo du deine Zeit und dein Budget am besten investierst.'
+  }
+};
+
+// Show first question
+questions[0].classList.add('active');
+
+// Answer click
+document.querySelectorAll('.quiz-answer').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var card = btn.closest('.quiz-card');
+    var qIndex = parseInt(card.dataset.q);
+    var val = parseInt(btn.dataset.val);
+
+    // Deselect siblings
+    card.querySelectorAll('.quiz-answer').forEach(function(b) { b.classList.remove('selected'); });
+    btn.classList.add('selected');
+    answers[qIndex] = val;
+
+    // Auto-advance after short delay
+    setTimeout(function() {
+      if (qIndex < totalQ - 1) {
+        nextQuestion();
+      } else {
+        showLeadCapture();
+      }
+    }, 350);
+  });
+});
+
+function nextQuestion() {
+  if (current >= totalQ - 1) return;
+  questions[current].classList.remove('active');
+  current++;
+  questions[current].classList.add('active');
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function prevQuestion() {
+  if (current <= 0) return;
+  questions[current].classList.remove('active');
+  current--;
+  questions[current].classList.add('active');
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateProgress() {
+  var pct = ((current + 1) / totalQ) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = 'Frage ' + (current + 1) + ' von ' + totalQ;
+}
+
+function showLeadCapture() {
+  // Hide quiz
+  questions.forEach(function(q) { q.classList.remove('active'); });
+  document.getElementById('progressWrap').style.display = 'none';
+
+  // Show lead form
+  document.getElementById('leadCard').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ═══════════════════════════════════════════════
+   LEAD CAPTURE + HUBSPOT
+═══════════════════════════════════════════════ */
+var leadData = null;
+
+function submitLead(e) {
+  e.preventDefault();
+  var name = document.getElementById('lead-name').value;
+  var email = document.getElementById('lead-email').value;
+
+  leadData = { name: name, email: email };
+
+  // Calculate scores for HubSpot
+  var catScores = getCategoryScores();
+  var totalScore = getTotalScore();
+
+  // Send to HubSpot
+  var parts = name.trim().split(' ');
+  var first = parts[0] || '';
+  var last = parts.slice(1).join(' ') || '';
+
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/908c2aa2-11a7-439c-b2a7-207c37419536', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      fields: [
+        { name: 'firstname', value: first },
+        { name: 'lastname', value: last },
+        { name: 'email', value: email },
+        { name: 'message', value: buildHubSpotMessage(totalScore, catScores) }
+      ],
+      context: { pageUri: window.location.href, pageName: 'Online Selbstcheck' },
+      legalConsentOptions: { consent: { consentToProcess: true, text: 'Ich stimme der Datenschutzerklärung zu.' } }
+    })
+  }).catch(function() { /* silently fail — results still show */ });
+
+  showResults();
+  return false;
+}
+
+function buildHubSpotMessage(total, catScores) {
+  var msg = '--- ONLINE SELBSTCHECK ERGEBNIS ---\n';
+  msg += 'Gesamtscore: ' + total + '/36\n\n';
+  for (var key in catScores) {
+    var cat = categories[key];
+    var score = catScores[key];
+    var status = score >= cat.max * 0.8 ? 'Gut' : score >= cat.max * 0.4 ? 'Ausbaufähig' : 'Fehlt';
+    msg += cat.name + ': ' + score + '/' + cat.max + ' (' + status + ')\n';
+  }
+  return msg;
+}
+
+/* ═══════════════════════════════════════════════
+   RESULTS
+═══════════════════════════════════════════════ */
+function getTotalScore() {
+  var total = 0;
+  for (var i = 0; i < answers.length; i++) {
+    total += (answers[i] || 0);
+  }
+  return total;
+}
+
+function getCategoryScores() {
+  var scores = {};
+  for (var key in categories) {
+    var cat = categories[key];
+    var score = 0;
+    for (var i = 0; i < cat.questions.length; i++) {
+      score += (answers[cat.questions[i]] || 0);
+    }
+    scores[key] = score;
+  }
+  return scores;
+}
+
+function showResults() {
+  // Hide lead card
+  document.getElementById('leadCard').classList.remove('active');
+  document.getElementById('progressWrap').style.display = 'none';
+  document.querySelector('.check-hero').style.display = 'none';
+  questions.forEach(function(q) { q.classList.remove('active'); });
+
+  var total = getTotalScore();
+  var catScores = getCategoryScores();
+
+  // Score circle
+  var circle = document.getElementById('scoreCircle');
+  var levelEl = document.getElementById('resultLevel');
+  var summaryEl = document.getElementById('resultSummary');
+  document.getElementById('scoreNum').textContent = total;
+
+  if (total <= 12) {
+    circle.style.borderColor = 'var(--coral)';
+    document.getElementById('scoreNum').style.color = 'var(--coral)';
+    levelEl.textContent = 'Hier ist viel Potenzial!';
+    levelEl.style.color = 'var(--coral)';
+    summaryEl.textContent = 'Du stehst noch am Anfang deines Online-Auftritts — und das ist völlig okay. Die gute Nachricht: Mit den richtigen Schritten kannst du schnell aufholen und online sichtbar werden.';
+  } else if (total <= 24) {
+    circle.style.borderColor = 'var(--orange)';
+    document.getElementById('scoreNum').style.color = 'var(--orange)';
+    levelEl.textContent = 'Gute Basis, aber da geht mehr!';
+    levelEl.style.color = 'var(--orange)';
+    summaryEl.textContent = 'Du hast schon einiges aufgebaut — das ist super. Aber es gibt noch Lücken, die dich Kunden und Sichtbarkeit kosten. Mit gezielten Maßnahmen kannst du deutlich mehr rausholen.';
+  } else {
+    circle.style.borderColor = 'var(--teal)';
+    document.getElementById('scoreNum').style.color = 'var(--teal)';
+    levelEl.textContent = 'Stark aufgestellt!';
+    levelEl.style.color = 'var(--teal)';
+    summaryEl.textContent = 'Du machst vieles richtig und bist online gut sichtbar. Jetzt geht es darum, das letzte Stück rauszuholen — durch Feintuning, Automatisierung und strategische Optimierung.';
+  }
+
+  // Category breakdown
+  var breakdownHTML = '';
+  var catOrder = ['website','branding','google','seo','social','ads','email','tracking'];
+  for (var i = 0; i < catOrder.length; i++) {
+    var key = catOrder[i];
+    var cat = categories[key];
+    var score = catScores[key];
+    var pct = Math.round((score / cat.max) * 100);
+    var level, icon;
+
+    if (pct >= 80) {
+      level = 'good'; icon = '✓';
+    } else if (pct >= 40) {
+      level = 'mid'; icon = '~';
+    } else {
+      level = 'bad'; icon = '✕';
+    }
+
+    var statusText = level === 'good' ? 'Gut aufgestellt' : level === 'mid' ? 'Ausbaufähig' : 'Handlungsbedarf';
+
+    breakdownHTML += '<div class="results-cat">' +
+      '<div class="results-cat-icon ' + level + '">' + icon + '</div>' +
+      '<div class="results-cat-info">' +
+        '<div class="results-cat-name">' + cat.name + '</div>' +
+        '<div class="results-cat-status ' + level + '">' + statusText + ' (' + score + '/' + cat.max + ')</div>' +
+      '</div>' +
+      '<div class="results-cat-bar-wrap"><div class="results-cat-bar ' + level + '" style="width:' + pct + '%"></div></div>' +
+    '</div>';
+  }
+  document.getElementById('catBreakdown').innerHTML = breakdownHTML;
+
+  // Tipps (only for weak categories)
+  var tippsHTML = '';
+  var hasTipps = false;
+  for (var j = 0; j < catOrder.length; j++) {
+    var tKey = catOrder[j];
+    var tCat = categories[tKey];
+    var tScore = catScores[tKey];
+    var tPct = Math.round((tScore / tCat.max) * 100);
+
+    if (tPct < 80) {
+      hasTipps = true;
+      tippsHTML += '<div class="tipp-card">' +
+        '<div class="tipp-card-cat">' + tCat.name + '</div>' +
+        '<h4 class="tipp-card-title">' + tipps[tKey].title + '</h4>' +
+        '<p class="tipp-card-text">' + tipps[tKey].text + '</p>' +
+      '</div>';
+    }
+  }
+
+  if (hasTipps) {
+    document.getElementById('tippsContainer').innerHTML = tippsHTML;
+  } else {
+    document.getElementById('resultsTipps').style.display = 'none';
+  }
+
+  // Show results
+  document.getElementById('resultsWrap').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
