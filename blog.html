@@ -255,6 +255,7 @@
     .blog-grid-section { padding: 0 24px 60px; }
     .newsletter-section { padding: 60px 24px; }
     .newsletter-form { flex-direction: column; }
+    .nl-inputs { flex-direction: column !important; }
     .nav-links { display: none; }
     .nav-burger { display: flex; }
     .nav-avatar { width: 32px; height: 32px; }
@@ -271,6 +272,7 @@
     .blog-info { padding: 20px; }
     .blog-img { height: 180px; }
     .newsletter-section { padding: 40px 16px; }
+    .nl-inputs { flex-direction: column !important; }
     footer { padding: 32px 16px 24px; }
     .footer-top { flex-direction: column; gap: 20px; text-align: center; }
     .footer-nav { flex-wrap: wrap; justify-content: center; gap: 16px; }
@@ -409,15 +411,15 @@
   <h2>Nichts mehr verpassen</h2>
   <p>Neue Artikel, Tipps und Praxiswissen — direkt in dein Postfach. Kein Spam, nur Inhalte, die dir weiterhelfen.</p>
   <form class="newsletter-form" id="nlForm" onsubmit="return submitNewsletter(event)" style="flex-direction:column;align-items:center;gap:14px">
-    <div style="display:flex;gap:12px;width:100%;max-width:440px">
+    <div class="nl-inputs" style="display:flex;gap:12px;width:100%;max-width:440px">
       <input type="text" class="newsletter-input" id="nl-name" required placeholder="Dein Vorname" style="flex:1">
       <input type="email" class="newsletter-input" id="nl-email" required placeholder="deine@email.de" style="flex:1">
     </div>
-    <div style="display:flex;align-items:center;gap:10px;max-width:440px;width:100%">
-      <input type="checkbox" id="nl-dsgvo" required style="accent-color:var(--coral);width:18px;height:18px;flex-shrink:0">
+    <div style="display:flex;align-items:flex-start;gap:10px;max-width:440px;width:100%">
+      <input type="checkbox" id="nl-dsgvo" required style="accent-color:var(--coral);width:18px;height:18px;flex-shrink:0;margin-top:2px">
       <label for="nl-dsgvo" style="font-size:12px;color:var(--muted);line-height:1.4;text-align:left">Ich stimme der <a href="datenschutz.html" style="color:var(--coral)">Datenschutzerkl&auml;rung</a> zu.</label>
     </div>
-    <button type="submit" class="newsletter-btn">Eintragen →</button>
+    <button type="submit" class="newsletter-btn">Eintragen &rarr;</button>
     <p id="nl-success" style="display:none;color:var(--teal);font-weight:600;font-size:14px;margin-top:4px">Super, du bist dabei!</p>
   </form>
 </section>
