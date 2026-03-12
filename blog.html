@@ -487,27 +487,15 @@ function submitNewsletter(e){
   btn.disabled=true;btn.textContent='Wird gesendet...';
   var name=document.getElementById('nl-name').value.trim();
   var email=document.getElementById('nl-email').value.trim();
+  var payload={
+    fields:[{objectTypeId:'0-1',name:'email',value:email}],
+    context:{pageUri:window.location.href,pageName:'Blog Newsletter'}
+  };
+  if(name){payload.fields.unshift({objectTypeId:'0-1',name:'firstname',value:name});}
   fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/0ca9c402-9b0b-4b59-bb8f-23fe7bd65411',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({
-      fields:[
-        {objectTypeId:'0-1',name:'firstname',value:name},
-        {objectTypeId:'0-1',name:'email',value:email}
-      ],
-      context:{pageUri:window.location.href,pageName:'Blog Newsletter'},
-      legalConsentOptions:{
-        consent:{
-          consentToProcess:true,
-          text:'Ich stimme der Datenschutzerklärung zu und möchte den Newsletter erhalten.',
-          communications:[{
-            value:true,
-            subscriptionTypeId:2273981170,
-            text:'Ich möchte den Newsletter von Baeumler Marketing erhalten.'
-          }]
-        }
-      }
-    })
+    body:JSON.stringify(payload)
   }).then(function(r){
     if(r.ok){
       document.getElementById('nlForm').reset();
