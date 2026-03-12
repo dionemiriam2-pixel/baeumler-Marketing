@@ -854,7 +854,7 @@ function submitLead(e) {
         { name: 'message', value: buildHubSpotMessage(totalScore, catScores) }
       ],
       context: { pageUri: window.location.href, pageName: 'Online Selbstcheck' },
-      legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Datenschutzerklärung zu.'}}
+      legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Speicherung und Verarbeitung meiner personenbezogenen Daten durch Baeumler Marketing zu.',communications:[{value:true,subscriptionTypeId:2273981170,text:'Ich stimme zu, andere Benachrichtigungen von Baeumler Marketing zu erhalten.'}]}}
     })
   }).catch(function() { /* silently fail — results still show */ });
 
