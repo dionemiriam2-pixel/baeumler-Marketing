@@ -507,9 +507,9 @@ function submitNewsletter(e){
       setTimeout(function(){document.getElementById('nl-success').style.display='none'},5000);
     }else{
       r.json().then(function(d){
-        console.error('HubSpot Error:',d);
-        alert('Fehler: '+(d.message||d.errors&&d.errors[0]&&d.errors[0].message||'Unbekannt')+'\nBitte schreib mir an hi@baeumlermarketing.de');
-      }).catch(function(){alert('Etwas ist schiefgelaufen. Bitte schreib mir an hi@baeumlermarketing.de');});
+        console.error('HubSpot Error:',JSON.stringify(d));
+        alert('HubSpot sagt:\n'+JSON.stringify(d,null,2));
+      }).catch(function(){r.text().then(function(t){alert('Raw Error:\n'+t);}).catch(function(){alert('Unbekannter Fehler');});});
       btn.disabled=false;btn.innerHTML='Eintragen &rarr;';
     }
   }).catch(function(){
