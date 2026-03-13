@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business-Workspace mit KI — Workbook | Baeumler Marketing</title>
+<meta name="description" content="Dein kompletter Business-Workspace mit KI aufgebaut — Website, E-Mail, CRM und Shop in unter einer Woche. Wähle dein Paket: Basic, Professional oder Professional + Marketing.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" href="images/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="images/favicon-192x192.png">
+<meta name="theme-color" content="#e8604c">
+<meta property="og:title" content="Business-Workspace mit KI — Workbook | Baeumler Marketing">
+<meta property="og:description" content="Website, E-Mail, CRM und Shop mit KI aufbauen. 3 Pakete ab 49 €.">
+<meta property="og:type" content="product">
+<meta property="og:url" content="https://baeumlermarketing.de/workbook-ki.html">
+<meta property="og:image" content="https://baeumlermarketing.de/images/wb-ki-marketing.jpg">
+<link rel="canonical" href="https://baeumlermarketing.de/workbook-ki.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #ffffff; --bg2: #f7f7f5; --text: #303030;
+  --muted: rgba(17,17,16,0.65); --border: rgba(0,0,0,0.08);
+  --coral: #e8604c; --teal: #2db8a8;
+  --sans: 'Inter', system-ui, sans-serif;
+  --heading: 'Antonio', sans-serif;
+  --serif: 'Playfair Display', Georgia, serif;
+  --pill: 100px; --r: 20px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+h1, h2, h3, h4 {
+  font-family: var(--heading); font-weight: 700; text-transform: uppercase;
+  letter-spacing: -0.03em; line-height: 1.1;
+}
+h1 { font-size: clamp(40px, 5.5vw, 72px); }
+h2 { font-size: clamp(36px, 5vw, 64px); }
+h3 { font-size: clamp(22px, 2.5vw, 32px); }
+h4 { font-size: clamp(16px, 1.6vw, 20px); }
+h1 em, h2 em { font-family: var(--serif); font-style: italic; }
+
+/* ── Nav ── */
+#nav {
+  position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+  z-index: 1000; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-inner {
+  background: #fff; border-radius: var(--pill);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+  border: 1px solid var(--border);
+  padding: 6px 6px 6px 8px;
+  display: flex; align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-full { display: flex; align-items: center; gap: 8px; }
+.nav-avatar {
+  width: 38px; height: 38px; border-radius: 50%; object-fit: cover;
+  border: 2px solid var(--border); flex-shrink: 0;
+}
+.nav-links { display: flex; gap: 28px; align-items: center; padding: 0 20px; }
+.nav-links a { font-size: 14px; color: var(--muted); transition: color 0.2s; font-weight: 400; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  background: var(--text); color: #fff; padding: 10px 24px;
+  border-radius: var(--pill); font-size: 13px; font-weight: 500;
+  transition: background 0.25s; white-space: nowrap;
+}
+.nav-cta:hover { background: var(--coral); }
+.nav-compact { display: none; align-items: center; gap: 10px; padding: 0 12px 0 0; }
+.nav-compact .nav-avatar { width: 34px; height: 34px; }
+.nav-compact-badge {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 13px; color: var(--text); font-weight: 500; white-space: nowrap;
+}
+.nav-compact-badge .dot { width: 8px; height: 8px; background: var(--teal); border-radius: 50%; }
+#nav.compact .nav-full { display: none; }
+#nav.compact .nav-compact { display: flex; }
+
+/* ── Hero ── */
+.product-hero {
+  max-width: 900px; margin: 0 auto; padding: 120px 40px 60px; text-align: center;
+}
+.product-hero .breadcrumb {
+  font-size: 13px; color: var(--muted); margin-bottom: 24px;
+}
+.product-hero .breadcrumb a { color: var(--coral); transition: opacity 0.2s; }
+.product-hero .breadcrumb a:hover { opacity: 0.7; }
+.product-hero h1 { margin-bottom: 20px; }
+.product-hero .hero-sub {
+  font-size: 17px; color: var(--muted); line-height: 1.8; max-width: 600px; margin: 0 auto;
+}
+
+/* ── Pricing Cards ── */
+.pricing-section { max-width: 1160px; margin: 0 auto; padding: 0 40px 80px; }
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  align-items: start;
+}
+.pricing-card {
+  border-radius: var(--r); overflow: hidden;
+  border: 1px solid var(--border); background: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+.pricing-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+.pricing-card.featured { border: 2px solid var(--coral); }
+.pricing-badge {
+  position: absolute; top: 16px; right: 16px; z-index: 2;
+  background: var(--coral); color: #fff; padding: 5px 14px;
+  border-radius: var(--pill); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.pricing-img {
+  width: 100%; height: 220px; object-fit: cover;
+}
+.pricing-body { padding: 32px 28px; }
+.pricing-label {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--coral); margin-bottom: 8px;
+}
+.pricing-name {
+  font-family: var(--heading); font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em;
+  line-height: 1.15; margin-bottom: 8px;
+}
+.pricing-desc {
+  font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 24px;
+}
+.pricing-price {
+  display: flex; align-items: baseline; gap: 6px; margin-bottom: 24px;
+}
+.pricing-amount {
+  font-family: var(--heading); font-size: 48px; font-weight: 700;
+  line-height: 1; color: var(--text);
+}
+.pricing-currency { font-size: 20px; color: var(--muted); font-weight: 500; }
+.pricing-vat { font-size: 12px; color: var(--muted); margin-left: 4px; }
+
+/* Feature list */
+.pricing-features { margin-bottom: 28px; }
+.pricing-features li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--text); padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.pricing-features li:last-child { border-bottom: none; }
+.pricing-check {
+  width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+.pricing-check.yes { background: rgba(45,184,168,0.12); color: var(--teal); }
+.pricing-check.no { background: rgba(0,0,0,0.04); color: rgba(0,0,0,0.2); }
+.pricing-check svg { width: 12px; height: 12px; }
+.feature-muted { color: var(--muted); }
+
+/* CTA button */
+.pricing-cta {
+  display: block; width: 100%; padding: 15px 24px; text-align: center;
+  border-radius: var(--pill); font-size: 14px; font-weight: 600;
+  transition: all 0.25s; cursor: pointer; border: none;
+  font-family: var(--sans);
+}
+.pricing-cta-outline {
+  background: transparent; border: 1.5px solid var(--coral); color: var(--coral);
+}
+.pricing-cta-outline:hover { background: var(--coral); color: #fff; }
+.pricing-cta-filled {
+  background: var(--coral); color: #fff; border: 1.5px solid var(--coral);
+}
+.pricing-cta-filled:hover { background: #d44e3a; border-color: #d44e3a; }
+
+/* ── Included section ── */
+.included-section {
+  max-width: 900px; margin: 0 auto; padding: 0 40px 80px;
+}
+.included-label {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--coral); margin-bottom: 12px;
+}
+.included-title {
+  font-family: var(--heading); font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.included-line { width: 100%; height: 1px; background: var(--border); margin-bottom: 40px; }
+.included-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.included-card {
+  background: var(--bg2); border-radius: 14px; padding: 28px 24px;
+}
+.included-num {
+  font-family: var(--heading); font-size: 32px; font-weight: 700;
+  color: var(--coral); margin-bottom: 8px;
+}
+.included-card h4 { font-size: 16px; text-transform: none; letter-spacing: 0; margin-bottom: 8px; }
+.included-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ── FAQ ── */
+.product-faq {
+  max-width: 700px; margin: 0 auto; padding: 0 40px 80px;
+}
+.faq-title { text-align: center; margin-bottom: 40px; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; padding: 20px 0; text-align: left; background: none; border: none;
+  cursor: pointer; font-family: var(--heading); font-size: 18px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: -0.02em; color: var(--text);
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--coral); }
+.faq-icon {
+  font-size: 20px; transition: transform 0.3s, color 0.3s; flex-shrink: 0;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); color: var(--coral); }
+.faq-item.open .faq-q { color: var(--coral); }
+.faq-a {
+  max-height: 0; overflow: hidden; transition: max-height 0.38s ease, padding 0.38s ease;
+  font-size: 15px; color: var(--muted); line-height: 1.8; padding: 0;
+}
+.faq-item.open .faq-a { max-height: 300px; padding: 0 0 20px; }
+
+/* ── CTA banner ── */
+.cta-banner {
+  max-width: 900px; margin: 0 auto; padding: 0 40px 80px;
+}
+.cta-banner-inner {
+  background: var(--text); border-radius: var(--r); padding: 48px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.cta-banner-inner h2 { color: #fff; margin-bottom: 12px; font-size: clamp(24px, 3vw, 36px); }
+.cta-banner-inner p { color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 28px; }
+.cta-banner-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 15px 36px; border-radius: var(--pill);
+  background: var(--coral); color: #fff;
+  font-size: 14px; font-weight: 600; transition: background 0.25s;
+}
+.cta-banner-btn:hover { background: #d44e3a; }
+
+/* ── Footer ── */
+footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 40px 24px; }
+.footer-inner { max-width: 900px; margin: 0 auto; }
+.footer-row1 { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 16px; position: relative; }
+.footer-brand { font-family: var(--heading); font-size: 22px; font-weight: 700; color: #fff; text-transform: uppercase; white-space: nowrap; }
+.footer-brand .dot { color: var(--coral); }
+.footer-nl-form { display: flex; align-items: center; gap: 8px; }
+.footer-nl-input { width: 200px; padding: 8px 14px; border-radius: var(--pill); border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #fff; font-size: 12px; font-family: var(--sans); }
+.footer-nl-input::placeholder { color: rgba(255,255,255,0.35); }
+.footer-nl-check { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+.footer-nl-check input { accent-color: var(--coral); width: 13px; height: 13px; cursor: pointer; }
+.footer-nl-check span { font-size: 10px; color: rgba(255,255,255,0.4); }
+.footer-nl-check a { color: rgba(255,255,255,0.55); text-decoration: underline; }
+.footer-nl-btn { padding: 8px 16px; border-radius: var(--pill); background: var(--coral); color: #fff; border: none; font-size: 12px; font-weight: 600; font-family: var(--sans); cursor: pointer; transition: opacity 0.25s; white-space: nowrap; }
+.footer-nl-btn:hover { opacity: 0.85; }
+.footer-row2 { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); }
+.footer-legal { display: flex; gap: 18px; align-items: center; }
+.footer-legal a { font-size: 11px; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(255,255,255,0.8); }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.3); }
+.footer-cookie-btn { background: none; border: none; padding: 0; font-size: 11px; color: rgba(255,255,255,0.4); cursor: pointer; font-family: var(--sans); transition: color 0.2s; }
+.footer-cookie-btn:hover { color: rgba(255,255,255,0.8); }
+
+/* ── Mobile Nav ── */
+.nav-burger {
+  display: none; width: 44px; height: 44px; border-radius: 50%;
+  align-items: center; justify-content: center; cursor: pointer;
+  background: none; border: none; padding: 0; flex-shrink: 0;
+}
+.nav-burger span {
+  display: block; width: 20px; height: 2px; background: var(--text);
+  position: relative; transition: all 0.3s;
+}
+.nav-burger span::before, .nav-burger span::after {
+  content: ''; position: absolute; left: 0; width: 100%; height: 2px;
+  background: var(--text); transition: all 0.3s;
+}
+.nav-burger span::before { top: -6px; }
+.nav-burger span::after { top: 6px; }
+.nav-burger.open span { background: transparent; }
+.nav-burger.open span::before { top: 0; transform: rotate(45deg); }
+.nav-burger.open span::after { top: 0; transform: rotate(-45deg); }
+.mobile-menu {
+  display: none; position: fixed; inset: 0; z-index: 999;
+  background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+  flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: var(--heading); font-size: 28px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: -0.02em; color: var(--text);
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--coral); }
+.mobile-menu .mobile-cta {
+  margin-top: 12px; padding: 14px 32px; border-radius: var(--pill);
+  background: var(--coral); color: #fff; font-size: 16px;
+  font-family: var(--sans); font-weight: 600; text-transform: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .pricing-card.featured { order: -1; }
+  .included-grid { grid-template-columns: 1fr; }
+  .nav-links { gap: 18px; padding: 0 14px; }
+  .nav-links a { font-size: 13px; }
+  .nav-cta { padding: 9px 18px; font-size: 12px; }
+}
+@media (max-width: 760px) {
+  .nav-links { display: none; }
+  .nav-burger { display: flex; }
+  .product-hero { padding: 100px 24px 40px; }
+  .pricing-section { padding: 0 24px 60px; }
+  .included-section { padding: 0 24px 60px; }
+  .product-faq { padding: 0 24px 60px; }
+  .cta-banner { padding: 0 24px 60px; }
+  .cta-banner-inner { padding: 36px 24px; }
+}
+@media (max-width: 480px) {
+  .product-hero { padding: 90px 16px 32px; }
+  .pricing-section { padding: 0 16px 40px; }
+  .pricing-body { padding: 24px 20px; }
+  .pricing-amount { font-size: 40px; }
+  .included-section { padding: 0 16px 40px; }
+  .product-faq { padding: 0 16px 40px; }
+  .cta-banner { padding: 0 16px 40px; }
+  .cta-banner-inner { padding: 28px 20px; }
+  .footer-row1 { flex-direction: column; gap: 12px; text-align: center; }
+  .footer-nl-form { flex-wrap: wrap; justify-content: center; }
+  .footer-nl-input { width: 100%; }
+  .footer-row2 { flex-direction: column; gap: 10px; text-align: center; }
+  .footer-legal { flex-wrap: wrap; justify-content: center; gap: 10px; }
+}
+
+/* ── Accessibility ── */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; border-radius: 4px; }
+.skip-link { position: absolute; top: -100%; left: 16px; background: var(--coral); color: #fff; padding: 12px 24px; border-radius: var(--pill); font-size: 14px; font-weight: 600; z-index: 9999; text-decoration: none; transition: top 0.2s; }
+.skip-link:focus { top: 16px; }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-full">
+      <a href="/"><img src="images/miriam-gesicht.jpg" class="nav-avatar" alt="Miriam – Zur Startseite"></a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="meine-geschichte.html">Über mich</a></li>
+        <li><a href="workbooks.html">Workbooks</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="/#kontakt">Kontakt</a></li>
+      </ul>
+      <a href="/#kontakt" class="nav-cta">Erstgespräch</a>
+      <button class="nav-burger" id="navBurger" aria-label="Menü öffnen"><span></span></button>
+    </div>
+    <div class="nav-compact">
+      <a href="/"><img src="images/miriam-gesicht.jpg" class="nav-avatar" alt="Miriam – Zur Startseite"></a>
+      <span class="nav-compact-badge">
+        <span class="dot"></span> Ich bin verfügbar
+      </span>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">Home</a>
+  <a href="meine-geschichte.html">Über mich</a>
+  <a href="workbooks.html">Workbooks</a>
+  <a href="blog.html">Blog</a>
+  <a href="/#kontakt">Kontakt</a>
+  <a href="/#kontakt" class="mobile-cta">Erstgespräch</a>
+</div>
+
+<!-- ════════════════════ HERO ════════════════════ -->
+<section class="product-hero">
+  <p class="breadcrumb"><a href="workbooks.html">Workbooks</a> / Business-Workspace mit KI</p>
+  <h1>Dein Business-Workspace<br>mit <em>KI</em></h1>
+  <p class="hero-sub">Website, E-Mail, CRM und Shop — Schritt für Schritt aufgebaut mit Claude AI. In unter einer Woche. Wähle das Paket, das zu dir passt.</p>
+</section>
+
+<!-- ════════════════════ PRICING ════════════════════ -->
+<section class="pricing-section">
+  <div class="pricing-grid">
+
+    <!-- BASIC -->
+    <div class="pricing-card">
+      <img class="pricing-img" src="images/wb-ki-marketing.jpg" alt="Basic Workbook" loading="lazy">
+      <div class="pricing-body">
+        <span class="pricing-label">Basic</span>
+        <h3 class="pricing-name">Dein digitales Fundament</h3>
+        <p class="pricing-desc">Alles was du brauchst, um mit deiner eigenen Website online zu gehen — mit KI gebaut.</p>
+        <div class="pricing-price">
+          <span class="pricing-amount">49</span>
+          <span class="pricing-currency">€</span>
+          <span class="pricing-vat">inkl. MwSt.</span>
+        </div>
+        <ul class="pricing-features">
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Claude AI einrichten
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            VS Code & Projekt aufsetzen
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Website bauen lassen (mit KI)
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Code auf GitHub sichern
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Mit Vercel live schalten
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Eigene Domain verbinden
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Checklisten & Ressourcen
+          </li>
+          <li>
+            <span class="pricing-check no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            <span class="feature-muted">Professionelle E-Mail</span>
+          </li>
+          <li>
+            <span class="pricing-check no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            <span class="feature-muted">CRM mit HubSpot</span>
+          </li>
+          <li>
+            <span class="pricing-check no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            <span class="feature-muted">Marketing-Strategie</span>
+          </li>
+        </ul>
+        <a href="#" class="pricing-cta pricing-cta-outline">Basic kaufen →</a>
+      </div>
+    </div>
+
+    <!-- PROFESSIONAL (featured) -->
+    <div class="pricing-card featured">
+      <span class="pricing-badge">Beliebt</span>
+      <img class="pricing-img" src="images/wb-ki-marketing.jpg" alt="Professional Workbook" loading="lazy">
+      <div class="pricing-body">
+        <span class="pricing-label">Professional</span>
+        <h3 class="pricing-name">Dein kompletter Business-Workspace</h3>
+        <p class="pricing-desc">Website, E-Mail, CRM und Shop — alles eingerichtet und verbunden. Dein komplettes digitales System.</p>
+        <div class="pricing-price">
+          <span class="pricing-amount">89</span>
+          <span class="pricing-currency">€</span>
+          <span class="pricing-vat">inkl. MwSt.</span>
+        </div>
+        <ul class="pricing-features">
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Alles aus Basic
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Professionelle E-Mail einrichten
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            CRM mit HubSpot aufsetzen
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Kontakte & Formulare einbinden
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Digitale Produkte verkaufen
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Shop & Checkout einrichten
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Erweiterte Checklisten & Vorlagen
+          </li>
+          <li>
+            <span class="pricing-check no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            <span class="feature-muted">SEO-Grundlagen</span>
+          </li>
+          <li>
+            <span class="pricing-check no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            <span class="feature-muted">Social Media & Content-Plan</span>
+          </li>
+          <li>
+            <span class="pricing-check no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            <span class="feature-muted">30 KI-Prompts für Marketing</span>
+          </li>
+        </ul>
+        <a href="#" class="pricing-cta pricing-cta-filled">Professional kaufen →</a>
+      </div>
+    </div>
+
+    <!-- PROFESSIONAL + MARKETING -->
+    <div class="pricing-card">
+      <img class="pricing-img" src="images/wb-ki-marketing.jpg" alt="Professional + Marketing Workbook" loading="lazy">
+      <div class="pricing-body">
+        <span class="pricing-label">Professional + Marketing</span>
+        <h3 class="pricing-name">Business-Workspace + Marketing-Strategie</h3>
+        <p class="pricing-desc">Alles aufgebaut und sichtbar gemacht. Website, Shop, CRM plus SEO, Social Media und KI-gestützte Marketing-Strategie.</p>
+        <div class="pricing-price">
+          <span class="pricing-amount">129</span>
+          <span class="pricing-currency">€</span>
+          <span class="pricing-vat">inkl. MwSt.</span>
+        </div>
+        <ul class="pricing-features">
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Alles aus Professional
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            SEO-Grundlagen für deine Website
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Google Business Profil einrichten
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Social Media Strategie mit KI
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Content-Plan erstellen mit Claude
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            30 KI-Prompts für Marketing
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Newsletter-Strategie aufsetzen
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Analytics & Tracking einrichten
+          </li>
+          <li>
+            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Bonus: Marketing-Checkliste
+          </li>
+        </ul>
+        <a href="#" class="pricing-cta pricing-cta-outline">Komplett-Paket kaufen →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════ WAS DU BEKOMMST ════════════════════ -->
+<section class="included-section">
+  <span class="included-label">So funktioniert's</span>
+  <h2 class="included-title">In 3 Schritten zum eigenen Business-Workspace</h2>
+  <div class="included-line"></div>
+  <div class="included-grid">
+    <div class="included-card">
+      <div class="included-num">01</div>
+      <h4>Paket wählen & kaufen</h4>
+      <p>Wähle das Paket, das zu deiner aktuellen Situation passt. Du bekommst sofort Zugang zum PDF-Download.</p>
+    </div>
+    <div class="included-card">
+      <div class="included-num">02</div>
+      <h4>Schritt für Schritt umsetzen</h4>
+      <p>Folge den Anleitungen mit Screenshots und Vorlagen. Claude AI hilft dir bei jedem Schritt.</p>
+    </div>
+    <div class="included-card">
+      <div class="included-num">03</div>
+      <h4>In unter einer Woche online</h4>
+      <p>Am Ende hast du einen kompletten Business-Workspace — professionell, funktionsfähig und bereit für Kunden.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FAQ ════════════════════ -->
+<section class="product-faq">
+  <h2 class="faq-title">Häufige Fragen</h2>
+  <div class="faq-item open">
+    <button class="faq-q" onclick="toggleFaq(this)">Brauche ich Vorkenntnisse? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Nein. Das Workbook ist für absolute Anfänger geschrieben. Du brauchst keine Programmierkenntnisse — Claude AI macht die technische Arbeit für dich.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen den Paketen? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Basic bringt dich online (Website + Domain). Professional fügt E-Mail, CRM und einen Shop hinzu. Professional + Marketing gibt dir zusätzlich SEO, Social Media und eine komplette Marketing-Strategie mit KI-Prompts.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Kann ich später upgraden? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Ja. Du kannst jederzeit auf ein höheres Paket wechseln und zahlst nur die Differenz. Schreib mir einfach eine E-Mail.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">In welchem Format bekomme ich das Workbook? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Als PDF — optimiert zum Lesen am Bildschirm und zum Ausdrucken. Mit interaktiven Links, Screenshots und Checklisten zum Abhaken.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">Was kostet mich der Workspace monatlich? <span class="faq-icon">+</span></button>
+    <div class="faq-a">Die Tools selbst kosten ca. 20–40 € pro Monat (Claude Pro, Domain, optional Google Workspace). Hosting mit Vercel und GitHub sind kostenlos.</div>
+  </div>
+</section>
+
+<!-- ════════════════════ CTA BANNER ════════════════════ -->
+<section class="cta-banner">
+  <div class="cta-banner-inner">
+    <h2>Unsicher welches Paket?</h2>
+    <p>Mach den kostenlosen Online-Check und finde heraus, wo du gerade stehst — dann weißt du genau, welches Paket zu dir passt.</p>
+    <a href="online-check.html" class="cta-banner-btn">Kostenlosen Check starten →</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-row1">
+      <span class="footer-brand">Bäumler<span class="dot">.</span></span>
+      <form class="footer-nl-form" id="footerNlForm" onsubmit="return submitFooterNl(event)">
+        <input type="email" class="footer-nl-input" id="footer-nl-email" required placeholder="Deine E-Mail-Adresse">
+        <label class="footer-nl-check"><input type="checkbox" id="footer-nl-dsgvo" required><span><a href="datenschutz.html">Datenschutz</a></span></label>
+        <button type="submit" class="footer-nl-btn">Eintragen</button>
+      </form>
+      <p id="footer-nl-success" style="display:none;color:var(--teal);font-weight:600;font-size:11px;position:absolute;right:0;top:100%">Danke!</p>
+    </div>
+    <div class="footer-row2">
+      <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
+      <div class="footer-legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+        <a href="barrierefreiheit.html">Barrierefreiheit</a>
+        <button type="button" class="footer-cookie-btn" data-cookie-settings>Cookie-Einstellungen</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav compact on scroll
+(function(){
+  var nav = document.getElementById('nav');
+  if (!nav) return;
+  var scrollTimer;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+      nav.classList.add('compact');
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function() { nav.classList.remove('compact'); }, 600);
+    } else {
+      nav.classList.remove('compact');
+      clearTimeout(scrollTimer);
+    }
+  }, { passive: true });
+})();
+
+// FAQ toggle
+function toggleFaq(btn) {
+  var item = btn.closest('.faq-item');
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+}
+
+// Mobile nav
+var burger = document.getElementById('navBurger');
+var mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', function(){
+  burger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+function closeMobile(){
+  burger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+<!-- HubSpot -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147985028.js"></script>
+<script>
+function submitFooterNl(e){
+  e.preventDefault();
+  if(!document.getElementById('footer-nl-dsgvo').checked)return false;
+  var btn=document.querySelector('.footer-nl-btn');
+  btn.disabled=true;btn.textContent='...';
+  var email=document.getElementById('footer-nl-email').value.trim();
+  fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/0ca9c402-9b0b-4b59-bb8f-23fe7bd65411',{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      fields:[{name:'email',value:email}],
+      context:{pageUri:window.location.href,pageName:'Footer Newsletter'},
+      legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Speicherung und Verarbeitung meiner personenbezogenen Daten durch Baeumler Marketing zu.',communications:[{value:true,subscriptionTypeId:2273981170,text:'Ich stimme zu, andere Benachrichtigungen von Baeumler Marketing zu erhalten.'}]}}
+    })
+  }).then(function(r){
+    if(r.ok){document.getElementById('footerNlForm').reset();document.getElementById('footer-nl-success').style.display='block';setTimeout(function(){document.getElementById('footer-nl-success').style.display='none'},5000);}
+    else{alert('Etwas ist schiefgelaufen.');}
+    btn.disabled=false;btn.textContent='Eintragen';
+  }).catch(function(){alert('Verbindungsfehler.');btn.disabled=false;btn.textContent='Eintragen';});
+  return false;
+}
+</script>
+<script src="cookie-banner.js" defer></script>
+</body>
+</html>
