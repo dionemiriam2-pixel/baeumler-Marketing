@@ -479,6 +479,50 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
   .footer-legal { flex-wrap: wrap; justify-content: center; gap: 10px; }
 }
 
+/* ═══════════════════════════════════════════════
+   BREAKER — Full-width text statements
+═══════════════════════════════════════════════ */
+.breaker { padding: 100px 0; text-align: center; position: relative; }
+.breaker-text {
+  font-family: var(--heading); font-size: clamp(32px, 5vw, 60px);
+  font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em;
+  line-height: 1.12; max-width: 800px; margin: 0 auto;
+}
+.breaker-text em { font-family: var(--serif); font-style: italic; }
+.breaker-text .coral { color: var(--coral); }
+.breaker-sub {
+  font-size: 16px; color: var(--muted); line-height: 1.72;
+  max-width: 480px; margin: 20px auto 0;
+}
+.breaker-dark {
+  background: var(--text); color: #fff;
+}
+.breaker-dark .breaker-sub { color: rgba(255,255,255,0.5); }
+.breaker-line {
+  width: 40px; height: 3px; background: var(--coral);
+  border-radius: 2px; margin: 0 auto 20px;
+}
+.breaker-stats {
+  display: flex; justify-content: center; gap: 56px; margin-top: 48px;
+}
+.breaker-stat { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.breaker-stat-num {
+  font-family: var(--heading); font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 700; line-height: 1; color: var(--coral);
+}
+.breaker-dark .breaker-stat-num { color: var(--coral); }
+.breaker-stat-lbl { font-size: 13px; color: var(--muted); font-weight: 500; }
+.breaker-dark .breaker-stat-lbl { color: rgba(255,255,255,0.45); }
+
+@media (max-width: 760px) {
+  .breaker { padding: 72px 0; }
+  .breaker-stats { gap: 32px; flex-wrap: wrap; }
+}
+@media (max-width: 480px) {
+  .breaker { padding: 56px 0; }
+  .breaker-stats { gap: 24px; }
+}
+
 /* ── Accessibility ── */
 a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--coral); outline-offset: 2px; border-radius: 4px; }
 .skip-link { position: absolute; top: -100%; left: 16px; background: var(--coral); color: #fff; padding: 12px 24px; border-radius: var(--pill); font-size: 14px; font-weight: 600; z-index: 9999; text-decoration: none; transition: top 0.2s; }
@@ -609,6 +653,15 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
     </div>
     <p class="pricing-ps"><strong>P.S.</strong> Eine Agentur berechnet für denselben Workspace 5.000–15.000 €. Hier bekommst du alles für unter 130 € — Schritt für Schritt erklärt.</p>
+  </div>
+</section>
+
+<!-- ════════════════════ BREAKER 1 ════════════════════ -->
+<section class="breaker reveal">
+  <div class="container">
+    <div class="breaker-line"></div>
+    <p class="breaker-text">Kein Vorwissen. Kein Code.<br>Nur du und <em><span class="coral">KI.</span></em></p>
+    <p class="breaker-sub">Alles, was andere mit teuren Agenturen aufbauen, machst du selbst — Schritt für Schritt, mit Claude AI an deiner Seite.</p>
   </div>
 </section>
 
@@ -824,6 +877,27 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   </div>
 </section>
 
+<!-- ════════════════════ BREAKER 2 — Stats ════════════════════ -->
+<section class="breaker breaker-dark reveal">
+  <div class="container">
+    <p class="breaker-text">Was andere in <em>Monaten</em> aufbauen —<br>du in <span class="coral">einer Woche.</span></p>
+    <div class="breaker-stats">
+      <div class="breaker-stat">
+        <span class="breaker-stat-num">9</span>
+        <span class="breaker-stat-lbl">Kapitel</span>
+      </div>
+      <div class="breaker-stat">
+        <span class="breaker-stat-num">50+</span>
+        <span class="breaker-stat-lbl">Anleitungen</span>
+      </div>
+      <div class="breaker-stat">
+        <span class="breaker-stat-num">0 €</span>
+        <span class="breaker-stat-lbl">Agenturkosten</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ════════════════════ FÜR WEN ════════════════════ -->
 <section id="fuerwen">
   <div class="blob"></div>
@@ -854,6 +928,15 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ════════════════════ BREAKER 3 ════════════════════ -->
+<section class="breaker reveal">
+  <div class="container">
+    <div class="breaker-line"></div>
+    <p class="breaker-text">Dein Business verdient ein<br><em>professionelles</em> <span class="coral">Setup.</span></p>
+    <p class="breaker-sub">Nicht irgendwann. Nicht wenn du es dir leisten kannst. Jetzt — für unter 130 €.</p>
   </div>
 </section>
 
