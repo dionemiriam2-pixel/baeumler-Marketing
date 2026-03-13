@@ -20,21 +20,30 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 <style>
+/* ═══════════════════════════════════════════════
+   RESET & VARIABLES (match index.html)
+═══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
+  --max: 1160px; --px: 56px; --nav-h: 80px;
   --bg: #ffffff; --bg2: #f7f7f5; --text: #303030;
-  --muted: rgba(17,17,16,0.65); --border: rgba(0,0,0,0.08);
-  --coral: #e8604c; --teal: #2db8a8;
+  --muted: rgba(17,17,16,0.78); --border: rgba(0,0,0,0.08);
+  --coral: #e8604c; --orange: #f0872b; --yellow: #f5c842;
+  --teal: #2db8a8; --navy: #1e2d5a; --pink: #d94f8a; --purple: #7c5cbf;
+  --serif: 'Playfair Display', Georgia, serif;
   --sans: 'Inter', system-ui, sans-serif;
   --heading: 'Antonio', sans-serif;
-  --serif: 'Playfair Display', Georgia, serif;
-  --pill: 100px; --r: 20px;
+  --r: 20px; --pill: 100px;
 }
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
+button { font-family: var(--sans); cursor: pointer; border: none; background: none; }
+h1 em, h2 em, h3 em { font-family: var(--serif); font-style: italic; }
+
+/* ── Global Typography ── */
 h1, h2, h3, h4 {
   font-family: var(--heading); font-weight: 700; text-transform: uppercase;
   letter-spacing: -0.03em; line-height: 1.1;
@@ -43,9 +52,34 @@ h1 { font-size: clamp(40px, 5.5vw, 72px); }
 h2 { font-size: clamp(36px, 5vw, 64px); }
 h3 { font-size: clamp(22px, 2.5vw, 32px); }
 h4 { font-size: clamp(16px, 1.6vw, 20px); }
-h1 em, h2 em { font-family: var(--serif); font-style: italic; }
 
-/* ── Nav ── */
+/* ── Blobs ── */
+.blob {
+  position: absolute; border-radius: 50%; pointer-events: none; z-index: 0;
+  filter: blur(110px); opacity: 0.10;
+  animation: blobMove var(--d,22s) ease-in-out infinite;
+}
+@keyframes blobMove {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%      { transform: translate(var(--tx,25px), var(--ty,-20px)) scale(1.04); }
+}
+.container { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); position: relative; z-index: 1; }
+section { position: relative; overflow: visible; }
+
+/* ── Section Labels ── */
+.sec-label {
+  font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; margin-bottom: 10px; display: block;
+  color: var(--coral);
+}
+
+/* ── Scroll Reveal ── */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ═══════════════════════════════════════════════
+   NAV (identical to index.html)
+═══════════════════════════════════════════════ */
 #nav {
   position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
   z-index: 1000; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -82,34 +116,40 @@ h1 em, h2 em { font-family: var(--serif); font-style: italic; }
 #nav.compact .nav-full { display: none; }
 #nav.compact .nav-compact { display: flex; }
 
-/* ── Hero ── */
-.product-hero {
-  max-width: 900px; margin: 0 auto; padding: 120px 40px 60px; text-align: center;
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+#hero {
+  padding: 120px 0 60px; position: relative;
 }
-.product-hero .breadcrumb {
+#hero .blob { background: radial-gradient(circle, var(--yellow), transparent 70%); width:500px; height:500px; top:-100px; right:-80px; --d:24s; --tx:30px; --ty:-20px; }
+.hero-inner { text-align: center; max-width: 700px; margin: 0 auto; }
+.breadcrumb {
   font-size: 13px; color: var(--muted); margin-bottom: 24px;
 }
-.product-hero .breadcrumb a { color: var(--coral); transition: opacity 0.2s; }
-.product-hero .breadcrumb a:hover { opacity: 0.7; }
-.product-hero h1 { margin-bottom: 20px; }
-.product-hero .hero-sub {
-  font-size: 17px; color: var(--muted); line-height: 1.8; max-width: 600px; margin: 0 auto;
+.breadcrumb a { color: var(--coral); transition: opacity 0.2s; }
+.breadcrumb a:hover { opacity: 0.7; }
+.hero-inner h1 { margin-bottom: 20px; }
+.hero-sub {
+  font-size: 16px; color: var(--muted); line-height: 1.72; max-width: 540px; margin: 0 auto;
 }
 
-/* ── Pricing Cards ── */
-.pricing-section { max-width: 1160px; margin: 0 auto; padding: 0 40px 80px; }
+/* ═══════════════════════════════════════════════
+   PRICING CARDS — clean, minimal
+═══════════════════════════════════════════════ */
+#pricing { padding: 0 0 80px; position: relative; }
+#pricing .blob { background: radial-gradient(circle, var(--coral), transparent 70%); width:460px; height:460px; bottom:-80px; left:-100px; --d:20s; --tx:-20px; --ty:15px; }
 .pricing-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
   align-items: start;
 }
 .pricing-card {
-  border-radius: var(--r); overflow: hidden;
-  border: 1px solid var(--border); background: #fff;
+  background: var(--bg2); border-radius: 22px; overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
   position: relative;
 }
-.pricing-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
-.pricing-card.featured { border: 2px solid var(--coral); }
+.pricing-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); }
+.pricing-card.featured { background: var(--text); color: #fff; }
 .pricing-badge {
   position: absolute; top: 16px; right: 16px; z-index: 2;
   background: var(--coral); color: #fff; padding: 5px 14px;
@@ -122,8 +162,9 @@ h1 em, h2 em { font-family: var(--serif); font-style: italic; }
 .pricing-body { padding: 32px 28px; }
 .pricing-label {
   font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--coral); margin-bottom: 8px;
+  text-transform: uppercase; color: var(--coral); margin-bottom: 8px; display: block;
 }
+.pricing-card.featured .pricing-label { color: var(--coral); }
 .pricing-name {
   font-family: var(--heading); font-size: clamp(22px, 2.5vw, 28px);
   font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em;
@@ -132,33 +173,36 @@ h1 em, h2 em { font-family: var(--serif); font-style: italic; }
 .pricing-desc {
   font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 24px;
 }
+.pricing-card.featured .pricing-desc { color: rgba(255,255,255,0.55); }
 .pricing-price {
   display: flex; align-items: baseline; gap: 6px; margin-bottom: 24px;
 }
 .pricing-amount {
-  font-family: var(--heading); font-size: 48px; font-weight: 700;
-  line-height: 1; color: var(--text);
+  font-family: var(--heading); font-size: 52px; font-weight: 700;
+  line-height: 1;
 }
-.pricing-currency { font-size: 20px; color: var(--muted); font-weight: 500; }
+.pricing-card.featured .pricing-amount { color: #fff; }
+.pricing-currency { font-size: 22px; color: var(--muted); font-weight: 500; }
+.pricing-card.featured .pricing-currency { color: rgba(255,255,255,0.5); }
 .pricing-vat { font-size: 12px; color: var(--muted); margin-left: 4px; }
+.pricing-card.featured .pricing-vat { color: rgba(255,255,255,0.4); }
 
-/* Feature list */
-.pricing-features { margin-bottom: 28px; }
-.pricing-features li {
-  display: flex; align-items: flex-start; gap: 10px;
-  font-size: 14px; color: var(--text); padding: 8px 0;
-  border-bottom: 1px solid var(--border);
+/* Feature highlights — compact tags */
+.pricing-highlights {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px;
 }
-.pricing-features li:last-child { border-bottom: none; }
-.pricing-check {
-  width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  margin-top: 1px;
+.pricing-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px; border-radius: var(--pill);
+  font-size: 12.5px; font-weight: 500;
+  background: rgba(0,0,0,0.04); color: var(--text);
 }
-.pricing-check.yes { background: rgba(45,184,168,0.12); color: var(--teal); }
-.pricing-check.no { background: rgba(0,0,0,0.04); color: rgba(0,0,0,0.2); }
-.pricing-check svg { width: 12px; height: 12px; }
-.feature-muted { color: var(--muted); }
+.pricing-card.featured .pricing-tag {
+  background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85);
+}
+.pricing-tag svg { width: 14px; height: 14px; flex-shrink: 0; }
+.pricing-tag .tag-check { color: var(--teal); }
+.pricing-card.featured .pricing-tag .tag-check { color: var(--teal); }
 
 /* CTA button */
 .pricing-cta {
@@ -176,114 +220,164 @@ h1 em, h2 em { font-family: var(--serif); font-style: italic; }
 }
 .pricing-cta-filled:hover { background: #d44e3a; border-color: #d44e3a; }
 
-/* ── Included section ── */
-.included-section {
-  max-width: 900px; margin: 0 auto; padding: 0 40px 80px;
+/* P.S. hint */
+.pricing-ps {
+  text-align: center; font-size: 13px; color: var(--muted);
+  margin-top: 32px; line-height: 1.6;
 }
-.included-label {
-  font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--coral); margin-bottom: 12px;
-}
-.included-title {
-  font-family: var(--heading); font-size: clamp(28px, 4vw, 48px);
-  font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em;
-  margin-bottom: 12px;
-}
-.included-line { width: 100%; height: 1px; background: var(--border); margin-bottom: 40px; }
-.included-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-}
-.included-card {
-  background: var(--bg2); border-radius: 14px; padding: 28px 24px;
-}
-.included-num {
-  font-family: var(--heading); font-size: 32px; font-weight: 700;
-  color: var(--coral); margin-bottom: 8px;
-}
-.included-card h4 { font-size: 16px; text-transform: none; letter-spacing: 0; margin-bottom: 8px; }
-.included-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.pricing-ps strong { color: var(--coral); font-weight: 600; }
 
-/* ── FAQ ── */
-.product-faq {
-  max-width: 700px; margin: 0 auto; padding: 0 40px 80px;
+/* ═══════════════════════════════════════════════
+   FEATURE COMPARISON — Accordion style
+═══════════════════════════════════════════════ */
+#vergleich { padding: 80px 0; position: relative; }
+#vergleich .blob { background: radial-gradient(circle, var(--teal), transparent 70%); width:440px; height:440px; top:-80px; right:-80px; --d:22s; --tx:20px; --ty:-20px; }
+.vgl-header { margin-bottom: 50px; max-width: 500px; }
+.vgl-sub { font-size: 16px; color: var(--muted); line-height: 1.72; margin-top: 16px; }
+
+.vgl-acc { border-top: 1px solid var(--border); }
+.vgl-item { border-bottom: 1px solid var(--border); }
+.vgl-btn {
+  width: 100%; display: flex; align-items: center; gap: 16px;
+  padding: 24px 0; text-align: left; cursor: pointer;
 }
-.faq-title { text-align: center; margin-bottom: 40px; }
+.vgl-btn:hover .vgl-name { color: var(--coral); }
+.vgl-num {
+  font-family: var(--heading); font-size: clamp(16px, 1.8vw, 20px);
+  color: var(--coral); font-weight: 700; min-width: 32px;
+}
+.vgl-name {
+  flex: 1; font-family: var(--heading); font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em;
+  transition: color 0.2s;
+}
+.vgl-item.open .vgl-name { color: var(--coral); }
+.vgl-arrow {
+  width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: var(--muted); transition: transform 0.3s, color 0.3s; flex-shrink: 0;
+}
+.vgl-item.open .vgl-arrow { transform: rotate(180deg); color: var(--coral); }
+.vgl-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 0 0 48px;
+}
+.vgl-item.open .vgl-body { max-height: 500px; padding: 0 0 24px 48px; }
+.vgl-row {
+  display: grid; grid-template-columns: 1fr repeat(3, 80px); gap: 12px;
+  align-items: center; padding: 8px 0; font-size: 14px;
+}
+.vgl-row-header {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--muted); padding-bottom: 8px;
+  border-bottom: 1px solid var(--border); margin-bottom: 4px;
+}
+.vgl-feature { color: var(--muted); line-height: 1.5; }
+.vgl-cell { text-align: center; }
+.vgl-yes { color: var(--teal); font-size: 16px; }
+.vgl-no { color: var(--border); font-size: 14px; }
+
+/* ═══════════════════════════════════════════════
+   FÜR WEN
+═══════════════════════════════════════════════ */
+#fuerwen { padding: 80px 0; position: relative; }
+#fuerwen .blob { background: radial-gradient(circle, var(--pink), transparent 70%); width:420px; height:420px; bottom:-80px; left:-60px; --d:19s; --tx:-20px; --ty:20px; }
+.fw-header { margin-bottom: 50px; }
+.fw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.fw-card {
+  background: var(--bg2); border-radius: 22px; padding: 36px 32px;
+}
+.fw-card-yes { border-left: 3px solid var(--teal); }
+.fw-card-no { border-left: 3px solid var(--coral); }
+.fw-title {
+  font-family: var(--heading); font-size: 18px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: -0.02em;
+  margin-bottom: 24px; display: flex; align-items: center; gap: 10px;
+}
+.fw-card-yes .fw-title { color: var(--teal); }
+.fw-card-no .fw-title { color: var(--coral); }
+.fw-list { display: flex; flex-direction: column; gap: 14px; }
+.fw-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 14px; color: var(--muted); line-height: 1.6;
+}
+.fw-card-yes .fw-list li::before {
+  content: '✓'; color: var(--teal); font-weight: 600; flex-shrink: 0; margin-top: 1px;
+}
+.fw-card-no .fw-list li::before {
+  content: '✕'; color: var(--coral); font-weight: 600; flex-shrink: 0; margin-top: 1px;
+}
+
+/* ═══════════════════════════════════════════════
+   SO FUNKTIONIERT'S — Steps
+═══════════════════════════════════════════════ */
+#steps { padding: 80px 0; position: relative; }
+#steps .blob { background: radial-gradient(circle, var(--orange), transparent 70%); width:400px; height:400px; top:-60px; left:-80px; --d:26s; --tx:-20px; --ty:25px; }
+.steps-header { margin-bottom: 50px; max-width: 500px; }
+.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.step-card {
+  background: var(--bg2); border-radius: 22px; padding: 32px 28px;
+}
+.step-num {
+  font-family: var(--heading); font-size: 36px; font-weight: 700;
+  color: var(--coral); margin-bottom: 12px;
+}
+.step-card h4 { font-size: 17px; text-transform: none; letter-spacing: 0; margin-bottom: 10px; }
+.step-card p { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+
+/* ═══════════════════════════════════════════════
+   FAQ — Side-by-side layout (like index)
+═══════════════════════════════════════════════ */
+#faq { padding: 80px 0; position: relative; }
+#faq .blob { background: radial-gradient(circle, var(--purple), transparent 70%); width:400px; height:400px; top:-60px; right:-80px; --d:24s; --tx:20px; --ty:-15px; }
+.faq-grid { display: grid; grid-template-columns: 300px 1fr; gap: 80px; align-items: start; }
+.faq-left { position: sticky; top: calc(var(--nav-h) + 30px); }
+.faq-desc { color: var(--muted); font-size: 15px; line-height: 1.7; margin-top: 16px; max-width: 280px; }
+.faq-list { border-top: 1px solid var(--border); }
 .faq-item { border-bottom: 1px solid var(--border); }
 .faq-q {
   width: 100%; display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; padding: 20px 0; text-align: left; background: none; border: none;
-  cursor: pointer; font-family: var(--heading); font-size: 18px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: -0.02em; color: var(--text);
-  transition: color 0.2s;
+  gap: 16px; padding: 22px 0; text-align: left; cursor: pointer;
 }
-.faq-q:hover { color: var(--coral); }
-.faq-icon {
-  font-size: 20px; transition: transform 0.3s, color 0.3s; flex-shrink: 0;
+.faq-q:hover .faq-q-text { color: var(--coral); }
+.faq-q-text {
+  flex: 1; font-family: var(--heading); font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em;
+  color: var(--text); transition: color 0.2s;
 }
-.faq-item.open .faq-icon { transform: rotate(45deg); color: var(--coral); }
-.faq-item.open .faq-q { color: var(--coral); }
+.faq-item.open .faq-q-text { color: var(--coral); }
+.faq-q-icon {
+  width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: var(--muted); transition: transform 0.3s, color 0.3s; flex-shrink: 0;
+}
+.faq-item.open .faq-q-icon { transform: rotate(45deg); color: var(--coral); }
 .faq-a {
   max-height: 0; overflow: hidden; transition: max-height 0.38s ease, padding 0.38s ease;
   font-size: 15px; color: var(--muted); line-height: 1.8; padding: 0;
 }
-.faq-item.open .faq-a { max-height: 300px; padding: 0 0 20px; }
+.faq-item.open .faq-a { max-height: 300px; padding: 0 0 22px 0; }
 
-/* ── Für wen ── */
-.forwen-section { max-width: 900px; margin: 0 auto; padding: 0 40px 80px; }
-.forwen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.forwen-card {
-  background: var(--bg2); border-radius: var(--r); padding: 32px 28px;
-  border-left: 3px solid transparent;
-}
-.forwen-yes { border-left-color: var(--teal); }
-.forwen-no { border-left-color: var(--coral); }
-.forwen-title {
-  font-family: var(--heading); font-size: 18px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: -0.02em;
-  margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
-}
-.forwen-yes .forwen-title { color: var(--teal); }
-.forwen-no .forwen-title { color: var(--coral); }
-.forwen-icon { font-size: 16px; }
-.forwen-list { display: flex; flex-direction: column; gap: 12px; }
-.forwen-list li {
-  display: flex; align-items: flex-start; gap: 10px;
-  font-size: 14px; color: var(--text); line-height: 1.6;
-}
-.forwen-yes .forwen-list li::before {
-  content: '✓'; color: var(--teal); font-weight: 600; flex-shrink: 0; margin-top: 1px;
-}
-.forwen-no .forwen-list li::before {
-  content: '✕'; color: var(--coral); font-weight: 600; flex-shrink: 0; margin-top: 1px;
-}
-@media (max-width: 760px) {
-  .forwen-grid { grid-template-columns: 1fr; }
-  .forwen-section { padding: 0 24px 60px; }
-}
-@media (max-width: 480px) {
-  .forwen-section { padding: 0 16px 40px; }
-  .forwen-card { padding: 24px 20px; }
-}
-
-/* ── CTA banner ── */
-.cta-banner {
-  max-width: 900px; margin: 0 auto; padding: 0 40px 80px;
-}
-.cta-banner-inner {
-  background: var(--text); border-radius: var(--r); padding: 48px;
+/* ═══════════════════════════════════════════════
+   CTA BANNER
+═══════════════════════════════════════════════ */
+#cta-banner { padding: 0 0 80px; }
+.cta-inner {
+  background: var(--text); border-radius: 22px; padding: 56px 48px;
   text-align: center; position: relative; overflow: hidden;
 }
-.cta-banner-inner h2 { color: #fff; margin-bottom: 12px; font-size: clamp(24px, 3vw, 36px); }
-.cta-banner-inner p { color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 28px; }
-.cta-banner-btn {
+.cta-inner h2 { color: #fff; margin-bottom: 14px; font-size: clamp(24px, 3vw, 40px); }
+.cta-inner p { color: rgba(255,255,255,0.55); font-size: 15px; margin-bottom: 32px; line-height: 1.7; max-width: 480px; margin-left: auto; margin-right: auto; }
+.cta-btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 15px 36px; border-radius: var(--pill);
   background: var(--coral); color: #fff;
   font-size: 14px; font-weight: 600; transition: background 0.25s;
 }
-.cta-banner-btn:hover { background: #d44e3a; }
+.cta-btn:hover { background: #d44e3a; }
 
-/* ── Footer ── */
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
 footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 40px 24px; }
 .footer-inner { max-width: 900px; margin: 0 auto; }
 .footer-row1 { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 16px; position: relative; }
@@ -306,7 +400,9 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
 .footer-cookie-btn { background: none; border: none; padding: 0; font-size: 11px; color: rgba(255,255,255,0.4); cursor: pointer; font-family: var(--sans); transition: color 0.2s; }
 .footer-cookie-btn:hover { color: rgba(255,255,255,0.8); }
 
-/* ── Mobile Nav ── */
+/* ═══════════════════════════════════════════════
+   MOBILE NAV
+═══════════════════════════════════════════════ */
 .nav-burger {
   display: none; width: 44px; height: 44px; border-radius: 50%;
   align-items: center; justify-content: center; cursor: pointer;
@@ -343,11 +439,17 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
   font-family: var(--sans); font-weight: 600; text-transform: none;
 }
 
-/* ── Responsive ── */
-@media (max-width: 960px) {
-  .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media (max-width: 1000px) {
+  :root { --px: 28px; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
   .pricing-card.featured { order: -1; }
-  .included-grid { grid-template-columns: 1fr; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .faq-grid { grid-template-columns: 1fr; gap: 32px; }
+  .faq-left { position: static; }
+  .vgl-row { grid-template-columns: 1fr repeat(3, 60px); gap: 8px; }
   .nav-links { gap: 18px; padding: 0 14px; }
   .nav-links a { font-size: 13px; }
   .nav-cta { padding: 9px 18px; font-size: 12px; }
@@ -355,22 +457,21 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
 @media (max-width: 760px) {
   .nav-links { display: none; }
   .nav-burger { display: flex; }
-  .product-hero { padding: 100px 24px 40px; }
-  .pricing-section { padding: 0 24px 60px; }
-  .included-section { padding: 0 24px 60px; }
-  .product-faq { padding: 0 24px 60px; }
-  .cta-banner { padding: 0 24px 60px; }
-  .cta-banner-inner { padding: 36px 24px; }
+  .fw-grid { grid-template-columns: 1fr; }
+  .vgl-body { padding-left: 0 !important; }
+  .vgl-item.open .vgl-body { padding-left: 0 !important; }
+  .vgl-row { grid-template-columns: 1fr repeat(3, 48px); gap: 6px; font-size: 13px; }
+  .vgl-row-header { font-size: 10px; }
 }
 @media (max-width: 480px) {
-  .product-hero { padding: 90px 16px 32px; }
-  .pricing-section { padding: 0 16px 40px; }
+  :root { --px: 16px; }
+  #hero { padding: 100px 0 40px; }
   .pricing-body { padding: 24px 20px; }
-  .pricing-amount { font-size: 40px; }
-  .included-section { padding: 0 16px 40px; }
-  .product-faq { padding: 0 16px 40px; }
-  .cta-banner { padding: 0 16px 40px; }
-  .cta-banner-inner { padding: 28px 20px; }
+  .pricing-amount { font-size: 44px; }
+  .fw-card { padding: 28px 22px; }
+  .step-card { padding: 28px 22px; }
+  .faq-grid { gap: 24px; }
+  .cta-inner { padding: 40px 24px; }
   .footer-row1 { flex-direction: column; gap: 12px; text-align: center; }
   .footer-nl-form { flex-wrap: wrap; justify-content: center; }
   .footer-nl-input { width: 100%; }
@@ -422,272 +523,427 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 </div>
 
 <!-- ════════════════════ HERO ════════════════════ -->
-<section class="product-hero">
-  <p class="breadcrumb"><a href="workbooks.html">Workbooks</a> / Business-Workspace mit KI</p>
-  <h1>Dein Business-Workspace<br>mit <em>KI</em></h1>
-  <p class="hero-sub">Website, E-Mail, CRM und Shop — Schritt für Schritt aufgebaut mit Claude AI. In unter einer Woche. Wähle das Paket, das zu dir passt.</p>
+<section id="hero">
+  <div class="blob hero-blob"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <p class="breadcrumb"><a href="workbooks.html">Workbooks</a> / Business-Workspace mit KI</p>
+      <h1>Dein Business-Workspace<br>mit <em>KI</em></h1>
+      <p class="hero-sub">Website, E-Mail, CRM und Shop — Schritt für Schritt aufgebaut mit Claude AI. In unter einer Woche. Wähle das Paket, das zu dir passt.</p>
+    </div>
+  </div>
 </section>
 
 <!-- ════════════════════ PRICING ════════════════════ -->
-<section class="pricing-section">
-  <div class="pricing-grid">
+<section id="pricing">
+  <div class="blob"></div>
+  <div class="container">
+    <div class="pricing-grid">
 
-    <!-- BASIC -->
-    <div class="pricing-card">
-      <img class="pricing-img" src="images/miriam-tools.avif" alt="Basic Workbook — Dein digitales Fundament" loading="lazy">
-      <div class="pricing-body">
-        <span class="pricing-label">Basic</span>
-        <h3 class="pricing-name">Dein digitales Fundament</h3>
-        <p class="pricing-desc">Alles was du brauchst, um mit deiner eigenen Website online zu gehen — mit KI gebaut.</p>
-        <div class="pricing-price">
-          <span class="pricing-amount">49</span>
-          <span class="pricing-currency">€</span>
-          <span class="pricing-vat">inkl. MwSt.</span>
+      <!-- BASIC -->
+      <div class="pricing-card reveal">
+        <img class="pricing-img" src="images/miriam-tools.avif" alt="Basic Workbook — Dein digitales Fundament" loading="lazy">
+        <div class="pricing-body">
+          <span class="pricing-label">Basic</span>
+          <h3 class="pricing-name">Dein digitales Fundament</h3>
+          <p class="pricing-desc">Alles was du brauchst, um mit deiner eigenen Website online zu gehen — mit KI gebaut.</p>
+          <div class="pricing-price">
+            <span class="pricing-amount">49</span>
+            <span class="pricing-currency">€</span>
+            <span class="pricing-vat">inkl. MwSt.</span>
+          </div>
+          <div class="pricing-highlights">
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Website bauen</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Domain verbinden</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Live schalten</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Claude AI Setup</span>
+          </div>
+          <a href="#" class="pricing-cta pricing-cta-outline">Basic kaufen →</a>
         </div>
-        <ul class="pricing-features">
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Claude AI einrichten
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            VS Code & Projekt aufsetzen
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Website bauen lassen (mit KI)
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Code auf GitHub sichern
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Mit Vercel live schalten
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Eigene Domain verbinden
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Checklisten & Ressourcen
-          </li>
-          <li>
-            <span class="pricing-check no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-            <span class="feature-muted">Professionelle E-Mail</span>
-          </li>
-          <li>
-            <span class="pricing-check no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-            <span class="feature-muted">CRM mit HubSpot</span>
-          </li>
-          <li>
-            <span class="pricing-check no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-            <span class="feature-muted">Marketing-Strategie</span>
-          </li>
-        </ul>
-        <a href="#" class="pricing-cta pricing-cta-outline">Basic kaufen →</a>
       </div>
-    </div>
 
-    <!-- PROFESSIONAL (featured) -->
-    <div class="pricing-card featured">
-      <span class="pricing-badge">Beliebt</span>
-      <img class="pricing-img" src="images/miriam-umsetzung.avif" alt="Professional Workbook — Kompletter Business-Workspace" loading="lazy">
-      <div class="pricing-body">
-        <span class="pricing-label">Professional</span>
-        <h3 class="pricing-name">Dein kompletter Business-Workspace</h3>
-        <p class="pricing-desc">Website, E-Mail, CRM und Shop — alles eingerichtet und verbunden. Dein komplettes digitales System.</p>
-        <div class="pricing-price">
-          <span class="pricing-amount">89</span>
-          <span class="pricing-currency">€</span>
-          <span class="pricing-vat">inkl. MwSt.</span>
+      <!-- PROFESSIONAL (featured) -->
+      <div class="pricing-card featured reveal">
+        <span class="pricing-badge">Beliebt</span>
+        <img class="pricing-img" src="images/miriam-umsetzung.avif" alt="Professional Workbook — Kompletter Business-Workspace" loading="lazy">
+        <div class="pricing-body">
+          <span class="pricing-label">Professional</span>
+          <h3 class="pricing-name">Dein kompletter Business-Workspace</h3>
+          <p class="pricing-desc">Website, E-Mail, CRM und Shop — alles eingerichtet und verbunden. Dein komplettes digitales System.</p>
+          <div class="pricing-price">
+            <span class="pricing-amount">89</span>
+            <span class="pricing-currency">€</span>
+            <span class="pricing-vat">inkl. MwSt.</span>
+          </div>
+          <div class="pricing-highlights">
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Alles aus Basic</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> E-Mail einrichten</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> CRM & Formulare</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Shop & Checkout</span>
+          </div>
+          <a href="#" class="pricing-cta pricing-cta-filled">Professional kaufen →</a>
         </div>
-        <ul class="pricing-features">
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Alles aus Basic
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Professionelle E-Mail einrichten
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            CRM mit HubSpot aufsetzen
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Kontakte & Formulare einbinden
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Digitale Produkte verkaufen
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Shop & Checkout einrichten
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Erweiterte Checklisten & Vorlagen
-          </li>
-          <li>
-            <span class="pricing-check no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-            <span class="feature-muted">SEO-Grundlagen</span>
-          </li>
-          <li>
-            <span class="pricing-check no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-            <span class="feature-muted">Social Media & Content-Plan</span>
-          </li>
-          <li>
-            <span class="pricing-check no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-            <span class="feature-muted">30 KI-Prompts für Marketing</span>
-          </li>
-        </ul>
-        <a href="#" class="pricing-cta pricing-cta-filled">Professional kaufen →</a>
       </div>
-    </div>
 
-    <!-- PROFESSIONAL + MARKETING -->
-    <div class="pricing-card">
-      <img class="pricing-img" src="images/miriam-strategie.avif" alt="Professional + Marketing — Business-Workspace mit Marketing-Strategie" loading="lazy">
-      <div class="pricing-body">
-        <span class="pricing-label">Professional + Marketing</span>
-        <h3 class="pricing-name">Business-Workspace + Marketing-Strategie</h3>
-        <p class="pricing-desc">Alles aufgebaut und sichtbar gemacht. Website, Shop, CRM plus SEO, Social Media und KI-gestützte Marketing-Strategie.</p>
-        <div class="pricing-price">
-          <span class="pricing-amount">129</span>
-          <span class="pricing-currency">€</span>
-          <span class="pricing-vat">inkl. MwSt.</span>
+      <!-- PROFESSIONAL + MARKETING -->
+      <div class="pricing-card reveal">
+        <img class="pricing-img" src="images/miriam-strategie.avif" alt="Professional + Marketing — Business-Workspace mit Marketing-Strategie" loading="lazy">
+        <div class="pricing-body">
+          <span class="pricing-label">Professional + Marketing</span>
+          <h3 class="pricing-name">Business-Workspace + Marketing-Strategie</h3>
+          <p class="pricing-desc">Alles aufgebaut und sichtbar gemacht. Website, Shop, CRM plus SEO, Social Media und KI-Marketing.</p>
+          <div class="pricing-price">
+            <span class="pricing-amount">129</span>
+            <span class="pricing-currency">€</span>
+            <span class="pricing-vat">inkl. MwSt.</span>
+          </div>
+          <div class="pricing-highlights">
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Alles aus Professional</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SEO & Google</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Social Media</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 30 KI-Prompts</span>
+          </div>
+          <a href="#" class="pricing-cta pricing-cta-outline">Komplett-Paket kaufen →</a>
         </div>
-        <ul class="pricing-features">
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Alles aus Professional
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            SEO-Grundlagen für deine Website
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Google Business Profil einrichten
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Social Media Strategie mit KI
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Content-Plan erstellen mit Claude
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            30 KI-Prompts für Marketing
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Newsletter-Strategie aufsetzen
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Analytics & Tracking einrichten
-          </li>
-          <li>
-            <span class="pricing-check yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-            Bonus: Marketing-Checkliste
-          </li>
-        </ul>
-        <a href="#" class="pricing-cta pricing-cta-outline">Komplett-Paket kaufen →</a>
       </div>
-    </div>
 
+    </div>
+    <p class="pricing-ps"><strong>P.S.</strong> Eine Agentur berechnet für denselben Workspace 5.000–15.000 €. Hier bekommst du alles für unter 130 € — Schritt für Schritt erklärt.</p>
   </div>
-  <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6"><span style="color:var(--coral);font-weight:600">P.S.</span> Eine Agentur berechnet für denselben Workspace 5.000–15.000 €. Hier bekommst du alles für unter 130 € — Schritt für Schritt erklärt.</p>
+</section>
+
+<!-- ════════════════════ VERGLEICH ════════════════════ -->
+<section id="vergleich">
+  <div class="blob"></div>
+  <div class="container">
+    <div class="vgl-header reveal">
+      <span class="sec-label">Paket-Vergleich</span>
+      <h2>Was steckt <em>drin?</em></h2>
+      <p class="vgl-sub">Klick auf eine Kategorie und sieh genau, was in jedem Paket enthalten ist.</p>
+    </div>
+
+    <div class="vgl-acc">
+
+      <!-- 1. KI & Setup -->
+      <div class="vgl-item open">
+        <button class="vgl-btn" onclick="toggleVgl(this)">
+          <span class="vgl-num">01</span>
+          <span class="vgl-name">KI & Setup</span>
+          <span class="vgl-arrow">↓</span>
+        </button>
+        <div class="vgl-body">
+          <div class="vgl-row vgl-row-header">
+            <span></span><span>Basic</span><span>Pro</span><span>Pro+</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Claude AI einrichten & nutzen</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">VS Code & Projekt aufsetzen</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Checklisten & Ressourcen</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Website & Hosting -->
+      <div class="vgl-item">
+        <button class="vgl-btn" onclick="toggleVgl(this)">
+          <span class="vgl-num">02</span>
+          <span class="vgl-name">Website & Hosting</span>
+          <span class="vgl-arrow">↓</span>
+        </button>
+        <div class="vgl-body">
+          <div class="vgl-row vgl-row-header">
+            <span></span><span>Basic</span><span>Pro</span><span>Pro+</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Website bauen lassen (mit KI)</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Code auf GitHub sichern</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Mit Vercel live schalten</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Eigene Domain verbinden</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. E-Mail & CRM -->
+      <div class="vgl-item">
+        <button class="vgl-btn" onclick="toggleVgl(this)">
+          <span class="vgl-num">03</span>
+          <span class="vgl-name">E-Mail & CRM</span>
+          <span class="vgl-arrow">↓</span>
+        </button>
+        <div class="vgl-body">
+          <div class="vgl-row vgl-row-header">
+            <span></span><span>Basic</span><span>Pro</span><span>Pro+</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Professionelle E-Mail einrichten</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">CRM mit HubSpot aufsetzen</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Kontakte & Formulare einbinden</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Shop & Verkauf -->
+      <div class="vgl-item">
+        <button class="vgl-btn" onclick="toggleVgl(this)">
+          <span class="vgl-num">04</span>
+          <span class="vgl-name">Shop & Verkauf</span>
+          <span class="vgl-arrow">↓</span>
+        </button>
+        <div class="vgl-body">
+          <div class="vgl-row vgl-row-header">
+            <span></span><span>Basic</span><span>Pro</span><span>Pro+</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Digitale Produkte verkaufen</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Shop & Checkout einrichten</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Erweiterte Vorlagen & Checklisten</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Marketing & Sichtbarkeit -->
+      <div class="vgl-item">
+        <button class="vgl-btn" onclick="toggleVgl(this)">
+          <span class="vgl-num">05</span>
+          <span class="vgl-name">Marketing & Sichtbarkeit</span>
+          <span class="vgl-arrow">↓</span>
+        </button>
+        <div class="vgl-body">
+          <div class="vgl-row vgl-row-header">
+            <span></span><span>Basic</span><span>Pro</span><span>Pro+</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">SEO-Grundlagen für deine Website</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Google Business Profil einrichten</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Social Media Strategie mit KI</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Content-Plan erstellen mit Claude</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">30 KI-Prompts für Marketing</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Newsletter-Strategie aufsetzen</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Analytics & Tracking einrichten</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+          <div class="vgl-row">
+            <span class="vgl-feature">Bonus: Marketing-Checkliste</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-no">—</span>
+            <span class="vgl-cell vgl-yes">✓</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
 <!-- ════════════════════ FÜR WEN ════════════════════ -->
-<section class="forwen-section">
-  <div class="forwen-grid">
-    <div class="forwen-card forwen-yes">
-      <h3 class="forwen-title"><span class="forwen-icon">✓</span> Für dich, wenn:</h3>
-      <ul class="forwen-list">
-        <li>du dich selbstständig machen willst — oder gerade erst gestartet hast</li>
-        <li>du keine technischen Vorkenntnisse hast</li>
-        <li>du dein Business online aufbauen willst</li>
-        <li>du bereit bist, KI als Werkzeug zu nutzen</li>
-        <li>du Geld sparen willst und keine Agentur beauftragen möchtest</li>
-        <li>du Schritt-für-Schritt-Anleitungen liebst</li>
-      </ul>
+<section id="fuerwen">
+  <div class="blob"></div>
+  <div class="container">
+    <div class="fw-header reveal">
+      <span class="sec-label">Für wen?</span>
+      <h2>Passt das <em>zu dir?</em></h2>
     </div>
-    <div class="forwen-card forwen-no">
-      <h3 class="forwen-title"><span class="forwen-icon">✕</span> Nicht für dich, wenn:</h3>
-      <ul class="forwen-list">
-        <li>du eine fertige Agentur-Website willst, ohne selbst etwas zu tun</li>
-        <li>du nichts Neues lernen möchtest</li>
-        <li>du bereits ein professionelles Online-Setup hast</li>
-        <li>du ein Budget von mehreren tausend Euro für eine Agentur hast</li>
-      </ul>
+    <div class="fw-grid">
+      <div class="fw-card fw-card-yes reveal">
+        <h3 class="fw-title">✓ Für dich, wenn:</h3>
+        <ul class="fw-list">
+          <li>du dich selbstständig machen willst — oder gerade erst gestartet hast</li>
+          <li>du keine technischen Vorkenntnisse hast</li>
+          <li>du dein Business online aufbauen willst</li>
+          <li>du bereit bist, KI als Werkzeug zu nutzen</li>
+          <li>du Geld sparen willst und keine Agentur beauftragen möchtest</li>
+          <li>du Schritt-für-Schritt-Anleitungen liebst</li>
+        </ul>
+      </div>
+      <div class="fw-card fw-card-no reveal">
+        <h3 class="fw-title">✕ Nicht für dich, wenn:</h3>
+        <ul class="fw-list">
+          <li>du eine fertige Agentur-Website willst, ohne selbst etwas zu tun</li>
+          <li>du nichts Neues lernen möchtest</li>
+          <li>du bereits ein professionelles Online-Setup hast</li>
+          <li>du ein Budget von mehreren tausend Euro für eine Agentur hast</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════ WAS DU BEKOMMST ════════════════════ -->
-<section class="included-section">
-  <span class="included-label">So funktioniert's</span>
-  <h2 class="included-title">In 3 Schritten zum eigenen Business-Workspace</h2>
-  <div class="included-line"></div>
-  <div class="included-grid">
-    <div class="included-card">
-      <div class="included-num">01</div>
-      <h4>Paket wählen & kaufen</h4>
-      <p>Wähle das Paket, das zu deiner aktuellen Situation passt. Du bekommst sofort Zugang zum PDF-Download.</p>
+<!-- ════════════════════ SO FUNKTIONIERT'S ════════════════════ -->
+<section id="steps">
+  <div class="blob"></div>
+  <div class="container">
+    <div class="steps-header reveal">
+      <span class="sec-label">So funktioniert's</span>
+      <h2>In 3 Schritten <em>online</em></h2>
     </div>
-    <div class="included-card">
-      <div class="included-num">02</div>
-      <h4>Schritt für Schritt umsetzen</h4>
-      <p>Folge den Anleitungen mit Screenshots und Vorlagen. Claude AI hilft dir bei jedem Schritt.</p>
-    </div>
-    <div class="included-card">
-      <div class="included-num">03</div>
-      <h4>In unter einer Woche online</h4>
-      <p>Am Ende hast du einen kompletten Business-Workspace — professionell, funktionsfähig und bereit für Kunden.</p>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num">01</div>
+        <h4>Paket wählen & kaufen</h4>
+        <p>Wähle das Paket, das zu deiner aktuellen Situation passt. Du bekommst sofort Zugang zum PDF-Download.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">02</div>
+        <h4>Schritt für Schritt umsetzen</h4>
+        <p>Folge den Anleitungen mit Screenshots und Vorlagen. Claude AI hilft dir bei jedem Schritt.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">03</div>
+        <h4>In unter einer Woche online</h4>
+        <p>Am Ende hast du einen kompletten Business-Workspace — professionell, funktionsfähig und bereit für Kunden.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ════════════════════ FAQ ════════════════════ -->
-<section class="product-faq">
-  <h2 class="faq-title">Häufige Fragen</h2>
-  <div class="faq-item open">
-    <button class="faq-q" onclick="toggleFaq(this)">Brauche ich Vorkenntnisse? <span class="faq-icon">+</span></button>
-    <div class="faq-a">Nein. Das Workbook ist für absolute Anfänger geschrieben. Du brauchst keine Programmierkenntnisse — Claude AI macht die technische Arbeit für dich.</div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen den Paketen? <span class="faq-icon">+</span></button>
-    <div class="faq-a">Basic bringt dich online (Website + Domain). Professional fügt E-Mail, CRM und einen Shop hinzu. Professional + Marketing gibt dir zusätzlich SEO, Social Media und eine komplette Marketing-Strategie mit KI-Prompts.</div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggleFaq(this)">Kann ich später upgraden? <span class="faq-icon">+</span></button>
-    <div class="faq-a">Ja. Du kannst jederzeit auf ein höheres Paket wechseln und zahlst nur die Differenz. Schreib mir einfach eine E-Mail.</div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggleFaq(this)">In welchem Format bekomme ich das Workbook? <span class="faq-icon">+</span></button>
-    <div class="faq-a">Als PDF — optimiert zum Lesen am Bildschirm und zum Ausdrucken. Mit interaktiven Links, Screenshots und Checklisten zum Abhaken.</div>
-  </div>
-  <div class="faq-item">
-    <button class="faq-q" onclick="toggleFaq(this)">Was kostet mich der Workspace monatlich? <span class="faq-icon">+</span></button>
-    <div class="faq-a">Die Tools selbst kosten ca. 20–40 € pro Monat (Claude Pro, Domain, optional Google Workspace). Hosting mit Vercel und GitHub sind kostenlos.</div>
+<section id="faq">
+  <div class="blob"></div>
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-left reveal">
+        <span class="sec-label">FAQ</span>
+        <h2>Häufige <em>Fragen</em></h2>
+        <p class="faq-desc">Noch unsicher? Hier findest du Antworten auf die wichtigsten Fragen.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Brauche ich Vorkenntnisse?</span>
+            <span class="faq-q-icon">+</span>
+          </button>
+          <div class="faq-a">Nein. Das Workbook ist für absolute Anfänger geschrieben. Du brauchst keine Programmierkenntnisse — Claude AI macht die technische Arbeit für dich.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Was ist der Unterschied zwischen den Paketen?</span>
+            <span class="faq-q-icon">+</span>
+          </button>
+          <div class="faq-a">Basic bringt dich online (Website + Domain). Professional fügt E-Mail, CRM und einen Shop hinzu. Professional + Marketing gibt dir zusätzlich SEO, Social Media und eine komplette Marketing-Strategie mit KI-Prompts.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Kann ich später upgraden?</span>
+            <span class="faq-q-icon">+</span>
+          </button>
+          <div class="faq-a">Ja. Du kannst jederzeit auf ein höheres Paket wechseln und zahlst nur die Differenz. Schreib mir einfach eine E-Mail.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">In welchem Format bekomme ich das Workbook?</span>
+            <span class="faq-q-icon">+</span>
+          </button>
+          <div class="faq-a">Als PDF — optimiert zum Lesen am Bildschirm und zum Ausdrucken. Mit interaktiven Links, Screenshots und Checklisten zum Abhaken.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Was kostet mich der Workspace monatlich?</span>
+            <span class="faq-q-icon">+</span>
+          </button>
+          <div class="faq-a">Die Tools selbst kosten ca. 20–40 € pro Monat (Claude Pro, Domain, optional Google Workspace). Hosting mit Vercel und GitHub sind kostenlos.</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ════════════════════ CTA BANNER ════════════════════ -->
-<section class="cta-banner">
-  <div class="cta-banner-inner">
-    <h2>Unsicher welches Paket?</h2>
-    <p>Mach den kostenlosen Online-Check und finde heraus, wo du gerade stehst — dann weißt du genau, welches Paket zu dir passt.</p>
-    <a href="online-check.html" class="cta-banner-btn">Kostenlosen Check starten →</a>
+<section id="cta-banner">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2>Unsicher welches <em>Paket?</em></h2>
+      <p>Mach den kostenlosen Online-Check und finde heraus, wo du gerade stehst — dann weißt du genau, welches Paket zu dir passt.</p>
+      <a href="online-check.html" class="cta-btn">Kostenlosen Check starten →</a>
+    </div>
   </div>
 </section>
 
@@ -744,6 +1000,14 @@ function toggleFaq(btn) {
   if (!isOpen) item.classList.add('open');
 }
 
+// Vergleich accordion toggle
+function toggleVgl(btn) {
+  var item = btn.closest('.vgl-item');
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.vgl-item').forEach(function(i) { i.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+}
+
 // Mobile nav
 var burger = document.getElementById('navBurger');
 var mobileMenu = document.getElementById('mobileMenu');
@@ -752,11 +1016,17 @@ burger.addEventListener('click', function(){
   mobileMenu.classList.toggle('open');
   document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
 });
-function closeMobile(){
-  burger.classList.remove('open');
-  mobileMenu.classList.remove('open');
-  document.body.style.overflow = '';
-}
+
+// Scroll reveal
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function(el) { observer.observe(el); });
+})();
 </script>
 <!-- HubSpot -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/147985028.js"></script>
