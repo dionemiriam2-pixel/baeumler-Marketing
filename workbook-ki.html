@@ -228,6 +228,43 @@ h1 em, h2 em { font-family: var(--serif); font-style: italic; }
 }
 .faq-item.open .faq-a { max-height: 300px; padding: 0 0 20px; }
 
+/* ── Für wen ── */
+.forwen-section { max-width: 900px; margin: 0 auto; padding: 0 40px 80px; }
+.forwen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.forwen-card {
+  background: var(--bg2); border-radius: var(--r); padding: 32px 28px;
+  border-left: 3px solid transparent;
+}
+.forwen-yes { border-left-color: var(--teal); }
+.forwen-no { border-left-color: var(--coral); }
+.forwen-title {
+  font-family: var(--heading); font-size: 18px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: -0.02em;
+  margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+}
+.forwen-yes .forwen-title { color: var(--teal); }
+.forwen-no .forwen-title { color: var(--coral); }
+.forwen-icon { font-size: 16px; }
+.forwen-list { display: flex; flex-direction: column; gap: 12px; }
+.forwen-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--text); line-height: 1.6;
+}
+.forwen-yes .forwen-list li::before {
+  content: '✓'; color: var(--teal); font-weight: 600; flex-shrink: 0; margin-top: 1px;
+}
+.forwen-no .forwen-list li::before {
+  content: '✕'; color: var(--coral); font-weight: 600; flex-shrink: 0; margin-top: 1px;
+}
+@media (max-width: 760px) {
+  .forwen-grid { grid-template-columns: 1fr; }
+  .forwen-section { padding: 0 24px 60px; }
+}
+@media (max-width: 480px) {
+  .forwen-section { padding: 0 16px 40px; }
+  .forwen-card { padding: 24px 20px; }
+}
+
 /* ── CTA banner ── */
 .cta-banner {
   max-width: 900px; margin: 0 auto; padding: 0 40px 80px;
@@ -568,6 +605,32 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
   </div>
   <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:28px;line-height:1.6"><span style="color:var(--coral);font-weight:600">P.S.</span> Eine Agentur berechnet für denselben Workspace 5.000–15.000 €. Hier bekommst du alles für unter 130 € — Schritt für Schritt erklärt.</p>
+</section>
+
+<!-- ════════════════════ FÜR WEN ════════════════════ -->
+<section class="forwen-section">
+  <div class="forwen-grid">
+    <div class="forwen-card forwen-yes">
+      <h3 class="forwen-title"><span class="forwen-icon">✓</span> Für dich, wenn:</h3>
+      <ul class="forwen-list">
+        <li>du dich selbstständig machen willst — oder gerade erst gestartet hast</li>
+        <li>du keine technischen Vorkenntnisse hast</li>
+        <li>du dein Business online aufbauen willst</li>
+        <li>du bereit bist, KI als Werkzeug zu nutzen</li>
+        <li>du Geld sparen willst und keine Agentur beauftragen möchtest</li>
+        <li>du Schritt-für-Schritt-Anleitungen liebst</li>
+      </ul>
+    </div>
+    <div class="forwen-card forwen-no">
+      <h3 class="forwen-title"><span class="forwen-icon">✕</span> Nicht für dich, wenn:</h3>
+      <ul class="forwen-list">
+        <li>du eine fertige Agentur-Website willst, ohne selbst etwas zu tun</li>
+        <li>du nichts Neues lernen möchtest</li>
+        <li>du bereits ein professionelles Online-Setup hast</li>
+        <li>du ein Budget von mehreren tausend Euro für eine Agentur hast</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <!-- ════════════════════ WAS DU BEKOMMST ════════════════════ -->
