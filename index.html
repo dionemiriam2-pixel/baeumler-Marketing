@@ -1552,7 +1552,7 @@ function submitKontakt(e){
   var last=parts.slice(1).join(' ')||'';
   fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/908c2aa2-11a7-439c-b2a7-207c37419536',{
     method:'POST',
-    headers:{'Content-Type':'application/json'},
+    headers:{'Content-Type':'application/json; charset=utf-8'},
     body:JSON.stringify({
       fields:[
         {name:'firstname',value:first},
@@ -1568,7 +1568,7 @@ function submitKontakt(e){
       if(typeof gtag==='function') gtag('event','contact_form_submitted',{event_category:'conversion',page:'home'});
       if(typeof fbq==='function') fbq('track','Lead',{content_name:'Kontaktformular'});
       window.location.href='danke.html';
-    }else{alert('Etwas ist schiefgelaufen. Bitte schreib mir direkt an hi@baeumlermarketing.de');}
+    }else{r.json().then(function(d){console.error('HubSpot Error:',d);alert('Etwas ist schiefgelaufen. Bitte schreib mir direkt an hi@baeumlermarketing.de');}).catch(function(){alert('Etwas ist schiefgelaufen. Bitte schreib mir direkt an hi@baeumlermarketing.de');});}
   }).catch(function(){alert('Verbindungsfehler. Bitte schreib mir direkt an hi@baeumlermarketing.de');});
   return false;
 }
@@ -1595,7 +1595,7 @@ function submitFooterNl(e){
   btn.disabled=true;btn.textContent='...';
   var email=document.getElementById('footer-nl-email').value.trim();
   fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/0ca9c402-9b0b-4b59-bb8f-23fe7bd65411',{
-    method:'POST',headers:{'Content-Type':'application/json'},
+    method:'POST',headers:{'Content-Type':'application/json; charset=utf-8'},
     body:JSON.stringify({
       fields:[{name:'email',value:email}],
       context:{pageUri:window.location.href,pageName:'Footer Newsletter'},

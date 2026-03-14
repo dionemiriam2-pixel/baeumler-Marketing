@@ -1,0 +1,891 @@
+
+=== KAPITEL 04 ===
+
+04
+Claude AI verstehen
+
+Das Herzstück dieses Workbooks. Claude ist nicht einfach ein Chatbot — Claude ist dein Entwickler, Texter und Assistent in einem.
+
+"Alles, was du nicht weißt, kannst du einfach fragen."
+[Foto / Bild Platzhalter]
+
+04 — Claude AI verstehen
+Ich habe in meinem Leben noch nie eine Zeile Code geschrieben. Diese ganzen Begriffe waren mir komplett fremd. Dann habe ich gesehen, wie jemand einer KI in normalem Deutsch sagt, was er haben will, und die KI baut eine komplette Website. Innerhalb von Minuten.
+
+Das war der Moment, in dem ich verstanden habe: Du musst nicht programmieren können. Du musst nur wissen, wie du mit Claude redest.
+Und genau das lernst du in diesem Kapitel. Wir fangen ganz am Anfang an — kein Vorwissen nötig. Am Ende wirst du wissen, was Claude kann, wie du es nutzt und welchen Modus du wofür brauchst. Nimm dir für dieses Kapitel ruhig etwas mehr Zeit — es ist die Grundlage für alles, was danach kommt.
+
+Erstmal ankommen: Claude ausprobieren
+Bevor wir irgendetwas einrichten, solltest du Claude erstmal kennenlernen. Öffne claude.ai, melde dich an und stell einfach eine Frage. Irgendeine. Das kann sein: „Was brauche ich alles, um mich als Coach selbstständig zu machen?“ Oder: „Erkläre mir, was eine Domain ist — so, als wäre ich 10.“
+Es geht darum, ein Gefühl dafür zu bekommen, wie Claude antwortet. Wie du Fragen stellst. Und dass du merkst: Das hier ist kein kompliziertes Programm. Das ist wie chatten — nur dass dein Gesprächspartner wirklich alles weiß.
+Teste ruhig verschiedene Sachen. Frag etwas Persönliches zu deinem Business. Lass dir einen Text schreiben. Bitte Claude, etwas zu erklären. Probiere aus, was passiert, wenn du nachfragst oder sagst „das ist mir zu kompliziert, erklär es einfacher“. Claude passt sich an.
+
+
+---BOX---
+Zeitspar-Tipp: Einfach lostesten
+Nimm dir 10 Minuten und stell Claude 5 verschiedene Fragen zu deinem Business. Frag nach deiner Zielgruppe, nach Ideen für deinen Markennamen, nach einem Slogan. Du wirst überrascht sein, wie gut die Antworten sind — und wie schnell du ein Gefühl für das Tool bekommst.
+---/BOX---
+
+
+Claude Free vs. Claude Pro — was lohnt sich?
+Claude gibt es in einer kostenlosen Version und als Pro-Abo. Wenn du Claude nur mal ausprobieren willst, reicht die Free-Version zum Testen. Aber für dieses Workbook — also wenn du wirklich dein Business damit aufbauen willst — empfehle ich dir Claude Pro.
+
+Claude Free (0 €):
+Du kannst Claude nutzen, aber es gibt ein Tageslimit. Nach einer bestimmten Anzahl an Nachrichten heißt es: „Du hast dein Limit erreicht, komm morgen wieder.“ Für gelegentliche Fragen reicht das. Aber wenn du gerade im Flow bist und deine Website baust, ist dieses Limit frustrierend.
+
+Claude Pro (~20 €/Monat):
+Deutlich höheres Limit, Zugang zu den besten Modellen und du kannst Projekte mit Wissensdatenbank anlegen. Außerdem bekommst du Zugang zu Cowork — und genau das brauchst du später für die Automatisierungen. Ehrlich gesagt: Für das, was Claude alles für dich erledigt, sind 20 Euro im Monat fast geschenkt.
+
+
+---BOX---
+Mein Tipp
+Starte mit Free, um Claude kennenzulernen. Sobald du merkst, dass du ans Limit stößt (und das wirst du), wechsle auf Pro. Du kannst jederzeit kündigen.
+---/BOX---
+
+
+Was du siehst, wenn du claude.ai öffnest
+Wenn du dich bei claude.ai anmeldest, siehst du eine übersichtliche Oberfläche. Lass dich davon nicht einschüchtern — es ist viel simpler, als es aussieht.
+
+Links: Die Seitenleiste
+Hier siehst du deine bisherigen Chats und Projekte. Du kannst jederzeit zu einem früheren Gespräch zurückkehren. Claude merkt sich innerhalb eines Chats alles, was ihr besprochen habt.
+
+Mitte: Das Chatfenster
+Hier tippst du deine Nachrichten ein und siehst Claudes Antworten. Ganz unten ist das Eingabefeld. Du kannst auch Dateien hochladen (Bilder, PDFs, Dokumente) — einfach per Drag & Drop ins Fenster ziehen.
+
+Oben: Modellauswahl
+Du kannst zwischen verschiedenen Claude-Modellen wählen. Für die meisten Aufgaben ist das Standard-Modell perfekt. Es gibt auch schnellere und leistungsfähigere Varianten — aber das ist am Anfang nicht wichtig.
+
+Artefakte: Wenn Claude etwas für dich erstellt
+Wenn du Claude bittest, einen längeren Text, eine Tabelle oder Code zu erstellen, öffnet sich rechts ein extra Bereich — ein sogenanntes Artefakt. Das ist wie ein Mini-Dokument direkt im Chat. Du kannst es kopieren, herunterladen oder weiterbearbeiten lassen. Wenn Claude zum Beispiel eine HTML-Seite für dich schreibt, siehst du direkt eine Vorschau, wie die Seite aussehen wird.
+
+Dein erstes Projekt anlegen
+Wenn du ein bisschen getestet hast, legen wir als Nächstes ein Projekt an. Ein Projekt ist wie ein eigener Arbeitsbereich in Claude — dort kannst du Dateien hochladen, Notizen speichern und Claude weiß bei jeder Frage automatisch, wer du bist und was du machst.
+
+So legst du ein Projekt an:
+1. Gehe auf claude.ai und klicke links auf „Projekte“
+2. Klicke auf „Neues Projekt“
+3. Gib deinem Projekt einen Namen — zum Beispiel den Namen deines Business
+4. Unter „Projektanweisungen“ schreibst du rein, wer du bist und was du machst
+Das ist wie eine Visitenkarte für Claude. Ab jetzt weiß Claude bei jeder Frage in diesem Projekt sofort, mit wem es redet.
+
+Was du in die Projektanweisung schreiben kannst:
+Deinen Namen und dein Business. Deine Zielgruppe. Deine Farben und Schriften. Deine Tonalität (locker, seriös, freundlich). Dein Angebot. Was du NICHT willst (z.B. kein Corporate-Deutsch). Je mehr Claude über dich weiß, desto besser werden die Antworten — von Anfang an, ohne dass du dich jedes Mal wiederholen musst.
+
+Wissensdatenbank: Dateien hochladen
+Du kannst in deinem Projekt auch Dateien hochladen — zum Beispiel dein Logo, deine Texte, Wettbewerber-Websites als PDF, deine Positionierung als Notiz. Claude liest alles mit und kann darauf zurückgreifen. Stell dir vor, du hast einen Mitarbeiter, der sich am ersten Tag durch alle deine Unterlagen liest und ab dann alles weiß.
+
+
+---BOX---
+Prompt: Projektanweisung erstellen
+Erstelle mir eine Projektanweisung für Claude. Mein Business: [Name]. Meine Dienstleistung: [was]. Meine Zielgruppe: [wer]. Meine Farben: [Hex-Codes]. Mein Stil: [modern/minimalistisch]. Formuliere das so, dass Claude bei jedem neuen Chat sofort weiß, wer ich bin und wie ich angesprochen werden möchte.
+---/BOX---
+
+
+Die drei Modi von Claude
+Claude hat drei verschiedene Arbeitsmodi. Jeder ist für andere Aufgaben gedacht. Stell es dir vor wie drei verschiedene Mitarbeiter in einem Büro:
+
+Modus 1: Claude Chat
+Das ist der Modus, den du gerade kennengelernt hast. Hier stellst du Fragen, lässt Texte schreiben, arbeitest an Strategien. Du kannst Projekte anlegen und dort Dateien hochladen. Wenn du sagst „Schreib mir einen Blogartikel über Yoga-Übungen für Anfänger“, erstellt Claude den Text direkt im Chat oder als Artefakt.
+Nutze Chat für: Texte schreiben, Ideen brainstormen, Fragen stellen, Prompts vorbereiten, Recherche, Strategien entwickeln, Inhalte korrigieren, Social-Media-Pläne erstellen.
+
+Modus 2: Claude Cowork
+Cowork ist wie ein Assistent, der an deinem Computer sitzt und Aufgaben erledigt. Du sagst Claude was er tun soll, und er macht es — im Browser, vor deinen Augen. Du kannst dabei zuschauen. Das Besondere: Über Konnektoren kann Claude direkt in Tools wie Canva, Google oder HubSpot für dich arbeiten. Cowork läuft über die Claude Desktop App, die du auf deinem Computer installierst.
+Nutze Cowork für: HubSpot einrichten, E-Mail-Signaturen erstellen, Canva-Designs bauen, Gmail konfigurieren, Formulare ausfüllen, repetitive Aufgaben abarbeiten, Excel-Dateien erstellen, Präsentationen bauen.
+
+Modus 3: Claude Code
+Dein persönlicher Programmierer. Claude Code arbeitet direkt in deinen Dateien — entweder in VS Code oder über das Terminal auf deinem Computer. Du sagst in normalem Deutsch was du willst, und Claude schreibt den Code. Du musst keinen Code verstehen oder lesen können. Claude Code ist das Werkzeug, mit dem du deine Website baust, änderst und erweiterst.
+Nutze Code für: Website bauen und ändern, Bilder einfügen, Kontaktformulare programmieren, Animationen hinzufügen, Fehler beheben, neue Seiten erstellen. Wie das genau funktioniert, erkläre ich dir ausführlich in Kapitel 05.
+
+
+---BOX---
+Tipp: Welchen Modus wofür?
+Faustregel: Wenn du eine Frage hast oder einen Text brauchst → Chat. Wenn Claude etwas in deinem Browser tun soll (klicken, einrichten, ausfüllen) → Cowork. Wenn Claude an deinen Website-Dateien arbeiten soll → Code. Im Laufe dieses Workbooks wirst du alle drei Modi benutzen — und bald ganz intuitiv wissen, wann du welchen brauchst.
+---/BOX---
+
+
+Cowork kennenlernen: So funktioniert es
+Cowork verdient eine eigene Erklärung, weil es für viele das beeindruckendste Feature ist. Ich erinnere mich noch, wie ich das erste Mal zugeschaut habe, wie Claude meinen Browser öffnet, sich durch HubSpot klickt und Formulare einrichtet — während ich daneben saß und Kaffee getrunken habe. Das fühlt sich ein bisschen surreal an, aber es funktioniert.
+
+Schritt 1: Claude Desktop App herunterladen
+Cowork läuft nicht im Browser, sondern über eine eigene App auf deinem Computer. Gehe auf claude.ai/download und lade die Desktop App für deinen Computer herunter (Mac oder Windows). Installieren, öffnen, mit deinem Claude-Konto anmelden.
+
+Schritt 2: Cowork starten
+Öffne die Claude Desktop App. Links oben siehst du verschiedene Bereiche — klicke auf „Cowork“. Du siehst ein Chat-Fenster, aber anders als im normalen Chat kann Claude hier auf deinen Computer zugreifen.
+
+Schritt 3: Ordner auswählen
+Claude fragt dich, auf welchen Ordner er zugreifen darf. Wähle den Ordner aus, in dem deine Website-Dateien liegen (oder in dem du Dateien erstellen möchtest). Claude kann nur auf diesen einen Ordner zugreifen — nicht auf deinen ganzen Computer. Das ist eine Sicherheitsfunktion.
+
+Schritt 4: Konnektoren verbinden
+Das ist der spannende Teil. Konnektoren sind Verbindungen zu anderen Tools. Du kannst Claude zum Beispiel mit Canva verbinden — dann kann Claude direkt in Canva Designs für dich erstellen. Oder mit Google — dann kann Claude in deinem Google Workspace arbeiten. Oder mit HubSpot — dann richtet Claude dein CRM ein.
+So verbindest du einen Konnektor: In Cowork siehst du unten ein Stecker-Symbol oder den Bereich „Konnektoren“. Klicke darauf, wähle den Dienst aus (z.B. Canva) und melde dich mit deinem Konto an. Fertig. Ab jetzt kann Claude in diesem Tool für dich arbeiten.
+
+Verfügbare Konnektoren (die du nach und nach verbinden wirst):
+☐  Canva — für Logos, Social-Media-Posts, Designs
+☐  Google — für Gmail, Google Workspace, Google Drive
+☐  HubSpot — für dein CRM, Kontaktformulare, Newsletter
+
+Schritt 5: Einfach loslegen
+Jetzt schreibst du Claude einfach, was er tun soll. Zum Beispiel: „Erstelle mir eine E-Mail-Signatur in Gmail mit meinem Logo und meinen Kontaktdaten.“ Oder: „Erstelle mir in Canva drei Instagram-Post-Vorlagen in meinen Brand-Farben.“ Claude fragt nach, wenn er etwas nicht weiß, zeigt dir was er vorhat, und arbeitet los.
+
+
+---BOX---
+Prompt: Erste Cowork-Aufgabe
+Erstelle mir in Canva ein einfaches Logo für „[Markenname]“. Verwende die Farben [Hex-Codes]. Stil: modern und minimalistisch. Erstelle 3 Varianten und exportiere sie als PNG.
+---/BOX---
+
+
+
+---BOX---
+Prompt: Cowork-Aufgabenliste
+Hier ist meine To-Do-Liste:
+1) Erstelle eine E-Mail-Signatur in Gmail mit Logo und Kontaktdaten
+2) Richte ein Kontaktformular in HubSpot ein
+3) Erstelle in Canva eine Instagram-Post-Vorlage
+Starte mit Punkt 1.
+---/BOX---
+
+
+Dein Projektordner — wo alles zusammenkommt
+
+Jetzt kommt ein Punkt, der am Anfang vielleicht etwas abstrakt klingt, aber später extrem wichtig wird: Dein Projektordner. Lies diesen Abschnitt aufmerksam — wenn du den Projektordner einmal verstanden hast, ergibt alles andere viel mehr Sinn.
+
+Stell dir deinen Projektordner vor wie einen Aktenordner auf deinem Schreibtisch — nur digital. In diesem Ordner liegen am Ende alle Dateien deiner Website: die Startseite, das Design, deine Bilder, deine Texte. Alles an einem Ort.
+
+Warum ist das wichtig?
+Claude Code arbeitet direkt in diesem Ordner. Wenn du Claude sagst „Erstelle mir eine Website“, legt Claude die Dateien genau dort ab. Und wenn du deine Website später live schalten willst (Kapitel 10), lädst du genau diesen Ordner auf GitHub hoch — und von dort geht er automatisch zu Vercel, wo deine Website dann für alle sichtbar ist.
+
+So erstellst du den Ordner:
+1. Öffne den Datei-Explorer auf deinem Computer (Windows: Windows-Taste + E, Mac: Finder)
+2. Gehe zu einem Ort, wo du ihn leicht wiederfindest — zum Beispiel auf den Desktop oder in „Dokumente“
+3. Erstelle einen neuen Ordner und nenne ihn so wie dein Business, z.B. „mein-business“ oder „baeumler-marketing“
+4. Verwende nur Kleinbuchstaben und Bindestriche, keine Leerzeichen, keine Umlaute — das vermeidet später Probleme
+
+Der Weg von deinem Ordner ins Internet:
+Dein Ordner auf deinem Computer
+→ Claude Code arbeitet darin (erstellt und ändert Dateien)
+→ Du lädst den Ordner auf GitHub hoch (dein Online-Backup)
+→ Vercel holt sich den Code von GitHub und macht deine Website live
+→ Deine Domain (z.B. deinbusiness.de) zeigt auf Vercel
+
+Das klingt nach vielen Schritten, aber das meiste davon passiert automatisch. Du musst es nur einmal einrichten — und danach wird jede Änderung, die du mit Claude machst, automatisch auf deiner Website sichtbar. So arbeiten auch professionelle Entwickler — und dank Claude kannst du das jetzt auch.
+
+Was in deinem Projektordner liegen wird:
+index.html — das ist deine Startseite. Die Datei MUSS so heißen, damit Browser sie als Startseite erkennen.
+style.css — hier steckt das Design: Farben, Schriften, Abstände. Alles, was deine Website hübsch macht.
+script.js — hier steckt alles Interaktive: Animationen, Menüs, Formulare, Scroll-Effekte.
+images/ — ein Unterordner für alle deine Bilder. Deine Fotos, dein Logo, alles was auf der Website angezeigt werden soll, muss hier rein.
+
+
+---BOX---
+Wichtig: Bilder müssen im Ordner liegen
+Wenn du ein Foto auf deiner Website zeigen willst, reicht es nicht, es irgendwo auf deinem Computer zu haben. Es muss in deinem Projektordner liegen (am besten im Unterordner images/). Nur dann kann Claude Code es einbauen — und nur dann wird es später auf deiner Website angezeigt. Denk an deinen Projektordner wie an einen Koffer: Nur was drin liegt, kommt mit auf die Reise.
+---/BOX---
+
+
+Keine Sorge — du musst diese Dateien nicht selbst erstellen oder verstehen. Claude Code macht das alles für dich. Aber es hilft zu wissen, was wo liegt, damit du später nicht durcheinander kommst.
+
+
+---BOX---
+Prompt: Projektordner vorbereiten
+Erstelle mir auf meinem Computer einen Projektordner für meine Website. Der Ordner soll heißen [Markenname]. Erstelle darin die Grundstruktur: eine leere index.html, eine style.css, eine script.js und einen Unterordner images/. Erkläre mir kurz, wofür jede Datei da ist.
+---/BOX---
+
+
+GitHub und Vercel — kurz angerissen
+Ich möchte dir zwei Tools kurz vorstellen, die später wichtig werden. Du musst sie jetzt noch nicht einrichten — das kommt in Kapitel 10. Aber damit du den Zusammenhang verstehst:
+
+GitHub — dein Online-Backup für Code
+GitHub ist wie Google Drive, aber für Code. Du lädst deinen Projektordner dort hoch, und GitHub speichert jede Version. Wenn du mal etwas kaputt machst, kannst du jederzeit zurückgehen. Außerdem brauchst du GitHub, damit Vercel an deinen Code kommt.
+
+Vercel — dein kostenloses Hosting
+Vercel ist der Dienst, der deine Website ins Internet stellt. Vercel verbindet sich mit GitHub, holt sich deinen Code und macht daraus eine live Website. Jedes Mal, wenn du etwas änderst und auf GitHub hochlädst, aktualisiert Vercel automatisch deine Website. Kostenlos.
+
+Der Ablauf ist also: Du arbeitest mit Claude Code an deinen Dateien → lädst auf GitHub hoch → Vercel macht es live. Das Einrichten dauert einmalig ca. 15 Minuten — und danach läuft alles automatisch.
+
+So schreibst du einen guten Prompt
+Ein guter Prompt ist wie eine gute Briefing-Mail: Je klarer du sagst, was du willst, desto besser das Ergebnis. Und das Schöne ist: Du musst keine Fachsprache benutzen. Normales Deutsch reicht völlig.
+Ein Prompt hat vier Bausteine:
+
+1. Sag Claude WER du bist:
+„Ich bin selbstständig im Bereich [X], meine Zielgruppe ist [Y].“
+2. Sag WAS du willst:
+„Erstelle mir...“, „Richte mir ein...“, „Erkläre mir...“
+3. Sag WIE es sein soll:
+„Modern, auf Deutsch, für Anfänger verständlich, in meinen Brand-Farben.“
+4. Sag was du NICHT willst:
+„Kein Corporate-Sprech, keine Stockfotos, keine Fachbegriffe.“
+
+Je mehr Kontext du gibst, desto besser das Ergebnis. Wenn du nur sagst „Schreib mir einen Text“, bekommst du irgendeinen Text. Wenn du sagst „Schreib mir einen Instagram-Post für mein Yoga-Studio in Köln, Zielgruppe Frauen 25–40, locker und einladend, mit Emoji, maximal 150 Wörter“ — dann bekommst du genau das.
+
+Noch ein paar Tricks:
+Wenn die Antwort zu lang ist: „Fasse das in 3 Sätzen zusammen.“
+Wenn die Antwort zu allgemein ist: „Konkretere Beispiele bitte, speziell für [meine Branche].“
+Wenn der Ton nicht passt: „Schreib das nochmal, aber lockerer/professioneller/wärmer.“
+Wenn du nicht weißt, was du fragen sollst: „Was sollte ich als [Beruf] als Erstes einrichten, wenn ich mich selbstständig mache? Stell mir die richtigen Fragen.“
+
+
+---BOX---
+Prompt: Fragen stellen
+Erkläre mir in einfachen Worten, was [Begriff] bedeutet. Ich habe keine technischen Vorkenntnisse. Nutze Beispiele aus dem Alltag.
+---/BOX---
+
+
+
+---BOX---
+Prompt: Prompt verbessern lassen
+Ich möchte [Aufgabe]. Schreibe mir einen detaillierten Prompt, den ich in Claude eingeben kann, damit das Ergebnis richtig gut wird. Denk an alle Details, die Claude wissen muss.
+---/BOX---
+
+
+
+---BOX---
+Prompt: Claude als Berater nutzen
+Ich mache mich als [Beruf] selbstständig. Meine Zielgruppe ist [wer]. Stell mir 10 Fragen, die ich beantworten sollte, bevor ich mit meiner Website starte. Frag mich eine Frage nach der anderen.
+---/BOX---
+
+
+Was tun, wenn Claude falsch liegt?
+Claude ist beeindruckend gut, aber nicht perfekt. Manchmal macht Claude Fehler — er erfindet einen Link, der nicht existiert, oder gibt eine Information, die nicht ganz stimmt. Das passiert, und das ist okay. Wichtig ist, dass du weißt, wie du damit umgehst.
+
+Erstens: Vertraue, aber prüfe.
+Wenn Claude dir sagt „Gehe auf diese Website“, klicke den Link ruhig an — aber wenn er nicht funktioniert, sag es Claude. Claude lernt aus deinem Feedback innerhalb des Gesprächs.
+
+Zweitens: Sag einfach, was falsch ist.
+„Der Link funktioniert nicht.“ „Das stimmt so nicht, weil...“ „Das war nicht das, was ich meinte. Ich wollte...“ Claude entschuldigt sich und macht es besser. Je klarer du sagst, was nicht passt, desto schneller bekommst du das richtige Ergebnis.
+
+Drittens: Bei wichtigen Sachen doppelt prüfen.
+Rechtliche Texte (Impressum, Datenschutz) immer mit einem Generator wie e-recht24.de erstellen — Claude kann das Ergebnis dann einbauen. Preise, Telefonnummern, Adressen solltest du immer selbst prüfen, bevor sie auf deiner Website landen.
+
+Was Claude kann — und was nicht
+Claude kann fast alles, was mit Text, Code, Strategie und Organisation zu tun hat. Aber es gibt ein paar Dinge, die Claude nicht kann — und die solltest du kennen.
+
+Claude kann:
+Texte schreiben (Website, Blog, Social Media, Newsletter), Websites programmieren (komplett in HTML/CSS/JS), E-Mails formulieren, Strategien entwickeln, Designs in Canva erstellen (über Cowork), HubSpot einrichten, Formulare bauen, Code schreiben und erklären, recherchieren, Tabellen erstellen, Daten analysieren, deine Ideen in konkrete Schritte verwandeln.
+
+Claude kann nicht:
+Echte Fotos von dir machen (du brauchst eigene Fotos oder Stockbilder), Passwörter für dich eingeben, Bankdaten verarbeiten, rechtlich bindende Beratung geben. Bei Impressum und Datenschutz nutze immer einen Generator (wie e-recht24.de) — Claude kann das Ergebnis dann auf deiner Website einbauen.
+
+Kurz zum Datenschutz
+Eine berechtigte Frage: Ist das sicher, wenn ich Claude meine Business-Informationen gebe? Die kurze Antwort: Ja, grundsätzlich schon. Claude speichert deine Chats nur für dich — sie werden nicht veröffentlicht oder für andere Nutzer sichtbar gemacht.
+Trotzdem ein paar Grundregeln: Gib keine Passwörter, Bankdaten oder Steuernummern in Claude ein. Teile keine vertraulichen Kundendaten. Nutze Claude für dein Business, deine Texte, dein Marketing — aber nicht für hochsensible Daten.
+
+Zusammenfassung: Das nimmst du mit
+Du weißt jetzt, was Claude ist, wie die Oberfläche aussieht, warum Claude Pro sich lohnt und welchen Modus du wofür brauchst. Du hast ein Projekt angelegt, einen Projektordner verstanden und weißt, wie du gute Prompts schreibst. Damit hast du das wichtigste Werkzeug dieses Workbooks in der Hand.
+
+
+Checkliste Kapitel 04:
+☐  Claude Free getestet und ausprobiert
+☐  Claude Pro Abo abgeschlossen (oder geplant)
+☐  Erstes Projekt angelegt mit Projektanweisung
+☐  Wissensdatenbank: Erste Dateien hochgeladen
+☐  Die drei Modi verstanden (Chat, Cowork, Code)
+☐  Claude Desktop App heruntergeladen
+☐  Cowork geöffnet und mindestens einen Konnektor verbunden
+☐  Projektordner auf dem Computer erstellt
+☐  Ordnerstruktur verstanden (index.html, style.css, script.js, images/)
+☐  Mindestens 5 verschiedene Prompts ausprobiert
+
+
+=== KAPITEL 05 ===
+
+05
+VS Code & Projektstruktur
+
+VS Code klingt technischer als es ist. Es ist einfach das Programm, in dem deine Website-Dateien liegen und in dem Claude Code für dich arbeitet.
+
+"Du musst keinen Code verstehen. Du redest, Claude baut."
+[Foto / Bild Platzhalter]
+
+05 — VS Code einrichten
+In Kapitel 04 hast du Claude kennengelernt und deinen Projektordner erstellt. Jetzt richten wir VS Code ein — das Programm, in dem Claude Code direkt an deinen Website-Dateien arbeitet. VS Code ist ein kostenloser Code-Editor, den Millionen von Entwicklern weltweit nutzen. Für dich ist er vor allem eins: das Fenster, durch das du siehst, was Claude für dich baut.
+
+Schritt 1: VS Code herunterladen
+Gehe auf code.visualstudio.com und lade die kostenlose Version herunter. Installieren, öffnen, fertig. Das Programm sieht am Anfang vielleicht kompliziert aus mit den vielen Bereichen — aber du brauchst nur zwei davon: den Datei-Explorer links und das Terminal unten.
+
+Schritt 2: Projektordner in VS Code öffnen
+Öffne VS Code und klicke oben auf „Datei“ → „Ordner öffnen“. Wähle den Projektordner aus, den du in Kapitel 04 erstellt hast. Links siehst du jetzt den Inhalt deines Ordners — das ist dein Datei-Explorer. Wenn du Dateien erstellst oder änderst, erscheinen sie hier.
+
+Schritt 3: Das Terminal — was ist das?
+Das Terminal ist das schwarze Fenster unten in VS Code. Hier tippst du Befehle ein — und genau hier startest du auch Claude Code. Keine Sorge, du musst keine Befehle auswendig lernen. Du tippst genau einen Befehl ein, und ab dann redest du in normalem Deutsch.
+So öffnest du das Terminal: Klicke oben auf „Ansicht“ → „Terminal“. Oder nutze die Tastenkombination: Strg + ` (das Häkchen neben der 1-Taste). Unten öffnet sich ein dunkler Bereich — das ist dein Terminal.
+
+Schritt 4: Claude Code installieren
+Jetzt installieren wir Claude Code. Tippe ins Terminal folgenden Befehl und drücke Enter:
+npm install -g @anthropic-ai/claude-code
+Falls „npm“ nicht erkannt wird, musst du zuerst Node.js installieren. Gehe dazu auf nodejs.org, lade die LTS-Version herunter und installiere sie. Danach funktioniert der Befehl oben.
+
+Schritt 5: Claude Code starten
+Nachdem die Installation fertig ist, tippst du ins Terminal einfach:
+claude
+Claude meldet sich — und ab jetzt kannst du in normalem Deutsch sagen, was du willst. „Erstelle mir eine einfache Startseite mit meinem Firmennamen und meinen Farben.“ Claude erstellt die Dateien in deinem Projektordner, und du siehst sie sofort links im Datei-Explorer.
+
+Schritt 6: Ordnerstruktur verstehen
+Claude wird automatisch die richtigen Dateien erstellen. Aber damit du verstehst, was passiert:
+index.html = deine Startseite. Die Datei muss genau so heißen.
+style.css = das Design (Farben, Schriften, Abstände).
+script.js = interaktive Funktionen (Menüs, Animationen, Formulare).
+images/ = ein Ordner für alle deine Bilder.
+
+Schritt 7: Deine Website im Browser ansehen
+Klicke im Datei-Explorer links auf „index.html“ mit der rechten Maustaste und wähle „Mit Live Server öffnen“ (falls die Extension installiert ist) oder öffne die Datei einfach im Browser. Du siehst sofort, wie deine Website aussieht. Jede Änderung, die Claude macht, kannst du direkt sehen.
+
+
+---BOX---
+Keine Angst vor Code
+Ich sage es nochmal, weil es so wichtig ist: Du musst keinen Code lesen oder verstehen können. Du sagst Claude einfach in ganz normalen Sätzen, was du willst. „Mach die Überschrift größer.“ „Ändere die Hintergrundfarbe zu Weiß.“ „Füge ein Kontaktformular ein.“ Claude versteht dich und ändert den Code für dich. Du siehst nur das Ergebnis im Browser.
+---/BOX---
+
+
+Was sind Extensions — und welche brauchst du?
+VS Code ist von Haus aus ein schlankes Programm. Die eigentliche Power kommt durch sogenannte Extensions — das sind kleine Zusatz-Programme, die du direkt in VS Code installieren kannst. Stell dir das vor wie Apps auf deinem Smartphone: VS Code ist das Handy, und die Extensions sind die Apps, die es erst richtig nützlich machen.
+
+Wie installierst du eine Extension?
+Klicke in VS Code links auf das Symbol mit den vier kleinen Quadraten (es sieht aus wie ein Puzzle-Teil). Das ist der Extensions-Bereich. Oben siehst du ein Suchfeld — tippe dort den Namen der Extension ein. Klicke bei der richtigen Extension auf den blauen Button „Install“. Fertig. Die Extension ist sofort aktiv, du musst nichts weiter tun.
+
+Diese 4 Extensions brauchst du:
+
+1. German Language Pack
+Was es macht: VS Code ist standardmäßig auf Englisch. Mit dem German Language Pack wird die gesamte Oberfläche auf Deutsch umgestellt — alle Menüs, Einstellungen und Hinweise.
+Warum du es brauchst: Wenn du kein Englisch kannst oder dich einfach wohler fühlst mit deutschen Menüs, ist das dein erster Schritt. Nach der Installation fragt VS Code dich automatisch, ob du auf Deutsch wechseln möchtest — klicke auf „Ja“ und starte VS Code einmal neu.
+
+2. Live Server
+Was es macht: Live Server öffnet deine Website in deinem Browser und zeigt dir jede Änderung in Echtzeit an. Sobald Claude eine Datei ändert, aktualisiert sich die Seite im Browser automatisch — ohne dass du irgendetwas tun musst.
+Warum du es brauchst: Ohne Live Server müsstest du nach jeder Änderung die Seite im Browser manuell neu laden. Mit Live Server siehst du sofort, was passiert. Das ist besonders praktisch, wenn du Claude sagst „Mach die Schrift größer“ und direkt sehen willst, wie es aussieht.
+So nutzt du es: Klicke mit der rechten Maustaste auf deine index.html-Datei im Datei-Explorer (links in VS Code) und wähle „Open with Live Server“. Dein Browser öffnet sich automatisch.
+
+3. Prettier — Code Formatter
+Was es macht: Prettier formatiert deinen Code automatisch schön und einheitlich. Das heißt: Einrückungen stimmen, Abstände sind sauber, und alles sieht ordentlich aus.
+Warum du es brauchst: Auch wenn Claude den Code schreibt — manchmal sieht der Code etwas unordentlich aus. Prettier räumt das automatisch auf. Du merkst den Unterschied vielleicht nicht direkt, aber es hilft Claude, den Code besser zu lesen und weniger Fehler zu machen. Einmal installieren, nie wieder drüber nachdenken.
+
+4. Claude Code for VS Code
+Was es macht: Diese Extension bringt Claude direkt in VS Code. Statt Claude nur über das Terminal oder über claude.ai zu nutzen, kannst du direkt in deinem Editor mit Claude arbeiten. Du siehst Claudes Antworten neben deinem Code und kannst ihm direkt sagen, was er ändern soll.
+Warum du es brauchst: Es ist die komfortabelste Art, mit Claude Code zu arbeiten. Du musst nicht zwischen Fenstern hin- und herspringen — alles passiert an einem Ort. Claude sieht deinen Code, du siehst seine Änderungen, und du kannst per Chat sagen was du willst.
+
+
+---BOX---
+Tipp: Nicht übertreiben
+Es gibt Tausende Extensions für VS Code. Installiere am Anfang nur diese vier. Du kannst später immer noch welche hinzufügen. Zu viele Extensions machen VS Code langsamer und unübersichtlicher. Weniger ist mehr.
+---/BOX---
+
+
+Gut zu wissen: Farben und Symbole in VS Code
+Wenn du VS Code öffnest, wirst du merken, dass bestimmte Dateien und Texte farbig markiert sind. Das ist kein Fehler — das ist eine Hilfe. VS Code nutzt Farben, um dir zu zeigen, was gerade passiert.
+
+Farben neben Dateinamen (links im Explorer):
+Grün = Diese Datei ist neu und wurde noch nicht gespeichert/hochgeladen.
+Gelb/Orange = Diese Datei wurde verändert seit dem letzten Speichern.
+Grau = Alles normal, keine Änderungen.
+
+Wellenlinien unter dem Code:
+Rote Wellenlinie = Da ist ein Fehler. Etwas stimmt nicht mit dem Code. Keine Panik — sag einfach Claude: „Ich habe eine rote Markierung in meiner Datei. Kannst du den Fehler finden und beheben?“
+Gelbe Wellenlinie = Eine Warnung. Kein echter Fehler, aber etwas könnte besser sein. Meistens kannst du das ignorieren.
+
+Die Zahlen unten links:
+Unten links in VS Code siehst du manchmal kleine Zahlen mit Symbolen. Das zeigt dir, wie viele Fehler (Kreuz) und Warnungen (Dreieck) in deinem Projekt sind. Null ist perfekt. Wenn da eine Zahl steht, frag Claude: „Ich habe Fehler in meinem Projekt. Kannst du die alle fixen?“
+
+Speichern nicht vergessen!
+Das klingt banal, aber es ist einer der häufigsten Anfängerfehler: Wenn du eine Datei in VS Code änderst (oder Claude sie ändert), musst du sie speichern, damit die Änderung wirksam wird.
+
+
+So speicherst du:
+Strg + S (Windows) oder Cmd + S (Mac). Das war’s. Mach dir das zur Gewohnheit — nach jeder Änderung einmal Strg + S drücken.
+
+Du erkennst, ob eine Datei ungespeicherte Änderungen hat, an einem weißen Punkt neben dem Dateinamen oben im Tab. Sobald du speicherst, verschwindet der Punkt.
+
+
+---BOX---
+Tipp: Auto-Save aktivieren
+Du kannst VS Code so einstellen, dass Dateien automatisch gespeichert werden. Gehe auf Datei → Einstellungen → suche nach „Auto Save“ und stelle es auf „afterDelay“. Dann sparst du dir das manuelle Speichern komplett.
+---/BOX---
+
+
+Live Server ist nicht gleich „live im Internet“
+Das ist eine wichtige Unterscheidung, die am Anfang oft verwirrt: Wenn du deine Website mit Live Server im Browser anschaust, ist sie NICHT im Internet sichtbar. Nur du kannst sie sehen, auf deinem Computer.
+
+Live Server erstellt einen lokalen Server — das heißt, dein Computer spielt für einen Moment „Webserver“. Die Adresse im Browser sieht dann so aus: http://127.0.0.1:5500 oder http://localhost:5500. Das ist nur deine Maschine. Niemand sonst kann das sehen.
+
+Damit deine Website wirklich für alle sichtbar ist, musst du sie erst „live schalten“. Das passiert in Kapitel 10 mit GitHub und Vercel. Bis dahin arbeitest du in Ruhe lokal — du kannst nichts kaputt machen, niemand sieht deine Baustelle.
+
+
+---BOX---
+Das ist sogar ein Vorteil
+Lokal arbeiten bedeutet: Du kannst in Ruhe experimentieren, Fehler machen, Dinge ausprobieren — ohne dass irgendjemand es sieht. Erst wenn du zufrieden bist, schaltest du die Seite online. Kein Stress, kein Druck.
+---/BOX---
+
+
+Was tun, wenn etwas nicht klappt?
+Technik macht nicht immer das, was man will. Hier sind die häufigsten Probleme und wie du sie löst:
+
+Problem: „npm“ wird nicht erkannt
+Lösung: Du musst zuerst Node.js installieren. Gehe auf nodejs.org, lade die LTS-Version (die linke, grüne) herunter und installiere sie. Danach VS Code komplett schließen und neu öffnen. Jetzt sollte npm funktionieren.
+
+Problem: Live Server zeigt eine leere Seite
+Lösung: Stelle sicher, dass deine Datei „index.html“ heißt (nicht „Index.html“ oder „index.htm“). Prüfe, ob die Datei im richtigen Ordner liegt. Klicke mit der rechten Maustaste auf genau die index.html-Datei und wähle „Open with Live Server“.
+
+Problem: Claude antwortet nicht im Terminal
+Lösung: Prüfe, ob du im richtigen Ordner bist (der Projektordner muss in VS Code geöffnet sein). Tippe nochmal „claude“ und drücke Enter. Falls eine Fehlermeldung kommt, kopiere sie und frage Claude auf claude.ai: „Ich bekomme diese Fehlermeldung im Terminal. Was muss ich tun?“
+
+Problem: VS Code sieht anders aus als beschrieben
+Lösung: VS Code aktualisiert sich regelmäßig, deshalb kann die Oberfläche leicht anders aussehen. Die Grundfunktionen bleiben aber gleich. Wenn du etwas nicht findest, nutze die Suchfunktion: Drücke Strg + Shift + P (oder Cmd + Shift + P auf Mac) und tippe, was du suchst, z.B. „Terminal“ oder „Extensions“.
+
+
+---BOX---
+Prompt: Bei Problemen
+Ich habe folgendes Problem in VS Code: [Beschreibe das Problem oder kopiere die Fehlermeldung]. Erkläre mir Schritt für Schritt, was ich tun muss, um das zu lösen. Ich bin Anfängerin und habe keine Programmierkenntnisse.
+---/BOX---
+
+
+
+---BOX---
+Prompt: VS Code & Claude Code einrichten
+Ich habe gerade VS Code installiert und einen leeren Ordner erstellt. Erkläre mir Schritt für Schritt was ich jetzt machen muss um Claude Code zu installieren und mein erstes Projekt zu starten. Erkläre jeden Schritt so, als hätte ich noch nie ein Terminal benutzt.
+---/BOX---
+
+
+
+---BOX---
+Prompt: Erste Website erstellen
+Erstelle mir eine einfache Startseite für mein Business „[Name]“. Farben: [Hex-Codes]. Stil: modern und clean. Die Seite soll haben: eine große Überschrift mit meinem Namen, einen kurzen Text über mich, und einen Button „Kontakt“. Responsive für mobile Geräte.
+---/BOX---
+
+
+Checkliste Kapitel 05:
+☐  VS Code heruntergeladen und installiert
+☐  German Language Pack installiert und VS Code auf Deutsch umgestellt
+☐  Live Server Extension installiert
+☐  Prettier Extension installiert
+☐  Claude Code for VS Code Extension installiert
+☐  Projektordner in VS Code geöffnet
+☐  Terminal gefunden und geöffnet
+☐  Node.js installiert (falls nötig)
+☐  Claude Code installiert (npm install -g @anthropic-ai/claude-code)
+☐  Claude Code gestartet (claude im Terminal eingegeben)
+☐  Erste Testseite erstellt und im Browser angesehen
+
+06
+Website-Template finden & anpassen
+
+Du musst das Rad nicht neu erfinden. Es gibt Tausende professionelle Vorlagen im Internet — viele kostenlos.
+
+"Eine Agentur kostet 5.000€. Dein Weg: 0€ + Claude."
+[Foto / Bild Platzhalter]
+
+
+=== KAPITEL 06 ===
+
+06 — Website-Template finden & anpassen
+Ich wollte eine richtig gute Website. Nicht so eine Standard-Baukasten-Seite wie bei Wix oder Jimdo, wo man sofort sieht, dass es ein Baukasten ist. Sondern etwas Modernes, Interaktives, Professionelles.
+Das Problem: Wenn du das von einer Agentur bauen lässt, zahlst du schnell 5.000 Euro aufwärts. Die Lösung: Du nimmst ein professionelles Template als Grundlage und lässt Claude den Rest machen.
+
+Was ist ein Template?
+Ein Template ist eine fertige Website-Vorlage. Jemand hat das Design, die Struktur und den Code schon gebaut — du musst nur noch deine Inhalte einsetzen. Stell dir das vor wie ein möbliertes Apartment: Du ziehst ein und stellst deine Sachen rein, statt alles von Grund auf zu bauen.
+
+Wo findest du Templates?
+
+Quelle 1: Template-Seiten (kostenlos)
+Das sind Websites, die hunderte fertige HTML-Templates zum Download anbieten. Du lädst einen ZIP-Ordner herunter, entpackst ihn, und hast sofort alle Dateien für eine komplette Website.
+Die besten Seiten:
+• 21st.dev — Sehr moderne, animierte Templates. Perfekt für Freelancer und Dienstleister.
+• html5up.net — Clean, responsive, professionell. Kostenlos für private und kommerzielle Nutzung.
+• templatemo.com — Große Auswahl, nach Kategorie sortiert.
+• nicepage.com — Drag-and-Drop Templates, Export als HTML möglich.
+
+Quelle 2: Vercel Templates
+Vercel ist die Plattform, auf der deine Website später live geht (Kapitel 10). Aber Vercel bietet auch eigene Templates an — und die sind richtig gut. Gehe auf vercel.com/templates und stöbere. Der Vorteil: Diese Templates sind speziell für Vercel optimiert. Du kannst sie mit einem Klick in dein Projekt kopieren und sofort anpassen.
+
+Quelle 3: v0.dev — KI baut dein Design
+Das ist Vercels KI-Tool. Du beschreibst in normaler Sprache, wie deine Website aussehen soll, und v0 erstellt dir den kompletten Code. Zum Beispiel: „Erstelle eine Landing Page für einen Yoga-Coach mit Hero-Bild, drei Leistungen und einem Kontaktformular.“ v0 baut das in Sekunden. Den generierten Code kannst du dann in dein Projekt kopieren und von Claude weiter anpassen lassen.
+
+Quelle 4: Eine Website die dir gefällt — Quellcode kopieren
+Das ist der Geheimtipp, den die meisten nicht kennen: Jede Website im Internet hat einen Quellcode, den du dir anschauen kannst. Wenn du eine Website siehst, die dir richtig gut gefällt, kannst du dir den Code als Vorlage nehmen.
+
+So geht’s:
+1. Öffne die Website, die dir gefällt, im Browser.
+2. Klicke mit der rechten Maustaste irgendwo auf die Seite.
+3. Wähle „Quellcode anzeigen“ (oder „Seiten-Quelltext anzeigen“ / „View Page Source“).
+4. Es öffnet sich ein neuer Tab mit dem kompletten HTML-Code der Seite.
+5. Markiere alles (Strg + A), kopiere es (Strg + C).
+6. Öffne VS Code, erstelle eine neue Datei „index.html“ und füge den Code ein (Strg + V).
+
+
+---BOX---
+Wichtig: Nur als Inspiration
+Du darfst den Code als Vorlage nutzen, aber nicht 1:1 die Inhalte, Texte oder Bilder einer fremden Website übernehmen — das wäre eine Urheberrechtsverletzung. Nutze den Code als Strukturvorlage und lass Claude alles mit deinen eigenen Inhalten, Farben und Texten ersetzen. So ist es legal und trotzdem professionell.
+---/BOX---
+
+
+
+---BOX---
+Prompt: Quellcode als Vorlage nutzen
+Ich habe den HTML-Quellcode einer Website in meine index.html kopiert. Bitte nimm diesen Code als Strukturvorlage und baue daraus eine komplett eigene Website für mein Business „[Name]“. Ersetze alle Texte, Bilder und Farben durch meine eigenen: Farben [Hex-Codes], Schrift [Name]. Behalte die Struktur und das Layout bei, aber mache alles zu meiner eigenen Seite.
+---/BOX---
+
+
+
+
+Template herunterladen und einrichten
+
+
+Schritt 1: Template aussuchen
+Egal welche Quelle du nutzt — such dir ein Template, das dir vom Gefühl her gefällt. Es muss nicht perfekt sein. Achte vor allem auf: Sieht es modern aus? Funktioniert es auf dem Handy? Hat es die Bereiche, die du brauchst (Hero, Über mich, Leistungen, Kontakt)?
+
+Schritt 2: HTML-Dateien herunterladen oder kopieren
+Bei Template-Seiten: Lade den ZIP-Ordner herunter und entpacke ihn. Bei Quellcode kopieren: Erstelle eine index.html-Datei und füge den Code ein. Bei v0.dev: Kopiere den generierten Code in dein Projekt.
+
+Schritt 3: In deinen VS Code Ordner einfügen
+Kopiere alle Dateien (HTML, CSS, Bilder) in deinen Projektordner — den gleichen Ordner, den du in Kapitel 05 in VS Code geöffnet hast. Links im Datei-Explorer solltest du jetzt die neuen Dateien sehen.
+
+Schritt 4: Mit Live Server anschauen
+Rechtsklick auf index.html → „Open with Live Server“. Dein Browser öffnet sich und du siehst das Template. Jetzt weißt du, womit du arbeitest.
+
+Schritt 5: Claude anpassen lassen
+Starte Claude Code im Terminal und sag ihm, was du willst. Claude nimmt das Template und passt alles an — Farben, Texte, Bilder, Struktur. So oft du willst, ohne Mehrkosten. Du sagst, Claude baut.
+
+
+
+Prompts für dein Template
+
+
+---BOX---
+Prompt: Website komplett anpassen
+Ich habe dieses HTML-Template in meinem Ordner. Ich möchte eine ähnliche Website für mein Business „[Name]“. Meine Farben sind [Farben], mein Stil ist [modern/minimalistisch/...]. Erstelle mir daraus eine komplette Website mit: Startseite mit Hero-Sektion, Über-mich-Seite, Leistungen/Produkte, Blog, Kontaktformular. Alles auf Deutsch, responsive für mobile Geräte.
+---/BOX---
+
+
+
+---BOX---
+Prompt: v0.dev Design erstellen
+Gehe auf v0.dev und erstelle mir ein modernes Website-Design für ein [Branche]-Business. Die Seite soll haben: einen Hero-Bereich mit großem Bild und Überschrift, eine Leistungs-Sektion mit 3 Karten, einen Über-mich-Bereich, Kundenstimmen und ein Kontaktformular. Stil: [modern/clean/warm]. Farben: [Hex-Codes].
+---/BOX---
+
+
+
+---BOX---
+Cowork-Tipp: Template suchen lassen
+Öffne 21st.dev und such mir 3 moderne Website-Templates die zu einem [Branche]-Business passen. Responsive, Hero-Sektion, modern. Zeig mir die Vorschau-Links.
+---/BOX---
+
+
+
+---BOX---
+Prompt: Website einer Konkurrenz als Vorlage
+Schau dir diese Website an: [URL]. Ich möchte eine ähnliche Struktur und ein ähnliches Layout für mein Business. Erstelle mir eine eigene Version mit meinen Inhalten: Business-Name [Name], Farben [Hex-Codes], Leistungen [Liste]. Gleiche Qualität, aber komplett eigene Inhalte und Design.
+---/BOX---
+
+
+
+---BOX---
+Trying and Error — das gehört dazu
+Deine Website wird beim ersten Versuch nicht perfekt aussehen. Das ist völlig normal — meins sah am Anfang auch nicht so aus wie jetzt. Der Trick ist: Du sagst Claude einfach, was dir nicht gefällt. „Mach den Hero-Bereich größer.“ „Die Schrift gefällt mir nicht, nimm eine modernere.“ „Das Kontaktformular soll auf einer eigenen Seite sein.“ Claude passt alles an — so oft du willst, ohne dass es extra kostet.
+---/BOX---
+
+
+
+
+Bilder für deine Website
+Eine Website ohne Bilder wirkt leer und unprofessionell. Aber woher bekommst du gute Bilder — ohne Fotografen, ohne Geld auszugeben, und ohne rechtliche Probleme?
+
+Quelle 1: Kostenlose Stockfotos
+Es gibt Websites mit Millionen professioneller Fotos, die du kostenlos und kommerziell nutzen darfst — auch für deine Business-Website:
+• unsplash.com — Hochwertige Fotos, riesige Auswahl. Die beliebteste Quelle.
+• pexels.com — Ähnlich wie Unsplash, auch Videos verfügbar.
+• pixabay.com — Fotos, Illustrationen und Vektorgrafiken.
+Alle drei Seiten bieten Bilder unter freier Lizenz an. Du musst den Fotografen nicht nennen (es ist aber nett). Du darfst die Bilder auf deiner Website, in Social Media und in Produkten verwenden.
+
+Quelle 2: KI-generierte Bilder
+Du kannst mit KI komplett eigene Bilder erstellen lassen — Bilder, die es so noch nicht gibt. Das ist perfekt für Hero-Bilder, Hintergründe oder abstrakte Grafiken.
+• Canva AI (Magic Media) — Direkt in Canva. Beschreibe was du willst, Canva generiert es.
+• ChatGPT / DALL-E — Beschreibe dein Bild in Worten, die KI erstellt es.
+• Claude mit Cowork — Lass Claude über Canva ein Bild für dich generieren.
+Beispiel-Prompt: „Erstelle ein modernes, minimalistisches Hero-Bild für eine Marketing-Website. Farben: Coral und Weiß. Abstrakte Formen, professionell, kein Text im Bild.“
+
+Quelle 3: Eigene Fotos
+Dein Handy reicht völlig! Authentische Bilder von dir, deinem Arbeitsplatz oder deinen Produkten wirken oft besser als jedes Stockfoto. Tipps für gute Handy-Fotos: Natürliches Licht nutzen (am Fenster), aufgeräumter Hintergrund, Handy gerade halten, und mehrere Fotos machen — eines wird immer gut.
+
+Bildformate — was muss ich wissen?
+JPG — Für Fotos. Kleine Dateigröße, gute Qualität. Standard für die meisten Bilder auf deiner Website.
+PNG — Für Grafiken, Logos und Bilder mit transparentem Hintergrund. Größere Datei als JPG.
+WebP — Das modernste Format. Noch kleiner als JPG bei gleicher Qualität. Nicht alle Programme können es öffnen, aber alle Browser zeigen es an.
+SVG — Für Logos und Icons. Skaliert ohne Qualitätsverlust auf jede Größe.
+
+
+---BOX---
+Bilder optimieren = schnelle Website
+Große Bilddateien machen deine Website langsam. Faustregel: Kein Bild auf deiner Website sollte größer als 500 KB sein. Hero-Bilder maximal 1920px breit, normale Bilder 800–1200px. Du musst das nicht selbst machen — sag einfach Claude: „Optimiere alle Bilder in meinem Projekt für schnelle Ladezeiten.“
+---/BOX---
+
+
+Urheberrecht bei Bildern — was darfst du, was nicht?
+Das Wichtigste vorweg: Du darfst NICHT einfach Bilder von Google oder anderen Websites nehmen. Jedes Foto gehört jemandem, und wenn du es ohne Erlaubnis nutzt, riskierst du eine Abmahnung — oft 500–1.500 Euro pro Bild.
+
+✓ Erlaubt: Bilder von Unsplash, Pexels, Pixabay (Lizenz prüfen).
+✓ Erlaubt: KI-generierte Bilder (die gehören dir).
+✓ Erlaubt: Eigene Fotos (logisch).
+✗ Verboten: Bilder von Google Bildersuche einfach runterladen und nutzen.
+✗ Verboten: Bilder von anderen Websites kopieren.
+✗ Verboten: Stockfotos ohne passende Lizenz kommerziell nutzen.
+
+
+---BOX---
+Prompt: Bilder für Website finden
+Ich brauche professionelle Bilder für meine [Branche]-Website. Suche mir auf Unsplash passende Bilder für folgende Bereiche: Hero-Bild (Startseite), Über-mich-Hintergrund, Leistungen-Bereich, Blog-Vorschaubilder. Lade sie herunter und füge sie in mein Projekt ein. Optimiere die Bilder für schnelle Ladezeiten.
+---/BOX---
+
+
+
+---BOX---
+Prompt: KI-Bild erstellen
+Erstelle mir mit Canva AI ein modernes Hero-Bild für meine Website. Stil: [minimalistisch/abstrakt/warm]. Farben: [deine Hex-Codes]. Thema: [deine Branche]. Kein Text im Bild. Querformat, 1920x1080px.
+---/BOX---
+
+
+
+---BOX---
+Prompt: Alle Bilder optimieren
+Prüfe alle Bilder in meinem Projektordner. Optimiere sie für Web-Performance: Komprimiere auf unter 500 KB, konvertiere große Dateien zu WebP, setze die maximale Breite auf 1920px für Hero-Bilder und 1200px für normale Bilder. Füge außerdem zu jedem img-Tag ein alt-Attribut mit einer kurzen Beschreibung hinzu.
+---/BOX---
+
+
+Checkliste Kapitel 06:
+☐  Mindestens 2–3 Template-Quellen angeschaut (21st.dev, Vercel, v0.dev etc.)
+☐  Ein Template ausgesucht oder per Quellcode kopiert
+☐  Template-Dateien im Projektordner in VS Code
+☐  Template mit Live Server im Browser angeschaut
+☐  Claude mit der Anpassung beauftragt
+☐  Eigene Farben, Texte und Bilder eingesetzt
+☐  Website auf dem Handy getestet (responsive)
+
+07
+Cookie-Banner & Rechtliches
+
+In Deutschland Pflicht: Impressum, Datenschutz und Cookie-Banner. Claude kann das komplett übernehmen.
+
+"Ohne Impressum riskierst du 1.000€ Abmahnung. Mit Claude: erledigt in 30 Minuten."
+[Foto / Bild Platzhalter]
+
+
+=== KAPITEL 07 ===
+
+07 — Alles was deine Website rechtlich braucht
+Ich weiß, das klingt trocken. Aber in Deutschland gibt es klare Regeln für Websites — und wer sie nicht einhält, riskiert Abmahnungen. Die können schnell 1.000 Euro oder mehr kosten. Das willst du nicht.
+Die gute Nachricht: Mit den richtigen Generatoren und Claude ist alles in unter einer Stunde erledigt. Und dann hast du Ruhe.
+
+Das brauchst du auf JEDER Website:
+1. Impressum — Pflicht für jede gewerbliche Website
+2. Datenschutzerklärung — Pflicht laut DSGVO
+3. Cookie-Banner — Pflicht wenn du Cookies setzt (Analytics, Marketing etc.)
+
+4. SSL-Zertifikat (HTTPS) — Pflicht für jede Website mit Formularen
+5. Barrierefreiheit — ab Juni 2025 Pflicht für Online-Shops und Dienstleister
+6. AGB — wenn du Produkte oder Dienstleistungen online verkaufst
+7. Widerrufsbelehrung — wenn du online verkaufst
+
+
+
+1. Impressum
+Jede gewerbliche Website in Deutschland braucht ein Impressum. Dort stehen dein Name, Adresse, Kontaktdaten und ggf. Steuernummer. Es muss von jeder Seite mit maximal 2 Klicks erreichbar sein — am besten als Link im Footer.
+So geht’s: Nutze einen Impressum-Generator wie e-recht24.de oder impressum-generator.de. Fülle die Felder aus, kopiere das Ergebnis und lass Claude es als eigene Seite auf deiner Website einbauen.
+
+
+---BOX---
+Prompt: Impressum einbauen
+Erstelle mir eine Impressum-Seite für meine Website. Hier sind meine Daten: Name: [Name], Adresse: [Straße, PLZ, Ort], E-Mail: [E-Mail], Telefon: [Nummer]. Baue die Seite als impressum.html und verlinke sie im Footer jeder Seite. Das Impressum muss von jeder Seite mit maximal 2 Klicks erreichbar sein.
+---/BOX---
+
+
+2. Datenschutzerklärung
+Sobald deine Website personenbezogene Daten erhebt (und das tut sie fast immer — schon durch die IP-Adresse beim Aufrufen), brauchst du eine Datenschutzerklärung. Sie erklärt, welche Daten du sammelst, warum, und welche Rechte die Besucher haben.
+So geht’s: Nutze einen Generator wie datenschutz-generator.de oder e-recht24.de. Wichtig: Wenn du später Google Analytics, ein Kontaktformular oder Newsletter-Tool einbaust, muss die Datenschutzerklärung aktualisiert werden.
+
+
+---BOX---
+Prompt: Datenschutzerklärung
+Erstelle mir eine Datenschutzerklärung für [Domain]. Ich nutze folgende Dienste: [z.B. Google Analytics, Kontaktformular, Newsletter mit Brevo, HubSpot CRM, Stripe Zahlungen]. Erstelle die Seite als datenschutz.html und verlinke sie im Footer. Die Erklärung soll DSGVO-konform sein und alle genutzten Dienste abdecken.
+---/BOX---
+
+
+3. Cookie-Banner
+Sobald deine Website Cookies setzt (und das passiert bei Google Analytics, eingebetteten Videos, Social-Media-Buttons etc.), musst du vorher die Zustimmung des Besuchers einholen. Dafür brauchst du einen Cookie-Banner.
+Der Banner muss mindestens drei Optionen bieten: „Alle akzeptieren“, „Nur notwendige“ und „Einstellungen“. Wichtig: Cookies dürfen erst geladen werden, NACHDEM der Besucher zugestimmt hat. Nicht vorher.
+
+
+---BOX---
+Prompt: Cookie-Banner
+Erstelle mir einen DSGVO-konformen Cookie-Consent-Banner für meine Website. Der Banner soll drei Optionen haben: „Alle akzeptieren“, „Nur notwendige“ und „Einstellungen“ (mit Kategorien: Notwendig, Statistik, Marketing). Der Banner soll die Auswahl im localStorage speichern und Cookies/Skripte erst nach Zustimmung laden. Google Analytics darf erst nach Zustimmung in der Kategorie „Statistik“ geladen werden. Design: passend zu meinen Farben [Hex-Codes].
+---/BOX---
+
+
+So baust du deinen Cookie-Banner selbst — Schritt für Schritt
+Du kannst deinen Cookie-Banner komplett selbst bauen — ohne externes Tool, ohne Abo, ohne monatliche Kosten. Ich habe es genauso gemacht. Alles was du brauchst ist Claude Code in VS Code.
+Schritt 1: Öffne VS Code und starte Claude Code in deinem Website-Projekt.
+Schritt 2: Gib den Cookie-Banner-Prompt von oben ein. Claude erstellt den kompletten Code — HTML, CSS und JavaScript — und fügt ihn direkt in deine Website ein.
+Schritt 3: Teste den Banner. Starte Live Server in VS Code (Rechtsklick auf deine index.html → „Open with Live Server“). Der Banner sollte beim ersten Besuch erscheinen.
+Schritt 4: Prüfe, ob es wirklich funktioniert. Öffne die Entwicklertools im Browser (Rechtsklick → Untersuchen → Reiter „Application“ → „Cookies“). Vor der Zustimmung dürfen dort keine Tracking-Cookies stehen. Erst nach dem Klick auf „Alle akzeptieren“ sollten sie auftauchen.
+Schritt 5: Teste alle drei Optionen — „Alle akzeptieren“, „Nur notwendige“ und die einzelnen Kategorien unter „Einstellungen“. Lösche zwischendurch die Cookies im Browser (Entwicklertools → Cookies → Rechtsklick → Clear), um den Banner erneut auszulösen.
+Die Alternative: Fertige Cookie-Banner-Anbieter
+Es gibt auch externe Tools, die den Cookie-Banner für dich übernehmen. Die bekanntesten sind Cookiebot (cookiebot.com), Borlabs Cookie und Usercentrics. Diese Tools scannen deine Website automatisch nach Cookies, erstellen eine Übersicht und liefern einen fertigen Banner, den du nur einbinden musst.
+Der Nachteil: Die meisten kosten ab einer bestimmten Seitenzahl Geld — Cookiebot z.B. ab ca. 9 €/Monat. Und du bist von einem externen Dienst abhängig.
+Der Vorteil eines selbstgebauten Banners: Er kostet nichts, du hast volle Kontrolle über das Design, und er lädt schneller, weil kein externes Skript geladen werden muss. Genau so habe ich es bei meiner eigenen Website gemacht — und genau so zeige ich es dir hier.
+4. SSL-Zertifikat (HTTPS)
+SSL sorgt dafür, dass die Verbindung zwischen deiner Website und dem Besucher verschlüsselt ist. Du erkennst es am Schloss-Symbol und „https://“ in der Adresszeile. Ohne SSL zeigen Browser eine Warnung „Nicht sicher“ an — das vergrault Besucher sofort.
+Die gute Nachricht: Wenn du deine Website über Vercel live schaltest (Kapitel 10), bekommst du SSL automatisch und kostenlos. Du musst nichts extra machen. Vercel kümmert sich darum.
+
+5. Barrierefreiheit (ab Juni 2025 Pflicht)
+Seit dem 28. Juni 2025 müssen Websites von Online-Shops und Dienstleistern in der EU barrierefrei sein. Das bedeutet: Menschen mit Sehbehinderung, motorischen Einschränkungen oder anderen Behinderungen müssen deine Website nutzen können.
+
+Was bedeutet das konkret für dich?
+• Alle Bilder brauchen Alt-Texte (kurze Beschreibungen für Screenreader).
+• Ausreichend Kontrast zwischen Text und Hintergrund.
+• Die Website muss mit der Tastatur bedienbar sein (nicht nur mit der Maus).
+• Klare Überschriften-Struktur (H1, H2, H3 in der richtigen Reihenfolge).
+• Formulare müssen Labels haben (nicht nur Platzhalter-Text).
+• Videos brauchen Untertitel.
+
+Das klingt nach viel, aber Claude kann das meiste automatisch prüfen und fixen.
+
+
+---BOX---
+Prompt: Barrierefreiheit prüfen
+Prüfe meine komplette Website auf Barrierefreiheit nach den WCAG 2.1 Level AA Richtlinien. Checke: Alt-Texte bei allen Bildern, Kontrastverhältnisse, Tastatur-Navigation, Überschriften-Hierarchie, Formular-Labels, ARIA-Attribute wo nötig. Erstelle mir eine Liste aller Probleme und fixe sie dann alle.
+---/BOX---
+
+
+6. AGB (Allgemeine Geschäftsbedingungen)
+Wenn du über deine Website Produkte oder Dienstleistungen verkaufst, brauchst du AGB. Sie regeln die Bedingungen des Kaufs: Zahlungsbedingungen, Lieferung, Haftung, Rückgabe etc.
+So geht’s: Nutze einen AGB-Generator (z.B. e-recht24.de oder it-recht-kanzlei.de) und passe die AGB an dein Business an. Claude baut sie als eigene Seite ein und verlinkt sie im Footer und im Checkout-Prozess.
+
+7. Widerrufsbelehrung
+Wenn du an Verbraucher (Privatpersonen) online verkaufst, müssen diese ein 14-tägiges Widerrufsrecht haben. Die Widerrufsbelehrung erklärt, wie und wann der Kunde vom Kauf zurücktreten kann. Bei digitalen Produkten (Downloads, E-Books, Kurse) kannst du unter bestimmten Bedingungen das Widerrufsrecht ausschließen — aber du musst den Kunden vorher darauf hinweisen.
+
+
+---BOX---
+Prompt: Komplett-Paket Recht
+Erstelle mir das komplette Rechts-Paket für meine Website [Domain]: 1) Impressum (Name: [Name], Adresse: [Adresse], E-Mail: [E-Mail]) 2) Datenschutzerklärung (Dienste: [z.B. Google Analytics, Kontaktformular, HubSpot, Stripe]) 3) Cookie-Banner mit Kategorien (Notwendig, Statistik, Marketing) 4) AGB für [digitale Produkte/Dienstleistungen] 5) Widerrufsbelehrung. Baue alles als eigene Seiten ein und verlinke sie im Footer. Cookie-Banner als erstes Element beim Seitenbesuch.
+---/BOX---
+
+
+
+---BOX---
+Wichtig: Generatoren nutzen, nicht selbst schreiben
+Schreibe Impressum, Datenschutzerklärung und AGB NICHT selbst — auch nicht mit Claude. Nutze dafür immer offizielle Generatoren (e-recht24.de, datenschutz-generator.de, it-recht-kanzlei.de). Diese werden von Anwälten gepflegt und regelmäßig aktualisiert. Claude baut die Ergebnisse dann auf deiner Website ein. Für den Cookie-Banner und die Barrierefreiheit kann Claude den Code aber komplett selbst schreiben.
+---/BOX---
+
+
+
+---BOX---
+Zeitspar-Faktor
+Selbst recherchieren: ca. 3–4 Stunden. Mit Claude und den richtigen Generatoren: unter 1 Stunde für alles.
+---/BOX---
+
+
+Vor dem Launch — HTML-Struktur prüfen
+Bevor deine Website live geht, solltest du Claude einmal bitten, den gesamten Code durchzugehen und sauber zu machen. Das ist wie eine Endkontrolle beim Auto vor der ersten Fahrt: Alles muss sitzen.
+
+Was muss in jede HTML-Seite?
+Jede einzelne Seite deiner Website braucht bestimmte Angaben im <head>-Bereich. Das ist der unsichtbare Teil deiner Seite, den Suchmaschinen und Browser lesen. Wenn das fehlt, sieht deine Seite in Google schlecht aus oder funktioniert nicht richtig.
+
+• Title-Tag — Der Titel, der im Browser-Tab und bei Google angezeigt wird (max. 60 Zeichen)
+• Meta-Description — Die Beschreibung unter dem Titel bei Google (max. 160 Zeichen)
+• Viewport-Tag — Damit deine Seite auf dem Handy richtig angezeigt wird
+• Language-Attribut — <html lang="de"> damit Browser und Screenreader wissen: diese Seite ist auf Deutsch
+• Charset — <meta charset="UTF-8"> damit Umlaute (ä, ö, ü, ß) korrekt angezeigt werden
+• Favicon — Das kleine Icon im Browser-Tab (16x16 oder 32x32 Pixel)
+• Open Graph Tags — Damit deine Seite beim Teilen auf WhatsApp, Facebook etc. gut aussieht (Titel, Beschreibung, Bild)
+
+
+---BOX---
+Prompt: Meta-Tags für alle Seiten
+Prüfe meine komplette Website und ergänze auf JEDER Seite die folgenden Meta-Tags im <head>: 1) <title> — einzigartiger, beschreibender Titel (max. 60 Zeichen) 2) <meta name="description"> — einzigartige Beschreibung mit Handlungsaufforderung (max. 160 Zeichen) 3) <meta name="viewport" content="width=device-width, initial-scale=1.0"> 4) <meta charset="UTF-8"> 5) <html lang="de"> 6) Favicon-Link 7) Open Graph Tags (og:title, og:description, og:image, og:url, og:type). Zeige mir eine Tabelle: Seite | Title-Tag | Meta-Description | Was fehlte.
+---/BOX---
+
+
+HTML-Struktur prüfen
+Neben den Meta-Tags gibt es ein paar Regeln, die jede gute Website einhalten sollte. Claude kann das alles auf einmal prüfen:
+
+• Genau eine H1-Überschrift pro Seite (die wichtigste Überschrift)
+• Überschriften-Hierarchie einhalten (H1 > H2 > H3, keine Sprünge)
+• Alt-Texte auf allen Bildern (für Suchmaschinen und Barrierefreiheit)
+• Alle Links funktionieren (keine kaputten 404-Links)
+• Keine leeren Elemente oder doppelten IDs
+• Saubere URL-Struktur (kurz, sprechend, ohne Sonderzeichen)
+• Navigation funktioniert auf allen Seiten
+
+
+---BOX---
+Prompt: HTML-Audit
+Führe ein komplettes HTML-Audit für meine Website durch. Prüfe: 1) Hat jede Seite genau eine H1-Überschrift? 2) Ist die Überschriften-Hierarchie korrekt (H1 > H2 > H3)? 3) Haben alle Bilder Alt-Texte? 4) Gibt es kaputte Links (interne oder externe)? 5) Gibt es leere Elemente, doppelte IDs oder ungültiges HTML? 6) Sind alle URLs sauber (keine Leerzeichen, Umlaute, Sonderzeichen)? 7) Funktioniert die Navigation auf jeder Seite? Erstelle eine Übersicht: Seite | Fehler | Fix | Priorität. Behebe dann alle Fehler direkt.
+---/BOX---
+
+
+Performance-Check
+Bevor du live gehst, lass Claude auch die Ladezeit prüfen. Wenn deine Seite langsam lädt, springen Besucher ab:
+
+• Bilder komprimiert? (WebP-Format, max. 200 KB pro Bild)
+• CSS und JavaScript minimiert? (Minify)
+• Lazy Loading für Bilder? (Bilder erst laden, wenn sie sichtbar werden)
+• Google Fonts optimiert? (Nur die Schriftschnitte laden, die du brauchst)
+
+
+---BOX---
+Prompt: Performance-Optimierung
+Optimiere meine Website für schnelle Ladezeiten: 1) Komprimiere alle Bilder auf WebP-Format (max. 200 KB) 2) Minimiere CSS und JavaScript (Minify) 3) Richte Lazy Loading für alle Bilder ein 4) Optimiere die eingebundenen Google Fonts (nur benötigte Schriftschnitte) 5) Entferne unbenutzten CSS- und JavaScript-Code 6) Prüfe, ob alle Dateien korrekt eingebunden sind. Zeige mir vorher/nachher: Was hast du geändert?
+---/BOX---
+
+
+Noch wichtige Dateien anlegen
+Diese Dateien braucht jede Website — sie liegen im Hauptordner deines Projekts:
+
+• sitemap.xml — Eine Liste aller Seiten, damit Suchmaschinen deine Website komplett finden
+
+• robots.txt — Sagt Suchmaschinen, welche Seiten sie anschauen dürfen
+• 404.html — Eine eigene Fehlerseite, falls jemand eine falsche URL eingibt
+• favicon.ico — Das kleine Symbol im Browser-Tab
+
+
+---BOX---
+Prompt: Website-Dateien anlegen
+Erstelle für meine Website folgende Dateien: 1) sitemap.xml — mit allen Seiten meiner Website: [Startseite, Über mich, Leistungen, Kontakt, Impressum, Datenschutz] 2) robots.txt — alle Seiten erlauben, Sitemap verlinken 3) 404.html — eine freundliche Fehlerseite mit Link zurück zur Startseite, im gleichen Design wie der Rest der Website 4) Favicon — ein einfaches Favicon aus meinen Markenfarben. Baue alle Dateien korrekt ein und verlinke sie.
+---/BOX---
+
+
+
+---BOX---
+Mega-Prompt: Kompletter Launch-Check
+Meine Website ist fertig und ich möchte sie live stellen. Führe einen kompletten Launch-Check durch, BEVOR ich sie veröffentliche: META-TAGS: 1) Title-Tag auf jeder Seite (max. 60 Zeichen)? 2) Meta-Description auf jeder Seite (max. 160 Zeichen)? 3) Viewport-Tag gesetzt? 4) Charset UTF-8? 5) Language auf 'de'? 6) Open Graph Tags auf jeder Seite? 7) Favicon eingebunden? HTML-STRUKTUR: 8) Genau eine H1 pro Seite? 9) Überschriften-Hierarchie korrekt? 10) Alt-Texte auf allen Bildern? 11) Keine kaputten Links? 12) Saubere URLs? PERFORMANCE: 13) Bilder komprimiert (WebP, max. 200 KB)? 14) CSS/JS minimiert? 15) Lazy Loading aktiv? DATEIEN: 16) sitemap.xml vorhanden? 17) robots.txt vorhanden? 18) 404-Seite vorhanden? 19) Favicon vorhanden? RECHT: 20) Impressum verlinkt? 21) Datenschutz verlinkt? 22) Cookie-Banner funktioniert? Erstelle eine Checkliste: Punkt | Status (OK/Fehlt) | Aktion. Fixe dann alles, was fehlt.
+---/BOX---
+
+
+
+---BOX---
+Tipp: Dieser Check dauert 15 Minuten
+Lass Claude den Mega-Prompt einmal komplett durchlaufen — das dauert ca. 15 Minuten. Danach ist deine Website technisch sauber und bereit für den Launch. Mach diesen Check BEVOR du auf 'Deploy' klickst.
+---/BOX---
+
+
+Checkliste Kapitel 07:
+☐  Impressum auf der Website (eigene Seite, im Footer verlinkt)
+☐  Datenschutzerklärung auf der Website (eigene Seite, im Footer verlinkt)
+☐  Cookie-Banner funktioniert und erscheint beim ersten Besuch
+☐  Cookie-Kategorien eingerichtet (Notwendig, Statistik, Marketing)
+☐  SSL-Zertifikat aktiv (https:// in der Adresszeile)
+☐  Barrierefreiheit geprüft (Alt-Texte, Kontraste, Tastatur-Navigation)
+☐  AGB erstellt und verlinkt (falls du online verkaufst)
+☐  Widerrufsbelehrung erstellt (falls du an Verbraucher verkaufst)
+☐  Alle rechtlichen Seiten von jeder Seite aus erreichbar (Footer-Links)
+☐  Title-Tag und Meta-Description auf jeder Seite
+☐  HTML-Audit: H1, Alt-Texte, Links, Struktur geprüft
+☐  Performance: Bilder komprimiert, CSS/JS minimiert, Lazy Loading
+☐  sitemap.xml, robots.txt, 404-Seite und Favicon angelegt
+☐  Open Graph Tags auf jeder Seite (für Social Media Sharing)
+☐  Launch-Check mit Claude durchgeführt (Mega-Prompt)
+
+08
+Marke & Logo mit Canva
+
+Markennamen festlegen, Logo erstellen, Brand-Farben definieren — alles mit Canva und Claude.
+
+"Einfach soll einfach sein."
+[Foto / Bild Platzhalter]
+
+
+Done.

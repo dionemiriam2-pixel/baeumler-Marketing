@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Selbstständig — Dein Business Workspace in unter einer Woche</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', system-ui, sans-serif; color: #1a1a1a; background: #e8e8e8; line-height: 1.6; }
+
+  .page {
+    width: 794px; height: 1123px;
+    background: #fff; margin: 30px auto;
+    position: relative; overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    padding: 60px 56px;
+    display: flex; flex-direction: column;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* Typography */
+  h1, h2, h3, h4 { font-family: 'Antonio', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.1; }
+  h1 { font-size: 44px; }
+  h2 { font-size: 36px; margin-bottom: 24px; }
+  h3 { font-size: 24px; margin-bottom: 16px; }
+  h4 { font-size: 18px; margin-bottom: 12px; }
+  p { font-size: 14px; line-height: 1.7; margin-bottom: 14px; color: #333; }
+  strong { font-weight: 600; }
+  .serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
+  .small-text { font-size: 12px; color: #666; line-height: 1.6; }
+
+  /* Colors */
+  .coral { color: #e8604c; }
+  .teal { color: #2db8a8; }
+  .coral-bg { background: #e8604c; }
+  .coral-line { width: 40px; height: 3px; background: #e8604c; border-radius: 2px; margin-bottom: 20px; }
+  .coral-line-long { width: 100%; height: 2px; background: #e8604c; opacity: 0.2; margin: 24px 0; }
+
+  /* ═══════════════════════════
+     COVER
+  ═══════════════════════════ */
+  .cover { padding: 0; overflow: hidden; }
+  .cover-inner { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; padding: 48px 56px; }
+  .cover .top-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; color: #e8604c; margin-bottom: 12px; }
+  .cover h1 { font-size: 52px; margin-bottom: 16px; line-height: 1.05; }
+  .cover .subtitle { font-size: 15px; font-weight: 600; color: #e8604c; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+  .cover .tagline { font-family: 'Playfair Display', serif; font-size: 19px; font-style: italic; color: #303030; margin-bottom: 16px; line-height: 1.5; }
+  .cover .description { font-size: 12.5px; color: #555; max-width: 400px; line-height: 1.7; margin-bottom: 16px; }
+  .cover .feature-list { list-style: none; margin-bottom: 16px; }
+  .cover .feature-list li { font-size: 12px; color: #444; padding: 3px 0; display: flex; align-items: center; gap: 8px; }
+  .cover .feature-list li::before { content: '✓'; color: #e8604c; font-weight: 700; font-size: 13px; }
+  .cover .image-area { flex: 1; background: linear-gradient(135deg, #f7f7f5 0%, #f0efed 100%); border: 2px dashed #ddd; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #bbb; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; min-height: 160px; }
+  .cover .bottom-bar { margin-top: auto; padding-top: 16px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .cover .bottom-bar h3 { font-family: 'Antonio', sans-serif; font-size: 16px; text-transform: uppercase; }
+  .cover .bottom-bar p { font-size: 11px; color: #888; margin-bottom: 0; }
+  .cover .coral-swipe { position: absolute; top: -100px; right: -80px; width: 520px; height: 520px; background: radial-gradient(ellipse at 70% 30%, #e8604c 0%, #e8604c 40%, transparent 70%); opacity: 0.1; border-radius: 50%; filter: blur(50px); z-index: 0; }
+  .cover .coral-accent-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 6px; background: #e8604c; z-index: 2; }
+  .cover .price-badge { display: inline-flex; align-items: center; gap: 6px; background: #1a1a1a; color: #fff; font-size: 11px; font-weight: 600; padding: 6px 14px; border-radius: 20px; margin-bottom: 16px; letter-spacing: 0.5px; }
+  .cover .price-badge .highlight { color: #e8604c; }
+
+  /* ═══════════════════════════
+     TOC
+  ═══════════════════════════ */
+  .toc-item { display: flex; align-items: flex-start; padding: 13px 0; border-bottom: 1px solid #f0f0f0; }
+  .toc-number { font-family: 'Antonio', sans-serif; font-size: 24px; font-weight: 700; color: #e8604c; width: 44px; flex-shrink: 0; line-height: 1.2; }
+  .toc-title { font-family: 'Antonio', sans-serif; font-size: 16px; font-weight: 700; text-transform: uppercase; }
+  .toc-desc { font-size: 11px; color: #888; margin-top: 3px; font-family: 'Inter', sans-serif; text-transform: none; }
+
+  /* ═══════════════════════════
+     CHAPTER TITLE PAGES
+  ═══════════════════════════ */
+  .chapter-title-page { justify-content: center; align-items: flex-start; position: relative; }
+  .chapter-title-page .chapter-num { font-family: 'Antonio', sans-serif; font-size: 140px; font-weight: 700; color: #e8604c; opacity: 0.1; line-height: 1; margin-bottom: -30px; }
+  .chapter-title-page h2 { font-size: 44px; margin-bottom: 16px; }
+  .chapter-title-page .chapter-intro { font-size: 16px; color: #555; max-width: 520px; line-height: 1.7; }
+  .chapter-title-page .chapter-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 17px; color: #303030; margin-top: 32px; padding-left: 20px; border-left: 3px solid #e8604c; line-height: 1.5; max-width: 480px; }
+  .chapter-title-page .image-placeholder { width: 280px; height: 200px; background: linear-gradient(135deg, #f7f7f5, #f0efed); border: 2px dashed #ddd; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #bbb; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-top: 28px; }
+
+  /* ═══════════════════════════
+     CONTENT ELEMENTS
+  ═══════════════════════════ */
+  .step-box { background: #fafaf8; border-left: 3px solid #e8604c; padding: 16px 20px; margin-bottom: 14px; border-radius: 0 8px 8px 0; }
+  .step-box .step-label { font-family: 'Antonio', sans-serif; font-size: 12px; color: #e8604c; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 4px; }
+  .step-box h4 { font-size: 15px; margin-bottom: 5px; }
+  .step-box p { font-size: 12.5px; margin-bottom: 0; color: #555; }
+
+  .tip-box { background: #fff8f6; border: 1px solid rgba(232,96,76,0.2); border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+  .tip-box .tip-label { font-size: 11px; font-weight: 700; color: #e8604c; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+  .tip-box p { font-size: 12.5px; color: #555; margin-bottom: 0; }
+
+  .teal-tip-box { background: #f0faf9; border: 1px solid rgba(45,184,168,0.2); border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+  .teal-tip-box .tip-label { font-size: 11px; font-weight: 700; color: #2db8a8; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+  .teal-tip-box p { font-size: 12.5px; color: #555; margin-bottom: 0; }
+
+  .prompt-box { background: #1a1a1a; color: #e8e8e8; border-radius: 8px; padding: 16px 20px; margin: 14px 0; font-family: 'Courier New', monospace; font-size: 11.5px; line-height: 1.65; }
+  .prompt-box .prompt-label { color: #e8604c; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; display: block; }
+
+  .quote-block { border-left: 3px solid #e8604c; padding: 14px 22px; margin: 18px 0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: #303030; line-height: 1.5; }
+
+  .mindset-box { background: #f7f7f5; border-radius: 12px; padding: 18px 22px; margin: 14px 0; }
+  .mindset-box h4 { font-size: 14px; margin-bottom: 6px; color: #e8604c; }
+  .mindset-box p { font-size: 12.5px; color: #555; margin-bottom: 0; }
+
+  /* Checklists */
+  .checklist { margin: 12px 0; }
+  .checklist-item { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px; color: #333; }
+  .checklist-item:last-child { border-bottom: none; }
+  .checkbox { width: 18px; height: 18px; border: 2px solid #ddd; border-radius: 4px; flex-shrink: 0; margin-top: 1px; }
+
+  /* Fill Fields */
+  .fill-field { border-bottom: 2px dotted #ccc; padding: 8px 0; margin: 6px 0 16px; min-height: 28px; font-size: 13px; color: #999; }
+  .fill-field.large { min-height: 60px; }
+  .fill-label { font-size: 12px; font-weight: 600; color: #1a1a1a; margin-bottom: 2px; }
+
+  /* Screenshot Placeholder */
+  .screenshot-placeholder { background: #f5f5f3; border: 2px dashed #ddd; border-radius: 8px; height: 140px; display: flex; align-items: center; justify-content: center; color: #bbb; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin: 14px 0; }
+
+  /* Tool Card */
+  .tool-card { display: inline-flex; align-items: center; gap: 10px; background: #fafaf8; border: 1px solid #eee; border-radius: 8px; padding: 10px 14px; margin: 4px 4px 4px 0; font-size: 12px; font-weight: 600; }
+  .tool-card .tool-type { font-size: 10px; color: #888; font-weight: 400; }
+
+  /* Cost Table */
+  .cost-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px; }
+  .cost-row:last-child { border-bottom: none; }
+  .cost-row .cost-label { color: #333; }
+  .cost-row .cost-price { font-weight: 700; color: #e8604c; }
+  .cost-row .cost-price.free { color: #2db8a8; }
+  .cost-total { font-size: 16px; font-weight: 700; padding-top: 10px; display: flex; justify-content: space-between; border-top: 2px solid #1a1a1a; margin-top: 4px; }
+
+  /* Two Column */
+  .two-col { display: flex; gap: 24px; }
+  .two-col > div { flex: 1; }
+
+  /* Page Footer */
+  .page-footer { margin-top: auto; padding-top: 14px; display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: #ccc; border-top: 1px solid #f0f0f0; }
+
+  /* Numbered List with coral numbers */
+  .numbered-list { counter-reset: item; margin: 10px 0; }
+  .numbered-item { display: flex; gap: 14px; padding: 8px 0; font-size: 13px; color: #333; }
+  .numbered-item::before { counter-increment: item; content: counter(item) "."; font-family: 'Antonio', sans-serif; font-size: 16px; font-weight: 700; color: #e8604c; flex-shrink: 0; width: 24px; }
+
+  /* Summary Box */
+  .summary-box { background: linear-gradient(135deg, #fafaf8 0%, #f7f7f5 100%); border: 1px solid #eee; border-radius: 12px; padding: 20px 24px; margin: 16px 0; }
+  .summary-box h4 { color: #e8604c; margin-bottom: 10px; }
+  .summary-box p { font-size: 13px; color: #555; margin-bottom: 0; }
+
+  /* For-Whom Box */
+  .for-whom-yes { background: #f0faf9; border: 1px solid rgba(45,184,168,0.15); border-radius: 10px; padding: 18px 22px; margin: 10px 0; }
+  .for-whom-no { background: #fff5f4; border: 1px solid rgba(232,96,76,0.15); border-radius: 10px; padding: 18px 22px; margin: 10px 0; }
+  .for-whom-yes li, .for-whom-no li { font-size: 13px; padding: 5px 0; list-style: none; display: flex; align-items: flex-start; gap: 10px; color: #333; }
+  .for-whom-yes li::before { content: '✓'; color: #2db8a8; font-weight: 700; font-size: 15px; }
+  .for-whom-no li::before { content: '✗'; color: #e8604c; font-weight: 700; font-size: 15px; }
+
+  /* Roadmap */
+  .roadmap-day { display: flex; gap: 16px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; align-items: flex-start; }
+  .roadmap-day:last-child { border-bottom: none; }
+  .roadmap-badge { font-family: 'Antonio', sans-serif; font-size: 11px; font-weight: 700; color: #fff; background: #e8604c; padding: 4px 10px; border-radius: 16px; text-transform: uppercase; letter-spacing: 1px; flex-shrink: 0; min-width: 52px; text-align: center; }
+  .roadmap-content h4 { font-size: 14px; margin-bottom: 2px; }
+  .roadmap-content p { font-size: 11.5px; color: #666; margin-bottom: 0; }
+
+  /* Fortschritts-Tracker */
+  .tracker-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px; }
+  .tracker-row:last-child { border-bottom: none; }
+  .tracker-chapter { font-family: 'Antonio', sans-serif; font-size: 14px; color: #e8604c; font-weight: 700; width: 28px; flex-shrink: 0; }
+
+  /* Reflection Box */
+  .reflection-box { background: linear-gradient(135deg, #f7f7f5 0%, #f0efed 100%); border-radius: 12px; padding: 20px 24px; margin: 16px 0; border-left: 3px solid #2db8a8; }
+  .reflection-box .reflection-label { font-size: 11px; font-weight: 700; color: #2db8a8; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+  .reflection-box .fill-field { background: rgba(255,255,255,0.7); border-radius: 4px; padding: 10px; }
+
+  /* Motivation Quote Page */
+  .motivation-page { justify-content: center; align-items: center; text-align: center; }
+  .motivation-page .quote-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 28px; color: #303030; line-height: 1.4; max-width: 500px; }
+  .motivation-page .quote-author { font-family: 'Inter', sans-serif; font-size: 12px; color: #999; margin-top: 20px; text-transform: uppercase; letter-spacing: 2px; }
+  .motivation-page .coral-dot { width: 8px; height: 8px; background: #e8604c; border-radius: 50%; margin: 24px auto 0; }
+
+  /* Chapter Summary */
+  .chapter-summary { background: #f7f7f5; border-radius: 12px; padding: 22px 26px; margin: 16px 0; }
+  .chapter-summary h4 { font-size: 16px; color: #1a1a1a; margin-bottom: 12px; }
+  .chapter-summary .check-item { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #333; padding: 5px 0; }
+  .chapter-summary .check-item::before { content: '✓'; color: #2db8a8; font-weight: 700; }
+
+  /* Notes Area */
+  .notes-area { border: 1px dashed #ddd; border-radius: 8px; padding: 18px 22px; min-height: 120px; margin: 14px 0; }
+  .notes-area .notes-label { font-size: 11px; font-weight: 700; color: #ccc; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 1: COVER
+═══════════════════════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="coral-swipe"></div>
+  <div class="coral-accent-bottom"></div>
+  <div class="cover-inner">
+    <div class="top-label">Workbook</div>
+    <h1>Online<br>Selbstständig</h1>
+    <div class="subtitle">Dein Business Workspace in unter einer Woche</div>
+    <div class="coral-line"></div>
+    <div class="tagline">So funktioniert dieses Workbook: Du liest.<br>Du kopierst den Prompt. Claude macht den Rest.</div>
+    <div class="price-badge">mit Claude AI · für unter <span class="highlight">30 €</span> monatlich</div>
+    <div class="description">Webauftritt, E-Mail, CRM, Branding &amp; mehr — komplett selbst aufgebaut mit Claude AI. Ohne Vorkenntnisse. Jeder Schritt mit fertigem Prompt — du musst nur kopieren und starten.</div>
+    <ul class="feature-list">
+      <li>Fertige Website · live im Internet</li>
+      <li>Eigene Domain &amp; geschäftliche E-Mail</li>
+      <li>Logo &amp; Branding mit Canva</li>
+      <li>CRM-System mit HubSpot</li>
+      <li>Impressum, Datenschutz &amp; Cookie-Banner</li>
+      <li>Claude Cowork — dein persönlicher KI-Assistent</li>
+      <li>Digitale Produkte erstellen &amp; verkaufen</li>
+    </ul>
+    <div class="image-area">Dein Bild hier</div>
+    <div class="bottom-bar">
+      <div>
+        <h3>Miriam Bäumler</h3>
+        <p>Baeumler Marketing</p>
+      </div>
+      <p style="font-style:italic;color:#999;font-size:10px;">Schritt-für-Schritt · Alle Prompts zum Rauskopieren · Kein Vorwissen nötig</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 2: INTRO — MIRIAM'S STORY
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <p style="font-family:'Playfair Display',serif;font-size:18px;line-height:1.7;color:#1a1a1a;font-style:italic;text-align:center;margin-bottom:24px;">Was wäre, wenn deine Selbstständigkeit nicht an deiner Idee scheitert — sondern nur daran, dass dir niemand gezeigt hat, wie du sie online aufbaust?</p>
+
+  <div class="coral-line"></div>
+
+  <p>Du hast eine Idee, vielleicht sogar schon ein Angebot. Aber irgendwo zwischen Website, Marketing, Tools und Technik fühlt sich alles komplizierter an, als du gedacht hast. Du fragst dich: Wo fange ich an? Was brauche ich wirklich? Und was kann ich vielleicht erst später machen?</p>
+
+  <p>Du fängst an zu recherchieren. Website-Baukästen, Hosting-Anbieter, Logo-Design. Du vergleichst Tools, liest Blogbeiträge, schaust YouTube-Videos. Jeder sagt was anderes. Der eine schwört auf WordPress, der nächste auf Wix, wieder ein anderer sagt, du brauchst unbedingt eine Online-Kurs-Plattform. Und plötzlich hast du 20 Tabs offen, drei Notizzettel voll — aber keinen Plan.</p>
+
+  <p>Dann kommen die nächsten Fragen: Brauche ich ein Gewerbe? Was muss ins Impressum? Ist meine Seite DSGVO-konform? Was kostet das alles? Kann ich mir das überhaupt leisten?</p>
+
+  <p>Und irgendwann sitzt du vor deinem Laptop und denkst: <em>Ich wollte doch eigentlich nur mein Wissen anbieten. Warum fühlt sich das gerade an wie ein komplett neues Studium?</em></p>
+
+  <div class="coral-line-long"></div>
+
+  <p>Genau dort stand ich auch.</p>
+
+  <p>Hi, ich bin Miriam. Nach meinem Master in Wirtschafts- und Werbepsychologie wollte ich mich selbstständig machen — und merkte schnell: Zwischen der Idee und einem funktionierenden Online-Business liegt eine ganze Welt aus Technik, Marketing und Bausteinen, die zusammenhängen.</p>
+
+  <p>Also begann ich, mich Schritt für Schritt reinzuarbeiten — und habe dabei Marketing zu meinem Beruf gemacht.</p>
+
+  <p>Heute verbinde ich wirtschaftspsychologisches Verständnis mit Marketing-Know-how und praktischer Umsetzung — besonders für Menschen, die ihr eigenes Business aufbauen und online sichtbar werden möchten.</p>
+
+  <p>Dieses Workbook bündelt das Wissen, das ich mir über Jahre selbst zusammengesucht habe — Schritt für Schritt, damit du direkt mit einer klaren Struktur starten kannst.</p>
+
+  <p style="font-family:'Antonio',sans-serif;font-size:22px;font-weight:700;color:#e8604c;text-transform:uppercase;margin-top:8px;">Let's go.</p>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>2</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 3: WAS DU MITNEHMEN WIRST + P.S.
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Was du aus diesem Workbook mitnehmen wirst</h2>
+  <p>Nach diesem Workbook wirst du:</p>
+
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox" style="border-color:#e8604c;"></div><span>verstehen, welche Bausteine ein Online-Business wirklich braucht</span></div>
+    <div class="checklist-item"><div class="checkbox" style="border-color:#e8604c;"></div><span>wissen, womit du anfangen solltest – und was später kommt</span></div>
+    <div class="checklist-item"><div class="checkbox" style="border-color:#e8604c;"></div><span>dein eigenes Online-Fundament Schritt für Schritt aufbauen</span></div>
+    <div class="checklist-item"><div class="checkbox" style="border-color:#e8604c;"></div><span>Tools nutzen, die dir Arbeit abnehmen statt neue Probleme schaffen</span></div>
+    <div class="checklist-item"><div class="checkbox" style="border-color:#e8604c;"></div><span>ohne technische Vorkenntnisse eine professionelle Website aufbauen</span></div>
+    <div class="checklist-item"><div class="checkbox" style="border-color:#e8604c;"></div><span>Claude AI als persönlichen Assistenten für dein Business einsetzen</span></div>
+    <div class="checklist-item"><div class="checkbox" style="border-color:#e8604c;"></div><span>dein erstes digitales Produkt erstellen und über deine eigene Website verkaufen</span></div>
+  </div>
+
+  <div style="margin-top:auto;padding-top:24px;">
+    <div class="mindset-box" style="background:#1a1a1a;border-radius:12px;padding:22px 26px;">
+      <p style="color:#fff;font-size:13px;margin-bottom:0;line-height:1.7;"><strong style="color:#e8604c;">P.S.</strong> Für 89 € hast du dir gerade zwischen 5.000 und 15.000 € gespart.<br>Das ist weniger als eine einzige Stunde bei einer Agentur.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>3</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 4: FÜR WEN IST DIESES WORKBOOK
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Für wen ist dieses Workbook?</h2>
+
+  <div class="for-whom-yes">
+    <h4 style="font-size:14px;color:#2db8a8;margin-bottom:10px;">Dieses Workbook ist für dich, wenn:</h4>
+    <ul style="margin:0;padding:0;">
+      <li>du dich selbstständig machen willst — oder gerade erst gestartet hast</li>
+      <li>du keine technischen Vorkenntnisse hast und nicht programmieren kannst</li>
+      <li>du dein Business online aufbauen willst (Website, E-Mail, CRM, Shop)</li>
+      <li>du bereit bist, KI als Werkzeug zu nutzen, statt alles manuell zu machen</li>
+      <li>du Geld sparen willst und keine Agentur beauftragen möchtest</li>
+      <li>du Schritt-für-Schritt-Anleitungen liebst statt vager Tipps</li>
+      <li>du bereit bist, 15–20 Stunden diese Woche zu investieren</li>
+    </ul>
+  </div>
+
+  <div class="for-whom-no">
+    <h4 style="font-size:14px;color:#e8604c;margin-bottom:10px;">Dieses Workbook ist NICHT für dich, wenn:</h4>
+    <ul style="margin:0;padding:0;">
+      <li>du eine fertige Agentur-Website willst, ohne selbst etwas zu tun</li>
+      <li>du nichts Neues lernen möchtest</li>
+      <li>du bereits ein professionelles Online-Setup hast</li>
+      <li>du ein Budget von mehreren tausend Euro für eine Agentur hast und das lieber abgeben willst</li>
+    </ul>
+  </div>
+
+  <div class="quote-block" style="margin-top:28px;">
+    Du musst nicht alles wissen. Du musst nur anfangen.
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>4</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 5: DEIN 7-TAGE-PLAN (ROADMAP)
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Dein 7-Tage-Plan</h2>
+  <p style="margin-bottom:20px;">So sieht deine Woche aus, wenn du dieses Workbook durcharbeitest:</p>
+
+  <div class="roadmap-day">
+    <div class="roadmap-badge">Tag 1</div>
+    <div class="roadmap-content">
+      <h4>Idee &amp; Positionierung</h4>
+      <p>Mindset klären, Angebot definieren, Zielgruppe verstehen, Keywords finden, Markennamen wählen</p>
+    </div>
+  </div>
+  <div class="roadmap-day">
+    <div class="roadmap-badge">Tag 2</div>
+    <div class="roadmap-content">
+      <h4>Claude AI &amp; Tools kennenlernen</h4>
+      <p>Claude einrichten, Projekt anlegen, VS Code installieren, Projektordner erstellen</p>
+    </div>
+  </div>
+  <div class="roadmap-day">
+    <div class="roadmap-badge">Tag 3</div>
+    <div class="roadmap-content">
+      <h4>Branding &amp; Domain</h4>
+      <p>Logo &amp; Farben in Canva erstellen, Domain bei IONOS registrieren</p>
+    </div>
+  </div>
+  <div class="roadmap-day">
+    <div class="roadmap-badge">Tag 4</div>
+    <div class="roadmap-content">
+      <h4>Website bauen</h4>
+      <p>Template finden, mit Claude Code anpassen, Texte einfügen, Bilder einbauen</p>
+    </div>
+  </div>
+  <div class="roadmap-day">
+    <div class="roadmap-badge">Tag 5</div>
+    <div class="roadmap-content">
+      <h4>Rechtliches &amp; E-Mail</h4>
+      <p>Impressum, Datenschutz, Cookie-Banner einrichten. Google Workspace &amp; geschäftliche E-Mail</p>
+    </div>
+  </div>
+  <div class="roadmap-day">
+    <div class="roadmap-badge">Tag 6</div>
+    <div class="roadmap-content">
+      <h4>CRM &amp; Automatisierung</h4>
+      <p>HubSpot einrichten, Kontaktformular verbinden, Newsletter anlegen, Cowork testen</p>
+    </div>
+  </div>
+  <div class="roadmap-day">
+    <div class="roadmap-badge" style="background:#2db8a8;">Tag 7</div>
+    <div class="roadmap-content">
+      <h4 style="color:#2db8a8;">Website live &amp; erstes Produkt</h4>
+      <p>GitHub &amp; Vercel verbinden, Domain verknüpfen, digitales Produkt mit Stripe live schalten</p>
+    </div>
+  </div>
+
+  <div class="tip-box" style="margin-top:24px;">
+    <div class="tip-label">Wichtig</div>
+    <p>Dieser Plan ist ein Richtwert — kein Stresstest. Wenn du länger brauchst, ist das völlig okay. Jeder arbeitet in seinem eigenen Tempo. Hauptsache, du machst weiter.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>5</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 6: FORTSCHRITTS-TRACKER
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Mein Fortschritt</h2>
+  <p style="margin-bottom:20px;">Hake ab, was du geschafft hast. Am Ende dieses Workbooks sollen hier alle Häkchen stehen.</p>
+
+  <div style="background:#fafaf8;border-radius:12px;padding:20px 24px;">
+    <div class="tracker-row"><div class="checkbox"></div><div class="tracker-chapter">01</div><span>Mindset geklärt, Ziel für 4 Wochen definiert</span></div>
+    <div class="tracker-row"><div class="checkbox"></div><div class="tracker-chapter">02</div><span>Angebot, Zielgruppe &amp; Positionierung definiert</span></div>
+    <div class="tracker-row"><div class="checkbox"></div><div class="tracker-chapter">02</div><span>Keywords recherchiert, Markenname gewählt</span></div>
+    <div class="tracker-row"><div class="checkbox"></div><div class="tracker-chapter">03</div><span>Alle Tool-Konten erstellt</span></div>
+    <div class="tracker-row"><div class="checkbox"></div><div class="tracker-chapter">04</div><span>Claude kennengelernt, Projekt angelegt</span></div>
+    <div class="tracker-row"><div class="checkbox"></div><div class="tracker-chapter">05</div><span>Claude Cowork getestet &amp; erste Aufgabe erledigt</span></div>
+    <div class="tracker-row"><div class="checkbox"></div><div class="tracker-chapter">06</div><span>VS Code installiert, Projektordner erstellt</span></div>
+    <div class="tracker-row"><div class="checkbox"></div><div class="tracker-chapter">07</div><span>Website-Template gefunden</span></div>
+    <div class="tracker-row"><div class="checkbox"></div><div class="tracker-chapter">08</div><span>Cookie-Banner, Impressum &amp; Datenschutz eingerichtet</span></div>
+    <div class="tracker-row"><div class="checkbox"></div><div class="tracker-chapter">09</div><span>Logo &amp; Branding in Canva erstellt</span></div>
+    <div class="tracker-row"><div class="checkbox"></div><div class="tracker-chapter">10</div><span>Domain bei IONOS registriert</span></div>
+    <div class="tracker-row"><div class="checkbox"></div><div class="tracker-chapter">11</div><span>Website live auf eigener Domain</span></div>
+    <div class="tracker-row"><div class="checkbox"></div><div class="tracker-chapter">12</div><span>Google Workspace &amp; geschäftliche E-Mail eingerichtet</span></div>
+    <div class="tracker-row"><div class="checkbox"></div><div class="tracker-chapter">13</div><span>HubSpot CRM verbunden, Kontaktformular live</span></div>
+    <div class="tracker-row"><div class="checkbox"></div><div class="tracker-chapter">&#11088;</div><span>Erstes digitales Produkt mit Stripe online</span></div>
+  </div>
+
+  <div class="notes-area" style="margin-top:auto;">
+    <div class="notes-label">Deine Notizen</div>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>6</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE 7: INHALTSVERZEICHNIS (Seite 7)
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="coral-line"></div>
+  <h2>Inhalt</h2>
+
+  <div class="toc-item">
+    <div class="toc-number">01</div>
+    <div><div class="toc-title">Unternehmer-Mindset</div><div class="toc-desc">Selbstmanagement, Zeitplanung &amp; die richtige Einstellung</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">02</div>
+    <div><div class="toc-title">Deine Ausgangslage</div><div class="toc-desc">Idee, Marke, SEO &amp; Ziele — dein Fundament definieren</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">03</div>
+    <div><div class="toc-title">Was brauchst du alles?</div><div class="toc-desc">Der große Überblick: Alle Bausteine &amp; ehrliche Kosten</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">04</div>
+    <div><div class="toc-title">Claude AI verstehen</div><div class="toc-desc">Chat, Cowork &amp; Code — dein KI-Assistent &amp; wie du gute Prompts schreibst</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">05</div>
+    <div><div class="toc-title">Claude Cowork</div><div class="toc-desc">Desktop App, Konnektoren &amp; erste Aufgaben</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">06</div>
+    <div><div class="toc-title">VS Code &amp; Projektstruktur</div><div class="toc-desc">Code-Editor installieren, Projektordner anlegen, loslegen</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">07</div>
+    <div><div class="toc-title">Website-Template finden</div><div class="toc-desc">Moderne Vorlage aussuchen und mit Claude anpassen</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">08</div>
+    <div><div class="toc-title">Cookie-Banner &amp; Recht</div><div class="toc-desc">Impressum, Datenschutz, DSGVO — alles Pflicht</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">09</div>
+    <div><div class="toc-title">Marke &amp; Logo mit Canva</div><div class="toc-desc">Name, Logo, Farben &amp; Branding aufbauen</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">10</div>
+    <div><div class="toc-title">Domain bei IONOS</div><div class="toc-desc">Deine Adresse im Internet registrieren</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">11</div>
+    <div><div class="toc-title">Website live schalten</div><div class="toc-desc">GitHub, Vercel &amp; Domain verbinden</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">12</div>
+    <div><div class="toc-title">Google Workspace &amp; E-Mail</div><div class="toc-desc">Professionelle E-Mail mit eigener Domain</div></div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-number">13</div>
+    <div><div class="toc-title">CRM mit HubSpot</div><div class="toc-desc">Kontakte, Formulare &amp; Newsletter an einem Ort</div></div>
+  </div>
+  <div class="toc-item" style="border-bottom:none;">
+    <div class="toc-number" style="color:#e8604c;">&#11088;</div>
+    <div><div class="toc-title">Bonus: Digitale Produkte verkaufen</div><div class="toc-desc">Dein erstes digitales Produkt erstellen &amp; verkaufen mit Stripe</div></div>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>7</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     KAPITEL 01: UNTERNEHMER-MINDSET — Titelseite
+═══════════════════════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">01</div>
+  <h2>Unternehmer-<br>Mindset</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Bevor es um Tools geht, reden wir über das Wichtigste: dich. Deine Einstellung, deine Zeit und deinen Plan.</p>
+  <div class="chapter-quote">"Lieber heute mit 70 % starten, als nächstes Jahr immer noch auf 100 % warten."</div>
+  <div class="image-placeholder">Foto / Bild Platzhalter</div>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>8</span></div>
+</div>
+
+<!-- KAPITEL 01: Inhalt Seite 1 — Selbst und ständig -->
+<div class="page">
+  <h3><span class="coral">01</span> — Unternehmer-Mindset</h3>
+  <div class="coral-line-long"></div>
+
+  <p>In der Schule lernen wir viele wichtige Dinge: rechnen, schreiben, analysieren. Doch wie man eine Idee entwickelt und daraus ein eigenes Business aufbaut, wird selten vermittelt.</p>
+
+  <p>Wie organisiert man ein eigenes Projekt? Wie übernimmt man Verantwortung für etwas, das man selbst aufbaut? Und wie beginnt man überhaupt, wenn man sich selbstständig machen möchte?</p>
+
+  <p>Viele Menschen stehen genau an diesem Punkt: Sie haben eine Idee oder den Wunsch, etwas Eigenes aufzubauen — wissen aber nicht, wo sie anfangen sollen.</p>
+
+  <div class="mindset-box">
+    <h4>Selbst und ständig — was das wirklich bedeutet</h4>
+    <p>Selbstständig sein heißt wörtlich: selbst denken und ständig denken. Es bedeutet, Verantwortung zu übernehmen — für deine Entscheidungen, deine Zeit und deine Richtung. Niemand sagt dir mehr, was du als Nächstes tun sollst. Du entscheidest.</p>
+  </div>
+
+  <p>Und genau das ist auch die Bedeutung von <strong>Unter-nehmer</strong>: jemand, der etwas unter-nimmt. Der nicht wartet, bis jemand anderes den ersten Schritt macht, sondern selbst losgeht. Der Probleme sieht und Lösungen sucht. Der Ideen hat und sie umsetzt.</p>
+
+  <p>Dein Kopf, dein Wissen, deine Bereitschaft, Neues zu lernen — das ist es, was dich als Unternehmer leitet. Nicht das perfekte Produkt am ersten Tag, sondern die Fähigkeit, dranzubleiben, dazuzulernen und immer wieder den nächsten Schritt zu machen.</p>
+
+  <p>Dieses Workbook hilft dir dabei, genau so zu denken: unternehmerisch. Und es zeigt dir, wie du das nutzt, was dir in der heutigen Zeit zur Verfügung steht — allen voran KI als deinen persönlichen Assistenten —, um deine Selbstständigkeit aufzubauen.</p>
+
+  <p>Doch bevor wir in die Tools und Technik einsteigen, gibt es ein paar Denkweisen, die den Unterschied machen. Sie klingen einfach — aber sie entscheiden darüber, ob du wirklich loslegst oder nur darüber nachdenkst.</p>
+
+  <div class="reflection-box">
+    <div class="reflection-label">Mini-Reflexion</div>
+    <p style="font-size:13px;color:#333;margin-bottom:10px;">Schreibe spontan auf — ohne nachzudenken:</p>
+    <div class="fill-label">Warum möchte ich mich selbstständig machen?</div>
+    <div class="fill-field"></div>
+    <div class="fill-label">Was möchte ich NICHT mehr in einem Angestelltenjob?</div>
+    <div class="fill-field"></div>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>9</span>
+  </div>
+</div>
+
+<!-- KAPITEL 01: Inhalt Seite 2 — Done is better than perfect -->
+<div class="page">
+  <h3 style="font-size:20px;">Done is better than perfect</h3>
+
+  <p>Einer der größten Fehler, den angehende Selbstständige machen: Sie warten auf den perfekten Moment. Das perfekte Logo, die perfekte Website, den perfekten Business-Plan. Und während sie warten, passiert — nichts.</p>
+
+  <p>Die Wahrheit ist: Deine erste Version wird nicht perfekt sein. Und das ist völlig in Ordnung. Jede erfolgreiche Website, jedes erfolgreiche Unternehmen hat mit einer einfachen, unvollkommenen Version angefangen. Wichtig ist nur, dass du <strong>anfängst</strong>.</p>
+
+  <div class="mindset-box" style="background:#fff8f6;">
+    <h4>Starte mit dem Minimum</h4>
+    <p>Eine einfache Website mit deinem Namen, deinem Angebot und einer Möglichkeit, dich zu kontaktieren. Das reicht für den Anfang. Alles andere kannst du später verbessern — und mit Claude an deiner Seite geht das schneller, als du denkst.</p>
+  </div>
+
+  <p style="font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:#e8604c;margin:16px 0;">Dein Mantra für dieses Workbook: Lieber 80 % heute als 100 % nie.</p>
+
+  <div class="coral-line-long"></div>
+
+  <h3 style="font-size:20px;">Denke in Lösungen, nicht in Problemen</h3>
+
+  <p>Auf dem Weg in die Selbstständigkeit wirst du auf Hindernisse stoßen. Garantiert. Die Website funktioniert nicht wie geplant. Ein Kunde springt ab. Die Technik macht Probleme. Das gehört dazu.</p>
+
+  <p>Der Unterschied zwischen denen, die aufgeben, und denen, die es schaffen: Die einen sehen ein Problem und denken „Das kann ich nicht." Die anderen sehen das gleiche Problem und fragen: <strong>„Wie kann ich das lösen?"</strong></p>
+
+  <p>Und genau hier kommt Claude ins Spiel. Jedes Mal, wenn du vor einem Problem stehst — egal ob technisch, inhaltlich oder organisatorisch — kannst du Claude fragen. „Mein Kontaktformular funktioniert nicht. Was kann ich tun?" Oder: „Ein Kunde hat mein Angebot abgelehnt. Wie kann ich mein Angebot besser formulieren?"</p>
+
+  <div class="mindset-box">
+    <h4>Merke dir:</h4>
+    <p>Als Unternehmer bist du nicht jemand, der keine Probleme hat. Du bist jemand, der Probleme löst. Eins nach dem anderen.</p>
+  </div>
+
+  <p>Lösungsdenken ist die Grundlage — aber es braucht auch einen realistischen Rahmen. Viele glauben, Selbstständigkeit bedeutet, sofort alles hinzuwerfen und Vollzeit zu gründen. Die Wahrheit ist: Du brauchst weniger Zeit, als du denkst. Entscheidend ist nicht, wie viele Stunden du hast, sondern wie du sie nutzt.</p>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>10</span>
+  </div>
+</div>
+
+<!-- KAPITEL 01: Inhalt Seite 3 — Zeitplan -->
+<div class="page">
+  <h3 style="font-size:20px;">Wie viel Zeit brauchst du wirklich?</h3>
+  <p style="margin-bottom:18px;">Du brauchst nicht 8 Stunden am Tag. Aber du brauchst <strong>Regelmäßigkeit</strong>.</p>
+
+  <div class="step-box">
+    <div class="step-label">Woche 1</div>
+    <h4>Workspace aufsetzen (dieses Workbook)</h4>
+    <p>Ca. 15–20 Stunden verteilt auf 5–7 Tage.</p>
+  </div>
+  <div class="step-box">
+    <div class="step-label">Woche 2–3</div>
+    <h4>Website verfeinern, Content erstellen</h4>
+    <p>Ca. 5–10 Stunden pro Woche.</p>
+  </div>
+  <div class="step-box">
+    <div class="step-label">Woche 4</div>
+    <h4>Social Media starten, erstes Produkt live</h4>
+    <p>Ca. 5–10 Stunden. Instagram und Facebook einrichten, erste Posts erstellen, dein erstes digitales Produkt mit Stripe verkaufen.</p>
+  </div>
+  <div class="step-box">
+    <div class="step-label">Ab Monat 2</div>
+    <h4>Regelmäßig dranbleiben</h4>
+    <p>Ca. 3–5 Stunden pro Woche reichen.</p>
+  </div>
+
+  <div class="prompt-box">
+    <span class="prompt-label">Prompt: Unsicherheit klären</span>
+    Ich möchte mich mit [Idee] selbstständig machen. Welche Fragen sollte ich mir vorher stellen? Was sind typische Fehler bei [Branche]? Sei ehrlich und direkt.
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>11</span>
+  </div>
+</div>
+
+<!-- KAPITEL 01: Inhalt Seite 4 — Selbst-Check + Ziel -->
+<div class="page">
+  <h3 style="font-size:20px;">Bist du bereit? Dein Selbst-Check</h3>
+
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><span>Ich habe ein Produkt, eine Dienstleistung oder Wissen, das ich anbieten will</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Ich kann 15–20 Stunden diese Woche investieren</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Ich bin bereit, Neues zu lernen — auch wenn es am Anfang überwältigend ist</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Ich akzeptiere, dass es nicht beim ersten Mal perfekt sein muss</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Ich habe ca. 30 € pro Monat Budget für Tools</span></div>
+  </div>
+
+  <div class="tip-box" style="margin-top:20px;">
+    <div class="tip-label">Mein wichtigster Tipp</div>
+    <p>Perfektionismus ist der Feind von Fortschritt. Ich bin selbst eine kleine Perfektionistin — und musste lernen, mich davon zu lösen. Deine Website muss nicht beim ersten Mal perfekt sein. Dein Logo auch nicht. Deine Texte erst recht nicht. Aber du musst erstmal <strong>anfangen</strong>.</p>
+  </div>
+
+  <div style="margin-top:20px;">
+    <div class="fill-label">Was ist mein Ziel in 4 Wochen:</div>
+    <div class="fill-field large"></div>
+  </div>
+
+  <div class="chapter-summary" style="margin-top:auto;">
+    <h4>Das nimmst du aus Kapitel 01 mit:</h4>
+    <div class="check-item">Selbstständig sein heißt: selbst denken, ständig dazulernen</div>
+    <div class="check-item">Done is better than perfect — lieber 80 % heute als 100 % nie</div>
+    <div class="check-item">Denke in Lösungen, nicht in Problemen — und frag Claude</div>
+    <div class="check-item">Du hast einen realistischen Zeitplan und dein 4-Wochen-Ziel aufgeschrieben</div>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>12</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MOTIVATION BETWEEN CHAPTERS
+═══════════════════════════════════════════════════════════ -->
+<div class="page motivation-page">
+  <div class="quote-text">"Du musst nicht alles auf einmal können. Du musst nur den nächsten Schritt machen."</div>
+  <div class="coral-dot"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     KAPITEL 02: DEINE AUSGANGSLAGE — Titelseite
+═══════════════════════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">02</div>
+  <h2>Deine<br>Ausgangslage</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Bevor es an die Tools geht, nehmen wir uns einen Moment für das Wichtigste: Klarheit darüber, was du eigentlich aufbauen willst — und wo du heute stehst.</p>
+  <div class="chapter-quote">"Wer von Anfang an weiß, wohin die Reise geht, spart sich später viele Umwege."</div>
+  <div class="image-placeholder">Foto / Bild Platzhalter</div>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>13</span></div>
+</div>
+
+<!-- KAPITEL 02: Inhalt Seite 1 -->
+<div class="page">
+  <h3><span class="coral">02</span> — Deine Ausgangslage</h3>
+  <div class="coral-line-long"></div>
+
+  <p>Viele, die sich selbstständig machen wollen, starten direkt mit der Technik. Website bauen, Logo erstellen, Instagram-Account anlegen. Das klingt auch erstmal logisch — man will ja endlich loslegen.</p>
+
+  <p>Aber was oft passiert: Man baut sich eine hübsche Website, wählt Farben aus, schreibt Texte — und merkt drei Wochen später, dass der Name nicht passt, die Zielgruppe unklar war oder die Website für die falschen Leute spricht.</p>
+
+  <p><strong>Deshalb machen wir es hier anders.</strong></p>
+
+  <p>Bevor wir auch nur ein einziges Tool aufmachen, klären wir gemeinsam dein Fundament. Das klingt vielleicht erstmal weniger spannend als eine neue Website — aber glaub mir: Dieser Schritt spart dir später Wochen an Überarbeitung.</p>
+
+  <p>Und das Gute ist: Du musst hier noch nichts perfekt haben. Es geht darum, Klarheit zu schaffen. Alles, was du in diesem Kapitel aufschreibst, fließt später in deine Website-Texte, dein Branding, dein Marketing und sogar in deine Google-Sichtbarkeit ein.</p>
+
+  <div class="coral-line-long"></div>
+
+  <h3 style="font-size:20px;">Wo stehst du gerade?</h3>
+  <p>Jeder startet an einem anderen Punkt. Nimm dir einen Moment und schreib einfach auf, was da ist — ohne den Anspruch, dass es sich schon perfekt anhören muss. Das hier ist dein Workbook. Niemand bewertet das.</p>
+
+  <div class="fill-label">Mein Angebot in einem Satz:</div>
+  <div class="fill-field"></div>
+  <div class="fill-label">Für wen ist es gedacht:</div>
+  <div class="fill-field"></div>
+  <div class="fill-label">Welches Problem löse ich damit:</div>
+  <div class="fill-field"></div>
+  <div class="fill-label">Was kann ich besonders gut:</div>
+  <div class="fill-field"></div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>14</span>
+  </div>
+</div>
+
+<!-- KAPITEL 02: Inhalt Seite 2 — Prompt + Zielgruppe -->
+<div class="page">
+  <div class="teal-tip-box">
+    <div class="tip-label">Wenn du bei einer Frage nicht weiterweißt</div>
+    <p>Kein Problem. Genau dafür ist Claude da. Kopier den Prompt unten und lass dir helfen.</p>
+  </div>
+
+  <div class="prompt-box">
+    <span class="prompt-label">Prompt: Idee schärfen</span>
+    Ich möchte mich mit [Thema/Dienstleistung] selbstständig machen. Meine Zielgruppe ist [wer]. Hilf mir, mein Angebot klar zu formulieren. Was genau biete ich an? Welches Problem löse ich? Warum sollte jemand bei mir kaufen und nicht woanders? Formuliere mir 3 verschiedene Varianten für einen Elevator Pitch.
+  </div>
+
+  <div class="coral-line-long"></div>
+
+  <h3 style="font-size:20px;">Deine Zielgruppe wirklich verstehen</h3>
+
+  <p>„Für wen ist das?" — das klingt nach einer einfachen Frage. Aber die Antwort darauf beeinflusst später buchstäblich alles: Wie deine Website aussieht, welche Texte du schreibst, welche Farben du wählst, auf welchen Social-Media-Kanälen du aktiv bist und sogar welche Keywords du für Google brauchst.</p>
+
+  <p>Je besser du das verstehst, desto besser werden später deine Website-Texte, deine Social-Media-Posts und dein gesamtes Marketing. Du schreibst dann nicht mehr „für alle", sondern für echte Menschen — und genau das macht den Unterschied.</p>
+
+  <div class="fill-label">Meine Zielgruppe in 2–3 Sätzen:</div>
+  <div class="fill-field large"></div>
+  <div class="fill-label">Was ist ihr größtes Problem / ihre größte Frustration:</div>
+  <div class="fill-field"></div>
+  <div class="fill-label">Was googeln sie, wenn sie nach einer Lösung suchen:</div>
+  <div class="fill-field"></div>
+  <div class="fill-label">Wo sind sie online unterwegs (Instagram, LinkedIn, Facebook, YouTube, Foren):</div>
+  <div class="fill-field"></div>
+  <div class="fill-label">Was wünschen sie sich von jemandem wie mir:</div>
+  <div class="fill-field"></div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>15</span>
+  </div>
+</div>
+
+<!-- KAPITEL 02: Inhalt Seite 3 — Zielgruppe Prompt + Positionierung -->
+<div class="page">
+  <div class="prompt-box">
+    <span class="prompt-label">Prompt: Zielgruppe analysieren</span>
+    Ich biete [Dienstleistung/Produkt] an für [grobe Zielgruppe]. Hilf mir, meine Zielgruppe besser zu verstehen. Erstelle mir ein detailliertes Profil meiner idealen Kundin / meines idealen Kunden: Alter, Lebenssituation, größte Probleme, wonach sie googeln, wo sie online unterwegs sind, was sie sich von einem Anbieter wie mir wünschen. Schreibe es so, als würdest du mir eine echte Person beschreiben.
+  </div>
+
+  <div class="coral-line-long"></div>
+
+  <h3 style="font-size:20px;">Was macht dich anders?</h3>
+
+  <p>Hand aufs Herz: In fast jeder Branche gibt es schon andere Anbieter. Das ist normal und überhaupt kein Problem. Die Frage ist nicht, ob es Konkurrenz gibt — sondern warum jemand sich für <strong>dich</strong> entscheiden sollte.</p>
+
+  <p>Das muss kein riesiges Alleinstellungsmerkmal sein. Oft sind es die kleinen Dinge: Deine Art zu erklären. Deine persönliche Geschichte. Dein spezieller Blickwinkel. Deine Erfahrung in einem bestimmten Bereich.</p>
+
+  <div class="fill-label">Was unterscheidet mich von anderen in meinem Bereich:</div>
+  <div class="fill-field large"></div>
+  <div class="fill-label">Was bringe ich mit, was andere so nicht haben (Erfahrung, Perspektive, Stil):</div>
+  <div class="fill-field"></div>
+  <div class="fill-label">Warum würde meine Wunschkundin / mein Wunschkunde sich für mich entscheiden:</div>
+  <div class="fill-field"></div>
+
+  <div class="prompt-box">
+    <span class="prompt-label">Prompt: Positionierung finden</span>
+    Ich möchte mich als [Beruf/Thema] selbstständig machen. Meine Zielgruppe ist [wer]. Es gibt bereits viele Anbieter in diesem Bereich. Hilf mir herauszufinden, was mich besonders macht. Mein Hintergrund: [kurze Bio]. Stelle mir 5 gezielte Fragen, die mir helfen, mein Alleinstellungsmerkmal zu finden. Formuliere danach 3 Positionierungs-Vorschläge für mich.
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>16</span>
+  </div>
+</div>
+
+<!-- KAPITEL 02: Inhalt Seite 4 — Vision + Markenname + SEO -->
+<div class="page">
+  <h3 style="font-size:20px;">Deine Vision — wo willst du hin?</h3>
+  <p>Selbstständigkeit ist kein Sprint, sondern ein Weg. Stell dir vor, es ist in einem Jahr. Was hast du erreicht?</p>
+
+  <div class="fill-label">Wo sehe ich mich in 12 Monaten:</div>
+  <div class="fill-field"></div>
+  <div class="fill-label">Was will ich erreicht haben:</div>
+  <div class="fill-field"></div>
+  <div class="fill-label">Wie soll sich mein Alltag anfühlen:</div>
+  <div class="fill-field"></div>
+  <div class="fill-label">Wie viel möchte ich verdienen (auch wenn es erstmal ein grober Wunsch ist):</div>
+  <div class="fill-field"></div>
+
+  <div class="coral-line-long"></div>
+
+  <h3 style="font-size:20px;">Dein Markenname — und warum du jetzt schon an Google denken solltest</h3>
+
+  <p>Dein Markenname ist nicht einfach nur ein Wort auf deinem Logo. Er ist gleichzeitig deine Domain, dein Instagram-Handle, dein erster Eindruck bei Google — und der Name, mit dem dich Menschen finden sollen.</p>
+
+  <p>Deshalb ein Thema, das viele am Anfang übersehen: <strong>SEO</strong>, also Suchmaschinenoptimierung.</p>
+
+  <div class="mindset-box">
+    <h4>Was Google mit deinem Namen macht</h4>
+    <p>Ein Name wie „Bäumler Marketing" sagt Google sofort: Hier geht es um Marketing. Die Domain baeumlermarketing.de enthält das Keyword „Marketing". Ein Fantasiename wie „Luminos" klingt schön — aber Google kann damit erstmal nichts anfangen. Es hilft enorm, wenn dein Name ein Keyword enthält.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>17</span>
+  </div>
+</div>
+
+<!-- KAPITEL 02: Inhalt Seite 5 — Keywords + Checkliste -->
+<div class="page">
+  <h3 style="font-size:20px;">Keywords: Die Wörter, die deine Kunden googeln</h3>
+
+  <p>Keywords sind einfach die Begriffe, die echte Menschen in die Google-Suche tippen. Wenn du Yoga-Kurse in Köln anbietest, wären relevante Keywords: „Yoga Köln", „Yoga-Kurs Anfänger Köln", „Yoga Studio Köln Ehrenfeld".</p>
+
+  <div class="tip-box">
+    <div class="tip-label">Tipp: Keywords sind dein roter Faden</div>
+    <p>Alles, was du später auf deiner Website schreibst, in Social Media postest oder in deinem Newsletter verschickst, sollte diese Keywords enthalten. Je früher du sie kennst, desto einfacher wird alles.</p>
+  </div>
+
+  <div class="fill-label">Meine 5 wichtigsten Keywords:</div>
+  <div style="display:flex;gap:8px;margin-bottom:6px;"><span style="font-family:'Antonio',sans-serif;font-size:16px;color:#e8604c;width:24px;">1.</span><div class="fill-field" style="flex:1;margin:0;"></div></div>
+  <div style="display:flex;gap:8px;margin-bottom:6px;"><span style="font-family:'Antonio',sans-serif;font-size:16px;color:#e8604c;width:24px;">2.</span><div class="fill-field" style="flex:1;margin:0;"></div></div>
+  <div style="display:flex;gap:8px;margin-bottom:6px;"><span style="font-family:'Antonio',sans-serif;font-size:16px;color:#e8604c;width:24px;">3.</span><div class="fill-field" style="flex:1;margin:0;"></div></div>
+  <div style="display:flex;gap:8px;margin-bottom:6px;"><span style="font-family:'Antonio',sans-serif;font-size:16px;color:#e8604c;width:24px;">4.</span><div class="fill-field" style="flex:1;margin:0;"></div></div>
+  <div style="display:flex;gap:8px;margin-bottom:16px;"><span style="font-family:'Antonio',sans-serif;font-size:16px;color:#e8604c;width:24px;">5.</span><div class="fill-field" style="flex:1;margin:0;"></div></div>
+
+  <div class="prompt-box">
+    <span class="prompt-label">Prompt: Keywords recherchieren</span>
+    Ich biete [Dienstleistung/Produkt] an für [Zielgruppe] in [Stadt/Region]. Welche Suchbegriffe würde meine Zielgruppe bei Google eingeben? Erstelle mir eine Liste mit 20 relevanten Keywords, sortiert nach Relevanz. Unterscheide zwischen kurzen Keywords (z.B. „Marketing") und langen Keywords (z.B. „Marketing für Selbstständige Langenfeld"). Erkläre mir bei jedem Keyword kurz, warum es relevant ist.
+  </div>
+
+  <div class="coral-line-long"></div>
+
+  <h3 style="font-size:20px;">Checkliste: Markennamen prüfen</h3>
+  <p style="margin-bottom:8px;">Bevor du dich festlegst — das dauert nur 10 Minuten:</p>
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><span>Ist die .de-Domain noch frei? → Prüfe auf ionos.de</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Ist der Name auf Instagram verfügbar?</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Ist der Name auf Facebook verfügbar?</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Gibt es den Namen schon bei Google? (Einfach googeln)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Ist der Name kurz, einprägsam und leicht zu buchstabieren?</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Enthält der Name ein Keyword (z.B. Marketing, Coaching, Design)?</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span>Funktioniert der Name als E-Mail-Adresse? (kontakt@deinname.de)</span></div>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>18</span>
+  </div>
+</div>
+
+<!-- KAPITEL 02: Inhalt Seite 6 — Markenname Ergebnis + Zusammenfassung -->
+<div class="page">
+  <div class="fill-label">Mein Wunsch-Markenname:</div>
+  <div class="fill-field"></div>
+
+  <div style="display:flex;gap:24px;margin-bottom:16px;">
+    <div style="flex:1;">
+      <div class="fill-label">Domain geprüft:</div>
+      <div class="checklist" style="margin:4px 0;">
+        <div class="checklist-item" style="border:none;padding:4px 0;"><div class="checkbox" style="width:14px;height:14px;"></div><span style="font-size:12px;">frei</span></div>
+        <div class="checklist-item" style="border:none;padding:4px 0;"><div class="checkbox" style="width:14px;height:14px;"></div><span style="font-size:12px;">vergeben → Alternative:</span></div>
+      </div>
+    </div>
+    <div style="flex:1;">
+      <div class="fill-label">Instagram-Handle geprüft:</div>
+      <div class="checklist" style="margin:4px 0;">
+        <div class="checklist-item" style="border:none;padding:4px 0;"><div class="checkbox" style="width:14px;height:14px;"></div><span style="font-size:12px;">frei</span></div>
+        <div class="checklist-item" style="border:none;padding:4px 0;"><div class="checkbox" style="width:14px;height:14px;"></div><span style="font-size:12px;">vergeben</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prompt-box">
+    <span class="prompt-label">Prompt: Markenname finden</span>
+    Ich möchte mich als [Beruf/Thema] selbstständig machen in [Stadt]. Hilf mir, einen Markennamen zu finden. Er soll kurz, einprägsam und SEO-freundlich sein — also idealerweise ein Keyword enthalten. Prüfe gedanklich ob die .de-Domain wahrscheinlich noch frei ist und ob der Name auf Instagram und Facebook als Handle funktioniert. Schlage mir 10 Varianten vor und erkläre bei jeder, warum sie SEO-technisch gut oder weniger gut ist.
+  </div>
+
+  <div class="coral-line-long"></div>
+
+  <h3 style="font-size:20px;">Was du jetzt noch NICHT brauchst</h3>
+  <p>Du brauchst jetzt noch keinen fertigen Businessplan. Kein perfekt formuliertes Angebot. Keine Gewerbeanmeldung (die kommt, wenn du soweit bist). Kein fertiges Logo — das machen wir später in Kapitel 09. Keine Social-Media-Strategie — darum kümmern wir uns in Workbook 2.</p>
+  <p>Was du jetzt brauchst, hast du gerade gemacht: Eine Idee, eine Richtung, einen Namen — und ein Gefühl dafür, wen du erreichen willst.</p>
+
+  <div class="teal-tip-box">
+    <div class="tip-label">Zeitspar-Tipp: Alles aufheben</div>
+    <p>Speichere alles, was du aufgeschrieben hast, auch digital ab. Erstelle in Claude Chat ein neues Projekt mit deinem Business-Namen und lade dort deine Notizen hoch. So weiß Claude bei jeder zukünftigen Frage sofort, wer du bist.</p>
+  </div>
+
+  <div class="summary-box" style="margin-top:auto;">
+    <h4>Zusammenfassung: Dein Fundament steht</h4>
+    <p>Wenn du dieses Kapitel durchgearbeitet hast, weißt du fünf wichtige Dinge: Was du anbieten willst. Wen du erreichen willst. Was dich besonders macht. Wohin du willst. Und wie du heißen wirst. Damit hast du schon mehr Klarheit als die meisten, die „einfach mal anfangen".</p>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>19</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     KAPITEL 03: WAS BRAUCHST DU ALLES? — Titelseite
+═══════════════════════════════════════════════════════════ -->
+<div class="page chapter-title-page">
+  <div class="chapter-num">03</div>
+  <h2>Was brauchst<br>du alles?</h2>
+  <div class="coral-line"></div>
+  <p class="chapter-intro">Das war mein größtes Problem am Anfang: Ich wusste nicht mal, was ich alles brauche. Hier bekommst du den kompletten Überblick.</p>
+  <div class="chapter-quote">"Weniger als du denkst. Und günstiger, als du glaubst."</div>
+  <div class="image-placeholder">Foto / Bild Platzhalter</div>
+  <div class="page-footer"><span>Baeumler Marketing</span><span>20</span></div>
+</div>
+
+<!-- KAPITEL 03: Inhalt Seite 1 — Die 10 Bausteine -->
+<div class="page">
+  <h3><span class="coral">03</span> — Der große Überblick</h3>
+  <div class="coral-line-long"></div>
+
+  <p style="margin-bottom:20px;">Zehn Bausteine, die zusammen deinen Online-Workspace ergeben:</p>
+
+  <div class="step-box" style="padding:12px 18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-family:'Antonio',sans-serif;font-size:22px;color:#e8604c;font-weight:700;width:28px;">1</span>
+      <div><h4 style="font-size:14px;margin-bottom:2px;">Marke &amp; Identität</h4><p style="font-size:11.5px;margin-bottom:0;">Name, Logo, Farben, Schriften, Tonalität</p></div>
+    </div>
+  </div>
+  <div class="step-box" style="padding:12px 18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-family:'Antonio',sans-serif;font-size:22px;color:#e8604c;font-weight:700;width:28px;">2</span>
+      <div><h4 style="font-size:14px;margin-bottom:2px;">Website</h4><p style="font-size:11.5px;margin-bottom:0;">Deine digitale Visitenkarte</p></div>
+    </div>
+  </div>
+  <div class="step-box" style="padding:12px 18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-family:'Antonio',sans-serif;font-size:22px;color:#e8604c;font-weight:700;width:28px;">3</span>
+      <div><h4 style="font-size:14px;margin-bottom:2px;">Domain &amp; Hosting</h4><p style="font-size:11.5px;margin-bottom:0;">Deine Adresse im Internet</p></div>
+    </div>
+  </div>
+  <div class="step-box" style="padding:12px 18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-family:'Antonio',sans-serif;font-size:22px;color:#e8604c;font-weight:700;width:28px;">4</span>
+      <div><h4 style="font-size:14px;margin-bottom:2px;">E-Mail</h4><p style="font-size:11.5px;margin-bottom:0;">Professionell: hi@deinedomain.de</p></div>
+    </div>
+  </div>
+  <div class="step-box" style="padding:12px 18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-family:'Antonio',sans-serif;font-size:22px;color:#e8604c;font-weight:700;width:28px;">5</span>
+      <div><h4 style="font-size:14px;margin-bottom:2px;">Rechtliches</h4><p style="font-size:11.5px;margin-bottom:0;">Impressum, Datenschutz, Cookie-Banner, AGB</p></div>
+    </div>
+  </div>
+  <div class="step-box" style="padding:12px 18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-family:'Antonio',sans-serif;font-size:22px;color:#e8604c;font-weight:700;width:28px;">6</span>
+      <div><h4 style="font-size:14px;margin-bottom:2px;">CRM-System</h4><p style="font-size:11.5px;margin-bottom:0;">Kundenkontakte verwalten, Formulare, Newsletter</p></div>
+    </div>
+  </div>
+  <div class="step-box" style="padding:12px 18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-family:'Antonio',sans-serif;font-size:22px;color:#e8604c;font-weight:700;width:28px;">7</span>
+      <div><h4 style="font-size:14px;margin-bottom:2px;">Shop / Checkout</h4><p style="font-size:11.5px;margin-bottom:0;">Digitale Produkte verkaufen</p></div>
+    </div>
+  </div>
+  <div class="step-box" style="padding:12px 18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-family:'Antonio',sans-serif;font-size:22px;color:#e8604c;font-weight:700;width:28px;">8</span>
+      <div><h4 style="font-size:14px;margin-bottom:2px;">Marketing &amp; Content</h4><p style="font-size:11.5px;margin-bottom:0;">Social Media, Blog, Newsletter</p></div>
+    </div>
+  </div>
+  <div class="step-box" style="padding:12px 18px;margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-family:'Antonio',sans-serif;font-size:22px;color:#e8604c;font-weight:700;width:28px;">9</span>
+      <div><h4 style="font-size:14px;margin-bottom:2px;">Tracking &amp; Analyse</h4><p style="font-size:11.5px;margin-bottom:0;">Wer besucht deine Seite?</p></div>
+    </div>
+  </div>
+  <div class="step-box" style="padding:12px 18px;margin-bottom:8px;border-left-color:#2db8a8;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-family:'Antonio',sans-serif;font-size:22px;color:#2db8a8;font-weight:700;width:28px;">10</span>
+      <div><h4 style="font-size:14px;margin-bottom:2px;color:#2db8a8;">KI-Werkzeuge</h4><p style="font-size:11.5px;margin-bottom:0;">Claude AI als dein Schweizer Taschenmesser</p></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>21</span>
+  </div>
+</div>
+
+<!-- KAPITEL 03: Inhalt Seite 2 — Kosten -->
+<div class="page">
+  <h3 style="font-size:20px;">Was kostet das alles?</h3>
+  <p style="margin-bottom:16px;">Hier die ehrliche Aufstellung — keine versteckten Kosten:</p>
+
+  <div style="background:#fafaf8;border-radius:12px;padding:20px 24px;">
+    <div class="cost-row">
+      <span class="cost-label">Claude Pro (KI-Assistent)</span>
+      <span class="cost-price">~19 €/Monat</span>
+    </div>
+    <div class="cost-row">
+      <span class="cost-label">VS Code (Code-Editor)</span>
+      <span class="cost-price free">kostenlos</span>
+    </div>
+    <div class="cost-row">
+      <span class="cost-label">GitHub (Code-Verwaltung)</span>
+      <span class="cost-price free">kostenlos</span>
+    </div>
+    <div class="cost-row">
+      <span class="cost-label">Vercel (Hosting)</span>
+      <span class="cost-price free">kostenlos</span>
+    </div>
+    <div class="cost-row">
+      <span class="cost-label">IONOS Domain (.de)</span>
+      <span class="cost-price">~1 €/Monat</span>
+    </div>
+    <div class="cost-row">
+      <span class="cost-label">Google Workspace (E-Mail)</span>
+      <span class="cost-price">~8 €/Monat</span>
+    </div>
+    <div class="cost-row">
+      <span class="cost-label">Canva (Grafik-Design)</span>
+      <span class="cost-price free">kostenlos*</span>
+    </div>
+    <div class="cost-row">
+      <span class="cost-label">HubSpot CRM</span>
+      <span class="cost-price free">kostenlos</span>
+    </div>
+    <div class="cost-row">
+      <span class="cost-label">Stripe (Zahlungen)</span>
+      <span class="cost-price free">kostenlos*</span>
+    </div>
+    <div class="cost-total">
+      <span>Gesamt</span>
+      <span style="color:#e8604c;">unter 30 € / Monat</span>
+    </div>
+  </div>
+  <p class="small-text" style="margin-top:8px;">* Canva Pro optional für 12 €/Monat. Stripe nimmt ~2,9 % + 0,25 € pro Verkauf, keine Grundgebühr.</p>
+
+  <div class="coral-line-long"></div>
+
+  <h3 style="font-size:20px;">Ehrliche Kosten-Einschätzung</h3>
+
+  <div class="two-col" style="margin-top:10px;">
+    <div>
+      <h4 style="font-size:13px;color:#2db8a8;">Wirklich kostenlos (0 €)</h4>
+      <p class="small-text">VS Code, GitHub, Vercel, HubSpot CRM Free, Stripe (0 € Grundgebühr).</p>
+
+      <h4 style="font-size:13px;color:#e8604c;margin-top:12px;">Kostenlos, aber mit Limits</h4>
+      <p class="small-text">Claude Free — funktioniert, aber Tageslimit. Pro für ~20 €/Monat ist realistisch. Canva Free — reicht für Logo und einfache Posts.</p>
+    </div>
+    <div>
+      <h4 style="font-size:13px;color:#1a1a1a;">Musst du bezahlen</h4>
+      <p class="small-text">IONOS Domain ~1 €/Monat. Google Workspace ~8 €/Monat.</p>
+
+      <h4 style="font-size:13px;color:#1a1a1a;margin-top:12px;">Mein realistisches Fazit</h4>
+      <p class="small-text">Minimum: ~1 €/Monat (nur Domain). Realistisch: Claude Pro (20 €) + Domain (1 €) + Google Workspace (8 €) = ca. <strong>29 €/Monat</strong>.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>22</span>
+  </div>
+</div>
+
+<!-- KAPITEL 03: Inhalt Seite 3 — Tool-Checkliste + Prompt -->
+<div class="page">
+  <h3 style="font-size:20px;">Alle Tools auf einen Blick — mit Links</h3>
+  <p style="margin-bottom:12px;">Richte diese Konten jetzt ein (dauert ca. 15 Minuten):</p>
+
+  <div class="checklist">
+    <div class="checklist-item"><div class="checkbox"></div><span><strong>claude.ai</strong> → Claude Pro/Max Abo abschließen</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span><strong>code.visualstudio.com</strong> → VS Code herunterladen</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span><strong>github.com</strong> → Kostenloses Konto erstellen</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span><strong>vercel.com</strong> → Kostenloses Konto (mit GitHub anmelden)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span><strong>ionos.de</strong> → Domain suchen &amp; registrieren</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span><strong>workspace.google.com</strong> → Business Starter (~8 €/Monat)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span><strong>canva.com</strong> → Kostenloses Konto (Pro optional für 12 €/Monat)</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span><strong>hubspot.com</strong> → Kostenloses CRM-Konto erstellen</span></div>
+    <div class="checklist-item"><div class="checkbox"></div><span><strong>stripe.com</strong> → Konto erstellen (kostenlos, zahlt nur pro Verkauf)</span></div>
+  </div>
+
+  <div class="prompt-box" style="margin-top:16px;">
+    <span class="prompt-label">Prompt: Persönliche Tool-Empfehlung</span>
+    Ich möchte mich als [Beruf] selbstständig machen. Mein monatliches Budget für Tools ist [Betrag] Euro. Welche Tools sind für mich am wichtigsten und worauf kann ich am Anfang verzichten? Erstelle mir eine priorisierte Liste.
+  </div>
+
+  <div class="chapter-summary" style="margin-top:auto;">
+    <h4>Das nimmst du aus Kapitel 03 mit:</h4>
+    <div class="check-item">Du kennst alle 10 Bausteine deines Online-Workspace</div>
+    <div class="check-item">Du weißt genau, was es kostet (unter 30 € / Monat)</div>
+    <div class="check-item">Du hast alle Tool-Konten erstellt</div>
+    <div class="check-item">Du bist bereit für den nächsten Schritt: Claude AI kennenlernen</div>
+  </div>
+
+  <div class="page-footer">
+    <span>Baeumler Marketing</span>
+    <span>23</span>
+  </div>
+</div>
+
+</body>
+</html>

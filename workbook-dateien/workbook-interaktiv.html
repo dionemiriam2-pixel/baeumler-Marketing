@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Selbstständig — Dein interaktives Workbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --coral:#e8604c;--teal:#2db8a8;--text:#1a1a1a;--muted:#666;--bg:#f7f7f5;
+  --card:#fff;--sidebar-w:280px;--r:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+
+/* ═══ SIDEBAR ═══ */
+.sidebar{
+  position:fixed;left:0;top:0;bottom:0;width:var(--sidebar-w);
+  background:#1a1a1a;color:#fff;z-index:100;
+  display:flex;flex-direction:column;
+  transition:transform .3s ease;
+}
+.sidebar-header{padding:28px 24px 20px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sidebar-brand{font-family:'Antonio',sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:3px;color:var(--coral);margin-bottom:4px}
+.sidebar-title{font-family:'Antonio',sans-serif;font-size:20px;text-transform:uppercase;line-height:1.2}
+.sidebar-nav{flex:1;overflow-y:auto;padding:16px 0}
+.sidebar-nav::-webkit-scrollbar{width:4px}
+.sidebar-nav::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:4px}
+
+.nav-item{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 24px;cursor:pointer;
+  transition:all .2s;font-size:14px;color:rgba(255,255,255,.5);
+  border-left:3px solid transparent;
+}
+.nav-item:hover{color:rgba(255,255,255,.8);background:rgba(255,255,255,.03)}
+.nav-item.active{color:#fff;border-left-color:var(--coral);background:rgba(232,96,76,.08)}
+.nav-item.completed .nav-dot{background:var(--teal)}
+.nav-item .nav-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,255,255,.2);flex-shrink:0;
+  transition:background .3s;
+}
+.nav-item .nav-num{
+  font-family:'Antonio',sans-serif;font-size:13px;
+  color:rgba(255,255,255,.3);width:20px;flex-shrink:0;
+}
+.nav-item.active .nav-num{color:var(--coral)}
+.nav-chapter{
+  font-family:'Antonio',sans-serif;font-size:11px;
+  text-transform:uppercase;letter-spacing:2px;
+  color:rgba(255,255,255,.25);padding:20px 24px 6px;
+}
+
+.sidebar-footer{padding:20px 24px;border-top:1px solid rgba(255,255,255,.08)}
+.progress-bar-wrap{background:rgba(255,255,255,.08);border-radius:100px;height:6px;overflow:hidden;margin-bottom:8px}
+.progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--coral),var(--teal));border-radius:100px;transition:width .5s ease;width:0%}
+.progress-text{font-size:12px;color:rgba(255,255,255,.4)}
+.progress-text span{color:var(--teal);font-weight:600}
+
+/* ═══ MOBILE TOGGLE ═══ */
+.menu-toggle{
+  display:none;position:fixed;top:16px;left:16px;z-index:200;
+  width:44px;height:44px;border-radius:12px;background:#1a1a1a;
+  border:none;cursor:pointer;color:#fff;font-size:20px;
+  box-shadow:0 4px 20px rgba(0,0,0,.15);
+}
+
+/* ═══ MAIN ═══ */
+.main{margin-left:var(--sidebar-w);min-height:100vh}
+
+/* ═══ TOP PROGRESS BAR ═══ */
+.top-bar{
+  position:fixed;top:0;left:var(--sidebar-w);right:0;
+  height:4px;background:rgba(0,0,0,.05);z-index:50;
+}
+.top-bar-fill{height:100%;background:linear-gradient(90deg,var(--coral),var(--teal));transition:width .5s ease;width:0%}
+
+/* ═══ SECTIONS ═══ */
+.section{
+  min-height:100vh;padding:60px 48px 80px;
+  max-width:820px;margin:0 auto;
+  opacity:0;transform:translateY(30px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+.section.visible{opacity:1;transform:translateY(0)}
+.section.hero-section{
+  display:flex;flex-direction:column;justify-content:center;
+  align-items:center;text-align:center;min-height:100vh;
+}
+
+/* ═══ HERO ═══ */
+.hero-label{
+  font-size:12px;font-weight:600;text-transform:uppercase;
+  letter-spacing:4px;color:var(--coral);margin-bottom:16px;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.hero-label::before,.hero-label::after{content:'';width:24px;height:1px;background:var(--coral)}
+.hero-title{
+  font-family:'Antonio',sans-serif;font-size:clamp(40px,6vw,72px);
+  font-weight:700;text-transform:uppercase;letter-spacing:-.02em;
+  line-height:1.05;margin-bottom:16px;
+}
+.hero-subtitle{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(18px,2.2vw,24px);color:#555;margin-bottom:32px;max-width:520px;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#1a1a1a;color:#fff;font-size:14px;font-weight:600;
+  padding:10px 24px;border-radius:100px;margin-bottom:40px;
+}
+.hero-badge .hl{color:var(--coral)}
+.hero-features{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.hero-feat{
+  display:flex;align-items:center;gap:8px;
+  background:var(--card);border:1px solid #eee;border-radius:100px;
+  padding:8px 18px;font-size:13px;font-weight:500;
+}
+.hero-feat::before{content:'✓';color:var(--coral);font-weight:700}
+.hero-scroll{
+  margin-top:48px;display:flex;flex-direction:column;align-items:center;
+  gap:8px;color:var(--muted);font-size:13px;cursor:pointer;
+  animation:bounce 2s infinite;
+}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* ═══ CHAPTER HEADERS ═══ */
+.chapter-header{margin-bottom:48px;position:relative}
+.chapter-num{
+  font-family:'Antonio',sans-serif;font-size:120px;font-weight:700;
+  color:var(--coral);opacity:.08;line-height:1;margin-bottom:-40px;
+}
+.chapter-title{
+  font-family:'Antonio',sans-serif;font-size:clamp(32px,4vw,52px);
+  font-weight:700;text-transform:uppercase;line-height:1.1;
+  margin-bottom:12px;position:relative;
+}
+.chapter-intro{font-size:17px;color:#555;max-width:560px;line-height:1.7}
+.chapter-quote{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:18px;color:var(--text);margin-top:24px;
+  padding-left:20px;border-left:3px solid var(--coral);
+  max-width:480px;
+}
+
+/* ═══ CONTENT CARDS ═══ */
+.card{
+  background:var(--card);border-radius:var(--r);
+  padding:32px;margin-bottom:24px;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);
+  border:1px solid rgba(0,0,0,.04);
+  transition:transform .2s,box-shadow .2s;
+}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.06)}
+
+h3.section-title{
+  font-family:'Antonio',sans-serif;font-size:24px;font-weight:700;
+  text-transform:uppercase;margin-bottom:20px;
+  display:flex;align-items:center;gap:12px;
+}
+h3.section-title .icon{font-size:28px}
+
+/* ═══ MINDSET BOX ═══ */
+.mindset-box{
+  background:linear-gradient(135deg,#fafaf8,#f5f5f3);
+  border-radius:var(--r);padding:24px 28px;margin:20px 0;
+  border-left:4px solid var(--coral);
+}
+.mindset-box h4{
+  font-family:'Antonio',sans-serif;font-size:16px;text-transform:uppercase;
+  color:var(--coral);margin-bottom:8px;
+}
+.mindset-box p{font-size:15px;color:#444;margin:0}
+
+/* ═══ TIP BOXES ═══ */
+.tip-coral{
+  background:#fff8f6;border:1px solid rgba(232,96,76,.15);
+  border-radius:var(--r);padding:20px 24px;margin:20px 0;
+}
+.tip-coral .label{font-size:11px;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:2px;margin-bottom:6px}
+
+.tip-teal{
+  background:#f0faf9;border:1px solid rgba(45,184,168,.15);
+  border-radius:var(--r);padding:20px 24px;margin:20px 0;
+}
+.tip-teal .label{font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:2px;margin-bottom:6px}
+
+/* ═══ PROMPT BOX ═══ */
+.prompt-box{
+  background:#1a1a1a;color:#e8e8e8;border-radius:var(--r);
+  padding:20px 24px;margin:20px 0;position:relative;overflow:hidden;
+}
+.prompt-box .label{
+  color:var(--coral);font-size:11px;font-weight:700;
+  text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;display:block;
+}
+.prompt-box pre{
+  font-family:'Inter',monospace;font-size:14px;line-height:1.7;
+  white-space:pre-wrap;word-break:break-word;
+}
+.prompt-box .copy-btn{
+  position:absolute;top:16px;right:16px;
+  background:rgba(255,255,255,.1);border:none;color:#fff;
+  padding:6px 14px;border-radius:8px;cursor:pointer;font-size:12px;
+  font-weight:600;transition:background .2s;
+}
+.prompt-box .copy-btn:hover{background:rgba(255,255,255,.2)}
+.prompt-box .copy-btn.copied{background:var(--teal);color:#fff}
+
+/* ═══ CHECKLIST ═══ */
+.checklist{margin:16px 0}
+.check-item{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:12px 0;border-bottom:1px solid #f0f0f0;
+  cursor:pointer;transition:opacity .2s;font-size:15px;
+}
+.check-item:last-child{border-bottom:none}
+.check-item:hover{opacity:.8}
+.check-item .box{
+  width:22px;height:22px;border:2px solid #ddd;border-radius:6px;
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  transition:all .3s;margin-top:1px;
+}
+.check-item.checked .box{background:var(--teal);border-color:var(--teal)}
+.check-item.checked .box::after{content:'✓';color:#fff;font-size:13px;font-weight:700}
+.check-item.checked span{text-decoration:line-through;color:var(--muted)}
+
+/* ═══ FILL FIELDS ═══ */
+.fill-group{margin:20px 0}
+.fill-label{font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
+.fill-input{
+  width:100%;border:none;border-bottom:2px solid #e0e0e0;
+  padding:10px 0;font-size:15px;font-family:'Inter',sans-serif;
+  background:transparent;color:var(--text);outline:none;
+  transition:border-color .3s;
+}
+.fill-input:focus{border-color:var(--coral)}
+.fill-input::placeholder{color:#bbb}
+textarea.fill-input{
+  border:1px solid #e0e0e0;border-radius:12px;padding:14px;
+  min-height:80px;resize:vertical;
+}
+textarea.fill-input:focus{border-color:var(--coral)}
+
+/* ═══ REFLECTION BOX ═══ */
+.reflection-box{
+  background:linear-gradient(135deg,#f7f7f5,#f0efed);
+  border-radius:var(--r);padding:28px;margin:24px 0;
+  border-left:4px solid var(--teal);
+}
+.reflection-box .label{
+  font-size:11px;font-weight:700;color:var(--teal);
+  text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;
+}
+
+/* ═══ STEP BOXES ═══ */
+.step{
+  background:var(--card);border-left:4px solid var(--coral);
+  border-radius:0 var(--r) var(--r) 0;
+  padding:20px 24px;margin:12px 0;
+}
+.step .step-label{
+  font-family:'Antonio',sans-serif;font-size:11px;color:var(--coral);
+  text-transform:uppercase;letter-spacing:2px;margin-bottom:4px;
+}
+.step h4{font-family:'Antonio',sans-serif;font-size:16px;margin-bottom:4px}
+.step p{font-size:14px;color:#555;margin:0}
+
+/* ═══ ROADMAP ═══ */
+.roadmap{display:flex;flex-direction:column;gap:16px;margin:20px 0}
+.roadmap-day{display:flex;gap:16px;align-items:flex-start}
+.day-badge{
+  font-family:'Antonio',sans-serif;font-size:12px;font-weight:700;
+  color:#fff;background:var(--coral);padding:6px 14px;
+  border-radius:100px;text-transform:uppercase;letter-spacing:1px;
+  flex-shrink:0;min-width:60px;text-align:center;
+}
+.day-badge.teal{background:var(--teal)}
+.roadmap-day h4{font-family:'Antonio',sans-serif;font-size:15px;margin-bottom:2px}
+.roadmap-day p{font-size:13px;color:var(--muted);margin:0}
+
+/* ═══ COST TABLE ═══ */
+.cost-table{margin:20px 0}
+.cost-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 0;border-bottom:1px solid #f0f0f0;font-size:15px;
+}
+.cost-row:last-child{border-bottom:none}
+.cost-price{font-weight:700;color:var(--coral)}
+.cost-price.free{color:var(--teal)}
+.cost-total{
+  display:flex;justify-content:space-between;font-size:18px;
+  font-weight:700;padding-top:14px;border-top:2px solid var(--text);
+  margin-top:8px;
+}
+
+/* ═══ FOR WHOM ═══ */
+.for-whom{border-radius:var(--r);padding:24px 28px;margin:16px 0}
+.for-whom.yes{background:#f0faf9;border:1px solid rgba(45,184,168,.15)}
+.for-whom.no{background:#fff5f4;border:1px solid rgba(232,96,76,.15)}
+.for-whom h4{font-size:15px;margin-bottom:12px}
+.for-whom.yes h4{color:var(--teal)}
+.for-whom.no h4{color:var(--coral)}
+.for-whom li{
+  list-style:none;font-size:14px;padding:5px 0;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.for-whom.yes li::before{content:'✓';color:var(--teal);font-weight:700;font-size:16px}
+.for-whom.no li::before{content:'✗';color:var(--coral);font-weight:700;font-size:16px}
+
+/* ═══ QUOTE PAGE ═══ */
+.quote-section{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;min-height:60vh;
+  padding:80px 48px;
+}
+.quote-text{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(24px,3vw,36px);color:var(--text);
+  line-height:1.4;max-width:560px;
+}
+.quote-dot{width:8px;height:8px;background:var(--coral);border-radius:50%;margin-top:28px}
+
+/* ═══ CHAPTER SUMMARY ═══ */
+.chapter-summary{
+  background:linear-gradient(135deg,#fafaf8,#f5f5f3);
+  border-radius:var(--r);padding:28px;margin:32px 0;
+  border:1px solid #eee;
+}
+.chapter-summary h4{
+  font-family:'Antonio',sans-serif;font-size:18px;text-transform:uppercase;
+  margin-bottom:14px;
+}
+.chapter-summary .item{
+  display:flex;align-items:center;gap:10px;
+  font-size:14px;padding:5px 0;
+}
+.chapter-summary .item::before{content:'✓';color:var(--teal);font-weight:700}
+
+/* ═══ NAVIGATION BUTTONS ═══ */
+.nav-buttons{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:40px 0 20px;margin-top:auto;
+}
+.nav-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 28px;border-radius:100px;font-size:14px;font-weight:600;
+  cursor:pointer;transition:all .2s;border:2px solid var(--coral);
+  background:transparent;color:var(--coral);font-family:'Inter',sans-serif;
+}
+.nav-btn:hover{background:var(--coral);color:#fff}
+.nav-btn.primary{background:var(--coral);color:#fff}
+.nav-btn.primary:hover{background:#d4503e}
+.nav-btn:disabled{opacity:.3;cursor:not-allowed;pointer-events:none}
+
+/* ═══ TOOL CARDS ═══ */
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:20px 0}
+.tool-card{
+  display:flex;align-items:center;gap:10px;
+  background:var(--bg);border:1px solid #eee;border-radius:12px;
+  padding:14px 16px;font-size:13px;font-weight:600;
+}
+.tool-card .emoji{font-size:22px}
+.tool-card small{display:block;font-weight:400;color:var(--muted);font-size:11px}
+
+/* ═══ BAUSTEIN GRID ═══ */
+.baustein-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.baustein{
+  background:var(--card);border-left:4px solid var(--coral);
+  border-radius:0 12px 12px 0;padding:16px 20px;
+  transition:transform .2s;
+}
+.baustein:hover{transform:translateX(4px)}
+.baustein .num{
+  font-family:'Antonio',sans-serif;font-size:22px;
+  color:var(--coral);font-weight:700;margin-bottom:2px;
+}
+.baustein h4{font-family:'Antonio',sans-serif;font-size:14px;margin-bottom:2px}
+.baustein p{font-size:12px;color:var(--muted);margin:0}
+.baustein.teal{border-left-color:var(--teal)}
+.baustein.teal .num{color:var(--teal)}
+
+/* ═══ SAVE INDICATOR ═══ */
+.save-toast{
+  position:fixed;bottom:24px;right:24px;
+  background:#1a1a1a;color:#fff;padding:12px 24px;
+  border-radius:100px;font-size:13px;font-weight:500;
+  transform:translateY(80px);opacity:0;transition:all .4s;z-index:200;
+  display:flex;align-items:center;gap:8px;
+}
+.save-toast.show{transform:translateY(0);opacity:1}
+.save-toast .dot{width:8px;height:8px;background:var(--teal);border-radius:50%}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .menu-toggle{display:flex;align-items:center;justify-content:center}
+  .main{margin-left:0}
+  .top-bar{left:0}
+  .section{padding:80px 24px 60px}
+  .baustein-grid{grid-template-columns:1fr}
+  .hero-title{font-size:clamp(36px,8vw,56px)}
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')" aria-label="Menü">☰</button>
+
+<!-- ═══ SIDEBAR ═══ -->
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-brand">Workbook</div>
+    <div class="sidebar-title">Online<br>Selbstständig</div>
+  </div>
+  <div class="sidebar-nav" id="sidebarNav"></div>
+  <div class="sidebar-footer">
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="sidebarProgress"></div></div>
+    <div class="progress-text"><span id="progressPercent">0%</span> abgeschlossen</div>
+  </div>
+</nav>
+
+<!-- TOP PROGRESS -->
+<div class="top-bar"><div class="top-bar-fill" id="topProgress"></div></div>
+
+<!-- ═══ MAIN CONTENT ═══ -->
+<div class="main">
+
+<!-- ══════════════════════════════════ HERO ══════════════════════════════════ -->
+<div class="section hero-section" id="sec-start" data-title="Start" data-chapter="">
+  <div class="hero-label">Workbook</div>
+  <h1 class="hero-title">Online<br>Selbstständig</h1>
+  <p class="hero-subtitle">Dein Business Workspace in unter einer Woche — Schritt für Schritt mit Claude AI</p>
+  <div class="hero-badge">mit Claude AI · für unter <span class="hl">30 €</span> monatlich</div>
+  <div class="hero-features">
+    <div class="hero-feat">Fertige Website</div>
+    <div class="hero-feat">Eigene Domain</div>
+    <div class="hero-feat">Logo & Branding</div>
+    <div class="hero-feat">CRM-System</div>
+    <div class="hero-feat">Digitale Produkte</div>
+  </div>
+  <div class="hero-scroll" onclick="scrollToSection(1)">
+    Starte jetzt<br>↓
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ INTRO ══════════════════════════════════ -->
+<div class="section" id="sec-intro" data-title="Miriams Geschichte" data-chapter="">
+  <div class="card" style="text-align:center;padding:48px 32px;">
+    <p style="font-family:'Playfair Display',serif;font-size:20px;line-height:1.7;font-style:italic;max-width:560px;margin:0 auto 24px;">Was wäre, wenn deine Selbstständigkeit nicht an deiner Idee scheitert — sondern nur daran, dass dir niemand gezeigt hat, wie du sie online aufbaust?</p>
+    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin:0 auto 24px;"></div>
+    <p style="font-size:15px;max-width:560px;margin:0 auto 16px;color:#555;">Hi, ich bin Miriam. Nach meinem Master in Wirtschafts- und Werbepsychologie wollte ich mich selbstständig machen — und merkte schnell: Zwischen der Idee und einem funktionierenden Online-Business liegt eine ganze Welt aus Technik, Marketing und Bausteinen.</p>
+    <p style="font-size:15px;max-width:560px;margin:0 auto 16px;color:#555;">Dieses Workbook bündelt das Wissen, das ich mir über Jahre selbst zusammengesucht habe — Schritt für Schritt, damit du direkt mit einer klaren Struktur starten kannst.</p>
+    <p style="font-family:'Antonio',sans-serif;font-size:24px;font-weight:700;color:var(--coral);text-transform:uppercase;margin-top:24px;">Let's go.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ WAS DU MITNIMMST ══════════════════════════════════ -->
+<div class="section" id="sec-takeaway" data-title="Was du mitnimmst" data-chapter="">
+  <h3 class="section-title"><span class="icon">🎯</span> Was du aus diesem Workbook mitnimmst</h3>
+  <div class="card">
+    <div class="checklist" id="takeawayList">
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Verstehen, welche Bausteine ein Online-Business wirklich braucht</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Wissen, womit du anfangen solltest — und was später kommt</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Dein eigenes Online-Fundament Schritt für Schritt aufbauen</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Tools nutzen, die dir Arbeit abnehmen statt neue Probleme schaffen</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Ohne technische Vorkenntnisse eine professionelle Website aufbauen</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Claude AI als persönlichen Assistenten für dein Business einsetzen</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Dein erstes digitales Produkt erstellen und verkaufen</span></div>
+    </div>
+  </div>
+  <div style="background:#1a1a1a;border-radius:var(--r);padding:24px 28px;margin-top:20px;">
+    <p style="color:#fff;font-size:15px;margin:0;line-height:1.7;"><strong style="color:var(--coral);">P.S.</strong> Für 89 € hast du dir gerade zwischen 5.000 und 15.000 € gespart. Das ist weniger als eine einzige Stunde bei einer Agentur.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ FÜR WEN ══════════════════════════════════ -->
+<div class="section" id="sec-forwhom" data-title="Für wen?" data-chapter="">
+  <h3 class="section-title"><span class="icon">👤</span> Für wen ist dieses Workbook?</h3>
+  <div class="for-whom yes">
+    <h4>Dieses Workbook ist für dich, wenn:</h4>
+    <ul>
+      <li>du dich selbstständig machen willst — oder gerade erst gestartet hast</li>
+      <li>du keine technischen Vorkenntnisse hast</li>
+      <li>du dein Business online aufbauen willst</li>
+      <li>du bereit bist, KI als Werkzeug zu nutzen</li>
+      <li>du Geld sparen willst und keine Agentur beauftragen möchtest</li>
+      <li>du Schritt-für-Schritt-Anleitungen liebst</li>
+      <li>du bereit bist, 15–20 Stunden diese Woche zu investieren</li>
+    </ul>
+  </div>
+  <div class="for-whom no">
+    <h4>Dieses Workbook ist NICHT für dich, wenn:</h4>
+    <ul>
+      <li>du eine fertige Agentur-Website willst, ohne selbst etwas zu tun</li>
+      <li>du nichts Neues lernen möchtest</li>
+      <li>du bereits ein professionelles Online-Setup hast</li>
+      <li>du ein Budget von mehreren tausend Euro für eine Agentur hast</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ 7-TAGE-PLAN ══════════════════════════════════ -->
+<div class="section" id="sec-roadmap" data-title="7-Tage-Plan" data-chapter="">
+  <h3 class="section-title"><span class="icon">🗓️</span> Dein 7-Tage-Plan</h3>
+  <p style="margin-bottom:24px;">So sieht deine Woche aus:</p>
+  <div class="roadmap">
+    <div class="roadmap-day"><div class="day-badge">Tag 1</div><div><h4>Idee & Positionierung</h4><p>Mindset klären, Angebot definieren, Zielgruppe verstehen, Keywords finden</p></div></div>
+    <div class="roadmap-day"><div class="day-badge">Tag 2</div><div><h4>Claude AI & Tools kennenlernen</h4><p>Claude einrichten, Projekt anlegen, VS Code installieren</p></div></div>
+    <div class="roadmap-day"><div class="day-badge">Tag 3</div><div><h4>Branding & Domain</h4><p>Logo & Farben in Canva, Domain bei IONOS registrieren</p></div></div>
+    <div class="roadmap-day"><div class="day-badge">Tag 4</div><div><h4>Website bauen</h4><p>Template finden, mit Claude anpassen, Texte & Bilder einbauen</p></div></div>
+    <div class="roadmap-day"><div class="day-badge">Tag 5</div><div><h4>Rechtliches & E-Mail</h4><p>Impressum, Datenschutz, Cookie-Banner, Google Workspace</p></div></div>
+    <div class="roadmap-day"><div class="day-badge">Tag 6</div><div><h4>CRM & Automatisierung</h4><p>HubSpot einrichten, Kontaktformular, Newsletter</p></div></div>
+    <div class="roadmap-day"><div class="day-badge teal">Tag 7</div><div><h4 style="color:var(--teal);">Website live & erstes Produkt</h4><p>GitHub & Vercel, Domain verknüpfen, Stripe live schalten</p></div></div>
+  </div>
+  <div class="tip-coral" style="margin-top:24px;">
+    <div class="label">Wichtig</div>
+    <p style="font-size:14px;color:#555;margin:0;">Dieser Plan ist ein Richtwert — kein Stresstest. Wenn du länger brauchst, ist das völlig okay. Hauptsache, du machst weiter.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ KAPITEL 01 ══════════════════════════════════ -->
+<div class="section" id="sec-ch1-title" data-title="Unternehmer-Mindset" data-chapter="01">
+  <div class="chapter-header">
+    <div class="chapter-num">01</div>
+    <h2 class="chapter-title">Unternehmer-<br>Mindset</h2>
+    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
+    <p class="chapter-intro">Bevor es um Tools geht, reden wir über das Wichtigste: dich. Deine Einstellung, deine Zeit und deinen Plan.</p>
+    <div class="chapter-quote">"Lieber heute mit 70 % starten, als nächstes Jahr immer noch auf 100 % warten."</div>
+  </div>
+</div>
+
+<div class="section" id="sec-ch1-1" data-title="Selbst und ständig" data-chapter="01">
+  <h3 class="section-title"><span class="icon">💡</span> Selbst und ständig</h3>
+  <div class="card">
+    <p>In der Schule lernen wir viele wichtige Dinge. Doch wie man eine Idee entwickelt und daraus ein eigenes Business aufbaut, wird selten vermittelt.</p>
+    <p>Viele Menschen stehen genau an diesem Punkt: Sie haben eine Idee — wissen aber nicht, wo sie anfangen sollen.</p>
+    <div class="mindset-box">
+      <h4>Selbst und ständig — was das wirklich bedeutet</h4>
+      <p>Selbstständig sein heißt wörtlich: selbst denken und ständig denken. Es bedeutet, Verantwortung zu übernehmen — für deine Entscheidungen, deine Zeit und deine Richtung.</p>
+    </div>
+    <p><strong>Unter-nehmer</strong> bedeutet: jemand, der etwas unter-nimmt. Der nicht wartet, sondern selbst losgeht. Der Probleme sieht und Lösungen sucht.</p>
+    <p>Dein Kopf, dein Wissen, deine Bereitschaft, Neues zu lernen — das ist es, was dich als Unternehmer leitet.</p>
+  </div>
+  <div class="reflection-box">
+    <div class="label">Mini-Reflexion</div>
+    <p style="font-size:14px;color:#555;margin-bottom:16px;">Schreibe spontan auf — ohne nachzudenken:</p>
+    <div class="fill-group">
+      <div class="fill-label">Warum möchte ich mich selbstständig machen?</div>
+      <textarea class="fill-input" placeholder="Schreib einfach drauf los..." data-save="ch1-why"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Was möchte ich NICHT mehr in einem Angestelltenjob?</div>
+      <textarea class="fill-input" placeholder="Was nervt dich am meisten?" data-save="ch1-nomore"></textarea>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="sec-ch1-2" data-title="Done is better than perfect" data-chapter="01">
+  <h3 class="section-title"><span class="icon">🚀</span> Done is better than perfect</h3>
+  <div class="card">
+    <p>Einer der größten Fehler: Warten auf den perfekten Moment. Das perfekte Logo, die perfekte Website. Und während du wartest, passiert — nichts.</p>
+    <p>Deine erste Version wird nicht perfekt sein. Und das ist völlig in Ordnung. Wichtig ist nur, dass du <strong>anfängst</strong>.</p>
+    <div class="mindset-box" style="background:#fff8f6;">
+      <h4>Starte mit dem Minimum</h4>
+      <p>Eine einfache Website mit deinem Namen, deinem Angebot und einer Kontaktmöglichkeit. Das reicht für den Anfang.</p>
+    </div>
+    <p style="font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--coral);margin:20px 0;">Dein Mantra: Lieber 80 % heute als 100 % nie.</p>
+  </div>
+  <div class="card">
+    <h3 class="section-title" style="font-size:20px;"><span class="icon">🔧</span> Denke in Lösungen</h3>
+    <p>Der Unterschied zwischen denen, die aufgeben, und denen, die es schaffen: Die einen sehen ein Problem und denken „Das kann ich nicht." Die anderen fragen: <strong>„Wie kann ich das lösen?"</strong></p>
+    <p>Und genau hier kommt Claude ins Spiel. Jedes Mal, wenn du vor einem Problem stehst, kannst du Claude fragen.</p>
+    <div class="mindset-box">
+      <h4>Merke dir</h4>
+      <p>Als Unternehmer bist du nicht jemand, der keine Probleme hat. Du bist jemand, der Probleme löst. Eins nach dem anderen.</p>
+    </div>
+  </div>
+  <div class="prompt-box">
+    <div class="label">Prompt: Unsicherheit klären</div>
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
+    <pre>Ich möchte mich mit [Idee] selbstständig machen. Welche Fragen sollte ich mir vorher stellen? Was sind typische Fehler bei [Branche]? Sei ehrlich und direkt.</pre>
+  </div>
+</div>
+
+<div class="section" id="sec-ch1-3" data-title="Zeitplan & Selbst-Check" data-chapter="01">
+  <h3 class="section-title"><span class="icon">⏰</span> Wie viel Zeit brauchst du wirklich?</h3>
+  <p style="margin-bottom:20px;">Du brauchst nicht 8 Stunden am Tag. Aber du brauchst <strong>Regelmäßigkeit</strong>.</p>
+  <div class="step"><div class="step-label">Woche 1</div><h4>Workspace aufsetzen (dieses Workbook)</h4><p>Ca. 15–20 Stunden verteilt auf 5–7 Tage.</p></div>
+  <div class="step"><div class="step-label">Woche 2–3</div><h4>Website verfeinern, Content erstellen</h4><p>Ca. 5–10 Stunden pro Woche.</p></div>
+  <div class="step"><div class="step-label">Woche 4</div><h4>Social Media starten, erstes Produkt live</h4><p>Ca. 5–10 Stunden.</p></div>
+  <div class="step"><div class="step-label">Ab Monat 2</div><h4>Regelmäßig dranbleiben</h4><p>Ca. 3–5 Stunden pro Woche reichen.</p></div>
+
+  <div style="margin-top:32px;">
+    <h3 class="section-title"><span class="icon">✅</span> Bist du bereit? Dein Selbst-Check</h3>
+    <div class="card">
+      <div class="checklist">
+        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Ich habe ein Produkt oder Wissen, das ich anbieten will</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Ich kann 15–20 Stunden diese Woche investieren</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Ich bin bereit, Neues zu lernen</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Es muss nicht beim ersten Mal perfekt sein</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Ich habe ca. 30 € pro Monat Budget für Tools</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fill-group" style="margin-top:24px;">
+    <div class="fill-label">Was ist mein Ziel in 4 Wochen:</div>
+    <textarea class="fill-input" placeholder="Beschreibe dein Ziel so konkret wie möglich..." data-save="ch1-goal" style="min-height:100px;"></textarea>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>Das nimmst du aus Kapitel 01 mit:</h4>
+    <div class="item">Selbstständig sein heißt: selbst denken, ständig dazulernen</div>
+    <div class="item">Done is better than perfect — lieber 80 % heute als 100 % nie</div>
+    <div class="item">Denke in Lösungen, nicht in Problemen — und frag Claude</div>
+    <div class="item">Du hast deinen Zeitplan und dein 4-Wochen-Ziel aufgeschrieben</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ MOTIVATION ══════════════════════════════════ -->
+<div class="section" id="sec-quote1" data-title="" data-chapter="">
+  <div class="quote-section">
+    <div class="quote-text">"Du musst nicht alles auf einmal können. Du musst nur den nächsten Schritt machen."</div>
+    <div class="quote-dot"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ KAPITEL 02 ══════════════════════════════════ -->
+<div class="section" id="sec-ch2-title" data-title="Deine Ausgangslage" data-chapter="02">
+  <div class="chapter-header">
+    <div class="chapter-num">02</div>
+    <h2 class="chapter-title">Deine<br>Ausgangslage</h2>
+    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
+    <p class="chapter-intro">Bevor es an die Tools geht: Klarheit darüber, was du aufbauen willst — und wo du heute stehst.</p>
+    <div class="chapter-quote">"Wer von Anfang an weiß, wohin die Reise geht, spart sich später viele Umwege."</div>
+  </div>
+</div>
+
+<div class="section" id="sec-ch2-1" data-title="Wo stehst du gerade?" data-chapter="02">
+  <h3 class="section-title"><span class="icon">📍</span> Wo stehst du gerade?</h3>
+  <div class="card">
+    <p>Viele starten direkt mit der Technik. Aber was oft passiert: Man baut sich eine hübsche Website und merkt drei Wochen später, dass der Name nicht passt oder die Zielgruppe unklar war.</p>
+    <p><strong>Deshalb machen wir es hier anders.</strong> Bevor wir ein einziges Tool aufmachen, klären wir dein Fundament.</p>
+  </div>
+  <div class="reflection-box">
+    <div class="label">Dein Fundament</div>
+    <div class="fill-group">
+      <div class="fill-label">Mein Angebot in einem Satz:</div>
+      <input class="fill-input" type="text" placeholder="z.B. Ich helfe Yogalehrerinnen, online sichtbar zu werden." data-save="ch2-offer">
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Für wen ist es gedacht:</div>
+      <input class="fill-input" type="text" placeholder="Wer ist dein Wunschkunde?" data-save="ch2-audience">
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Welches Problem löse ich damit:</div>
+      <input class="fill-input" type="text" placeholder="Was ist das Kernproblem?" data-save="ch2-problem">
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Was kann ich besonders gut:</div>
+      <input class="fill-input" type="text" placeholder="Deine Superpower..." data-save="ch2-strength">
+    </div>
+  </div>
+  <div class="prompt-box">
+    <div class="label">Prompt: Idee schärfen</div>
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
+    <pre>Ich möchte mich mit [Thema/Dienstleistung] selbstständig machen. Meine Zielgruppe ist [wer]. Hilf mir, mein Angebot klar zu formulieren. Was genau biete ich an? Welches Problem löse ich? Warum sollte jemand bei mir kaufen? Formuliere mir 3 verschiedene Varianten für einen Elevator Pitch.</pre>
+  </div>
+</div>
+
+<div class="section" id="sec-ch2-2" data-title="Zielgruppe verstehen" data-chapter="02">
+  <h3 class="section-title"><span class="icon">🎯</span> Deine Zielgruppe wirklich verstehen</h3>
+  <div class="card">
+    <p>„Für wen ist das?" beeinflusst alles: Website, Texte, Farben, Social-Media-Kanäle und Keywords.</p>
+    <p>Je besser du das verstehst, desto besser wird dein gesamtes Marketing.</p>
+  </div>
+  <div class="reflection-box">
+    <div class="label">Zielgruppen-Profil</div>
+    <div class="fill-group">
+      <div class="fill-label">Meine Zielgruppe in 2–3 Sätzen:</div>
+      <textarea class="fill-input" placeholder="Beschreibe deine Wunschkunden..." data-save="ch2-target"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Ihr größtes Problem / ihre größte Frustration:</div>
+      <input class="fill-input" type="text" placeholder="" data-save="ch2-pain">
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Was googeln sie, wenn sie nach einer Lösung suchen:</div>
+      <input class="fill-input" type="text" placeholder="z.B. 'Yoga Online Kurs Anfänger'" data-save="ch2-search">
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Wo sind sie online unterwegs:</div>
+      <input class="fill-input" type="text" placeholder="Instagram, LinkedIn, Facebook..." data-save="ch2-channels">
+    </div>
+  </div>
+  <div class="prompt-box">
+    <div class="label">Prompt: Zielgruppe analysieren</div>
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
+    <pre>Ich biete [Dienstleistung/Produkt] an für [grobe Zielgruppe]. Hilf mir, meine Zielgruppe besser zu verstehen. Erstelle mir ein detailliertes Profil meiner idealen Kundin: Alter, Lebenssituation, größte Probleme, wonach sie googeln, wo sie online unterwegs sind. Schreibe es so, als würdest du mir eine echte Person beschreiben.</pre>
+  </div>
+</div>
+
+<div class="section" id="sec-ch2-3" data-title="Positionierung & Vision" data-chapter="02">
+  <h3 class="section-title"><span class="icon">⭐</span> Was macht dich anders?</h3>
+  <div class="card">
+    <p>In fast jeder Branche gibt es andere Anbieter. Die Frage ist nicht, ob es Konkurrenz gibt — sondern warum jemand sich für <strong>dich</strong> entscheiden sollte.</p>
+    <div class="fill-group">
+      <div class="fill-label">Was unterscheidet mich von anderen:</div>
+      <textarea class="fill-input" placeholder="Dein Hintergrund, deine Story, dein Stil..." data-save="ch2-usp"></textarea>
+    </div>
+  </div>
+  <div class="prompt-box">
+    <div class="label">Prompt: Positionierung finden</div>
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
+    <pre>Ich möchte mich als [Beruf/Thema] selbstständig machen. Meine Zielgruppe ist [wer]. Es gibt bereits viele Anbieter. Hilf mir herauszufinden, was mich besonders macht. Mein Hintergrund: [kurze Bio]. Stelle mir 5 gezielte Fragen und formuliere danach 3 Positionierungs-Vorschläge.</pre>
+  </div>
+
+  <h3 class="section-title" style="margin-top:40px;"><span class="icon">🔭</span> Deine Vision</h3>
+  <div class="reflection-box">
+    <div class="label">Wo willst du hin?</div>
+    <div class="fill-group">
+      <div class="fill-label">Wo sehe ich mich in 12 Monaten:</div>
+      <input class="fill-input" type="text" placeholder="" data-save="ch2-vision12">
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Wie soll sich mein Alltag anfühlen:</div>
+      <input class="fill-input" type="text" placeholder="" data-save="ch2-feeling">
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Wie viel möchte ich verdienen:</div>
+      <input class="fill-input" type="text" placeholder="" data-save="ch2-income">
+    </div>
+  </div>
+</div>
+
+<div class="section" id="sec-ch2-4" data-title="Markenname & Keywords" data-chapter="02">
+  <h3 class="section-title"><span class="icon">🏷️</span> Dein Markenname</h3>
+  <div class="card">
+    <p>Dein Markenname ist gleichzeitig deine Domain, dein Instagram-Handle und dein erster Eindruck bei Google.</p>
+    <div class="mindset-box">
+      <h4>Was Google mit deinem Namen macht</h4>
+      <p>Ein Name wie „Bäumler Marketing" sagt Google sofort: Hier geht es um Marketing. Ein Fantasiename wie „Luminos" klingt schön — aber Google kann damit nichts anfangen.</p>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Mein Wunsch-Markenname:</div>
+      <input class="fill-input" type="text" placeholder="z.B. DeinName + Keyword" data-save="ch2-brand" style="font-size:18px;font-weight:600;">
+    </div>
+    <div class="checklist" style="margin-top:20px;">
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>.de-Domain noch frei? → Prüfe auf ionos.de</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Instagram-Name verfügbar?</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Facebook-Name verfügbar?</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Bei Google schon vorhanden? (Einfach googeln)</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Kurz, einprägsam, leicht zu buchstabieren?</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Enthält ein Keyword (z.B. Marketing, Coaching)?</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Funktioniert als E-Mail? (kontakt@deinname.de)</span></div>
+    </div>
+  </div>
+
+  <h3 class="section-title" style="margin-top:32px;"><span class="icon">🔍</span> Deine Keywords</h3>
+  <div class="card">
+    <p>Keywords sind die Begriffe, die echte Menschen in Google tippen.</p>
+    <div class="tip-coral">
+      <div class="label">Tipp</div>
+      <p style="font-size:14px;color:#555;margin:0;">Alles, was du später schreibst, sollte diese Keywords enthalten. Je früher du sie kennst, desto einfacher wird alles.</p>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Meine 5 wichtigsten Keywords:</div>
+      <input class="fill-input" type="text" placeholder="1." data-save="ch2-kw1" style="margin-bottom:8px;">
+      <input class="fill-input" type="text" placeholder="2." data-save="ch2-kw2" style="margin-bottom:8px;">
+      <input class="fill-input" type="text" placeholder="3." data-save="ch2-kw3" style="margin-bottom:8px;">
+      <input class="fill-input" type="text" placeholder="4." data-save="ch2-kw4" style="margin-bottom:8px;">
+      <input class="fill-input" type="text" placeholder="5." data-save="ch2-kw5">
+    </div>
+  </div>
+  <div class="prompt-box">
+    <div class="label">Prompt: Keywords recherchieren</div>
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
+    <pre>Ich biete [Dienstleistung/Produkt] an für [Zielgruppe] in [Stadt/Region]. Welche Suchbegriffe würde meine Zielgruppe bei Google eingeben? Erstelle mir eine Liste mit 20 relevanten Keywords, sortiert nach Relevanz. Unterscheide kurze und lange Keywords.</pre>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>Das nimmst du aus Kapitel 02 mit:</h4>
+    <div class="item">Was du anbieten willst</div>
+    <div class="item">Wen du erreichen willst</div>
+    <div class="item">Was dich besonders macht</div>
+    <div class="item">Wohin du willst</div>
+    <div class="item">Wie du heißen wirst — und welche Keywords dich finden lassen</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ KAPITEL 03 ══════════════════════════════════ -->
+<div class="section" id="sec-ch3-title" data-title="Was brauchst du alles?" data-chapter="03">
+  <div class="chapter-header">
+    <div class="chapter-num">03</div>
+    <h2 class="chapter-title">Was brauchst<br>du alles?</h2>
+    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
+    <p class="chapter-intro">Der große Überblick: Alle Bausteine & ehrliche Kosten. Weniger als du denkst.</p>
+    <div class="chapter-quote">"Weniger als du denkst. Und günstiger, als du glaubst."</div>
+  </div>
+</div>
+
+<div class="section" id="sec-ch3-1" data-title="Die 10 Bausteine" data-chapter="03">
+  <h3 class="section-title"><span class="icon">🧱</span> Die 10 Bausteine deines Online-Business</h3>
+  <div class="baustein-grid">
+    <div class="baustein"><div class="num">1</div><h4>Marke & Identität</h4><p>Name, Logo, Farben, Schriften</p></div>
+    <div class="baustein"><div class="num">2</div><h4>Website</h4><p>Deine digitale Visitenkarte</p></div>
+    <div class="baustein"><div class="num">3</div><h4>Domain & Hosting</h4><p>Deine Adresse im Internet</p></div>
+    <div class="baustein"><div class="num">4</div><h4>E-Mail</h4><p>Professionell: hi@deinedomain.de</p></div>
+    <div class="baustein"><div class="num">5</div><h4>Rechtliches</h4><p>Impressum, Datenschutz, Cookies</p></div>
+    <div class="baustein"><div class="num">6</div><h4>CRM-System</h4><p>Kontakte, Formulare, Newsletter</p></div>
+    <div class="baustein"><div class="num">7</div><h4>Shop / Checkout</h4><p>Digitale Produkte verkaufen</p></div>
+    <div class="baustein"><div class="num">8</div><h4>Marketing & Content</h4><p>Social Media, Blog, Newsletter</p></div>
+    <div class="baustein"><div class="num">9</div><h4>Tracking & Analyse</h4><p>Wer besucht deine Seite?</p></div>
+    <div class="baustein teal"><div class="num">10</div><h4>KI-Werkzeuge</h4><p>Claude AI — dein Schweizer Taschenmesser</p></div>
+  </div>
+</div>
+
+<div class="section" id="sec-ch3-2" data-title="Kosten & Tools" data-chapter="03">
+  <h3 class="section-title"><span class="icon">💰</span> Was kostet das alles?</h3>
+  <div class="card">
+    <p style="margin-bottom:16px;">Hier die ehrliche Aufstellung — keine versteckten Kosten:</p>
+    <div class="cost-table">
+      <div class="cost-row"><span>Claude Pro (KI-Assistent)</span><span class="cost-price">~19 €/Monat</span></div>
+      <div class="cost-row"><span>VS Code (Code-Editor)</span><span class="cost-price free">kostenlos</span></div>
+      <div class="cost-row"><span>GitHub (Code-Verwaltung)</span><span class="cost-price free">kostenlos</span></div>
+      <div class="cost-row"><span>Vercel (Hosting)</span><span class="cost-price free">kostenlos</span></div>
+      <div class="cost-row"><span>IONOS Domain (.de)</span><span class="cost-price">~1 €/Monat</span></div>
+      <div class="cost-row"><span>Google Workspace (E-Mail)</span><span class="cost-price">~8 €/Monat</span></div>
+      <div class="cost-row"><span>Canva (Grafik-Design)</span><span class="cost-price free">kostenlos*</span></div>
+      <div class="cost-row"><span>HubSpot CRM</span><span class="cost-price free">kostenlos</span></div>
+      <div class="cost-row"><span>Stripe (Zahlungen)</span><span class="cost-price free">kostenlos*</span></div>
+      <div class="cost-total"><span>Gesamt</span><span style="color:var(--coral);">unter 30 € / Monat</span></div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:8px;">* Canva Pro optional 12 €/Monat. Stripe nimmt ~2,9 % + 0,25 € pro Verkauf.</p>
+  </div>
+
+  <h3 class="section-title" style="margin-top:32px;"><span class="icon">🔗</span> Alle Tools — Konten einrichten</h3>
+  <div class="card">
+    <p style="margin-bottom:16px;">Richte diese Konten jetzt ein (dauert ca. 15 Minuten):</p>
+    <div class="checklist">
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>claude.ai</strong> → Claude Pro/Max Abo</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>code.visualstudio.com</strong> → VS Code herunterladen</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>github.com</strong> → Kostenloses Konto</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>vercel.com</strong> → Kostenloses Konto</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>ionos.de</strong> → Domain registrieren</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>workspace.google.com</strong> → Business Starter</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>canva.com</strong> → Kostenloses Konto</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>hubspot.com</strong> → Kostenloses CRM</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>stripe.com</strong> → Konto erstellen</span></div>
+    </div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="label">Prompt: Persönliche Tool-Empfehlung</div>
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
+    <pre>Ich möchte mich als [Beruf] selbstständig machen. Mein monatliches Budget für Tools ist [Betrag] Euro. Welche Tools sind am wichtigsten und worauf kann ich am Anfang verzichten? Erstelle mir eine priorisierte Liste.</pre>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>Das nimmst du aus Kapitel 03 mit:</h4>
+    <div class="item">Du kennst alle 10 Bausteine deines Online-Workspace</div>
+    <div class="item">Du weißt genau, was es kostet (unter 30 € / Monat)</div>
+    <div class="item">Du hast alle Tool-Konten erstellt</div>
+    <div class="item">Du bist bereit für den nächsten Schritt: Claude AI kennenlernen</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ ENDE ══════════════════════════════════ -->
+<div class="section hero-section" id="sec-end" data-title="Weiter geht's!" data-chapter="">
+  <div class="hero-label">Geschafft</div>
+  <h2 class="hero-title" style="font-size:clamp(32px,5vw,56px);">Kapitel 1–3<br>erledigt!</h2>
+  <p class="hero-subtitle">Dein Fundament steht. Ab hier geht es an die Umsetzung — Claude AI, Website, Branding und mehr.</p>
+  <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:var(--coral);">Die weiteren Kapitel kommen bald.</div>
+</div>
+
+</div><!-- /main -->
+
+<!-- SAVE TOAST -->
+<div class="save-toast" id="saveToast"><div class="dot"></div> Gespeichert</div>
+
+<script>
+// ═══ NAVIGATION BUILD ═══
+const sections = document.querySelectorAll('.section');
+const sidebarNav = document.getElementById('sidebarNav');
+let currentChapter = '';
+
+sections.forEach((sec, i) => {
+  const title = sec.dataset.title;
+  const chapter = sec.dataset.chapter;
+  if (!title) return;
+
+  if (chapter && chapter !== currentChapter) {
+    currentChapter = chapter;
+    const ch = document.createElement('div');
+    ch.className = 'nav-chapter';
+    ch.textContent = `Kapitel ${chapter}`;
+    sidebarNav.appendChild(ch);
+  }
+
+  const item = document.createElement('div');
+  item.className = 'nav-item';
+  item.dataset.index = i;
+  item.innerHTML = `<div class="nav-dot"></div><span>${title}</span>`;
+  item.addEventListener('click', () => {
+    sec.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector('.sidebar').classList.remove('open');
+  });
+  sidebarNav.appendChild(item);
+});
+
+// ═══ SCROLL OBSERVER ═══
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      // Update active nav
+      const idx = Array.from(sections).indexOf(entry.target);
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      const navItem = document.querySelector(`.nav-item[data-index="${idx}"]`);
+      if (navItem) {
+        navItem.classList.add('active');
+        navItem.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    }
+  });
+}, { threshold: 0.3 });
+
+sections.forEach(s => observer.observe(s));
+
+// ═══ PROGRESS ═══
+function updateProgress() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = Math.min(Math.round((scrollTop / docHeight) * 100), 100);
+  document.getElementById('topProgress').style.width = pct + '%';
+  document.getElementById('sidebarProgress').style.width = pct + '%';
+  document.getElementById('progressPercent').textContent = pct + '%';
+}
+window.addEventListener('scroll', updateProgress);
+
+// ═══ CHECKLIST ═══
+function toggleCheck(el) {
+  el.classList.toggle('checked');
+  saveAll();
+}
+
+// ═══ COPY PROMPT ═══
+function copyPrompt(btn) {
+  const pre = btn.parentElement.querySelector('pre');
+  navigator.clipboard.writeText(pre.textContent).then(() => {
+    btn.textContent = 'Kopiert!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Kopieren'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+// ═══ SCROLL TO SECTION ═══
+function scrollToSection(idx) {
+  sections[idx]?.scrollIntoView({ behavior: 'smooth' });
+}
+
+// ═══ LOCAL STORAGE SAVE ═══
+const STORAGE_KEY = 'workbook-miriam-v1';
+let saveTimeout;
+
+function saveAll() {
+  const data = {};
+  // Save text inputs
+  document.querySelectorAll('[data-save]').forEach(el => {
+    data[el.dataset.save] = el.value;
+  });
+  // Save checkboxes
+  document.querySelectorAll('.check-item').forEach((el, i) => {
+    if (el.classList.contains('checked')) data['check-' + i] = true;
+  });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  showToast();
+}
+
+function loadAll() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) return;
+  const data = JSON.parse(raw);
+  document.querySelectorAll('[data-save]').forEach(el => {
+    if (data[el.dataset.save]) el.value = data[el.dataset.save];
+  });
+  document.querySelectorAll('.check-item').forEach((el, i) => {
+    if (data['check-' + i]) el.classList.add('checked');
+  });
+}
+
+function showToast() {
+  const t = document.getElementById('saveToast');
+  t.classList.add('show');
+  clearTimeout(saveTimeout);
+  saveTimeout = setTimeout(() => t.classList.remove('show'), 1500);
+}
+
+// Auto-save on input
+document.addEventListener('input', e => {
+  if (e.target.matches('[data-save]')) saveAll();
+});
+
+// ═══ INIT ═══
+loadAll();
+updateProgress();
+
+// Make first section visible immediately
+setTimeout(() => sections[0]?.classList.add('visible'), 100);
+</script>
+
+</body>
+</html>

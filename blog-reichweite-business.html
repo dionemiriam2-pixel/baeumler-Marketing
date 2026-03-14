@@ -608,7 +608,7 @@ function submitNewsletter(e) {
   if (!name || !email) return false;
   fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/0ca9c402-9b0b-4b59-bb8f-23fe7bd65411',{
     method:'POST',
-    headers:{'Content-Type':'application/json'},
+    headers:{'Content-Type':'application/json; charset=utf-8'},
     body:JSON.stringify({
       fields:[{name:'firstname',value:name},{name:'email',value:email}],
       context:{pageUri:window.location.href,pageName:document.title},
@@ -629,7 +629,7 @@ function submitFooterNl(e){
   btn.disabled=true;btn.textContent='...';
   var email=document.getElementById('footer-nl-email').value.trim();
   fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/0ca9c402-9b0b-4b59-bb8f-23fe7bd65411',{
-    method:'POST',headers:{'Content-Type':'application/json'},
+    method:'POST',headers:{'Content-Type':'application/json; charset=utf-8'},
     body:JSON.stringify({
       fields:[{name:'email',value:email}],
       context:{pageUri:window.location.href,pageName:'Footer Newsletter'},

@@ -6,7 +6,17 @@
       "Bash(FILES=\"agb.html blog-creator-business.html blog-google-business.html blog-ki-marketing.html blog-lokale-seo.html blog-meta-ads.html blog-reichweite-business.html blog-social-media-ki.html blog.html danke.html datenschutz.html impressum.html index.html meine-geschichte.html workbooks.html\")",
       "Bash(for f:*)",
       "Bash(do sed:*)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(ls \"c:/Users/KOMIKO/OneDrive - Konzept mit Kopf GmbH/Desktop/CLAUD/webseite miriam/\"*.html)",
+      "Bash(do echo:*)",
+      "Read(//c/Users/KOMIKO/OneDrive - Konzept mit Kopf GmbH/Desktop/CLAUD/webseite miriam/**)",
+      "Bash(powershell -Command \"Start-Process ''C:\\\\Users\\\\KOMIKO\\\\OneDrive - Konzept mit Kopf GmbH\\\\Desktop\\\\CLAUD\\\\webseite miriam\\\\workbook-dateien\\\\workbook-interaktiv-originaltexte.html''\")",
+      "Bash(pip install:*)",
+      "Bash(python -c \":*)",
+      "Bash(python3 -m pip install python-docx)",
+      "Bash(python3 -c \":*)",
+      "Bash(python3:*)",
+      "Bash(grep -n \"^\\\\\\([0-9]*\\\\\\): \\\\[.*\\\\] 08$\\\\|^\\\\\\([0-9]*\\\\\\): \\\\[.*\\\\] 09$\\\\|^\\\\\\([0-9]*\\\\\\): \\\\[.*\\\\] 10$\\\\|^\\\\\\([0-9]*\\\\\\): \\\\[.*\\\\] 11$\\\\|^\\\\\\([0-9]*\\\\\\): \\\\[.*\\\\] 12$\\\\|Marke & Logo\\\\|Domain bei IONOS\\\\|Website live\\\\|Google Workspace\\\\|CRM mit HubSpot\")"
     ]
   }
 }
