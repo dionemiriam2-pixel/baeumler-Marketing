@@ -968,6 +968,19 @@ document.querySelectorAll('.quiz-answer').forEach(function(btn) {
     btn.classList.add('selected');
     answers[qIndex] = val;
 
+    // GA4 Tracking
+    if (typeof gtag === 'function') {
+      if (qIndex === 0) {
+        gtag('event', 'quiz_started', { event_category: 'quiz' });
+      }
+      gtag('event', 'quiz_question', {
+        event_category: 'quiz',
+        question_number: qIndex + 1,
+        question_category: card.dataset.cat,
+        answer_value: val
+      });
+    }
+
     // Auto-advance after short delay
     setTimeout(function() {
       if (qIndex < totalQ - 1) {
@@ -1043,6 +1056,14 @@ function submitCtaForm(e) {
     if (r.ok) {
       document.getElementById('ctaForm').style.display = 'none';
       document.getElementById('ctaSuccess').style.display = 'block';
+      // GA4 Tracking
+      if (typeof gtag === 'function') {
+        gtag('event', 'quiz_cta_submitted', {
+          event_category: 'quiz',
+          score: pct,
+          kategorie: kategorie
+        });
+      }
     } else {
       alert('Etwas ist schiefgelaufen. Bitte schreib mir an hi@baeumlermarketing.de');
       btn.disabled = false;
@@ -1115,6 +1136,15 @@ function showResults() {
   var pct = getScorePercent();
   var kategorie = getQuizKategorie(pct);
   var catScores = getCategoryScores();
+
+  // GA4 Tracking
+  if (typeof gtag === 'function') {
+    gtag('event', 'quiz_completed', {
+      event_category: 'quiz',
+      score: pct,
+      kategorie: kategorie
+    });
+  }
 
   // Score circle
   var circle = document.getElementById('scoreCircle');
