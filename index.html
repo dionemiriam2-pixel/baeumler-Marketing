@@ -1549,7 +1549,7 @@ function submitKontakt(e){
   var msg=document.getElementById('k-msg').value;
   var parts=name.trim().split(' ');
   var first=parts[0]||'';
-  var last=parts.slice(1).join(' ')||'';
+  var last=parts.slice(1).join(' ')||first;
   fetch('https://api.hsforms.com/submissions/v3/integration/submit/147985028/908c2aa2-11a7-439c-b2a7-207c37419536',{
     method:'POST',
     headers:{'Content-Type':'application/json; charset=utf-8'},
