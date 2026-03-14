@@ -494,25 +494,34 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
   font-size: 16px; color: var(--muted); line-height: 1.72;
   max-width: 480px; margin: 20px auto 0;
 }
-.breaker-dark {
-  background: var(--text); color: #fff;
-}
-.breaker-dark .breaker-sub { color: rgba(255,255,255,0.5); }
 .breaker-line {
   width: 40px; height: 3px; background: var(--coral);
   border-radius: 2px; margin: 0 auto 20px;
 }
+
+/* Stats card — contained, not full-bleed */
+.breaker-card {
+  background: var(--bg2); border-radius: 22px; padding: 56px 48px;
+  max-width: var(--max); margin: 0 auto;
+}
+.breaker-card .breaker-text { font-size: clamp(28px, 4vw, 48px); }
 .breaker-stats {
   display: flex; justify-content: center; gap: 56px; margin-top: 48px;
 }
-.breaker-stat { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.breaker-stat {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 20px 24px; border-radius: 16px;
+  transition: transform 0.3s, background 0.3s;
+  cursor: default;
+}
+.breaker-stat:hover { transform: translateY(-4px); background: #fff; }
 .breaker-stat-num {
   font-family: var(--heading); font-size: clamp(36px, 4.5vw, 56px);
   font-weight: 700; line-height: 1; color: var(--coral);
+  transition: transform 0.3s;
 }
-.breaker-dark .breaker-stat-num { color: var(--coral); }
+.breaker-stat:hover .breaker-stat-num { transform: scale(1.08); }
 .breaker-stat-lbl { font-size: 13px; color: var(--muted); font-weight: 500; }
-.breaker-dark .breaker-stat-lbl { color: rgba(255,255,255,0.45); }
 
 @media (max-width: 760px) {
   .breaker { padding: 72px 0; }
@@ -520,7 +529,9 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
 }
 @media (max-width: 480px) {
   .breaker { padding: 56px 0; }
-  .breaker-stats { gap: 24px; }
+  .breaker-card { padding: 40px 24px; }
+  .breaker-stats { gap: 16px; }
+  .breaker-stat { padding: 16px 14px; }
 }
 
 /* ── Accessibility ── */
@@ -878,21 +889,23 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 </section>
 
 <!-- ════════════════════ BREAKER 2 — Stats ════════════════════ -->
-<section class="breaker breaker-dark reveal">
+<section class="breaker reveal">
   <div class="container">
-    <p class="breaker-text">Was andere in <em>Monaten</em> aufbauen —<br>du in <span class="coral">einer Woche.</span></p>
-    <div class="breaker-stats">
-      <div class="breaker-stat">
-        <span class="breaker-stat-num">9</span>
-        <span class="breaker-stat-lbl">Kapitel</span>
-      </div>
-      <div class="breaker-stat">
-        <span class="breaker-stat-num">50+</span>
-        <span class="breaker-stat-lbl">Anleitungen</span>
-      </div>
-      <div class="breaker-stat">
-        <span class="breaker-stat-num">0 €</span>
-        <span class="breaker-stat-lbl">Agenturkosten</span>
+    <div class="breaker-card">
+      <p class="breaker-text">Was andere in <em>Monaten</em> aufbauen —<br>baust du in <span class="coral">einer Woche</span> auf.</p>
+      <div class="breaker-stats">
+        <div class="breaker-stat">
+          <span class="breaker-stat-num">9</span>
+          <span class="breaker-stat-lbl">Kapitel</span>
+        </div>
+        <div class="breaker-stat">
+          <span class="breaker-stat-num">50+</span>
+          <span class="breaker-stat-lbl">Anleitungen</span>
+        </div>
+        <div class="breaker-stat">
+          <span class="breaker-stat-num">0 €</span>
+          <span class="breaker-stat-lbl">Agenturkosten</span>
+        </div>
       </div>
     </div>
   </div>
