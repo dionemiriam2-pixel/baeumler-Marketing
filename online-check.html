@@ -259,7 +259,7 @@ h4 { font-size: clamp(16px, 1.6vw, 20px); }
 ═══════════════════════════════════════════════ */
 .results-wrap {
   display: none; animation: fadeUp 0.5s ease;
-  max-width: 720px; margin: 0 auto; padding: 0 var(--px);
+  max-width: 720px; margin: 0 auto; padding: 120px var(--px) 0;
 }
 .results-wrap.active { display: block; }
 
@@ -1108,6 +1108,7 @@ function showResults() {
   // Hide everything
   document.getElementById('progressWrap').style.display = 'none';
   document.querySelector('.check-hero').style.display = 'none';
+  document.getElementById('quizWrap').style.display = 'none';
   questions.forEach(function(q) { q.classList.remove('active'); });
 
   var total = getTotalScore();
