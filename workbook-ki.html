@@ -323,6 +323,46 @@ section { position: relative; overflow: visible; }
 }
 
 /* ═══════════════════════════════════════════════
+   FORMAT — 2 Formate
+═══════════════════════════════════════════════ */
+#formate { padding: 80px 0; position: relative; }
+#formate .blob { background: radial-gradient(circle, var(--teal), transparent 70%); width:360px; height:360px; bottom:-60px; right:-80px; --d:22s; --tx:15px; --ty:-20px; }
+.format-header { margin-bottom: 50px; max-width: 500px; }
+.format-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.format-card {
+  background: var(--bg2); border-radius: 22px; padding: 40px 36px;
+  position: relative; overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.format-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+.format-icon {
+  width: 56px; height: 56px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px; font-size: 24px;
+}
+.format-icon-html { background: var(--coral); color: #fff; }
+.format-icon-pdf { background: var(--text); color: #fff; }
+.format-card h4 { font-size: 18px; text-transform: none; letter-spacing: 0; margin-bottom: 12px; }
+.format-card p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+.format-features { display: flex; flex-direction: column; gap: 10px; }
+.format-feat {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; color: var(--text); font-weight: 500;
+}
+.format-feat::before {
+  content: '✓'; color: var(--coral); font-weight: 700;
+  width: 20px; height: 20px; background: rgba(232,96,76,0.1); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0;
+}
+.format-badge {
+  display: inline-block; margin-top: 20px; padding: 6px 16px;
+  border-radius: var(--pill); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+.format-badge-star { background: var(--coral); color: #fff; }
+.format-badge-classic { background: var(--border); color: var(--muted); }
+
+/* ═══════════════════════════════════════════════
    SO FUNKTIONIERT'S — Bento Grid
 ═══════════════════════════════════════════════ */
 #steps { padding: 80px 0; position: relative; }
@@ -504,6 +544,7 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
   .nav-links { display: none; }
   .nav-burger { display: flex; }
   .fw-grid { grid-template-columns: 1fr; }
+  .format-grid { grid-template-columns: 1fr; }
   .vgl-body { padding-left: 0 !important; }
   .vgl-item.open .vgl-body { padding-left: 0 !important; }
   .vgl-row { grid-template-columns: 1fr repeat(3, 48px); gap: 6px; font-size: 13px; }
@@ -986,6 +1027,50 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <div class="breaker-line"></div>
     <p class="breaker-text">Dein Business verdient ein<br><em>professionelles</em> <span class="coral">Setup.</span></p>
     <p class="breaker-sub">Nicht irgendwann. Nicht wenn du es dir leisten kannst. Jetzt — für unter 130 €.</p>
+  </div>
+</section>
+
+<!-- ════════════════════ FORMATE ════════════════════ -->
+<section id="formate">
+  <div class="blob"></div>
+  <div class="container">
+    <div class="format-header reveal">
+      <span class="sec-label">Dein Workbook</span>
+      <h2>2 Formate, <em>ein Ziel</em></h2>
+    </div>
+    <div class="format-grid">
+
+      <div class="format-card reveal">
+        <div class="format-icon format-icon-html">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h4>Interaktives HTML-Dokument</h4>
+        <p>Klick dich durch die Kapitel, f&uuml;ll die Felder direkt aus und arbeite alles Schritt f&uuml;r Schritt ab — wie eine eigene Mini-App.</p>
+        <div class="format-features">
+          <span class="format-feat">Klickbare Navigation zwischen Kapiteln</span>
+          <span class="format-feat">Direkt im Browser ausf&uuml;llbar</span>
+          <span class="format-feat">Checklisten zum Abhaken</span>
+          <span class="format-feat">Funktioniert auf Handy, Tablet &amp; Desktop</span>
+        </div>
+        <span class="format-badge format-badge-star">Empfohlen</span>
+      </div>
+
+      <div class="format-card reveal">
+        <div class="format-icon format-icon-pdf">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h4>Klassisches PDF zum Ausdrucken</h4>
+        <p>F&uuml;r alle, die lieber auf Papier arbeiten. Perfekt gestaltet, druckoptimiert und &uuml;berall lesbar.</p>
+        <div class="format-features">
+          <span class="format-feat">Professionelles Layout</span>
+          <span class="format-feat">Ausdrucken &amp; handschriftlich ausf&uuml;llen</span>
+          <span class="format-feat">Offline immer verf&uuml;gbar</span>
+          <span class="format-feat">&Uuml;berall lesbar — jedes Ger&auml;t</span>
+        </div>
+        <span class="format-badge format-badge-classic">Klassisch</span>
+      </div>
+
+    </div>
   </div>
 </section>
 
