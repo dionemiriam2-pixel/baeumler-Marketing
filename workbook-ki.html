@@ -309,31 +309,52 @@ section { position: relative; overflow: visible; }
 }
 
 /* ═══════════════════════════════════════════════
-   SO FUNKTIONIERT'S — Steps
+   SO FUNKTIONIERT'S — Bento Grid
 ═══════════════════════════════════════════════ */
 #steps { padding: 80px 0; position: relative; }
 #steps .blob { background: radial-gradient(circle, var(--orange), transparent 70%); width:400px; height:400px; top:-60px; left:-80px; --d:26s; --tx:-20px; --ty:25px; }
 .steps-header { margin-bottom: 50px; max-width: 500px; }
-.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.step-card {
-  border-radius: 22px; padding: 32px 28px;
-  display: flex; flex-direction: column; justify-content: flex-end; min-height: 260px;
+.bento-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 340px 340px 240px; gap: 16px;
 }
-.step-light { background: var(--bg2); }
-.step-dark { background: var(--text); color: #fff; }
-.step-coral { background: var(--coral); color: #fff; }
-.step-num {
-  font-family: var(--heading); font-size: 48px; font-weight: 700;
-  margin-bottom: auto; line-height: 1;
+.bento-card {
+  border-radius: var(--r); padding: 32px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 280px; position: relative; overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
-.step-light .step-num { color: var(--coral); }
-.step-dark .step-num { color: rgba(255,255,255,0.25); }
-.step-coral .step-num { color: rgba(255,255,255,0.35); }
-.step-card h4 { font-size: 17px; text-transform: none; letter-spacing: 0; margin-bottom: 10px; }
-.step-card p { font-size: 13.5px; line-height: 1.65; }
-.step-light p { color: var(--muted); }
-.step-dark p { color: rgba(255,255,255,0.6); }
-.step-coral p { color: rgba(255,255,255,0.75); }
+.bento-img {
+  border-radius: var(--r); overflow: hidden; min-height: 280px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.bento-img img { width: 100%; height: 100%; object-fit: cover; }
+.bento-dark { background: var(--text); color: #fff; }
+.bento-coral { background: var(--coral); color: #fff; }
+.bento-light { background: var(--bg2); color: var(--text); }
+.bento-teal { background: var(--teal); color: #fff; }
+.bento-wide { grid-column: span 2; }
+.bento-num {
+  font-family: var(--heading); font-size: clamp(48px, 6vw, 72px);
+  font-weight: 700; line-height: 1; margin-bottom: auto;
+}
+.bento-dark .bento-num { color: rgba(255,255,255,0.3); }
+.bento-coral .bento-num { color: rgba(255,255,255,0.4); }
+.bento-light .bento-num { color: var(--coral); }
+.bento-teal .bento-num { color: rgba(255,255,255,0.4); }
+.bento-card h4 { font-size: 17px; text-transform: none; letter-spacing: 0; margin-bottom: 10px; }
+.bento-card p { font-size: 13px; line-height: 1.6; margin-bottom: 0; }
+.bento-dark p { color: rgba(255,255,255,0.6); }
+.bento-coral p { color: rgba(255,255,255,0.75); }
+.bento-light p { color: var(--muted); }
+.bento-teal p { color: rgba(255,255,255,0.75); }
+.bento-stat { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.bento-stat-label { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; margin-bottom: 8px; }
+.bento-stat-num { font-family: var(--heading); font-size: clamp(48px, 6vw, 72px); font-weight: 700; line-height: 1; }
+.bento-stat-sub { font-size: 14px; font-weight: 500; margin-top: 4px; }
+@media (hover: hover) {
+  .bento-card:hover, .bento-img:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); }
+}
 
 /* ═══════════════════════════════════════════════
    FAQ — Side-by-side layout (like index)
@@ -456,7 +477,8 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
   :root { --px: 28px; }
   .pricing-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
   .pricing-card.featured { order: -1; }
-  .steps-grid { grid-template-columns: 1fr; }
+  .bento-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+  .bento-card { min-height: 220px; }
   .faq-grid { grid-template-columns: 1fr; gap: 32px; }
   .faq-left { position: static; }
   .vgl-row { grid-template-columns: 1fr repeat(3, 60px); gap: 8px; }
@@ -472,6 +494,8 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
   .vgl-item.open .vgl-body { padding-left: 0 !important; }
   .vgl-row { grid-template-columns: 1fr repeat(3, 48px); gap: 6px; font-size: 13px; }
   .vgl-row-header { font-size: 10px; }
+  .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .bento-wide { grid-column: span 1; }
 }
 @media (max-width: 480px) {
   :root { --px: 16px; }
@@ -479,7 +503,9 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
   .pricing-body { padding: 24px 20px; }
   .pricing-amount { font-size: 44px; }
   .fw-card { padding: 28px 22px; }
-  .step-card { padding: 28px 22px; }
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-wide { grid-column: span 1; }
+  .bento-card { min-height: 180px; padding: 24px; }
   .faq-grid { gap: 24px; }
   .cta-inner { padding: 40px 24px; }
   .footer-row1 { flex-direction: column; gap: 12px; text-align: center; }
@@ -980,21 +1006,47 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
       <span class="sec-label">So funktioniert's</span>
       <h2>In 3 Schritten <em>online</em></h2>
     </div>
-    <div class="steps-grid">
-      <div class="step-card step-dark reveal">
-        <div class="step-num">01</div>
-        <h4>Paket wählen & kaufen</h4>
-        <p>Wähle das Paket, das zu deiner aktuellen Situation passt. Du bekommst sofort Zugang zum PDF-Download.</p>
+    <div class="bento-grid">
+      <!-- Row 1: Ablauf -->
+      <div class="bento-card bento-dark reveal">
+        <div class="bento-num">01.</div>
+        <h4>Paket w&auml;hlen &amp; kaufen</h4>
+        <p>W&auml;hle das Paket, das zu deiner aktuellen Situation passt. Du bekommst sofort Zugang zum PDF-Download.</p>
       </div>
-      <div class="step-card step-coral reveal">
-        <div class="step-num">02</div>
-        <h4>Schritt für Schritt umsetzen</h4>
+      <div class="bento-img reveal">
+        <img src="images/miriam-strategie.avif" alt="Strategie" loading="lazy">
+      </div>
+      <div class="bento-card bento-coral reveal">
+        <div class="bento-num">02.</div>
+        <h4>Schritt f&uuml;r Schritt umsetzen</h4>
         <p>Folge den Anleitungen mit Screenshots und Vorlagen. Claude AI hilft dir bei jedem Schritt.</p>
       </div>
-      <div class="step-card step-light reveal">
-        <div class="step-num">03</div>
+
+      <!-- Row 2 -->
+      <div class="bento-img reveal">
+        <img src="images/miriam-umsetzung.avif" alt="Umsetzung" loading="lazy">
+      </div>
+      <div class="bento-card bento-light bento-wide reveal">
+        <div class="bento-num">03.</div>
         <h4>In unter einer Woche online</h4>
-        <p>Am Ende hast du einen kompletten Business-Workspace — professionell, funktionsfähig und bereit für Kunden.</p>
+        <p>Am Ende hast du einen kompletten Business-Workspace — professionell, funktionsf&auml;hig und bereit f&uuml;r Kunden.</p>
+      </div>
+
+      <!-- Row 3: Stats -->
+      <div class="bento-card bento-dark bento-stat reveal">
+        <span class="bento-stat-label">Komplett-Workbook</span>
+        <span class="bento-stat-num">15</span>
+        <span class="bento-stat-sub">Kapitel</span>
+      </div>
+      <div class="bento-card bento-coral bento-stat reveal">
+        <span class="bento-stat-label">Schritt f&uuml;r Schritt</span>
+        <span class="bento-stat-num">50+</span>
+        <span class="bento-stat-sub">Anleitungen</span>
+      </div>
+      <div class="bento-card bento-teal bento-stat reveal">
+        <span class="bento-stat-label">Statt 5.000–15.000 &euro;</span>
+        <span class="bento-stat-num">0 &euro;</span>
+        <span class="bento-stat-sub">Agenturkosten</span>
       </div>
     </div>
   </div>
