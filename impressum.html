@@ -85,7 +85,8 @@
   .footer-row1 { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 16px; position: relative; }
   .footer-brand { font-family: var(--heading); font-size: 22px; font-weight: 700; color: #fff; text-transform: uppercase; white-space: nowrap; }
   .footer-brand .dot { color: var(--coral); }
-  .footer-nl-form { display: flex; align-items: center; gap: 8px; }
+.footer-nl-label { color: #fff; font-size: 12px; font-weight: 600; font-family: var(--sans); white-space: nowrap; letter-spacing: 0.5px; text-transform: uppercase; }
+.footer-nl-form { display: flex; align-items: center; gap: 8px; }
   .footer-nl-input { width: 200px; padding: 8px 14px; border-radius: var(--pill); border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #fff; font-size: 12px; font-family: var(--sans); }
   .footer-nl-input::placeholder { color: rgba(255,255,255,0.35); }
   .footer-nl-check { display: flex; align-items: center; gap: 4px; cursor: pointer; }
@@ -222,6 +223,7 @@
     <div class="footer-row1">
       <span class="footer-brand">B&auml;umler<span class="dot">.</span></span>
       <form class="footer-nl-form" id="footerNlForm" onsubmit="return submitFooterNl(event)">
+        <span class="footer-nl-label">Newsletter</span>
         <input type="email" class="footer-nl-input" id="footer-nl-email" required placeholder="Deine E-Mail-Adresse">
         <label class="footer-nl-check"><input type="checkbox" id="footer-nl-dsgvo" required><span><a href="datenschutz.html">Datenschutz</a></span></label>
         <button type="submit" class="footer-nl-btn">Eintragen</button>
