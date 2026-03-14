@@ -836,9 +836,9 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
         <li><a href="meine-geschichte.html">Über mich</a></li>
         <li><a href="workbooks.html">Workbooks</a></li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="#kontakt" onclick="if(typeof gtag==='function') gtag('event','erstgespraech_click',{event_category:'conversion',page:'home'});">Kontakt</a></li>
+        <li><a href="#kontakt" onclick="if(typeof gtag==='function') gtag('event','erstgespraech_click',{event_category:'conversion',page:'home'});if(typeof fbq==='function') fbq('track','Contact');">Kontakt</a></li>
       </ul>
-      <a href="#kontakt" class="nav-cta" onclick="if(typeof gtag==='function') gtag('event','erstgespraech_click',{event_category:'conversion',page:'home'});">Erstgespräch</a>
+      <a href="#kontakt" class="nav-cta" onclick="if(typeof gtag==='function') gtag('event','erstgespraech_click',{event_category:'conversion',page:'home'});if(typeof fbq==='function') fbq('track','Contact');">Erstgespräch</a>
       <button class="nav-burger" id="navBurger" aria-label="Menü öffnen"><span></span></button>
     </div>
     <!-- Compact "verfügbar" state -->
@@ -859,8 +859,8 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
   <a href="meine-geschichte.html">Über mich</a>
   <a href="workbooks.html">Workbooks</a>
   <a href="blog.html">Blog</a>
-  <a href="#kontakt" onclick="if(typeof gtag==='function') gtag('event','erstgespraech_click',{event_category:'conversion',page:'home'});closeMobile()">Kontakt</a>
-  <a href="#kontakt" class="mobile-cta" onclick="if(typeof gtag==='function') gtag('event','erstgespraech_click',{event_category:'conversion',page:'home'});closeMobile()">Erstgespräch</a>
+  <a href="#kontakt" onclick="if(typeof gtag==='function') gtag('event','erstgespraech_click',{event_category:'conversion',page:'home'});if(typeof fbq==='function') fbq('track','Contact');closeMobile()">Kontakt</a>
+  <a href="#kontakt" class="mobile-cta" onclick="if(typeof gtag==='function') gtag('event','erstgespraech_click',{event_category:'conversion',page:'home'});if(typeof fbq==='function') fbq('track','Contact');closeMobile()">Erstgespräch</a>
 </div>
 
 <!-- ════════════════════ HERO ════════════════════ -->
@@ -1162,7 +1162,7 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
       <div class="faq-left reveal">
         <h2 class="sec-title">Häufig gestellte<br>Fragen</h2>
         <p class="faq-desc">Hier findest du Antworten auf die häufigsten Fragen. Falls deine nicht dabei ist — schreib mir einfach.</p>
-        <div class="faq-cta-wrap"><a href="#kontakt" class="btn btn-navy" onclick="if(typeof gtag==='function') gtag('event','erstgespraech_click',{event_category:'conversion',page:'home'});">Erstgespräch buchen →</a></div>
+        <div class="faq-cta-wrap"><a href="#kontakt" class="btn btn-navy" onclick="if(typeof gtag==='function') gtag('event','erstgespraech_click',{event_category:'conversion',page:'home'});if(typeof fbq==='function') fbq('track','Contact');">Erstgespräch buchen →</a></div>
       </div>
       <div class="reveal">
         <div class="faq-acc-list">
@@ -1531,6 +1531,7 @@ document.querySelectorAll('.count-up').forEach(el => {
 /* ── ONLINE CHECK: Start quiz with Q1 pre-answered ── */
 function startQuiz(val) {
   if(typeof gtag==='function') gtag('event','online_check_started',{event_category:'engagement',source:'homepage_teaser'});
+  if(typeof fbq==='function') fbq('track','ViewContent',{content_name:'Online Check Teaser'});
   window.location.href = 'online-check.html?q0=' + val;
 }
 
@@ -1565,6 +1566,7 @@ function submitKontakt(e){
   }).then(function(r){
     if(r.ok){
       if(typeof gtag==='function') gtag('event','contact_form_submitted',{event_category:'conversion',page:'home'});
+      if(typeof fbq==='function') fbq('track','Lead',{content_name:'Kontaktformular'});
       window.location.href='danke.html';
     }else{alert('Etwas ist schiefgelaufen. Bitte schreib mir direkt an hi@baeumlermarketing.de');}
   }).catch(function(){alert('Verbindungsfehler. Bitte schreib mir direkt an hi@baeumlermarketing.de');});
@@ -1600,7 +1602,7 @@ function submitFooterNl(e){
       legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Speicherung und Verarbeitung meiner personenbezogenen Daten durch Baeumler Marketing zu.',communications:[{value:true,subscriptionTypeId:2273981170,text:'Ich stimme zu, andere Benachrichtigungen von Baeumler Marketing zu erhalten.'}]}}
     })
   }).then(function(r){
-    if(r.ok){if(typeof gtag==='function') gtag('event','newsletter_signup',{event_category:'lead',page:document.title});document.getElementById('footerNlForm').reset();document.getElementById('footer-nl-success').style.display='block';setTimeout(function(){document.getElementById('footer-nl-success').style.display='none'},5000);}
+    if(r.ok){if(typeof gtag==='function') gtag('event','newsletter_signup',{event_category:'lead',page:document.title});if(typeof fbq==='function') fbq('track','Lead',{content_name:'Newsletter'});document.getElementById('footerNlForm').reset();document.getElementById('footer-nl-success').style.display='block';setTimeout(function(){document.getElementById('footer-nl-success').style.display='none'},5000);}
     else{alert('Etwas ist schiefgelaufen. Bitte schreib mir an hi@baeumlermarketing.de');}
     btn.disabled=false;btn.textContent='Eintragen';
   }).catch(function(){alert('Verbindungsfehler.');btn.disabled=false;btn.textContent='Eintragen';});

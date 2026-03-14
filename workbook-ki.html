@@ -714,7 +714,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
             <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Live schalten</span>
             <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Claude AI Setup</span>
           </div>
-          <a href="#" class="pricing-cta pricing-cta-outline" onclick="if(typeof gtag==='function') gtag('event','workbook_cta_click',{event_category:'conversion',paket:'Basic'});">Basic kaufen →</a>
+          <a href="#" class="pricing-cta pricing-cta-outline" onclick="if(typeof gtag==='function') gtag('event','workbook_cta_click',{event_category:'conversion',paket:'Basic'});if(typeof fbq==='function') fbq('track','InitiateCheckout',{content_name:'Workbook Basic',value:49,currency:'EUR'});">Basic kaufen →</a>
         </div>
       </div>
 
@@ -737,7 +737,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
             <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> CRM & Formulare</span>
             <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Shop & Checkout</span>
           </div>
-          <a href="#" class="pricing-cta pricing-cta-filled" onclick="if(typeof gtag==='function') gtag('event','workbook_cta_click',{event_category:'conversion',paket:'Professional'});">Professional kaufen →</a>
+          <a href="#" class="pricing-cta pricing-cta-filled" onclick="if(typeof gtag==='function') gtag('event','workbook_cta_click',{event_category:'conversion',paket:'Professional'});if(typeof fbq==='function') fbq('track','InitiateCheckout',{content_name:'Workbook Professional',value:89,currency:'EUR'});">Professional kaufen →</a>
         </div>
       </div>
 
@@ -759,7 +759,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
             <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Social Media</span>
             <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 30 KI-Prompts</span>
           </div>
-          <a href="#" class="pricing-cta pricing-cta-outline" onclick="if(typeof gtag==='function') gtag('event','workbook_cta_click',{event_category:'conversion',paket:'Professional + Marketing'});">Komplett-Paket kaufen →</a>
+          <a href="#" class="pricing-cta pricing-cta-outline" onclick="if(typeof gtag==='function') gtag('event','workbook_cta_click',{event_category:'conversion',paket:'Professional + Marketing'});if(typeof fbq==='function') fbq('track','InitiateCheckout',{content_name:'Workbook Komplett',value:129,currency:'EUR'});">Komplett-Paket kaufen →</a>
         </div>
       </div>
 
@@ -1288,7 +1288,7 @@ function submitFooterNl(e){
       legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Speicherung und Verarbeitung meiner personenbezogenen Daten durch Baeumler Marketing zu.',communications:[{value:true,subscriptionTypeId:2273981170,text:'Ich stimme zu, andere Benachrichtigungen von Baeumler Marketing zu erhalten.'}]}}
     })
   }).then(function(r){
-    if(r.ok){if(typeof gtag==='function') gtag('event','newsletter_signup',{event_category:'lead',page:document.title});document.getElementById('footerNlForm').reset();document.getElementById('footer-nl-success').style.display='block';setTimeout(function(){document.getElementById('footer-nl-success').style.display='none'},5000);}
+    if(r.ok){if(typeof gtag==='function') gtag('event','newsletter_signup',{event_category:'lead',page:document.title});if(typeof fbq==='function') fbq('track','Lead',{content_name:'Newsletter'});document.getElementById('footerNlForm').reset();document.getElementById('footer-nl-success').style.display='block';setTimeout(function(){document.getElementById('footer-nl-success').style.display='none'},5000);}
     else{alert('Etwas ist schiefgelaufen.');}
     btn.disabled=false;btn.textContent='Eintragen';
   }).catch(function(){alert('Verbindungsfehler.');btn.disabled=false;btn.textContent='Eintragen';});

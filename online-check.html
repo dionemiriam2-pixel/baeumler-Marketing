@@ -835,7 +835,7 @@ function submitFooterNl(e){
       legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Speicherung und Verarbeitung meiner personenbezogenen Daten durch Baeumler Marketing zu.',communications:[{value:true,subscriptionTypeId:2273981170,text:'Ich stimme zu, andere Benachrichtigungen von Baeumler Marketing zu erhalten.'}]}}
     })
   }).then(function(r){
-    if(r.ok){if(typeof gtag==='function') gtag('event','newsletter_signup',{event_category:'lead',page:document.title});document.getElementById('footerNlForm').reset();document.getElementById('footer-nl-success').style.display='block';setTimeout(function(){document.getElementById('footer-nl-success').style.display='none'},5000);}
+    if(r.ok){if(typeof gtag==='function') gtag('event','newsletter_signup',{event_category:'lead',page:document.title});if(typeof fbq==='function') fbq('track','Lead',{content_name:'Newsletter'});document.getElementById('footerNlForm').reset();document.getElementById('footer-nl-success').style.display='block';setTimeout(function(){document.getElementById('footer-nl-success').style.display='none'},5000);}
     else{alert('Etwas ist schiefgelaufen. Bitte schreib mir an hi@baeumlermarketing.de');}
     btn.disabled=false;btn.textContent='Eintragen';
   }).catch(function(){alert('Verbindungsfehler.');btn.disabled=false;btn.textContent='Eintragen';});
@@ -980,6 +980,12 @@ document.querySelectorAll('.quiz-answer').forEach(function(btn) {
         answer_value: val
       });
     }
+    // Meta Pixel Tracking
+    if (typeof fbq === 'function') {
+      if (qIndex === 0) {
+        fbq('track', 'ViewContent', { content_name: 'Quiz Started' });
+      }
+    }
 
     // Auto-advance after short delay
     setTimeout(function() {
@@ -1064,6 +1070,10 @@ function submitCtaForm(e) {
           kategorie: kategorie
         });
       }
+      // Meta Pixel Tracking
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', { content_name: 'Quiz Strategy Call' });
+      }
     } else {
       alert('Etwas ist schiefgelaufen. Bitte schreib mir an hi@baeumlermarketing.de');
       btn.disabled = false;
@@ -1144,6 +1154,10 @@ function showResults() {
       score: pct,
       kategorie: kategorie
     });
+  }
+  // Meta Pixel Tracking
+  if (typeof fbq === 'function') {
+    fbq('track', 'Lead', { content_name: 'Quiz Completed', content_category: kategorie });
   }
 
   // Score circle

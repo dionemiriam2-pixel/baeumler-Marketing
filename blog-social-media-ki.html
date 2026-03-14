@@ -755,7 +755,7 @@ function submitFooterNl(e){
       legalConsentOptions:{consent:{consentToProcess:true,text:'Ich stimme der Speicherung und Verarbeitung meiner personenbezogenen Daten durch Baeumler Marketing zu.',communications:[{value:true,subscriptionTypeId:2273981170,text:'Ich stimme zu, andere Benachrichtigungen von Baeumler Marketing zu erhalten.'}]}}
     })
   }).then(function(r){
-    if(r.ok){if(typeof gtag==='function') gtag('event','newsletter_signup',{event_category:'lead',page:document.title});document.getElementById('footerNlForm').reset();document.getElementById('footer-nl-success').style.display='block';setTimeout(function(){document.getElementById('footer-nl-success').style.display='none'},5000);}
+    if(r.ok){if(typeof gtag==='function') gtag('event','newsletter_signup',{event_category:'lead',page:document.title});if(typeof fbq==='function') fbq('track','Lead',{content_name:'Newsletter'});document.getElementById('footerNlForm').reset();document.getElementById('footer-nl-success').style.display='block';setTimeout(function(){document.getElementById('footer-nl-success').style.display='none'},5000);}
     else{alert('Etwas ist schiefgelaufen. Bitte schreib mir an hi@baeumlermarketing.de');}
     btn.disabled=false;btn.textContent='Eintragen';
   }).catch(function(){alert('Verbindungsfehler.');btn.disabled=false;btn.textContent='Eintragen';});
