@@ -15,7 +15,7 @@
   const CONFIG = {
     gtmId: 'GTM-TGJBX7Q4',            // Google Tag Manager ID
     analyticsId: 'G-F7QCKPKZVT',     // Deine Google Analytics 4 ID
-    facebookPixelId: '0000000000',   // Deine Facebook Pixel ID
+    facebookPixelId: '1231506525800643',   // Deine Facebook Pixel ID
     cookieName: 'baeumler_consent',
     cookieDays: 365,
     consentVersion: '1.0',
