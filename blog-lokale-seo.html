@@ -507,18 +507,44 @@
 <!-- ════════════════════ FOOTER ════════════════════ -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-row1">
-      <span class="footer-brand">B&auml;umler <em>Marketing</em></span>
-      <form class="footer-nl-form" id="footerNlForm" onsubmit="return submitFooterNl(event)">
-        <span class="footer-nl-label">Newsletter</span>
-        <span class="footer-nl-sub">Kein Spam. Nur Inhalte, die dir weiterhelfen.</span>
-        <div class="footer-nl-row">
-          <input type="email" class="footer-nl-input" id="footer-nl-email" required placeholder="Deine E-Mail-Adresse">
-          <button type="submit" class="footer-nl-btn">Eintragen</button>
+    <div class="footer-cols">
+      <!-- Col 1: Brand -->
+      <div>
+        <span class="footer-brand">B&auml;umler <em>Marketing</em></span>
+        <p class="footer-tagline">Marketingberaterin aus Langenfeld &mdash;<br>f&uuml;r Selbst&auml;ndige und lokale Unternehmen.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/baeumlermarketing" class="footer-social-link" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="mailto:hi@baeumlermarketing.de" class="footer-social-link" aria-label="E-Mail">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          </a>
         </div>
-        <label class="footer-nl-check"><input type="checkbox" id="footer-nl-dsgvo" required><span>Ich stimme der <a href="datenschutz.html">Datenschutzerklärung</a> zu</span></label>
-      </form>
-      <p id="footer-nl-success" style="display:none;color:var(--teal);font-weight:600;font-size:11px;position:absolute;right:0;top:100%">Danke!</p>
+      </div>
+      <!-- Col 2: Navigation -->
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <nav class="footer-nav-links">
+          <a href="/">Home</a>
+          <a href="meine-geschichte.html">&Uuml;ber mich</a>
+          <a href="workbooks.html">Workbooks</a>
+          <a href="blog.html">Blog</a>
+          <a href="/#kontakt">Kontakt</a>
+        </nav>
+      </div>
+      <!-- Col 3: Newsletter -->
+      <div>
+        <div class="footer-col-title">Newsletter</div>
+        <form class="footer-nl-form" id="footerNlForm" onsubmit="return submitFooterNl(event)">
+          <p class="footer-nl-sub">Kein Spam. Nur Inhalte, die dir wirklich weiterhelfen.</p>
+          <div class="footer-nl-row">
+            <input type="email" class="footer-nl-input" id="footer-nl-email" required placeholder="Deine E-Mail-Adresse">
+            <button type="submit" class="footer-nl-btn">Eintragen</button>
+          </div>
+          <label class="footer-nl-check"><input type="checkbox" id="footer-nl-dsgvo" required><span>Ich stimme der <a href="datenschutz.html">Datenschutzerkl&auml;rung</a> zu</span></label>
+        </form>
+        <p id="footer-nl-success" style="display:none;color:var(--teal);font-weight:600;font-size:11px;margin-top:8px;">Danke!</p>
+      </div>
     </div>
     <div class="footer-row2">
       <div class="footer-copy">&copy; 2026 Baeumler Marketing &middot; Langenfeld</div>
