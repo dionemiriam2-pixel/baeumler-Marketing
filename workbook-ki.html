@@ -123,7 +123,12 @@ section { position: relative; overflow: visible; }
   padding: 120px 0 60px; position: relative;
 }
 #hero .blob { background: radial-gradient(circle, var(--yellow), transparent 70%); width:500px; height:500px; top:-100px; right:-80px; --d:24s; --tx:30px; --ty:-20px; }
-.hero-inner { text-align: center; max-width: 700px; margin: 0 auto; }
+.hero-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; max-width: 1100px; margin: 0 auto; text-align: left; }
+.hero-inner .hero-text { }
+.hero-inner .hero-img { border-radius: var(--r); overflow: hidden; aspect-ratio: 4/5; }
+.hero-inner .hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-inner h1 { text-align: left; }
+.hero-sub { text-align: left; max-width: 100%; margin: 0; }
 .breadcrumb {
   font-size: 13px; color: var(--muted); margin-bottom: 24px;
 }
@@ -553,6 +558,11 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
   .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
   .bento-wide { grid-column: span 1; }
 }
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+  .hero-inner .hero-img { order: -1; aspect-ratio: 16/9; }
+  .hero-inner h1 { text-align: left; }
+}
 @media (max-width: 480px) {
   :root { --px: 16px; }
   #hero { padding: 100px 0 40px; }
@@ -683,11 +693,16 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   <div class="blob hero-blob"></div>
   <div class="container">
     <div class="hero-inner">
-      <p class="breadcrumb"><a href="workbooks.html">Workbooks</a> / Online-Selbstständigkeit mit KI</p>
-      <h1>Deine Online-Selbstständigkeit.<br><em>Mit KI.</em></h1>
-      <p class="hero-sub" style="margin-bottom:16px;">Ob du gerade neu startest oder dein bestehendes Business mit KI auf das nächste Level bringen möchtest — ich zeige dir wie ich es gemacht habe.</p>
-      <p class="hero-sub" style="margin-bottom:6px;">in unter 7 Tagen für unter <span style="color:var(--coral);font-weight:600;">30,00 €</span> im Monat</p>
-      <p class="hero-sub" style="margin-bottom:12px;text-decoration:line-through;opacity:0.5;">statt über 15.000 € für teure Agenturen</p>
+      <div class="hero-text">
+        <p class="breadcrumb"><a href="workbooks.html">Workbooks</a> / Online-Selbstständigkeit mit KI</p>
+        <h1>Deine Online-Selbstständigkeit.<br><em>Mit KI.</em></h1>
+        <p class="hero-sub" style="margin-bottom:16px;">Ob du gerade neu startest oder dein bestehendes Business mit KI auf das nächste Level bringen möchtest — ich zeige dir wie ich es gemacht habe.</p>
+        <p class="hero-sub" style="margin-bottom:6px;">in unter 7 Tagen für unter <span style="color:var(--coral);font-weight:600;">30,00 €</span> im Monat</p>
+        <p class="hero-sub" style="margin-bottom:12px;text-decoration:line-through;opacity:0.5;">statt über 15.000 € für teure Agenturen</p>
+      </div>
+      <div class="hero-img">
+        <img src="images/miriam-umsetzung.avif" alt="Miriam Bäumler — Online-Selbstständigkeit mit KI" loading="eager">
+      </div>
     </div>
   </div>
 </section>
