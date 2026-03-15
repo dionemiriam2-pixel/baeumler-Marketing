@@ -91,6 +91,22 @@ section { position: relative; overflow: visible; }
 .btn-teal:hover   { background: var(--coral); color: #fff; }
 .btn-outline { border: 1.5px solid var(--coral); color: var(--coral); }
 .btn-outline:hover { background: var(--coral); color: #fff; }
+.hero-wb-badge {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 14px;
+  font-size: 13px; font-weight: 500; color: var(--coral);
+  border: 1.5px solid var(--coral); border-radius: var(--pill);
+  padding: 7px 16px; background: #fff;
+  box-shadow: 0 2px 8px rgba(232,96,76,0.1);
+  transition: background 0.22s, color 0.22s;
+}
+.hero-wb-badge:hover { background: var(--coral); color: #fff; }
+.hero-wb-badge:hover .hero-wb-dot { background: #fff; }
+.hero-wb-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--teal);
+  display: inline-block; animation: pulse 2s infinite; flex-shrink: 0;
+  transition: background 0.22s;
+}
+.hero-wb-arrow { transition: color 0.22s; }
 
 /* ═══════════════════════════════════════════════
    NAV
@@ -901,8 +917,8 @@ footer { background: var(--text); color: rgba(255,255,255,0.65); padding: 32px 4
         <p class="hero-sub">
           Marketingberaterin aus Langenfeld — für Webdesign, Branding und KI-gestütztes Online Marketing. Ich unterstütze Selbstständige und lokale Unternehmen, online sichtbar zu werden und planbar zu wachsen.
         </p>
-        <a href="workbook-ki.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:13px;font-weight:500;color:var(--text);border:1px solid var(--border);border-radius:var(--pill);padding:7px 16px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.05);transition:border-color 0.2s,color 0.2s;">
-          <span style="width:8px;height:8px;border-radius:50%;background:var(--teal);display:inline-block;animation:pulse 2s infinite;flex-shrink:0;"></span> Deine Online-Selbstständigkeit mit KI in unter 7 Tagen <span style="color:var(--coral);">→</span>
+        <a href="workbook-ki.html" class="hero-wb-badge">
+          <span class="hero-wb-dot"></span> Deine Online-Selbstständigkeit mit KI in unter 7 Tagen <span class="hero-wb-arrow">→</span>
         </a>
         <!--<div class="hero-actions">
           <a href="#kontakt" class="btn btn-coral">Kostenloser Check</a>
