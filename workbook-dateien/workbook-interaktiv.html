@@ -200,10 +200,16 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(-
 
 /* ═══ CHAPTER HEADERS — bold card ═══ */
 .chapter-header{
-  background:var(--bg2);border-radius:var(--r);
+  background:var(--bg2);border-radius:0 var(--r) var(--r) 0;
   padding:28px 32px;margin-bottom:24px;
   display:flex;align-items:flex-start;gap:20px;
   border-left:5px solid var(--coral);
+  margin-left:-48px;padding-left:52px;
+  transition:transform .3s cubic-bezier(.4,0,.2,1),box-shadow .3s cubic-bezier(.4,0,.2,1);
+}
+.chapter-header:hover{
+  transform:translateX(6px);
+  box-shadow:0 8px 32px rgba(0,0,0,0.06);
 }
 .chapter-num{
   font-family:'Antonio',sans-serif;font-size:clamp(44px,5.5vw,60px);font-weight:700;
@@ -417,18 +423,18 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 .step{
   background:#fff;border:1px solid var(--border);
   border-radius:var(--r);
-  padding:14px 20px 14px 60px;margin:6px 0;
+  padding:14px 20px 14px 76px;margin:6px 0;
   box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;
   position:relative;
 }
 .step:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
 .step .step-label{
-  position:absolute;left:20px;top:50%;transform:translateY(-50%);
-  font-family:'Antonio',sans-serif;font-size:18px;font-weight:700;
-  color:var(--coral);letter-spacing:-0.02em;line-height:1;
-  min-width:32px;text-align:center;
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  font-family:'Antonio',sans-serif;font-size:14px;font-weight:700;
+  color:var(--coral);letter-spacing:-0.02em;line-height:1.2;
+  width:52px;text-align:center;
 }
-.step h4{font-family:'Antonio',sans-serif;font-size:15px;margin-bottom:3px;text-transform:uppercase;letter-spacing:-0.01em}
+.step h4{font-family:'Antonio',sans-serif;font-size:15px;margin-bottom:3px;text-transform:none;letter-spacing:-0.01em}
 .step p{font-size:14px;color:var(--muted);margin:0;line-height:1.6}
 
 /* ═══ ROADMAP ═══ */
@@ -850,8 +856,9 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   .section{padding:20px 20px 24px}
   .baustein-grid{grid-template-columns:1fr}
   .hero-title{font-size:clamp(32px,8vw,48px)}
-  .chapter-header{flex-direction:column;gap:8px;padding:20px 24px}
+  .chapter-header{flex-direction:column;gap:8px;padding:20px 24px;margin-left:-20px;padding-left:20px}
   .chapter-num{font-size:40px}
+  .chapter-header:hover{transform:none}
   .roadmap{padding-left:32px}
   .check-item .box{min-width:44px;min-height:44px;width:44px;height:44px}
 }
