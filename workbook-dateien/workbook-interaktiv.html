@@ -19,7 +19,8 @@
   --gradient-accent:linear-gradient(135deg,#e8604c,#2db8a8);
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.78;overflow-x:hidden}
+.card p{margin-bottom:14px}.card p:last-child{margin-bottom:0}
 
 /* ═══ SIDEBAR — HELL & CLEAN ═══ */
 .sidebar{
@@ -136,7 +137,7 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(-
 
 /* ═══ SECTIONS ═══ */
 .section{
-  min-height:100vh;padding:60px 48px 80px;
+  min-height:auto;padding:40px 48px 48px;
   max-width:820px;margin:0 auto;
   opacity:0;transform:translateY(40px);
   transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1);
@@ -144,7 +145,7 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(-
 .section.visible{opacity:1;transform:translateY(0)}
 .section.hero-section{
   display:flex;flex-direction:column;justify-content:center;
-  align-items:center;text-align:center;min-height:100vh;
+  align-items:center;text-align:center;min-height:auto;padding-top:80px;padding-bottom:40px;
   position:relative;max-width:1100px;
   opacity:1;transform:none;transition:none;
 }
@@ -242,14 +243,14 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(-
   border-radius:var(--pill);padding:5px 14px;
 }
 
-/* ═══ PERSONAL NOTE — MIRIAM ═══ */
+/* ═══ PERSONAL NOTE — MIRIAM (legacy, wird zu .miriam-sagt) ═══ */
 .tip-miriam{
-  background:#fffaf8;border:1px solid rgba(232,96,76,0.12);border-left:4px solid var(--coral);
-  border-radius:var(--r);padding:22px 26px;margin:20px 0;
+  background:#fffbf8;border-radius:var(--r);border-top:3px solid var(--coral);
+  padding:24px 28px;margin:18px 0;box-shadow:0 2px 16px rgba(0,0,0,0.04);
 }
-.tip-miriam .label{font-size:11px;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
-.tip-miriam p{font-family:'Playfair Display',serif;font-style:italic;font-size:15px;line-height:1.7;color:var(--text);margin:0}
-.tip-miriam .author{font-family:'Inter',sans-serif;font-style:normal;font-size:13px;color:var(--muted);margin-top:10px;font-weight:500}
+.tip-miriam .label{font-size:12px;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+.tip-miriam p{font-size:15px;line-height:1.78;color:#444;margin:0}
+.tip-miriam .author{font-family:'Inter',sans-serif;font-size:13px;color:var(--muted);margin-top:10px;font-weight:500}
 
 /* ═══ VALUE BOX (coral gradient bg) ═══ */
 .value-box{
@@ -283,74 +284,61 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(-
 h3.section-title{
   font-family:'Antonio',sans-serif;font-size:clamp(20px,2.2vw,26px);font-weight:700;
   text-transform:uppercase;margin-bottom:20px;letter-spacing:-0.02em;
-  display:flex;align-items:center;gap:10px;
-}
-h3.section-title::before{
-  content:'';width:10px;height:10px;border-radius:50%;
-  background:var(--coral);flex-shrink:0;display:inline-block;
+  display:inline;line-height:1.5;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone;
+  background:linear-gradient(transparent 58%,rgba(232,96,76,0.13) 58%);
+  padding:2px 8px 2px 4px;
 }
 h3.section-title .icon{display:none}
 
-/* ═══ MINDSET BOX ═══ */
+/* ═══ LEGACY BOX SUPPORT (wird schrittweise ersetzt) ═══ */
 .mindset-box{
-  background:#fff8f5;
-  border-radius:var(--r);padding:24px 28px;margin:20px 0;
-  border-left:4px solid var(--coral);
-  border:1px solid rgba(232,96,76,0.12);
-  border-left:4px solid var(--coral);
+  background:#fffbf8;border-radius:var(--r);padding:22px 26px;margin:16px 0;
+  border-top:3px solid var(--coral);
 }
 .mindset-box h4{
-  font-family:'Antonio',sans-serif;font-size:16px;text-transform:uppercase;
+  font-family:'Antonio',sans-serif;font-size:15px;text-transform:uppercase;
   color:var(--coral);margin-bottom:8px;
 }
-.mindset-box p{font-size:15px;color:#444;margin:0}
-
-/* ═══ TIP BOXES ═══ */
+.mindset-box p{font-size:15px;color:#444;margin:0;line-height:1.78}
 .tip-coral{
-  background:#fff8f5;border:1px solid rgba(232,96,76,0.15);border-left:4px solid var(--coral);
-  border-radius:var(--r);padding:20px 24px;margin:20px 0;
+  background:#fff8f5;border-radius:var(--r);border-top:3px solid var(--coral);
+  padding:20px 24px;margin:16px 0;
 }
-.tip-coral .label{font-size:11px;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:2px;margin-bottom:6px}
-
+.tip-coral .label{font-size:12px;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:2px;margin-bottom:6px}
 .tip-teal{
-  background:#f2faf9;border:1px solid rgba(45,184,168,0.15);border-left:4px solid var(--teal);
-  border-radius:var(--r);padding:20px 24px;margin:20px 0;
+  background:#f2faf9;border-radius:var(--r);border-top:3px solid var(--teal);
+  padding:20px 24px;margin:16px 0;
 }
-.tip-teal .label{font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:2px;margin-bottom:6px}
+.tip-teal .label{font-size:12px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:2px;margin-bottom:6px}
 
 /* ═══ PROMPT BOX ═══ */
 .prompt-box{
-  background:#303030;color:#e8e8e8;border-radius:var(--r);
+  background:var(--bg2);color:var(--text);border-radius:var(--r);
+  border-top:3px solid var(--coral);
   padding:24px 28px;margin:20px 0;position:relative;overflow:hidden;
-  box-shadow:0 4px 20px rgba(0,0,0,0.1);
+  box-shadow:var(--shadow-sm);
 }
-.prompt-box::before{
-  content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
-  background:var(--gradient-accent);
-}
-.prompt-box::after{
-  content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(0deg,transparent,transparent 20px,rgba(255,255,255,.015) 20px,rgba(255,255,255,.015) 21px),
-             repeating-linear-gradient(90deg,transparent,transparent 20px,rgba(255,255,255,.015) 20px,rgba(255,255,255,.015) 21px);
-  pointer-events:none;
-}
+.prompt-box::before{content:none}
+.prompt-box::after{content:none}
 .prompt-box .label{
-  color:var(--coral);font-size:11px;font-weight:700;
+  color:var(--coral);font-size:12px;font-weight:700;
   text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;display:block;
-  position:relative;z-index:1;
 }
 .prompt-box pre{
-  font-family:'Inter',monospace;font-size:14px;line-height:1.7;
-  white-space:pre-wrap;word-break:break-word;position:relative;z-index:1;
+  font-family:'Inter',monospace;font-size:14px;line-height:1.75;
+  white-space:pre-wrap;word-break:break-word;
+  background:#fff;border:1px solid var(--border);border-radius:12px;
+  padding:16px 20px;margin-top:8px;
 }
 .prompt-box .copy-btn{
   position:absolute;top:16px;right:16px;z-index:2;
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:#fff;
+  background:var(--coral);border:none;color:#fff;
   padding:6px 14px;border-radius:8px;cursor:pointer;font-size:12px;
   font-weight:600;transition:all .3s;
 }
-.prompt-box .copy-btn:hover{background:rgba(255,255,255,.15)}
-.prompt-box .copy-btn.copied{background:var(--teal);border-color:var(--teal);color:#fff}
+.prompt-box .copy-btn:hover{background:var(--coral-dark)}
+.prompt-box .copy-btn.copied{background:var(--teal);color:#fff}
 
 /* ═══ CHECKLIST ═══ */
 .checklist{margin:16px 0}
@@ -482,8 +470,8 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 /* ═══ QUOTE PAGE ═══ */
 .quote-section{
   display:flex;flex-direction:column;align-items:center;
-  justify-content:center;text-align:center;min-height:55vh;
-  padding:60px 48px;position:relative;
+  justify-content:center;text-align:center;min-height:auto;
+  padding:40px 48px;position:relative;
 }
 .quote-section::before{
   content:'\201C';font-family:'Playfair Display',serif;
@@ -611,6 +599,144 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 .back-to-top:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(232,96,76,0.45)}
 .back-to-top.show{display:flex}
 
+/* ═══ GLOSSAR-BOX — "Was ist das eigentlich?" ═══ */
+.glossar-box{
+  background:#f8f6ff;
+  border-radius:var(--r);border-top:3px solid #7c5ce0;
+  padding:20px 24px;margin:16px 0;
+}
+.glossar-box .glossar-term{
+  font-family:'Antonio',sans-serif;font-size:15px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.5px;
+  color:#7c5ce0;margin-bottom:6px;padding-left:4px;
+}
+.glossar-box p{font-size:14px;color:var(--muted);margin:0;line-height:1.7}
+.glossar-box .glossar-analogy{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:13px;color:#7c5ce0;margin-top:8px;
+  padding-top:8px;border-top:1px solid rgba(120,90,220,0.1);
+}
+
+/* ═══ MIRIAM-SAGT — Persönliche Box (OMR PRO-TIPP Stil) ═══ */
+.miriam-sagt{
+  background:#fffbf8;border-radius:var(--r);
+  border-top:3px solid var(--coral);
+  padding:24px 28px;margin:20px 0;
+  box-shadow:0 2px 16px rgba(0,0,0,0.04);
+}
+.miriam-sagt-header{
+  display:flex;align-items:center;gap:12px;margin-bottom:12px;
+}
+.miriam-avatar{
+  width:44px;height:44px;border-radius:50%;flex-shrink:0;
+  background:url('../images/miriam-gesicht.jpg') center/cover no-repeat;
+  border:2px solid rgba(232,96,76,0.2);
+}
+.miriam-sagt-label{
+  font-family:'Antonio',sans-serif;font-size:13px;font-weight:700;
+  text-transform:uppercase;letter-spacing:1.5px;color:var(--coral);
+}
+.miriam-sagt-sub{font-size:12px;color:var(--muted)}
+.miriam-sagt p{font-size:15px;color:#444;margin:0 0 8px;line-height:1.78}
+.miriam-sagt p:last-child{margin-bottom:0}
+.miriam-sagt .mantra{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:15px;color:var(--coral);margin-top:10px;font-weight:600;
+  padding-top:10px;border-top:1px solid rgba(232,96,76,0.1);
+}
+
+/* ═══ TIPP-BOX — Vereinfachte Tipps (coral/teal Varianten) ═══ */
+.tipp-box{
+  background:#fff8f5;border-radius:var(--r);
+  border-top:3px solid var(--coral);
+  padding:20px 24px;margin:16px 0;
+}
+.tipp-box[data-color="teal"]{background:#f2faf9;border-top-color:var(--teal)}
+.tipp-box .tipp-label{
+  font-family:'Antonio',sans-serif;font-size:12px;font-weight:700;
+  text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;
+  color:var(--coral);
+}
+.tipp-box[data-color="teal"] .tipp-label{color:var(--teal)}
+.tipp-box p{font-size:14px;color:var(--muted);margin:0;line-height:1.75}
+
+/* ═══ FEHLER-BOX — Häufige Fehler & "Was wenn...?" ═══ */
+.mistake-box{
+  background:#fff5f4;border-radius:var(--r);border-top:3px solid var(--coral);
+  padding:20px 24px;margin:16px 0;
+}
+.mistake-box .mistake-title{
+  font-family:'Antonio',sans-serif;font-size:14px;font-weight:700;
+  text-transform:uppercase;letter-spacing:1px;
+  color:var(--coral);margin-bottom:8px;
+}
+.mistake-box .mistake-item{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:14px;color:var(--muted);padding:6px 0;
+  border-bottom:1px solid rgba(232,96,76,0.06);line-height:1.6;
+}
+.mistake-box .mistake-item:last-child{border-bottom:none}
+.mistake-box .mistake-item::before{
+  content:'✗';color:var(--coral);font-weight:700;flex-shrink:0;margin-top:1px;
+}
+.mistake-box .mistake-fix{
+  font-size:13px;color:#555;font-weight:600;margin-top:4px;
+  display:flex;align-items:center;gap:6px;
+}
+.mistake-box .mistake-fix::before{
+  content:'→';color:var(--coral);font-weight:700;
+}
+
+/* ═══ CELEBRATION-BOX — Fortschritt feiern ═══ */
+.celebration{
+  background:linear-gradient(135deg,rgba(232,96,76,0.05) 0%,rgba(232,96,76,0.02) 100%);
+  border:2px solid rgba(232,96,76,0.18);
+  border-radius:var(--r);padding:22px 26px;margin:20px 0;
+  text-align:center;position:relative;overflow:hidden;
+}
+.celebration::before,.celebration::after{
+  content:'';position:absolute;width:60px;height:60px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,96,76,0.06),transparent 70%);
+  pointer-events:none;
+}
+.celebration::before{top:-16px;left:-16px}
+.celebration::after{bottom:-16px;right:-16px}
+.celebration .celebration-text{
+  font-family:'Antonio',sans-serif;font-size:clamp(16px,2vw,22px);
+  font-weight:700;text-transform:uppercase;color:var(--coral);
+  margin-bottom:4px;position:relative;z-index:1;
+}
+.celebration p{
+  font-size:14px;color:var(--muted);margin:0;
+  position:relative;z-index:1;line-height:1.6;
+}
+.celebration .celebration-stat{
+  font-family:'Antonio',sans-serif;font-size:32px;
+  font-weight:700;color:var(--coral);margin-bottom:2px;
+}
+
+/* ═══ WAS-WENN-BOX — Troubleshooting ═══ */
+.what-if{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--r);padding:20px;margin:12px 0;
+  box-shadow:var(--shadow-sm);
+}
+.what-if .what-if-title{
+  font-family:'Antonio',sans-serif;font-size:15px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.5px;
+  color:var(--text);margin-bottom:12px;
+}
+.what-if .what-if-item{
+  padding:12px 0;border-bottom:1px solid rgba(0,0,0,0.04);
+}
+.what-if .what-if-item:last-child{border-bottom:none}
+.what-if .what-if-q{
+  font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px;
+}
+.what-if .what-if-a{
+  font-size:13px;color:var(--muted);line-height:1.6;margin:0;
+}
+
 /* ═══ CONFETTI ═══ */
 .confetti-container{position:fixed;inset:0;pointer-events:none;z-index:999;overflow:hidden}
 .confetti-piece{
@@ -641,7 +767,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   .sidebar,.top-bar,.menu-toggle,.sidebar-overlay,.save-toast,.milestone-toast,.back-to-top,.confetti-container,.hero-scroll,.copy-btn,.blob{display:none!important}
   .main{margin-left:0!important}
   .section{opacity:1!important;transform:none!important;min-height:auto!important;page-break-inside:avoid;padding:20px 0!important}
-  .card,.prompt-box,.tip-coral,.tip-teal,.reflection-box,.mindset-box,.chapter-summary{break-inside:avoid}
+  .card,.prompt-box,.tip-coral,.tip-teal,.tipp-box,.reflection-box,.mindset-box,.miriam-sagt,.glossar-box,.chapter-summary{break-inside:avoid}
   .prompt-box{background:#f5f5f5!important;color:#303030!important;border:1px solid #ddd!important}
   .prompt-box .label{color:#e8604c!important}
   body{background:#fff!important}
@@ -658,7 +784,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <nav class="sidebar">
   <div class="sidebar-header">
     <div class="sidebar-brand">Workbook</div>
-    <div class="sidebar-title">Online<br>Selbstständig</div>
+    <div class="sidebar-title">Dein Business<br>Workspace</div>
   </div>
   <div class="sidebar-nav" id="sidebarNav"></div>
   <div class="sidebar-footer">
@@ -683,103 +809,57 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <!-- ═══ MAIN CONTENT ═══ -->
 <div class="main">
 
-<!-- ══════════════════════════════════ HERO ══════════════════════════════════ -->
+<!-- ══════════════════════════════════ HERO + EDITORIAL ══════════════════════════════════ -->
 <div class="section hero-section" id="sec-start" data-title="Start" data-chapter="">
 <div class="blob" style="width:600px;height:600px;background:radial-gradient(circle,#f5c842,transparent 70%);top:-120px;right:-100px;--tx:30px;--ty:-20px;--d:24s"></div>
 <div class="blob" style="width:400px;height:400px;background:radial-gradient(circle,#e8604c,transparent 70%);bottom:-80px;left:-100px;--tx:-20px;--ty:25px;--d:28s"></div>
   <div class="hero-label">Workbook</div>
-  <h1 class="hero-title">Online<br>Selbstständig</h1>
-  <p class="hero-subtitle">Willkommen. Schön, dass du hier bist.</p>
-  <p style="font-size:15px;color:rgba(48,48,48,0.75);max-width:800px;margin:0 auto 16px;line-height:1.8;">Du hast den ersten Schritt gemacht — und das ist mehr wert als du gerade vielleicht denkst.</p>
-  <p style="font-size:15px;color:rgba(48,48,48,0.75);max-width:800px;margin:0 auto 16px;line-height:1.8;">In den nächsten 7 Tagen bauen wir gemeinsam deinen kompletten Online Business Workspace auf: Website, Domain, Branding, E-Mail, CRM und deinen ersten digitalen Shop — alles mit KI, Schritt für Schritt.</p>
-  <p style="font-size:15px;color:rgba(48,48,48,0.75);max-width:800px;margin:0 auto 16px;line-height:1.8;">Ich war selbst mal genau an diesem Punkt. Ich kannte nichts davon, hatte Angst etwas falsch zu machen — und habe mich trotzdem getraut weiterzumachen. Folge einfach den Schritten, ich führe dich durch alles durch. Mit der Zeit wirst du immer sicherer.</p>
-  <p style="font-size:14px;color:rgba(48,48,48,0.55);max-width:800px;margin:0 auto 24px;line-height:1.7;font-style:italic;">Überspringe nichts — alles baut aufeinander auf. Perfektion kommt mit der Übung.</p>
-  <div class="hero-scroll" style="margin-bottom:28px;" onclick="scrollToSection(1)">Bereit? Dann lass uns starten<br>↓</div>
-  <div class="hero-scroll" onclick="scrollToSection(1)">
-    Starte jetzt<br>↓
-  </div>
+  <h1 class="hero-title">Der komplette Workspace<br>für deine Selbstständigkeit</h1>
+  <p class="hero-subtitle">Website · Domain · Branding · E-Mail · CRM · Shop — alles mit KI, Schritt für Schritt.</p>
+  <div class="hero-scroll" onclick="scrollToSection(1)">Starte hier<br>↓</div>
 </div>
 
-<!-- ══════════════════════════════════ INTRO ══════════════════════════════════ -->
-<div class="section" id="sec-intro" data-title="Miriams Geschichte" data-chapter="">
+<!-- ══════════════════════════════════ EDITORIAL ══════════════════════════════════ -->
+<div class="section" id="sec-intro" data-title="Willkommen" data-chapter="">
 <div class="blob" style="width:350px;height:350px;background:radial-gradient(circle,#f5c842,transparent 70%);top:-80px;right:-100px;--tx:20px;--ty:-20px;--d:26s"></div>
   <div style="max-width:680px;margin:0 auto;">
-    <div style="margin-bottom:48px;text-align:center;">
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--coral);margin-bottom:16px;">Von Miriam Bäumler</div>
-      <h2 style="font-family:'Antonio',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:700;text-transform:uppercase;line-height:1.1;margin-bottom:16px;">Was wäre, wenn der<br>Start der einfachste Teil ist?</h2>
-      <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin:0 auto 24px;"></div>
-      <p style="font-family:'Playfair Display',serif;font-size:18px;line-height:1.7;font-style:italic;color:var(--muted);max-width:520px;margin:0 auto;">Deine Selbstständigkeit scheitert nicht an deiner Idee. Sie scheitert daran, dass dir niemand gezeigt hat, wie du sie online aufbaust.</p>
+
+    <div class="miriam-sagt" style="margin-bottom:32px;">
+      <div class="miriam-sagt-header">
+        <div class="miriam-avatar"></div>
+        <div>
+          <div class="miriam-sagt-label">Von Miriam Bäumler</div>
+          <div class="miriam-sagt-sub">Master Wirtschafts- &amp; Werbepsychologie · baeumlermarketing.de</div>
+        </div>
+      </div>
+      <p>Ich heiße Miriam und vor ein paar Jahren stand ich genau da, wo du vielleicht gerade stehst. Ich hatte eine Idee, ich wusste, was ich anbieten wollte — aber zwischen mir und meinem Online-Business lag eine Welt aus Technik, Tools und Begriffen, die ich nicht kannte.</p>
+      <p>Ich wusste nicht, was eine Domain ist. Ich wusste nicht, was ein CRM macht. Ich hatte noch nie eine Zeile Code gesehen. Und ehrlich gesagt hatte ich Angst, etwas falsch zu machen — irgendeinen Button zu drücken, der alles löscht, oder meine Daten irgendwohin zu schicken, wo sie nicht hingehören.</p>
+      <p>Also habe ich angefangen, mir alles selbst beizubringen. Schritt für Schritt, Tool für Tool. Dann kam KI dazu — und plötzlich ging alles viel schneller. Meine komplette Website? Hat Claude für mich gebaut. Mein Logo? In einer Stunde in Canva erstellt. Mein CRM? Claude hat es eingerichtet, während ich daneben saß.</p>
+      <p>Dieses Workbook ist alles, was ich mir damals gewünscht hätte: Eine klare Anleitung, die bei null anfängt, jeden Schritt erklärt und dich nicht alleine lässt. Genau das bekommst du hier.</p>
     </div>
 
     <div class="card">
-      <p>Du hast eine Idee, vielleicht sogar schon ein Angebot. Aber irgendwo zwischen Website, Marketing, Tools und Technik fühlt sich alles komplizierter an, als du gedacht hast.</p>
-      <p>Du fängst an zu recherchieren. Website-Baukästen, Hosting-Anbieter, Logo-Design. Jeder sagt was anderes. Und plötzlich hast du 20 Tabs offen, drei Notizzettel voll — aber keinen Plan.</p>
-      <p>Und irgendwann sitzt du vor deinem Laptop und denkst: <em>Ich wollte doch eigentlich nur mein Wissen anbieten. Warum fühlt sich das gerade an wie ein komplett neues Studium?</em></p>
-      <p style="font-weight:600;color:var(--text);">Genau dort stand ich auch.</p>
-    </div>
-
-    <div class="tip-miriam">
-      <div class="label">Meine Geschichte</div>
-      <p>Nach meinem Master in Wirtschafts- und Werbepsychologie wollte ich mich selbstständig machen — und merkte schnell: Zwischen der Idee und einem funktionierenden Online-Business liegt eine ganze Welt aus Technik, Marketing und Bausteinen, die zusammenhängen. Also begann ich, mich Schritt für Schritt reinzuarbeiten. Dieses Workbook bündelt das Wissen, das ich mir über Jahre selbst zusammengesucht habe — damit du direkt mit einer klaren Struktur starten kannst.</p>
-      <div class="author">Miriam Bäumler · Master Wirtschafts- &amp; Werbepsychologie · baeumlermarketing.de</div>
-    </div>
-
-    <div style="text-align:center;margin-top:40px;">
-      <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--muted);margin-bottom:12px;">Jetzt zeige ich dir Schritt für Schritt, wie du es aufbaust.</p>
-      <p style="font-family:'Antonio',sans-serif;font-size:28px;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:-0.02em;">Let's go.</p>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════ WAS DU MITNIMMST ══════════════════════════════════ -->
-<div class="section" id="sec-takeaway" data-title="Was du mitnimmst" data-chapter="">
-  <h3 class="section-title"><span class="icon">🎯</span> Was du aus diesem Workbook mitnimmst</h3>
-  <div class="card">
-    <div class="checklist" id="takeawayList">
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Verstehen, welche Bausteine ein Online-Business wirklich braucht</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Wissen, womit du anfangen solltest — und was später kommt</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Dein eigenes Online-Fundament Schritt für Schritt aufbauen</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Tools nutzen, die dir Arbeit abnehmen statt neue Probleme schaffen</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Ohne technische Vorkenntnisse eine professionelle Website aufbauen</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Claude AI als persönlichen Assistenten für dein Business einsetzen</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Dein erstes digitales Produkt erstellen und verkaufen</span></div>
-    </div>
-  </div>
-  <div class="value-box" style="margin-top:20px;">
-    <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
-      <div>
-        <div class="value-num">5.000–15.000 €</div>
-        <div class="value-label">gegenüber Agenturarbeit eingespart</div>
-      </div>
-      <div style="flex:1;min-width:200px;">
-        <p style="font-size:15px;color:var(--text);margin:0;line-height:1.7;"><strong style="color:var(--coral);">Was du dir gespart hast:</strong> mindestens 5.000 € gegenüber einer Agentur — und du weißt danach selbst, wie alles funktioniert.</p>
+      <h3 class="section-title"><span class="icon"></span> Was du am Ende hast</h3>
+      <div class="checklist" id="takeawayList">
+        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Eine professionelle Website — live im Internet, unter deiner eigenen Domain</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Dein Logo und deine Markenidentität</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Eine geschäftliche E-Mail (kontakt@deinbusiness.de)</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Ein CRM-System, das deine Kontakte und Anfragen verwaltet</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Einen Online-Shop mit Zahlungsabwicklung</span></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Claude AI als persönlichen Assistenten, der das alles mit dir baut</span></div>
       </div>
     </div>
+
+    <div class="card">
+      <h3 class="section-title"><span class="icon"></span> Bevor du loslegst</h3>
+      <p>Du brauchst keine Vorkenntnisse. Du musst keinen Code schreiben. Du kannst nichts kaputt machen — alles lässt sich rückgängig machen. Deine Daten bleiben bei dir. Und niemand sieht deine Website, bis du selbst entscheidest, sie online zu stellen.</p>
+      <p>Wenn du merkst, dass sich etwas fremd oder kompliziert anfühlt: Das ist normal. Ich erkläre dir jeden einzelnen Schritt — und wenn du nicht weiterweißt, kannst du jederzeit Claude fragen. Du bist hier nie allein.</p>
+      <p>Du arbeitest dich Kapitel für Kapitel durch, in deinem Tempo. Unterwegs füllst du Felder aus, hakst Checklisten ab und kopierst fertige Prompts für Claude. Alles wird automatisch in deinem Browser gespeichert — du kannst jederzeit pausieren und dort weitermachen, wo du aufgehört hast.</p>
+    </div>
+
   </div>
 </div>
 
-
-<!-- ══════════════════════════════════ 7-TAGE-PLAN ══════════════════════════════════ -->
-<div class="section" id="sec-roadmap" data-title="7-Tage-Plan" data-chapter="">
-  <h3 class="section-title"><span class="icon">🗓️</span> Dein 7-Tage-Plan</h3>
-  <p style="margin-bottom:8px;">So sieht deine Woche aus — mit realistischen Zeitangaben für Einsteiger:</p>
-  <p style="font-size:13px;color:var(--muted);margin-bottom:24px;">Plane pro Tag <strong>2–5 Stunden</strong> ein, je nach Tag und deinem Tempo. Insgesamt ca. <strong>25–30 Stunden</strong> für die ganze Woche.</p>
-  <div class="roadmap">
-    <div class="roadmap-day"><div class="day-badge">Tag 1</div><div><h4>Idee &amp; Mindset</h4><p>Kap. 01–02: Unternehmer-Mindset, Angebot definieren, Zielgruppe, Markenname, Keywords</p><p style="font-size:12px;color:var(--coral);margin-top:4px;font-weight:600;">ca. 2–3 Stunden</p></div></div>
-    <div class="roadmap-day"><div class="day-badge">Tag 2</div><div><h4>KI &amp; Tools kennenlernen</h4><p>Kap. 03–05: Claude AI einrichten, Projekt anlegen, VS Code installieren, Ordnerstruktur</p><p style="font-size:12px;color:var(--coral);margin-top:4px;font-weight:600;">ca. 4–5 Stunden</p></div></div>
-    <div class="roadmap-day"><div class="day-badge">Tag 3</div><div><h4>Branding &amp; Domain</h4><p>Kap. 06–07: Logo &amp; Farben in Canva, Domain bei IONOS, DNS einrichten</p><p style="font-size:12px;color:var(--coral);margin-top:4px;font-weight:600;">ca. 3–4 Stunden</p></div></div>
-    <div class="roadmap-day"><div class="day-badge">Tag 4</div><div><h4>Website aufbauen &amp; Rechtssicherheit</h4><p>Kap. 08–09: Template finden, anpassen, Impressum, Datenschutz, Cookie-Banner</p><p style="font-size:12px;color:var(--coral);margin-top:4px;font-weight:600;">ca. 4–5 Stunden — der intensivste Tag</p></div></div>
-    <div class="roadmap-day"><div class="day-badge">Tag 5</div><div><h4>Go Live &amp; E-Mail</h4><p>Kap. 10–11: GitHub &amp; Vercel, Website live, Google Workspace, geschäftliche E-Mail</p><p style="font-size:12px;color:var(--coral);margin-top:4px;font-weight:600;">ca. 3–4 Stunden</p></div></div>
-    <div class="roadmap-day"><div class="day-badge">Tag 6</div><div><h4>CRM &amp; Automatisierung</h4><p>Kap. 12–13: HubSpot einrichten, Kontaktformular, Claude Cowork, Mega-Prompts</p><p style="font-size:12px;color:var(--coral);margin-top:4px;font-weight:600;">ca. 3–4 Stunden</p></div></div>
-    <div class="roadmap-day"><div class="day-badge teal">Tag 7</div><div><h4 style="color:var(--teal);">Digitales Produkt &amp; Monetarisierung</h4><p>Kap. 14: Produkt erstellen, Verkaufsseite, Stripe live schalten — fertig!</p><p style="font-size:12px;color:var(--teal);margin-top:4px;font-weight:600;">ca. 3–4 Stunden</p></div></div>
-  </div>
-  <div class="tip-coral" style="margin-top:24px;">
-    <div class="label">Ehrlich gesagt</div>
-    <p style="font-size:14px;color:var(--muted);margin:0 0 10px;">Am Anfang kann sich vieles fremd und ungewohnt anfühlen — das ist völlig normal. Auch ich kannte am Anfang nichts davon. Nichts war mir vertraut, und ich hatte oft das Gefühl, irgendetwas falsch zu machen.</p>
-    <p style="font-size:14px;color:var(--muted);margin:0 0 10px;">Aber ich habe mich getraut, einfach weiterzumachen — Schritt für Schritt. Und genau das ist der Plan hier: Du musst nichts verstehen, bevor du anfängst. Du folgst einfach den Schritten, ich leite dich durch alles durch — und mit der Zeit wirst du immer sicherer. Irgendwann wirst du selbst zum Profi.</p>
-    <p style="font-size:14px;color:var(--muted);margin:0;"><strong>Es braucht Zeit, Geduld und den Willen, weiterzumachen.</strong> Wenn du länger als 7 Tage brauchst — kein Problem. Hauptsache, du machst weiter.</p>
-  </div>
-</div>
 
 <!-- ══════════════════════════════════ KAPITEL 01 ══════════════════════════════════ -->
 <div class="section" id="sec-ch1-title" data-title="Unternehmer-Mindset" data-chapter="01">
@@ -801,29 +881,43 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
 <div class="section" id="sec-ch1-1" data-title="Selbst und ständig" data-chapter="01">
   <h3 class="section-title"><span class="icon">💡</span> Selbst und ständig</h3>
+
   <div class="card">
-    <p>In der Schule lernen wir viele wichtige Dinge: rechnen, schreiben, analysieren. Doch wie man eine Idee entwickelt und daraus ein eigenes Business aufbaut, wird selten vermittelt.</p>
-    <p>Wie organisiert man ein eigenes Projekt? Wie übernimmt man Verantwortung für etwas, das man selbst aufbaut? Und wie beginnt man überhaupt, wenn man sich selbstständig machen möchte?</p>
-    <p>Viele Menschen stehen genau an diesem Punkt: Sie haben eine Idee oder den Wunsch, etwas Eigenes aufzubauen — wissen aber nicht, wo sie anfangen sollen.</p>
-    <div class="mindset-box">
-      <h4>Selbst und ständig — was das wirklich bedeutet</h4>
-      <p>Selbstständig sein heißt wörtlich: selbst denken und ständig denken. Es bedeutet, Verantwortung zu übernehmen — für deine Entscheidungen, deine Zeit und deine Richtung. Niemand sagt dir mehr, was du als Nächstes tun sollst. Du entscheidest.</p>
-    </div>
-    <p>Und genau das ist auch die Bedeutung von <strong>Unter-nehmer</strong>: jemand, der etwas unter-nimmt. Der nicht wartet, bis jemand anderes den ersten Schritt macht, sondern selbst losgeht. Der Probleme sieht und Lösungen sucht. Der Ideen hat und sie umsetzt.</p>
-    <p>Dein Kopf, dein Wissen, deine Bereitschaft, Neues zu lernen — das ist es, was dich als Unternehmer leitet. Nicht das perfekte Produkt am ersten Tag, sondern die Fähigkeit, dranzubleiben, dazuzulernen und immer wieder den nächsten Schritt zu machen.</p>
-    <p>Dieses Workbook hilft dir dabei, genau so zu denken: unternehmerisch. Und es zeigt dir, wie du das nutzt, was dir in der heutigen Zeit zur Verfügung steht — allen voran KI als deinen persönlichen Assistenten —, um deine Selbstständigkeit aufzubauen.</p>
-    <p>Doch bevor wir in die Tools und Technik einsteigen, gibt es ein paar Denkweisen, die den Unterschied machen. Sie klingen einfach — aber sie entscheiden darüber, ob du wirklich loslegst oder nur darüber nachdenkst.</p>
+    <p>In der Schule lernen wir rechnen, schreiben, analysieren — aber niemand erklärt uns, wie man eine Idee nimmt und daraus ein eigenes Business aufbaut. Wie man ein Projekt organisiert, Verantwortung übernimmt, den ersten Schritt macht. Und genau deshalb stehen so viele Menschen an diesem Punkt: Sie haben eine Idee, vielleicht sogar schon ein Angebot — aber irgendwie fühlt sich alles gleichzeitig zu groß und zu unklar an. Und dann kommt dieses Gefühl: <em>Alle anderen scheinen zu wissen, was sie tun. Nur ich nicht.</em></p>
+
+    <p>Selbstständig sein heißt wörtlich: <strong>selbst</strong> denken und <strong>ständig</strong> denken. Niemand sagt dir mehr, was du als Nächstes tun sollst — du entscheidest. Und genau das ist auch die Bedeutung von <strong>Unter-nehmer</strong>: jemand, der etwas unter-nimmt. Der nicht wartet, sondern selbst losgeht. Das kann sich am Anfang beängstigend anfühlen, aber es ist auch das Befreiendste, was es gibt.</p>
+
+    <p>Was dich dabei leitet, ist nicht das perfekte Produkt am ersten Tag. Es ist die Fähigkeit, dranzubleiben, dazuzulernen, den nächsten Schritt zu machen — und bei Problemen nicht aufzugeben, sondern zu fragen: <strong>„Wie kann ich das lösen?"</strong> Und genau hier kommt KI ins Spiel.</p>
+
+    <p>Dieses Workbook zeigt dir, wie du KI — also Künstliche Intelligenz — als persönlichen Assistenten nutzt, um deine Selbstständigkeit aufzubauen. Wir nutzen dafür Claude AI: eine KI, der du in normalem Deutsch sagst, was du brauchst, und sie liefert dir Texte, Code, Ideen oder ganze Websites. Stell dir Claude vor wie einen klugen Assistenten, der nie müde wird und auf jede Frage eine Antwort hat. Aber bevor wir in die Tools und Technik einsteigen, gibt es ein paar Denkweisen, die den Unterschied machen. Sie klingen einfach — entscheiden aber darüber, ob du wirklich loslegst oder nur darüber nachdenkst.</p>
   </div>
+
+  <div class="miriam-sagt" data-variant="ehrlich">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Kurz mal ehrlich</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p>Du fragst dich gerade vielleicht: "Kann ich das überhaupt?" Ja. Ich konnte es am Anfang auch nicht — ich wusste nicht mal, was eine Domain ist. Heute habe ich eine Website, ein CRM, digitale Produkte, alles selbst aufgebaut. Das Geheimnis? Es gibt keins. Du machst einfach den nächsten Schritt, auch wenn er sich wackelig anfühlt.</p>
+    <div class="mantra">Zum ersten Mal ist nicht das Gleiche wie falsch.</div>
+  </div>
+
   <div class="reflection-box">
     <div class="label">Mini-Reflexion</div>
-    <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Schreibe spontan auf — ohne nachzudenken:</p>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Schreib spontan auf, ohne nachzudenken. Es gibt keine falschen Antworten — niemand außer dir liest das hier.</p>
     <div class="fill-group">
       <div class="fill-label">Warum möchte ich mich selbstständig machen?</div>
-      <textarea class="fill-input" placeholder="Schreib einfach drauf los..." data-save="ch1-why"></textarea>
+      <textarea class="fill-input" placeholder="z.B. 'Ich will mein eigener Chef sein' oder 'Ich will etwas aufbauen, das mir gehört'" data-save="ch1-why"></textarea>
     </div>
     <div class="fill-group">
       <div class="fill-label">Was möchte ich NICHT mehr in einem Angestelltenjob?</div>
-      <textarea class="fill-input" placeholder="Was nervt dich am meisten?" data-save="ch1-nomore"></textarea>
+      <textarea class="fill-input" placeholder="z.B. 'Keine Flexibilität', 'Arbeit, die mich nicht erfüllt'" data-save="ch1-nomore"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Was hält mich gerade noch zurück?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Ich habe Angst, zu versagen' oder 'Ich weiß nicht, wo ich anfangen soll'" data-save="ch1-fear"></textarea>
     </div>
   </div>
 </div>
@@ -831,29 +925,37 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="section" id="sec-ch1-2" data-title="Done is better than perfect" data-chapter="01">
   <h3 class="section-title"><span class="icon">🚀</span> Done is better than perfect</h3>
   <div class="card">
-    <p>Einer der größten Fehler, den angehende Selbstständige machen: Sie warten auf den perfekten Moment. Das perfekte Logo, die perfekte Website, den perfekten Business-Plan. Und während sie warten, passiert — nichts.</p>
-    <p>Die Wahrheit ist: Deine erste Version wird nicht perfekt sein. Und das ist völlig in Ordnung. Jede erfolgreiche Website, jedes erfolgreiche Unternehmen hat mit einer einfachen, unvollkommenen Version angefangen. Wichtig ist nur, dass du <strong>anfängst</strong>.</p>
-    <div class="mindset-box" style="background:#fff8f6;">
-      <h4>Starte mit dem Minimum</h4>
-      <p>Eine einfache Website mit deinem Namen, deinem Angebot und einer Möglichkeit, dich zu kontaktieren. Das reicht für den Anfang. Alles andere kannst du später verbessern — und mit Claude an deiner Seite geht das schneller, als du denkst.</p>
-    </div>
+    <p>Der größte Fehler, den angehende Selbstständige machen, ist nicht der falsche Name, das falsche Logo oder die falsche Strategie. Es ist das Warten. Auf den perfekten Moment, die perfekte Website, den perfekten Business-Plan. Und während sie warten, passiert — nichts. Die Wahrheit ist: Deine erste Version wird nicht perfekt sein. Jede erfolgreiche Website, jedes erfolgreiche Unternehmen hat mit einer einfachen, unvollkommenen Version angefangen. Eine einfache Seite mit deinem Namen, deinem Angebot und einer Kontaktmöglichkeit — das reicht für den Anfang. Alles andere verbesserst du unterwegs.</p>
+
     <p style="font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--coral);margin:20px 0;">Dein Mantra: Lieber 80 % heute als 100 % nie.</p>
+
+    <div class="mistake-box">
+      <div class="mistake-title">Die 3 häufigsten Anfänger-Fehler</div>
+      <div class="mistake-item">Wochen am Logo arbeiten, bevor die Website steht
+        <div class="mistake-fix">Mach ein einfaches Text-Logo. Du kannst es jederzeit ändern.</div>
+      </div>
+      <div class="mistake-item">5 verschiedene Leute um Meinung fragen — und dann verwirrt sein
+        <div class="mistake-fix">Frag maximal 1-2 Personen aus deiner Zielgruppe. Nicht deine Mutter.</div>
+      </div>
+      <div class="mistake-item">Alles alleine herausfinden wollen, statt Hilfe zu nutzen
+        <div class="mistake-fix">Dafür gibt es dieses Workbook und Claude. Du musst das Rad nicht neu erfinden.</div>
+      </div>
+    </div>
   </div>
+
   <div class="card">
     <h3 class="section-title" style="font-size:20px;"><span class="icon">🔧</span> Denke in Lösungen</h3>
-    <p>Auf dem Weg in die Selbstständigkeit wirst du auf Hindernisse stoßen. Garantiert. Die Website funktioniert nicht wie geplant. Ein Kunde springt ab. Die Technik macht Probleme. Das gehört dazu.</p>
-    <p>Der Unterschied zwischen denen, die aufgeben, und denen, die es schaffen: Die einen sehen ein Problem und denken „Das kann ich nicht." Die anderen sehen das gleiche Problem und fragen: <strong>„Wie kann ich das lösen?"</strong></p>
-    <p>Und genau hier kommt Claude ins Spiel. Jedes Mal, wenn du vor einem Problem stehst — egal ob technisch, inhaltlich oder organisatorisch — kannst du Claude fragen. „Mein Kontaktformular funktioniert nicht. Was kann ich tun?" Oder: „Ein Kunde hat mein Angebot abgelehnt. Wie kann ich mein Angebot besser formulieren?"</p>
-    <div class="mindset-box">
-      <h4>Merke dir</h4>
-      <p>Als Unternehmer bist du nicht jemand, der keine Probleme hat. Du bist jemand, der Probleme löst. Eins nach dem anderen.</p>
-    </div>
-    <p>Lösungsdenken ist die Grundlage — aber es braucht auch einen realistischen Rahmen. Viele glauben, Selbstständigkeit bedeutet, sofort alles hinzuwerfen und Vollzeit zu gründen. Die Wahrheit ist: Du brauchst weniger Zeit, als du denkst. Entscheidend ist nicht, wie viele Stunden du hast, sondern wie du sie nutzt.</p>
+    <p>Auf dem Weg wirst du auf Hindernisse stoßen — garantiert. Die Website macht Probleme, ein Kunde springt ab, die Technik streikt. Das gehört dazu und ist kein Zeichen, dass du versagst. Der Unterschied zwischen denen, die aufgeben, und denen, die es schaffen: Die einen denken „Das kann ich nicht." Die anderen fragen <strong>„Wie kann ich das lösen?"</strong> — und genau hier kommt Claude ins Spiel. Egal ob technisch, inhaltlich oder organisatorisch: Du kannst Claude fragen, und Claude hilft dir weiter.</p>
+
+    <p>Und falls du dich fragst: Was, wenn ich etwas kaputt mache? Solange deine Website nicht live ist (Kapitel 10), kann nichts Schlimmes passieren. Was, wenn meine Idee nicht funktioniert? Dann änderst du sie — dein Fundament bleibt. Was, wenn ich länger brauche? Dann brauchst du eben länger. Die Zeitangaben hier sind Richtwerte, keine Deadlines.</p>
+
+    <p>Lösungsdenken ist die Grundlage — aber es braucht auch einen realistischen Rahmen. Viele glauben, Selbstständigkeit bedeutet, sofort alles hinzuwerfen und Vollzeit zu gründen. Die Wahrheit: Du brauchst weniger Zeit, als du denkst. Entscheidend ist nicht, wie viele Stunden du hast, sondern wie du sie nutzt.</p>
   </div>
+
   <div class="prompt-box">
     <div class="label">Prompt: Unsicherheit klären</div>
     <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
-    <pre>Ich möchte mich mit [Idee] selbstständig machen. Welche Fragen sollte ich mir vorher stellen? Was sind typische Fehler bei [Branche]? Bitte aufgelistet und konkret.</pre>
+    <pre>Ich möchte mich mit [Idee] selbstständig machen. Ich bin absolute Anfängerin und habe Angst, etwas falsch zu machen. Welche Fragen sollte ich mir vorher stellen? Was sind typische Fehler bei [Branche]? Und was ist der allerwichtigste erste Schritt? Bitte aufgelistet, konkret und ermutigend.</pre>
   </div>
 </div>
 
@@ -878,32 +980,30 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     </div>
   </div>
 
-  <div class="tip-coral" style="margin-top:24px;">
-    <div class="label">Mein wichtigster Tipp</div>
-    <p style="font-size:14px;color:var(--muted);margin:0;">Perfektionismus ist der Feind von Fortschritt. Ich bin selbst eine kleine Perfektionistin — und musste lernen, mich davon zu lösen. Deine Website muss nicht beim ersten Mal perfekt sein. Dein Logo auch nicht. Deine Texte erst recht nicht. Aber du musst erstmal <strong>anfangen</strong>.</p>
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Miriam sagt</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p>Ich bin selbst eine kleine Perfektionistin — und musste lernen, mich davon zu lösen. Ich hatte am Anfang genauso viel Angst wie du jetzt vielleicht. CRM, DNS, GitHub — das waren für mich nur Fremdwörter. Ich bin keine Technikerin, ich bin Wirtschaftspsychologin. Und ich hab's geschafft. Nicht weil ich mutiger war als du — sondern weil ich es einfach trotzdem gemacht habe.</p>
+    <div class="mantra">Du musst nicht alles auf einmal kapieren. Du musst nur weitermachen.</div>
   </div>
 
   <div class="fill-group" style="margin-top:24px;">
-    <div class="fill-label">Was ist mein Ziel in 4 Wochen:</div>
-    <textarea class="fill-input" placeholder="Beschreibe dein Ziel so konkret wie möglich..." data-save="ch1-goal" style="min-height:100px;"></textarea>
+    <div class="fill-label">Was ist mein Ziel in 4 Wochen? (So konkret wie möglich!)</div>
+    <textarea class="fill-input" placeholder="z.B. 'Meine Website ist online, ich habe ein Logo und mein erstes Produkt steht zum Verkauf.' — Je konkreter, desto besser." data-save="ch1-goal" style="min-height:100px;"></textarea>
   </div>
 
   <div class="chapter-summary">
     <h4>Das nimmst du aus Kapitel 01 mit:</h4>
     <div class="item">Selbstständig sein heißt: selbst denken, ständig dazulernen</div>
     <div class="item">Done is better than perfect — lieber 80 % heute als 100 % nie</div>
+    <div class="item">Es ist normal, dass sich alles "falsch" anfühlt — das ist kein Zeichen von Scheitern</div>
     <div class="item">Denke in Lösungen, nicht in Problemen — und frag Claude</div>
     <div class="item">Du hast deinen Zeitplan und dein 4-Wochen-Ziel aufgeschrieben</div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════ MOTIVATION ══════════════════════════════════ -->
-<div class="section" id="sec-quote1" data-title="" data-chapter="">
-<div class="blob" style="width:300px;height:300px;background:radial-gradient(circle,#f5c842,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);--tx:20px;--ty:-20px;--d:24s"></div>
-  <div class="quote-section">
-    <div class="quote-text">"Du musst nicht alles auf einmal können. Du musst nur den nächsten Schritt machen."</div>
-    <div class="quote-attr">Miriam Bäumler</div>
-    <div class="quote-dot"></div>
   </div>
 </div>
 
@@ -928,17 +1028,21 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
 <div class="section" id="sec-ch2-1" data-title="Wo stehst du gerade?" data-chapter="02">
   <h3 class="section-title"><span class="icon">📍</span> Wo stehst du gerade?</h3>
+
   <div class="card">
-    <p>Viele, die sich selbstständig machen wollen, starten direkt mit der Technik. Website bauen, Logo erstellen, Instagram-Account anlegen. Das klingt auch erstmal logisch — man will ja endlich loslegen.</p>
-    <p>Aber was oft passiert: Man baut sich eine hübsche Website, wählt Farben aus, schreibt Texte — und merkt drei Wochen später, dass der Name nicht passt, die Zielgruppe unklar war oder die Website für die falschen Leute spricht.</p>
-    <p><strong>Deshalb machen wir es hier anders.</strong></p>
-    <div class="tip-miriam" style="margin:16px 0;">
-      <div class="label">Miriam sagt</div>
-      <p>"Ich habe mein Angebot in den ersten Monaten dreimal neu formuliert. Nicht weil ich schlechte Arbeit gemacht habe — sondern weil ich nicht klar genug war, für wen ich eigentlich arbeite. Dieser Fehler kostet Zeit. Mit dieser Übung sparst du dir das."</p>
-      <div class="author">Miriam Bäumler</div>
+    <p>Viele, die sich selbstständig machen wollen, starten direkt mit der Technik — Website bauen, Logo erstellen, Instagram-Account anlegen. Das klingt auch erstmal logisch, man will ja endlich loslegen. Aber was dann oft passiert: Man baut sich eine hübsche Website, wählt Farben aus, schreibt Texte — und merkt drei Wochen später, dass der Name nicht passt, die Zielgruppe unklar war oder die Website für die falschen Leute spricht.</p>
+    <p>Deshalb machen wir es hier anders. Bevor wir auch nur ein einziges Tool aufmachen, klären wir gemeinsam dein Fundament: Was bietest du an? Für wen? Und wie willst du gefunden werden? Das klingt vielleicht weniger spannend als eine neue Website — aber dieser Schritt spart dir später Wochen an Überarbeitung. Alles, was du hier aufschreibst, fließt direkt in deine Website-Texte, dein Branding und sogar in deine Google-Sichtbarkeit ein.</p>
+  </div>
+
+  <div class="miriam-sagt">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Miriam sagt</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
     </div>
-    <p>Bevor wir auch nur ein einziges Tool aufmachen, klären wir gemeinsam dein Fundament. Das klingt vielleicht erstmal weniger spannend als eine neue Website — aber glaub mir: Dieser Schritt spart dir später Wochen an Überarbeitung.</p>
-    <p>Und das Gute ist: Du musst hier noch nichts perfekt haben. Es geht darum, Klarheit zu schaffen. Alles, was du in diesem Kapitel aufschreibst, fließt später in deine Website-Texte, dein Branding, dein Marketing und sogar in deine Google-Sichtbarkeit ein.</p>
+    <p>Ich habe mein Angebot in den ersten Monaten dreimal komplett umgeschrieben — nicht weil ich schlechte Arbeit gemacht habe, sondern weil ich nicht klar genug war, für wen ich eigentlich arbeite. Wenn du jetzt noch nicht genau weißt, was du anbietest: Perfekt. Schreib einfach auf, was dir durch den Kopf geht. Du darfst alles später ändern. Klarheit kommt nicht vom Grübeln — sie kommt vom Aufschreiben.</p>
   </div>
   <div class="reflection-box">
     <div class="label">Dein Fundament</div>
@@ -968,9 +1072,20 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
 <div class="section" id="sec-ch2-2" data-title="Zielgruppe verstehen" data-chapter="02">
   <h3 class="section-title"><span class="icon">🎯</span> Deine Zielgruppe wirklich verstehen</h3>
+
   <div class="card">
-    <p>„Für wen ist das?" — das klingt nach einer einfachen Frage. Aber die Antwort darauf beeinflusst später buchstäblich alles: Wie deine Website aussieht, welche Texte du schreibst, welche Farben du wählst, auf welchen Social-Media-Kanälen du aktiv bist und sogar welche Keywords du für Google brauchst.</p>
+    <p>Deine Zielgruppe sind die konkreten Menschen, die dein Produkt oder deine Dienstleistung kaufen sollen — nicht „alle", sondern ganz bestimmte Personen mit einem bestimmten Problem, das du löst. „Für wen ist das?" — das klingt nach einer einfachen Frage. Aber die Antwort darauf beeinflusst später buchstäblich alles: Wie deine Website aussieht, welche Texte du schreibst, welche Farben du wählst, auf welchen Social-Media-Kanälen du aktiv bist und sogar welche Keywords du für Google brauchst.</p>
     <p>Je besser du das verstehst, desto besser werden später deine Website-Texte, deine Social-Media-Posts und dein gesamtes Marketing. Du schreibst dann nicht mehr „für alle", sondern für echte Menschen — und genau das macht den Unterschied.</p>
+
+    <div class="mistake-box">
+      <div class="mistake-title">Der häufigste Fehler bei der Zielgruppe</div>
+      <div class="mistake-item">"Mein Angebot ist für alle" — wer alle ansprechen will, spricht niemanden an
+        <div class="mistake-fix">Wähle eine konkrete Gruppe. Du kannst dich später immer noch erweitern.</div>
+      </div>
+      <div class="mistake-item">Sich die Zielgruppe nur ausdenken, statt echte Menschen zu beobachten
+        <div class="mistake-fix">Schau in Facebook-Gruppen, Foren oder bei Wettbewerbern: Was fragen echte Menschen?</div>
+      </div>
+    </div>
   </div>
   <div class="reflection-box">
     <div class="label">Zielgruppen-Profil</div>
@@ -1036,11 +1151,21 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   <h3 class="section-title"><span class="icon">🏷️</span> Dein Markenname</h3>
   <div class="card">
     <p>Dein Markenname ist nicht einfach nur ein Wort auf deinem Logo. Er ist gleichzeitig deine Domain, dein Instagram-Handle, dein erster Eindruck bei Google — und der Name, mit dem dich Menschen finden sollen.</p>
-    <p>Deshalb ein Thema, das viele am Anfang übersehen: <strong>SEO</strong>, also Suchmaschinenoptimierung.</p>
-    <div class="mindset-box">
-      <h4>Was Google mit deinem Namen macht</h4>
-      <p>Ein Name wie „Bäumler Marketing" sagt Google sofort: Hier geht es um Marketing. Die Domain baeumlermarketing.de enthält das Keyword „Marketing". Ein Fantasiename wie „Luminos" klingt schön — aber Google kann damit erstmal nichts anfangen. Es hilft enorm, wenn dein Name ein Keyword enthält.</p>
+    <p>Deshalb ein Thema, das viele am Anfang übersehen: <strong>SEO</strong>.</p>
+
+    <div class="glossar-box">
+      <div class="glossar-term">SEO — Suchmaschinenoptimierung</div>
+      <p>Alles, was du tust, damit deine Website bei Google möglichst weit oben erscheint, wenn jemand nach deinem Thema sucht. Du musst dafür kein Technik-Genie sein — es reicht, die richtigen Wörter an den richtigen Stellen zu verwenden.</p>
+      <div class="glossar-analogy">Stell dir Google vor wie ein riesiges Telefonbuch. SEO bedeutet: Dein Eintrag steht auf Seite 1 statt auf Seite 47.</div>
     </div>
+
+    <div class="glossar-box">
+      <div class="glossar-term">Domain</div>
+      <p>Deine Adresse im Internet. Zum Beispiel: baeumlermarketing.de. Wie eine Hausnummer, nur digital. Du registrierst sie bei einem Anbieter (wir nutzen IONOS) und sie gehört dann dir.</p>
+      <div class="glossar-analogy">Wenn das Internet eine Stadt wäre, ist deine Domain deine Straßenadresse — das, was Leute in die Navigations-App eingeben, um zu dir zu finden.</div>
+    </div>
+
+    <p><strong>Was Google mit deinem Namen macht:</strong> Ein Name wie „Bäumler Marketing" sagt Google sofort: Hier geht es um Marketing. Die Domain baeumlermarketing.de enthält das Keyword „Marketing". Ein Fantasiename wie „Luminos" klingt schön — aber Google kann damit erstmal nichts anfangen. Es hilft enorm, wenn dein Name ein Keyword enthält.</p>
     <div class="fill-group">
       <div class="fill-label">Mein Wunsch-Markenname:</div>
       <input class="fill-input" type="text" placeholder="z.B. DeinName + Keyword" data-save="ch2-brand" style="font-size:18px;font-weight:600;">
@@ -1057,11 +1182,11 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   </div>
 
   <h3 class="section-title" style="margin-top:32px;"><span class="icon">🔍</span> Deine Keywords</h3>
+
   <div class="card">
-    <p>Keywords sind einfach die Begriffe, die echte Menschen in die Google-Suche tippen. Wenn du Yoga-Kurse in Köln anbietest, wären relevante Keywords: „Yoga Köln", „Yoga-Kurs Anfänger Köln", „Yoga Studio Köln Ehrenfeld".</p>
-    <div class="tip-coral">
-      <div class="label">Tipp</div>
-      <p style="font-size:14px;color:var(--muted);margin:0;">Alles, was du später auf deiner Website schreibst, in Social Media postest oder in deinem Newsletter verschickst, sollte diese Keywords enthalten. Je früher du sie kennst, desto einfacher wird alles.</p>
+    <p>Keywords (Suchbegriffe) sind die Wörter und Sätze, die echte Menschen bei Google eintippen, wenn sie nach einer Lösung suchen. Stell sie dir vor wie Schilder an deinem Laden: Wenn auf deinem Schild „Yoga Köln" steht, finden dich Leute, die genau das suchen. Wenn du Yoga-Kurse in Köln anbietest, wären relevante Keywords: „Yoga Köln", „Yoga-Kurs Anfänger Köln", „Yoga Studio Köln Ehrenfeld".</p>
+    <div class="tipp-box" data-color="coral"><div class="tipp-label">Tipp</div>
+      <p>Alles, was du später auf deiner Website schreibst, in Social Media postest oder in deinem Newsletter verschickst, sollte diese Keywords enthalten. Je früher du sie kennst, desto einfacher wird alles.</p>
     </div>
     <div class="fill-group">
       <div class="fill-label">Meine 5 wichtigsten Keywords:</div>
@@ -1084,9 +1209,8 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <p>Was du jetzt brauchst, hast du gerade gemacht: Eine Idee, eine Richtung, einen Namen — und ein Gefühl dafür, wen du erreichen willst.</p>
   </div>
 
-  <div class="tip-teal" style="margin-top:20px;">
-    <div class="label">Zeitspar-Tipp: Alles aufheben</div>
-    <p style="font-size:14px;color:var(--muted);margin:0;">Speichere alles, was du aufgeschrieben hast, auch digital ab. Erstelle in Claude Chat ein neues Projekt mit deinem Business-Namen und lade dort deine Notizen hoch. So weiß Claude bei jeder zukünftigen Frage sofort, wer du bist.</p>
+  <div class="tipp-box" data-color="teal" style="margin-top:20px;"><div class="tipp-label">Zeitspar-Tipp: Alles aufheben</div>
+    <p>Speichere alles, was du aufgeschrieben hast, auch digital ab. Erstelle in Claude Chat ein neues Projekt mit deinem Business-Namen und lade dort deine Notizen hoch. So weiß Claude bei jeder zukünftigen Frage sofort, wer du bist.</p>
   </div>
 
   <div class="chapter-summary">
@@ -1097,21 +1221,21 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <div class="item">Was dich besonders macht</div>
     <div class="item">Wohin du willst</div>
     <div class="item">Wie du heißen wirst — und welche Keywords dich finden lassen</div>
-    <p style="font-size:14px;color:var(--muted);margin-top:12px;">Damit hast du schon mehr Klarheit als die meisten, die „einfach mal anfangen".</p>
   </div>
 </div>
 
-<!-- ══════════════════════════════════ KAPITEL 03 ══════════════════════════════════ -->
-<div class="section" id="sec-ch3-title" data-title="Was brauchst du alles?" data-chapter="03">
+<!-- ══════════════════════════════════ KAPITEL 03 — DEIN PLAN & DEINE WERKZEUGE ══════════════════════════════════ -->
+<div class="section" id="sec-ch3-title" data-title="Dein Plan &amp; deine Werkzeuge" data-chapter="03">
 <div class="blob" style="width:380px;height:380px;background:radial-gradient(circle,#f0872b,transparent 70%);top:-60px;left:-100px;--tx:35px;--ty:-15px;--d:22s"></div>
   <div class="chapter-header">
     <div class="chapter-num">03</div>
-    <div class="chapter-day">Tag 2 · Tools &amp; Setup</div>
-    <h2 class="chapter-title">Was brauchst<br>du alles?</h2>
+    <div class="chapter-day">Tag 2 · Überblick &amp; Setup</div>
+    <h2 class="chapter-title">Dein Plan &amp;<br>deine Werkzeuge</h2>
     <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
-    <p class="chapter-intro">Der große Überblick: Alle Bausteine &amp; ehrliche Kosten. Weniger als du denkst.</p>
+    <p class="chapter-intro">Du weißt jetzt, was du aufbauen willst und für wen. Jetzt schauen wir uns an, wie der Weg dahin aussieht — und was du dafür brauchst.</p>
     <div class="chapter-quote">"Weniger als du denkst. Und günstiger, als du glaubst."</div>
     <div class="chapter-what">
+      <span class="chapter-what-item">7-Tage-Plan</span>
       <span class="chapter-what-item">10 Bausteine</span>
       <span class="chapter-what-item">Kostenübersicht</span>
       <span class="chapter-what-item">Konten einrichten</span>
@@ -1119,26 +1243,58 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   </div>
 </div>
 
+<div class="section" id="sec-roadmap" data-title="7-Tage-Plan" data-chapter="03">
+  <h3 class="section-title"><span class="icon">🗓️</span> Dein 7-Tage-Plan</h3>
+  <div class="card">
+    <p>Hier ist dein Fahrplan für die nächsten Tage. Jeder Tag hat ein klares Ziel und baut auf dem vorherigen auf. Plane pro Tag 2–5 Stunden ein, je nach Tag und deinem Tempo. Insgesamt sind es ca. 25–30 Stunden — verteilt auf eine Woche, oder länger, wenn du mehr Zeit brauchst. Das Tempo bestimmst du.</p>
+  </div>
+  <div class="roadmap">
+    <div class="roadmap-day"><div class="day-badge">Tag 1</div><div><h4>Idee &amp; Mindset</h4><p>Unternehmer-Mindset, Angebot definieren, Zielgruppe, Markenname, Keywords</p><p style="font-size:12px;color:var(--coral);margin-top:4px;font-weight:600;">ca. 2–3 Stunden</p></div></div>
+    <div class="roadmap-day"><div class="day-badge">Tag 2</div><div><h4>KI &amp; Tools kennenlernen</h4><p>Claude AI einrichten, Projekt anlegen, VS Code installieren, Ordnerstruktur</p><p style="font-size:12px;color:var(--coral);margin-top:4px;font-weight:600;">ca. 4–5 Stunden</p></div></div>
+    <div class="roadmap-day"><div class="day-badge">Tag 3</div><div><h4>Branding &amp; Domain</h4><p>Logo &amp; Farben in Canva, Domain bei IONOS, DNS einrichten</p><p style="font-size:12px;color:var(--coral);margin-top:4px;font-weight:600;">ca. 3–4 Stunden</p></div></div>
+    <div class="roadmap-day"><div class="day-badge">Tag 4</div><div><h4>Website aufbauen &amp; Rechtssicherheit</h4><p>Template finden, anpassen, Impressum, Datenschutz, Cookie-Banner</p><p style="font-size:12px;color:var(--coral);margin-top:4px;font-weight:600;">ca. 4–5 Stunden — der intensivste Tag</p></div></div>
+    <div class="roadmap-day"><div class="day-badge">Tag 5</div><div><h4>Go Live &amp; E-Mail</h4><p>Website live schalten, Google Workspace, geschäftliche E-Mail</p><p style="font-size:12px;color:var(--coral);margin-top:4px;font-weight:600;">ca. 3–4 Stunden</p></div></div>
+    <div class="roadmap-day"><div class="day-badge">Tag 6</div><div><h4>CRM &amp; Automatisierung</h4><p>HubSpot einrichten, Kontaktformular, E-Mail-Vorlagen</p><p style="font-size:12px;color:var(--coral);margin-top:4px;font-weight:600;">ca. 3–4 Stunden</p></div></div>
+    <div class="roadmap-day"><div class="day-badge teal">Tag 7</div><div><h4 style="color:var(--teal);">Dein erstes Produkt</h4><p>Digitales Produkt erstellen, Verkaufsseite, Stripe einrichten — fertig!</p><p style="font-size:12px;color:var(--teal);margin-top:4px;font-weight:600;">ca. 3–4 Stunden</p></div></div>
+  </div>
+
+  <div class="miriam-sagt" style="margin-top:20px;" data-variant="ehrlich">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Was dich erwartet — ganz ehrlich</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p>Die ersten zwei Tage sind aufregend und überwältigend gleichzeitig — viele neue Begriffe, du fragst dich "Kann ich das?" und die Antwort ist: Ja. An Tag 3-4 klickt es. Die Tools werden vertrauter, du siehst dein Logo, deine Farben, und es fühlt sich plötzlich echt an. Tag 5 ist DER Moment — deine Website geht live. Und an Tag 6-7 merkst du: Ich hab das wirklich gemacht.</p>
+    <p>Wenn du länger als 7 Tage brauchst — kein Problem. Hauptsache, du machst weiter.</p>
+    <div class="mantra">Am Anfang fühlt es sich fremd an. Am Ende fühlt es sich an wie deins.</div>
+  </div>
+</div>
+
 <div class="section" id="sec-ch3-1" data-title="Die 10 Bausteine" data-chapter="03">
   <h3 class="section-title"><span class="icon">🧱</span> Die 10 Bausteine deines Online-Business</h3>
+  <div class="card">
+    <p>Dein Online-Business besteht aus 10 Bausteinen. Das klingt erstmal nach viel, aber jeder einzelne wird in einem eigenen Kapitel Schritt für Schritt erklärt — und Claude hilft dir bei jedem davon. Hier bekommst du erstmal nur die Landkarte, damit du weißt, wohin die Reise geht.</p>
+  </div>
   <div class="baustein-grid">
-    <div class="baustein"><div class="num">1</div><h4>Marke & Identität</h4><p>Name, Logo, Farben, Schriften</p></div>
+    <div class="baustein"><div class="num">1</div><h4>Marke &amp; Identität</h4><p>Name, Logo, Farben, Schriften</p></div>
     <div class="baustein"><div class="num">2</div><h4>Website</h4><p>Deine digitale Visitenkarte</p></div>
-    <div class="baustein"><div class="num">3</div><h4>Domain & Hosting</h4><p>Deine Adresse im Internet</p></div>
+    <div class="baustein"><div class="num">3</div><h4>Domain &amp; Hosting</h4><p>Deine Adresse im Internet</p></div>
     <div class="baustein"><div class="num">4</div><h4>E-Mail</h4><p>Professionell: hi@deinedomain.de</p></div>
     <div class="baustein"><div class="num">5</div><h4>Rechtliches</h4><p>Impressum, Datenschutz, Cookies</p></div>
     <div class="baustein"><div class="num">6</div><h4>CRM-System</h4><p>Kontakte, Formulare, Newsletter</p></div>
     <div class="baustein"><div class="num">7</div><h4>Shop / Checkout</h4><p>Digitale Produkte verkaufen</p></div>
-    <div class="baustein"><div class="num">8</div><h4>Marketing & Content</h4><p>Social Media, Blog, Newsletter</p></div>
-    <div class="baustein"><div class="num">9</div><h4>Tracking & Analyse</h4><p>Wer besucht deine Seite?</p></div>
-    <div class="baustein teal"><div class="num">10</div><h4>KI-Werkzeuge</h4><p>Claude AI — dein Schweizer Taschenmesser</p></div>
+    <div class="baustein"><div class="num">8</div><h4>Marketing &amp; Content</h4><p>Social Media, Blog, Newsletter</p></div>
+    <div class="baustein"><div class="num">9</div><h4>Tracking &amp; Analyse</h4><p>Wer besucht deine Seite?</p></div>
+    <div class="baustein teal"><div class="num">10</div><h4>KI-Werkzeuge</h4><p>Claude AI — dein Assistent für alles</p></div>
   </div>
 </div>
 
-<div class="section" id="sec-ch3-2" data-title="Kosten & Tools" data-chapter="03">
+<div class="section" id="sec-ch3-2" data-title="Kosten &amp; Tools" data-chapter="03">
   <h3 class="section-title"><span class="icon">💰</span> Was kostet das alles?</h3>
   <div class="card">
-    <p style="margin-bottom:16px;">Hier die ehrliche Aufstellung — keine versteckten Kosten:</p>
+    <p>Bevor du loslegst, sollst du genau wissen, was auf dich zukommt — keine versteckten Kosten, keine bösen Überraschungen. Die meisten Tools, die wir nutzen, sind kostenlos. Für den Rest zahlst du weniger als für ein Netflix-Abo.</p>
     <div class="cost-table">
       <div class="cost-row"><span>Claude Pro (KI-Assistent)</span><span class="cost-price">~19 €/Monat</span></div>
       <div class="cost-row"><span>VS Code (Code-Editor)</span><span class="cost-price free">kostenlos</span></div>
@@ -1151,65 +1307,36 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
       <div class="cost-row"><span>Stripe (Zahlungen)</span><span class="cost-price free">kostenlos*</span></div>
       <div class="cost-total"><span>Gesamt</span><span style="color:var(--coral);">unter 30 € / Monat</span></div>
     </div>
-    <p style="font-size:12px;color:var(--muted);margin-top:8px;">* Canva Pro optional für 12 €/Monat. Stripe nimmt ~2,9 % + 0,25 € pro Verkauf, keine Grundgebühr.</p>
+    <p style="font-size:12px;color:var(--muted);margin-top:8px;">* Canva Pro optional 12 €/Monat. Stripe: 2,9 % + 0,25 € pro Verkauf, keine Grundgebühr.</p>
   </div>
 
-  <div class="card" style="margin-top:24px;">
-    <h3 class="section-title" style="font-size:20px;"><span class="icon">📊</span> Ehrliche Kosten-Einschätzung</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
-      <div>
-        <h4 style="font-size:14px;color:var(--teal);margin-bottom:8px;">Wirklich kostenlos (0 €)</h4>
-        <p style="font-size:13px;color:var(--muted);">VS Code, GitHub, Vercel, HubSpot CRM Free, Stripe (0 € Grundgebühr).</p>
-        <h4 style="font-size:14px;color:var(--coral);margin-top:16px;margin-bottom:8px;">Kostenlos, aber mit Limits</h4>
-        <p style="font-size:13px;color:var(--muted);">Claude Free — funktioniert, aber Tageslimit. Pro für ~20 €/Monat ist realistisch. Canva Free — reicht für Logo und einfache Posts.</p>
-      </div>
-      <div>
-        <h4 style="font-size:14px;color:var(--text);margin-bottom:8px;">Musst du bezahlen</h4>
-        <p style="font-size:13px;color:var(--muted);">IONOS Domain ~1 €/Monat. Google Workspace ~8 €/Monat.</p>
-        <h4 style="font-size:14px;color:var(--text);margin-top:16px;margin-bottom:8px;">Mein realistisches Fazit</h4>
-        <p style="font-size:13px;color:var(--muted);">Minimum: ~1 €/Monat (nur Domain). Realistisch: Claude Pro (20 €) + Domain (1 €) + Google Workspace (8 €) = ca. <strong>29 €/Monat</strong>.</p>
-      </div>
-    </div>
+  <div class="glossar-box">
+    <div class="glossar-term">Falls dir einige dieser Begriffe nichts sagen</div>
+    <p><strong>Hosting</strong> = Der Computer, auf dem deine Website gespeichert ist (Vercel macht das kostenlos). <strong>CRM</strong> = Ein System, das deine Kontakte und Kundenanfragen an einem Ort sammelt (wie ein digitales Adressbuch mit Superkräften). <strong>Domain</strong> = Deine Adresse im Internet (z.B. deinbusiness.de). Alle Begriffe werden in den jeweiligen Kapiteln ausführlich erklärt.</p>
   </div>
 
-  <h3 class="section-title" style="margin-top:32px;"><span class="icon">🔗</span> Alle Tools — Konten einrichten</h3>
+  <h3 class="section-title" style="margin-top:28px;"><span class="icon">🔗</span> Konten einrichten</h3>
   <div class="card">
-    <p style="margin-bottom:16px;">Richte diese Konten jetzt ein (dauert ca. 15 Minuten):</p>
+    <p>Richte jetzt die wichtigsten Konten ein. Das dauert ca. 15 Minuten. Du musst noch nicht wissen, was jedes Tool macht — das lernst du in den nächsten Kapiteln. Hier geht es nur darum, dass die Konten bereitstehen, wenn du sie brauchst.</p>
     <div class="checklist">
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>claude.ai</strong> → Claude Pro/Max Abo</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>code.visualstudio.com</strong> → VS Code herunterladen</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>github.com</strong> → Kostenloses Konto</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>vercel.com</strong> → Kostenloses Konto</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>ionos.de</strong> → Domain registrieren</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>workspace.google.com</strong> → Business Starter</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>canva.com</strong> → Kostenloses Konto</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>hubspot.com</strong> → Kostenloses CRM</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>stripe.com</strong> → Konto erstellen</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>claude.ai</strong> — Dein KI-Assistent (Claude Pro empfohlen)</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>code.visualstudio.com</strong> — VS Code herunterladen (kostenlos)</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>github.com</strong> — Kostenloses Konto erstellen</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>vercel.com</strong> — Kostenloses Konto erstellen</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>ionos.de</strong> — Domain registrieren (~1 €/Monat)</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>workspace.google.com</strong> — Business Starter (~8 €/Monat)</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>canva.com</strong> — Kostenloses Konto erstellen</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>hubspot.com</strong> — Kostenloses CRM erstellen</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>stripe.com</strong> — Konto erstellen (keine Grundgebühr)</span></div>
     </div>
-  </div>
-
-  <div class="prompt-box">
-    <div class="label">Prompt: Persönliche Tool-Empfehlung</div>
-    <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
-    <pre>Ich möchte mich als [Beruf] selbstständig machen. Mein monatliches Budget für Tools ist [Betrag] Euro. Welche Tools sind am wichtigsten und worauf kann ich am Anfang verzichten? Erstelle mir eine priorisierte Liste.</pre>
   </div>
 
   <div class="chapter-summary">
     <h4>Das nimmst du aus Kapitel 03 mit:</h4>
-    <div class="item">Du kennst alle 10 Bausteine deines Online-Workspace</div>
+    <div class="item">Du hast den 7-Tage-Plan und weißt, was auf dich zukommt</div>
+    <div class="item">Du kennst alle 10 Bausteine deines Online-Business</div>
     <div class="item">Du weißt genau, was es kostet (unter 30 € / Monat)</div>
-    <div class="item">Du hast alle Tool-Konten erstellt</div>
-    <div class="item">Du bist bereit für den nächsten Schritt: Claude AI kennenlernen</div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════ MOTIVATION 2 ══════════════════════════════════ -->
-<div class="section" id="sec-quote2" data-title="" data-chapter="">
-<div class="blob" style="width:300px;height:300px;background:radial-gradient(circle,#e8604c,transparent 70%);top:50%;right:-80px;--tx:-20px;--ty:20px;--d:22s"></div>
-  <div class="quote-section">
-    <div class="quote-text">"Alles, was du nicht weißt, kannst du einfach fragen."</div>
-    <div class="quote-attr">Miriam Bäumler</div>
-    <div class="quote-dot"></div>
+    <div class="item">Du hast alle Tool-Konten erstellt und bist bereit für den nächsten Schritt</div>
   </div>
 </div>
 
@@ -1233,13 +1360,26 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
 <div class="section" id="sec-ch4-1" data-title="Claude kennenlernen" data-chapter="04">
   <h3 class="section-title"><span class="icon">🤖</span> Claude kennenlernen</h3>
+
+  <div class="glossar-box">
+    <div class="glossar-term">Claude AI</div>
+    <p>Eine Künstliche Intelligenz von Anthropic, mit der du in ganz normalem Deutsch chatten kannst. Claude kann Texte schreiben, Fragen beantworten, Code programmieren, Strategien entwickeln und sogar direkt auf deinem Computer arbeiten.</p>
+    <div class="glossar-analogy">Stell dir Claude vor wie einen persönlichen Assistenten, der gleichzeitig Texter, Webdesigner, Marketing-Berater und IT-Experte ist — und der rund um die Uhr verfügbar ist.</div>
+  </div>
+
   <div class="card">
+    <p>Claude ist das Werkzeug, mit dem du den Rest dieses Workbooks durcharbeitest. Wenn du Claude verstehst, wird alles danach einfacher — Website bauen, Logo erstellen, E-Mails einrichten, Produkte verkaufen. Nimm dir hier ruhig extra Zeit.</p>
     <p>Ich habe in meinem Leben noch nie eine Zeile Code geschrieben. Diese ganzen Begriffe waren mir komplett fremd. Dann habe ich gesehen, wie jemand einer KI in normalem Deutsch sagt, was er haben will, und die KI baut eine komplette Website. Innerhalb von Minuten.</p>
     <p>Das war der Moment, in dem ich verstanden habe: Du musst nicht programmieren können. Du musst nur wissen, wie du mit Claude redest.</p>
-    <div class="tip-miriam" style="margin-top:16px;">
-      <div class="label">Miriam sagt</div>
-      <p>"Claude hat meine komplette Website gebaut. Ich habe einfach erklärt, wie sie aussehen soll — Farben, Struktur, Texte — und Claude hat den Code geschrieben. Kein teurer Webdesigner, keine Programmierkenntnisse. Nur ich, meine Ideen, und Claude."</p>
-      <div class="author">Miriam Bäumler</div>
+    <div class="miriam-sagt" style="margin-top:16px;">
+      <div class="miriam-sagt-header">
+        <div class="miriam-avatar"></div>
+        <div>
+          <div class="miriam-sagt-label">Miriam sagt</div>
+          <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+        </div>
+      </div>
+      <p>Claude hat meine komplette Website gebaut. Ich habe einfach erklärt, wie sie aussehen soll — Farben, Struktur, Texte — und Claude hat den Code geschrieben. Kein teurer Webdesigner, keine Programmierkenntnisse. Nur ich, meine Ideen, und Claude.</p>
     </div>
     <p>Und genau das lernst du in diesem Kapitel. Wir fangen ganz am Anfang an — kein Vorwissen nötig. Am Ende wirst du wissen, was Claude kann, wie du es nutzt und welchen Modus du wofür brauchst. Nimm dir für dieses Kapitel ruhig etwas mehr Zeit — es ist die Grundlage für alles, was danach kommt.</p>
   </div>
@@ -1249,9 +1389,8 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <p>Bevor wir irgendetwas einrichten, solltest du Claude erstmal kennenlernen. Öffne claude.ai, melde dich an und stell einfach eine Frage. Irgendeine. Das kann sein: „Was brauche ich alles, um mich als Coach selbstständig zu machen?" Oder: „Erkläre mir, was eine Domain ist — so, als wäre ich 10."</p>
     <p>Es geht darum, ein Gefühl dafür zu bekommen, wie Claude antwortet. Wie du Fragen stellst. Und dass du merkst: Das hier ist kein kompliziertes Programm. Das ist wie chatten — nur dass dein Gesprächspartner wirklich alles weiß.</p>
     <p>Teste ruhig verschiedene Sachen. Frag etwas Persönliches zu deinem Business. Lass dir einen Text schreiben. Bitte Claude, etwas zu erklären. Probiere aus, was passiert, wenn du nachfragst oder sagst „das ist mir zu kompliziert, erklär es einfacher". Claude passt sich an.</p>
-    <div class="tip-teal">
-      <div class="label">Zeitspar-Tipp: Einfach lostesten</div>
-      <p style="font-size:14px;color:var(--muted);margin:0;">Nimm dir 10 Minuten und stell Claude 5 verschiedene Fragen zu deinem Business. Frag nach deiner Zielgruppe, nach Ideen für deinen Markennamen, nach einem Slogan. Du wirst überrascht sein, wie gut die Antworten sind — und wie schnell du ein Gefühl für das Tool bekommst.</p>
+    <div class="tipp-box" data-color="teal"><div class="tipp-label">Zeitspar-Tipp: Einfach lostesten</div>
+      <p>Nimm dir 10 Minuten und stell Claude 5 verschiedene Fragen zu deinem Business. Frag nach deiner Zielgruppe, nach Ideen für deinen Markennamen, nach einem Slogan. Du wirst überrascht sein, wie gut die Antworten sind — und wie schnell du ein Gefühl für das Tool bekommst.</p>
     </div>
   </div>
 
@@ -1268,9 +1407,8 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
         <p style="font-size:14px;color:var(--muted);margin:0;">Deutlich höheres Limit, Zugang zu den besten Modellen und du kannst Projekte mit Wissensdatenbank anlegen. Außerdem bekommst du Zugang zu Cowork — und genau das brauchst du später für die Automatisierungen. Ehrlich gesagt: Für das, was Claude alles für dich erledigt, sind 20 Euro im Monat fast geschenkt.</p>
       </div>
     </div>
-    <div class="tip-coral">
-      <div class="label">Mein Tipp</div>
-      <p style="font-size:14px;color:var(--muted);margin:0;">Starte mit Free, um Claude kennenzulernen. Sobald du merkst, dass du ans Limit stößt (und das wirst du), wechsle auf Pro. Du kannst jederzeit kündigen.</p>
+    <div class="tipp-box" data-color="coral"><div class="tipp-label">Mein Tipp</div>
+      <p>Starte mit Free, um Claude kennenzulernen. Sobald du merkst, dass du ans Limit stößt (und das wirst du), wechsle auf Pro. Du kannst jederzeit kündigen.</p>
     </div>
   </div>
 
@@ -1299,14 +1437,26 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
 <div class="section" id="sec-ch4-2" data-title="Die drei Modi" data-chapter="04">
   <h3 class="section-title"><span class="icon">🔀</span> Die drei Modi von Claude</h3>
+
+  <div class="miriam-sagt">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Drei Modi — klingt viel, ist simpel</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p>Dein Handy hat auch verschiedene Apps: eine zum Telefonieren, eine für Fotos, eine für WhatsApp. Trotzdem ist es nur ein Gerät. Genauso bei Claude. Drei "Apps" für verschiedene Aufgaben. Am Anfang nutzt du fast nur eine — den Rest lernst du nebenbei.</p>
+    <div class="mantra">Merk dir die Faustregel am Ende. Das reicht.</div>
+  </div>
+
   <div class="card">
     <p>Claude hat drei verschiedene Arbeitsmodi. Jeder ist für andere Aufgaben gedacht. Stell es dir vor wie drei verschiedene Mitarbeiter in einem Büro:</p>
     <div class="step"><div class="step-label">Modus 1</div><h4>Claude Chat</h4><p>Das ist der Modus, den du gerade kennengelernt hast. Hier stellst du Fragen, lässt Texte schreiben, arbeitest an Strategien. Nutze Chat für: Texte schreiben, Ideen brainstormen, Fragen stellen, Prompts vorbereiten, Recherche, Strategien entwickeln, Social-Media-Pläne erstellen.</p></div>
     <div class="step"><div class="step-label">Modus 2</div><h4>Claude Cowork</h4><p>Cowork ist wie ein Assistent, der an deinem Computer sitzt und Aufgaben erledigt. Du sagst Claude was er tun soll, und er macht es — im Browser, vor deinen Augen. Über Konnektoren kann Claude direkt in Tools wie Canva, Google oder HubSpot für dich arbeiten. Nutze Cowork für: HubSpot einrichten, E-Mail-Signaturen erstellen, Canva-Designs bauen, Gmail konfigurieren.</p></div>
     <div class="step"><div class="step-label">Modus 3</div><h4>Claude Code</h4><p>Dein persönlicher Programmierer. Claude Code arbeitet direkt in deinen Dateien — entweder in VS Code oder über das Terminal. Du sagst in normalem Deutsch was du willst, und Claude schreibt den Code. Nutze Code für: Website bauen und ändern, Bilder einfügen, Kontaktformulare programmieren, Animationen hinzufügen, Fehler beheben, neue Seiten erstellen.</p></div>
-    <div class="tip-coral">
-      <div class="label">Faustregel: Welchen Modus wofür?</div>
-      <p style="font-size:14px;color:var(--muted);margin:0;">Wenn du eine Frage hast oder einen Text brauchst → Chat. Wenn Claude etwas in deinem Browser tun soll (klicken, einrichten, ausfüllen) → Cowork. Wenn Claude an deinen Website-Dateien arbeiten soll → Code. Im Laufe dieses Workbooks wirst du alle drei Modi benutzen.</p>
+    <div class="tipp-box" data-color="coral"><div class="tipp-label">Faustregel: Welchen Modus wofür?</div>
+      <p>Wenn du eine Frage hast oder einen Text brauchst → Chat. Wenn Claude etwas in deinem Browser tun soll (klicken, einrichten, ausfüllen) → Cowork. Wenn Claude an deinen Website-Dateien arbeiten soll → Code. Im Laufe dieses Workbooks wirst du alle drei Modi benutzen.</p>
     </div>
   </div>
 </div>
@@ -1317,27 +1467,29 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <p>Cowork verdient eine eigene Erklärung, weil es für viele das beeindruckendste Feature ist. Ich erinnere mich noch, wie ich das erste Mal zugeschaut habe, wie Claude meinen Browser öffnet, sich durch HubSpot klickt und Formulare einrichtet — während ich daneben saß und Kaffee getrunken habe.</p>
     <p><strong>Der Unterschied zum Chat:</strong> Im Chat sagt Claude dir, was du tun sollst. In Cowork tut Claude es für dich — direkt in deinem Browser, vor deinen Augen.</p>
     <p>Cowork kannst du für Logo-Erstellung in Canva, HubSpot-Setup, Gmail-Signatur und vieles mehr einsetzen. Die vollständige Anleitung mit allen Schritten, Konnektoren und Mega-Prompts findest du in <strong>Kapitel 13</strong>.</p>
-    <div class="tip-coral">
-      <div class="label">Merk dir</div>
-      <p style="font-size:14px;color:var(--muted);margin:0;">Für Kapitel 06 (Logo) und Kapitel 12 (HubSpot) wirst du Cowork das erste Mal aktiv nutzen. Bis dahin reicht es, zu wissen: Es gibt Cowork, es ist in der Desktop App, und es macht Arbeit für dich.</p>
+    <div class="tipp-box" data-color="coral"><div class="tipp-label">Merk dir</div>
+      <p>Für Kapitel 06 (Logo) und Kapitel 12 (HubSpot) wirst du Cowork das erste Mal aktiv nutzen. Bis dahin reicht es, zu wissen: Es gibt Cowork, es ist in der Desktop App, und es macht Arbeit für dich.</p>
     </div>
   </div>
 
   <h3 class="section-title" style="margin-top:40px;"><span class="icon">📂</span> Dein Projektordner</h3>
+
   <div class="card">
-    <p>Jetzt kommt ein Punkt, der am Anfang vielleicht etwas abstrakt klingt, aber später extrem wichtig wird: Dein Projektordner. Stell dir deinen Projektordner vor wie einen Aktenordner auf deinem Schreibtisch — nur digital. In diesem Ordner liegen am Ende alle Dateien deiner Website.</p>
+    <p>Jetzt kommt ein Punkt, der am Anfang vielleicht etwas abstrakt klingt, aber später extrem wichtig wird: Dein Projektordner. Das ist ein ganz normaler Ordner auf deinem Computer — nur dass hier alle Dateien deiner Website liegen. Claude arbeitet in diesem Ordner und ändert die Dateien für dich. Stell ihn dir vor wie einen Koffer für eine Reise: Nur was drin liegt, kommt mit auf die Reise ins Internet.</p>
     <p><strong>Warum ist das wichtig?</strong> Claude Code arbeitet direkt in diesem Ordner. Wenn du Claude sagst „Erstelle mir eine Website", legt Claude die Dateien genau dort ab. Und wenn du deine Website später live schalten willst (Kapitel 10), lädst du genau diesen Ordner auf GitHub hoch.</p>
     <div class="step"><div class="step-label">01</div><h4>Ordner erstellen</h4><p>Öffne den Datei-Explorer, gehe zu einem Ort, wo du ihn leicht wiederfindest — z.B. Desktop oder Dokumente. Erstelle einen neuen Ordner und nenne ihn so wie dein Business. Verwende nur Kleinbuchstaben und Bindestriche, keine Leerzeichen, keine Umlaute.</p></div>
     <div class="step"><div class="step-label">Der Weg</div><h4>Von deinem Ordner ins Internet</h4><p>Dein Ordner → Claude Code arbeitet darin → Du lädst auf GitHub hoch → Vercel macht deine Website live → Deine Domain zeigt auf Vercel. Das meiste passiert automatisch.</p></div>
     <p style="margin-top:16px;"><strong>Was in deinem Projektordner liegen wird:</strong></p>
-    <p><strong>index.html</strong> — deine Startseite. Die Datei MUSS so heißen.<br>
-    <strong>style.css</strong> — das Design: Farben, Schriften, Abstände.<br>
-    <strong>script.js</strong> — alles Interaktive: Animationen, Menüs, Formulare.<br>
-    <strong>images/</strong> — ein Unterordner für alle deine Bilder.</p>
-    <div class="mindset-box">
-      <h4>Wichtig: Bilder müssen im Ordner liegen</h4>
-      <p>Wenn du ein Foto auf deiner Website zeigen willst, reicht es nicht, es irgendwo auf deinem Computer zu haben. Es muss in deinem Projektordner liegen (am besten im Unterordner images/). Denk an deinen Projektordner wie an einen Koffer: Nur was drin liegt, kommt mit auf die Reise.</p>
+
+    <div class="glossar-box">
+      <div class="glossar-term">Die 4 wichtigsten Dateien</div>
+      <p><strong>index.html</strong> — deine Startseite. Die Datei MUSS so heißen, sonst findet der Browser sie nicht.<br>
+      <strong>style.css</strong> — das Design: Farben, Schriften, Abstände. Wie ein Stylist für deine Website.<br>
+      <strong>script.js</strong> — alles Interaktive: Animationen, Menüs, Formulare. Wie ein Techniker hinter der Bühne.<br>
+      <strong>images/</strong> — ein Unterordner für alle deine Bilder.</p>
+      <div class="glossar-analogy">Du musst diese Dateien nicht verstehen oder bearbeiten können. Claude macht das für dich. Du musst nur wissen, dass sie existieren.</div>
     </div>
+    <p><strong>Wichtig: Bilder müssen im Ordner liegen.</strong> Wenn du ein Foto auf deiner Website zeigen willst, reicht es nicht, es irgendwo auf deinem Computer zu haben. Es muss in deinem Projektordner liegen (am besten im Unterordner images/). Nur was drin liegt, kommt mit auf die Reise ins Internet.</p>
   </div>
   <div class="prompt-box">
     <div class="label">Prompt: Projektordner vorbereiten</div>
@@ -1348,6 +1500,13 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
 <div class="section" id="sec-ch4-4" data-title="Prompts & Grenzen" data-chapter="04">
   <h3 class="section-title"><span class="icon">✍️</span> So schreibst du einen guten Prompt</h3>
+
+  <div class="glossar-box">
+    <div class="glossar-term">Prompt</div>
+    <p>Das, was du Claude schreibst — deine Frage, dein Auftrag, deine Anweisung. Je genauer dein Prompt, desto besser Claudes Antwort. Du kannst ganz normales Deutsch benutzen, keine Fachsprache nötig.</p>
+    <div class="glossar-analogy">Ein Prompt ist wie eine Bestellung im Restaurant. "Essen" bestellen? Dann bekommst du irgendwas. "Eine Margherita mit extra Mozzarella, dünn und knusprig"? Dann bekommst du genau das, was du willst.</div>
+  </div>
+
   <div class="card">
     <p>Ein guter Prompt ist wie eine gute Briefing-Mail: Je klarer du sagst, was du willst, desto besser das Ergebnis. Und das Schöne ist: Du musst keine Fachsprache benutzen. Normales Deutsch reicht völlig. Ein Prompt hat vier Bausteine:</p>
     <div class="step"><div class="step-label">1</div><h4>Sag Claude WER du bist</h4><p>„Ich bin selbstständig im Bereich [X], meine Zielgruppe ist [Y]."</p></div>
@@ -1419,32 +1578,61 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
 <div class="section" id="sec-ch5-1" data-title="VS Code einrichten" data-chapter="05">
   <h3 class="section-title"><span class="icon">🛠️</span> VS Code einrichten</h3>
+
+  <div class="glossar-box">
+    <div class="glossar-term">VS Code (Visual Studio Code)</div>
+    <p>Ein kostenloses Programm von Microsoft, in dem du deine Website-Dateien siehst und in dem Claude Code für dich arbeiten kann. Du musst darin keinen Code schreiben — es ist einfach der Ort, an dem alles passiert.</p>
+    <div class="glossar-analogy">Wenn deine Website ein Haus ist, dann ist VS Code die Werkstatt, in der es gebaut wird. Du bist der Architekt, der sagt, was er will. Claude ist der Handwerker. VS Code ist die Werkstatt.</div>
+  </div>
+
+  <div class="miriam-sagt">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Ja, es sieht aus wie bei einem Hacker. Keine Sorge.</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p>VS Code öffnen, dunkler Bildschirm, bunter Text — dein erster Gedanke wird sein: "Nope, das ist nichts für mich." Hatte ich auch. Aber du tippst dort nichts rein. Du sagst Claude einfach: "Mach die Überschrift rot" und Claude macht die Überschrift rot. Fertig.</p>
+    <div class="mantra">Du fährst Auto, ohne den Motor zu verstehen. Genau so funktioniert das hier.</div>
+  </div>
+
   <div class="card">
     <p>In Kapitel 04 hast du Claude kennengelernt und deinen Projektordner erstellt. Jetzt richten wir VS Code ein — das Programm, in dem Claude Code direkt an deinen Website-Dateien arbeitet. VS Code ist ein kostenloser Code-Editor, den Millionen von Entwicklern weltweit nutzen.</p>
     <div class="step"><div class="step-label">01</div><h4>VS Code herunterladen</h4><p>Gehe auf code.visualstudio.com und lade die kostenlose Version herunter. Installieren, öffnen, fertig.</p></div>
     <div class="step"><div class="step-label">02</div><h4>Projektordner öffnen</h4><p>Öffne VS Code und klicke oben auf „Datei" → „Ordner öffnen". Wähle den Projektordner aus, den du in Kapitel 04 erstellt hast.</p></div>
     <div class="step"><div class="step-label">03</div><h4>Das Terminal öffnen</h4><p>Das Terminal ist das schwarze Fenster unten in VS Code. Klicke oben auf „Ansicht" → „Terminal". Oder nutze Strg + ` (das Häkchen neben der 1-Taste).</p></div>
+
+    <div class="glossar-box">
+      <div class="glossar-term">Terminal</div>
+      <p>Das schwarze Textfenster unten in VS Code. Hier tippst du Befehle ein — zum Beispiel "claude", um Claude Code zu starten. Es sieht aus wie aus einem Hacker-Film, aber keine Sorge: Du brauchst nur 2-3 Befehle.</p>
+      <div class="glossar-analogy">Das Terminal ist wie die Kommandozeile eines Piloten. Es sieht einschüchternd aus — aber du drückst eigentlich nur den Startknopf und den Autopiloten.</div>
+    </div>
+
     <div class="step"><div class="step-label">04</div><h4>Claude Code installieren</h4><p>Tippe ins Terminal: npm install -g @anthropic-ai/claude-code und drücke Enter. Falls „npm" nicht erkannt wird, installiere zuerst Node.js von nodejs.org.</p></div>
     <div class="step"><div class="step-label">05</div><h4>Claude Code starten</h4><p>Tippe ins Terminal einfach: claude — und ab jetzt kannst du in normalem Deutsch sagen, was du willst.</p></div>
     <div class="step"><div class="step-label">06</div><h4>Website im Browser ansehen</h4><p>Klicke im Datei-Explorer links auf „index.html" mit der rechten Maustaste und wähle „Mit Live Server öffnen". Du siehst sofort, wie deine Website aussieht.</p></div>
-    <div class="mindset-box" style="background:#fff8f6;">
-      <h4>Keine Angst vor Code</h4>
-      <p>Du musst keinen Code lesen oder verstehen können. Du sagst Claude einfach in ganz normalen Sätzen, was du willst. „Mach die Überschrift größer." „Ändere die Hintergrundfarbe zu Weiß." „Füge ein Kontaktformular ein." Claude versteht dich und ändert den Code für dich.</p>
-    </div>
+    <p><strong>Keine Angst vor Code:</strong> Du musst keinen Code lesen oder verstehen können. Du sagst Claude einfach in ganz normalen Sätzen, was du willst. „Mach die Überschrift größer." „Ändere die Hintergrundfarbe zu Weiß." „Füge ein Kontaktformular ein." Claude versteht dich und ändert den Code für dich.</p>
   </div>
 </div>
 
 <div class="section" id="sec-ch5-2" data-title="Extensions & Tipps" data-chapter="05">
   <h3 class="section-title"><span class="icon">🧩</span> Extensions — diese 4 brauchst du</h3>
+
+  <div class="glossar-box">
+    <div class="glossar-term">Extensions / Erweiterungen</div>
+    <p>Kleine Zusatzprogramme für VS Code, die dir extra Funktionen geben. Wie Apps auf deinem Smartphone — du installierst nur die, die du brauchst.</p>
+    <div class="glossar-analogy">VS Code ohne Extensions ist wie ein Smartphone ohne Apps: funktioniert, aber mit den richtigen Apps wird es erst richtig nützlich.</div>
+  </div>
+
   <div class="card">
-    <p>VS Code ist von Haus aus ein schlankes Programm. Die eigentliche Power kommt durch sogenannte Extensions — wie Apps auf deinem Smartphone. Klicke in VS Code links auf das Symbol mit den vier kleinen Quadraten, tippe den Namen ein und klicke „Install".</p>
+    <p>VS Code ist von Haus aus ein schlankes Programm. Die eigentliche Power kommt durch sogenannte Extensions. Klicke in VS Code links auf das Symbol mit den vier kleinen Quadraten, tippe den Namen ein und klicke „Install".</p>
     <div class="step"><div class="step-label">1</div><h4>German Language Pack</h4><p>Stellt die gesamte Oberfläche auf Deutsch um — alle Menüs, Einstellungen und Hinweise.</p></div>
     <div class="step"><div class="step-label">2</div><h4>Live Server</h4><p>Öffnet deine Website im Browser und zeigt jede Änderung in Echtzeit an. Sobald Claude eine Datei ändert, aktualisiert sich die Seite automatisch.</p></div>
     <div class="step"><div class="step-label">3</div><h4>Prettier — Code Formatter</h4><p>Formatiert deinen Code automatisch schön und einheitlich. Einmal installieren, nie wieder drüber nachdenken.</p></div>
     <div class="step"><div class="step-label">4</div><h4>Claude Code for VS Code</h4><p>Bringt Claude direkt in VS Code. Du musst nicht zwischen Fenstern hin- und herspringen — alles passiert an einem Ort.</p></div>
-    <div class="tip-coral">
-      <div class="label">Tipp: Nicht übertreiben</div>
-      <p style="font-size:14px;color:var(--muted);margin:0;">Es gibt Tausende Extensions für VS Code. Installiere am Anfang nur diese vier. Zu viele Extensions machen VS Code langsamer und unübersichtlicher.</p>
+    <div class="tipp-box" data-color="coral"><div class="tipp-label">Tipp: Nicht übertreiben</div>
+      <p>Es gibt Tausende Extensions für VS Code. Installiere am Anfang nur diese vier. Zu viele Extensions machen VS Code langsamer und unübersichtlicher.</p>
     </div>
   </div>
 
@@ -1453,9 +1641,8 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <p><strong>Farben neben Dateinamen:</strong> Grün = neu, noch nicht gespeichert/hochgeladen. Gelb/Orange = verändert seit dem letzten Speichern. Grau = alles normal.</p>
     <p><strong>Wellenlinien unter dem Code:</strong> Rote Wellenlinie = Fehler. Sag Claude: „Ich habe eine rote Markierung in meiner Datei. Kannst du den Fehler finden und beheben?" Gelbe Wellenlinie = Warnung, meistens ignorierbar.</p>
     <p><strong>Speichern nicht vergessen!</strong> Strg + S (Windows) oder Cmd + S (Mac). Mach dir das zur Gewohnheit — nach jeder Änderung einmal Strg + S drücken.</p>
-    <div class="tip-teal">
-      <div class="label">Tipp: Auto-Save aktivieren</div>
-      <p style="font-size:14px;color:var(--muted);margin:0;">Gehe auf Datei → Einstellungen → suche nach „Auto Save" und stelle es auf „afterDelay". Dann sparst du dir das manuelle Speichern komplett.</p>
+    <div class="tipp-box" data-color="teal"><div class="tipp-label">Tipp: Auto-Save aktivieren</div>
+      <p>Gehe auf Datei → Einstellungen → suche nach „Auto Save" und stelle es auf „afterDelay". Dann sparst du dir das manuelle Speichern komplett.</p>
     </div>
   </div>
 
@@ -1463,10 +1650,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <h3 class="section-title" style="font-size:20px;"><span class="icon">🌐</span> Live Server ist nicht gleich „live im Internet"</h3>
     <p>Wichtige Unterscheidung: Wenn du deine Website mit Live Server im Browser anschaust, ist sie NICHT im Internet sichtbar. Nur du kannst sie sehen. Die Adresse sieht so aus: http://127.0.0.1:5500 — das ist nur deine Maschine.</p>
     <p>Damit deine Website wirklich für alle sichtbar ist, musst du sie erst „live schalten". Das passiert in Kapitel 10 mit GitHub und Vercel. Bis dahin arbeitest du in Ruhe lokal — du kannst nichts kaputt machen, niemand sieht deine Baustelle.</p>
-    <div class="mindset-box">
-      <h4>Das ist sogar ein Vorteil</h4>
-      <p>Lokal arbeiten bedeutet: Du kannst in Ruhe experimentieren, Fehler machen, Dinge ausprobieren — ohne dass irgendjemand es sieht. Erst wenn du zufrieden bist, schaltest du die Seite online.</p>
-    </div>
+    <p><strong>Das ist sogar ein Vorteil:</strong> Lokal arbeiten bedeutet, du kannst in Ruhe experimentieren, Fehler machen, Dinge ausprobieren — ohne dass irgendjemand es sieht. Erst wenn du zufrieden bist, schaltest du die Seite online.</p>
   </div>
 
   <div class="card" style="margin-top:24px;">
@@ -1520,10 +1704,15 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   <h3 class="section-title"><span class="icon">✏️</span> Marke & Logo erstellen</h3>
   <div class="card">
     <p>Ich habe am Anfang viel zu viel Zeit mit dem Markennamen verbracht. Stundenlang Schreibweisen verglichen, Markenrecht recherchiert. Heute sage ich: Einfach soll einfach sein. Ich heiße Bäumler, ich mache Marketing — also Bäumler Marketing. Nimm deinen Namen und das, was du machst. Prüf, ob die Domain frei ist. Wenn ja — fertig.</p>
-    <div class="tip-miriam" style="margin:16px 0;">
-      <div class="label">Miriam sagt</div>
-      <p>"Mein Logo habe ich in Canva in einer Stunde erstellt. Ich weiß, was ich mache — deshalb hatte ich keine Angst davor, dass es 'zu simpel' ist. Simpel ist professionell. Die aufwändigen Logos, die Leute stundenlang in Canva bauen, sieht man meistens sofort. Weniger ist fast immer mehr."</p>
-      <div class="author">Miriam Bäumler</div>
+    <div class="miriam-sagt" style="margin:16px 0;">
+      <div class="miriam-sagt-header">
+        <div class="miriam-avatar"></div>
+        <div>
+          <div class="miriam-sagt-label">Miriam sagt</div>
+          <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+        </div>
+      </div>
+      <p>Mein Logo habe ich in Canva in einer Stunde erstellt. Ich weiß, was ich mache — deshalb hatte ich keine Angst davor, dass es 'zu simpel' ist. Simpel ist professionell. Die aufwändigen Logos, die Leute stundenlang in Canva bauen, sieht man meistens sofort. Weniger ist fast immer mehr.</p>
     </div>
     <p><strong>Was ist ein Logo — und warum brauchst du eins?</strong> Dein Logo erscheint auf deiner Website, in E-Mails, auf Social Media, auf Rechnungen — überall. Es muss nicht perfekt sein. Ein gutes Logo für den Start ist: einfach, lesbar auch wenn es klein ist, und es funktioniert auf weißem und dunklem Hintergrund.</p>
     <div class="step"><div class="step-label">01</div><h4>Markennamen festlegen</h4><p>Kurz, einprägsam, ehrlich. Tipp: Dein Name + was du machst. Prüfe, ob die .de-Domain noch frei ist (bei ionos.de).</p></div>
@@ -1609,19 +1798,37 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
 <div class="section" id="sec-ch7-1" data-title="Domain & DNS" data-chapter="07">
   <h3 class="section-title"><span class="icon">🌍</span> Domain registrieren</h3>
+
+  <div class="miriam-sagt">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">DNS, A-Record, MX... WAS?!</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p>Ich weiß. Diese Begriffe klingen, als bräuchte man dafür ein IT-Studium. Brauchst du nicht. Du kopierst Werte, die Claude dir gibt, und fügst sie bei IONOS ein. Mehr nicht. Wirklich. Copy. Paste. Speichern. Das war mein DNS-Setup — und das wird deins auch sein.</p>
+    <div class="mantra">Copy-Paste können = DNS können. So einfach ist das.</div>
+  </div>
+
   <div class="card">
     <div class="step"><div class="step-label">01</div><h4>Auf ionos.de gehen</h4><p><a href="https://www.ionos.de" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">ionos.de</a> ist günstig, zuverlässig und einfach zu bedienen. Eine .de-Domain kostet ca. 1 € pro Monat.</p></div>
     <div class="step"><div class="step-label">02</div><h4>Domain-Verfügbarkeit prüfen</h4><p>Gib deinen Wunschnamen ein. Wenn er frei ist — sofort registrieren. Halte den Namen kurz, vermeide Bindestriche wenn möglich.</p></div>
     <div class="step"><div class="step-label">03</div><h4>Domain registrieren</h4><p>Du brauchst nur Name, Adresse und Zahlungsmethode. In wenigen Minuten gehört die Domain dir.</p></div>
-    <div class="tip-teal">
-      <div class="label">Zeitspar-Tipp</div>
-      <p style="font-size:14px;color:var(--muted);margin:0;">Du brauchst bei IONOS NUR die Domain. Kein Hosting, keinen Website-Baukasten, keine E-Mail über IONOS. Das Hosting macht Vercel (kostenlos), die E-Mail macht Google Workspace.</p>
+    <div class="tipp-box" data-color="teal"><div class="tipp-label">Zeitspar-Tipp</div>
+      <p>Du brauchst bei IONOS NUR die Domain. Kein Hosting, keinen Website-Baukasten, keine E-Mail über IONOS. Das Hosting macht Vercel (kostenlos), die E-Mail macht Google Workspace.</p>
     </div>
   </div>
 
-  <div class="card" style="margin-top:24px;">
+  <div class="glossar-box" style="margin-top:24px;">
+    <div class="glossar-term">DNS — Domain Name System</div>
+    <p>Das System, das deinen Domain-Namen (z.B. deinbusiness.de) in eine Computer-Adresse übersetzt. Über DNS-Einstellungen sagst du dem Internet: "Meine Website liegt bei Vercel, meine E-Mails laufen über Google."</p>
+    <div class="glossar-analogy">DNS ist wie ein Telefonbuch. Du sagst "deinbusiness.de" und DNS sagt dem Internet: "Aha, die meint diesen Server dort drüben." Ohne DNS wüsste niemand, wo deine Website liegt.</div>
+  </div>
+
+  <div class="card" style="margin-top:12px;">
     <h3 class="section-title" style="font-size:20px;"><span class="icon">🔧</span> DNS-Einstellungen</h3>
-    <p>Deine Domain ist wie deine Adresse im Internet. Über DNS-Einstellungen legst du fest, welcher Dienst was mit deiner Domain machen darf. Du musst das nicht im Detail verstehen — Claude erklärt dir jeden Schritt.</p>
+    <p>Über DNS-Einstellungen legst du fest, welcher Dienst was mit deiner Domain machen darf. Du musst das nicht im Detail verstehen — Claude erklärt dir jeden Schritt.</p>
     <div class="checklist" style="margin-top:16px;">
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Vercel (Website) — A-Record oder CNAME-Record eintragen</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Google Workspace (E-Mail) — MX-Records und TXT-Record eintragen</span></div>
@@ -1629,10 +1836,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Google Search Console — TXT-Record zur Verifizierung</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>E-Mail-Sicherheit (SPF, DKIM, DMARC) — TXT-Records eintragen</span></div>
     </div>
-    <div class="mindset-box" style="margin-top:16px;">
-      <h4>Keine Angst vor DNS-Einstellungen</h4>
-      <p>Wenn du einen falschen Eintrag machst, geht nichts kaputt. Du kannst jeden Eintrag jederzeit ändern oder löschen. Mach alle Einträge in einem Rutsch — dann musst du nur einmal warten.</p>
-    </div>
+    <p style="margin-top:16px;"><strong>Keine Angst vor DNS-Einstellungen:</strong> Wenn du einen falschen Eintrag machst, geht nichts kaputt. Du kannst jeden Eintrag jederzeit ändern oder löschen. Mach alle Einträge in einem Rutsch — dann musst du nur einmal warten.</p>
   </div>
   <div class="prompt-box">
     <div class="label">Prompt: Alle DNS-Einstellungen auf einen Blick</div>
@@ -1675,13 +1879,37 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
 <div class="section" id="sec-ch8-1" data-title="Templates finden" data-chapter="08">
   <h3 class="section-title"><span class="icon">🎨</span> Website-Template finden</h3>
+
+  <div class="glossar-box">
+    <div class="glossar-term">Template / Vorlage</div>
+    <p>Eine fertige Website-Vorlage, die jemand anderes schon gebaut hat. Du nimmst das Grundgerüst und ersetzt alles mit deinen eigenen Inhalten, Farben und Bildern. Wie ein möbliertes Apartment — du ziehst ein und stellst deine Sachen rein.</p>
+    <div class="glossar-analogy">Statt ein Haus von Grund auf zu bauen (= teurer Architekt), nimmst du einen fertigen Bauplan und gestaltest die Inneneinrichtung nach deinem Geschmack. Das Ergebnis sieht genauso individuell aus.</div>
+  </div>
+
+  <div class="miriam-sagt">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Du programmierst hier gar nichts. Versprochen.</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p>Ich höre dich denken: "Ich soll eine Website BAUEN?!" Ja — aber nicht so, wie du dir das vorstellst. Du suchst dir eine Vorlage aus, die dir gefällt. Dann sagst du Claude: "Mach das in meinen Farben, mit meinen Texten." Und Claude baut es um. Du bist die Chefin. Claude ist der Handwerker.</p>
+    <div class="mantra">Du sagst was. Claude macht es. So einfach.</div>
+  </div>
+
   <div class="card">
     <p>Ich wollte eine richtig gute Website. Nicht so eine Standard-Baukasten-Seite wie bei Wix oder Jimdo, wo man sofort sieht, dass es ein Baukasten ist. Sondern etwas Modernes, Interaktives, Professionelles.</p>
     <p>Das Problem: Wenn du das von einer Agentur bauen lässt, zahlst du schnell 5.000 Euro aufwärts. Die Lösung: Du nimmst ein professionelles Template als Grundlage und lässt Claude den Rest machen.</p>
-    <div class="tip-miriam" style="margin-top:16px;">
-      <div class="label">Meine Erfahrung</div>
-      <p>"Ich habe meine Website mit einem Template von html5up.net gestartet. Claude hat alles umgebaut — Farben, Schriften, Texte, Struktur. Das Ergebnis sieht aus wie eine 5.000-Euro-Agentur-Website. Und ich habe sie in zwei Tagen fertig gehabt."</p>
-      <div class="author">Miriam Bäumler</div>
+    <div class="miriam-sagt" style="margin-top:16px;">
+      <div class="miriam-sagt-header">
+        <div class="miriam-avatar"></div>
+        <div>
+          <div class="miriam-sagt-label">Meine Erfahrung</div>
+          <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+        </div>
+      </div>
+      <p>Ich habe meine Website mit einem Template von html5up.net gestartet. Claude hat alles umgebaut — Farben, Schriften, Texte, Struktur. Das Ergebnis sieht aus wie eine 5.000-Euro-Agentur-Website. Und ich habe sie in zwei Tagen fertig gehabt.</p>
     </div>
     <p><strong>Was ist ein Template?</strong> Ein Template ist eine fertige Website-Vorlage. Jemand hat das Design, die Struktur und den Code schon gebaut — du musst nur noch deine Inhalte einsetzen. Wie ein möbliertes Apartment: Du ziehst ein und stellst deine Sachen rein.</p>
   </div>
@@ -1690,8 +1918,14 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <div class="step"><div class="step-label">01</div><h4>Template-Seiten (kostenlos)</h4><p><a href="https://21st.dev" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">21st.dev</a> — Sehr moderne, animierte Templates. <a href="https://html5up.net" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">html5up.net</a> — Clean, responsive, professionell. <a href="https://templatemo.com" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">templatemo.com</a> — Große Auswahl. <a href="https://nicepage.com" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">nicepage.com</a> — Drag-and-Drop Templates.</p></div>
     <div class="step"><div class="step-label">02</div><h4>Vercel Templates</h4><p>Gehe auf <a href="https://vercel.com/templates" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">vercel.com/templates</a> und stöbere. Diese Templates sind speziell für Vercel optimiert — mit einem Klick in dein Projekt kopieren.</p></div>
     <div class="step"><div class="step-label">03</div><h4>v0.dev — KI baut dein Design</h4><p>Vercels KI-Tool: <a href="https://v0.dev" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">v0.dev</a>. Du beschreibst, wie deine Website aussehen soll, und v0 erstellt den Code. Den kannst du dann in dein Projekt kopieren.</p></div>
-    <div class="mindset-box">
-      <h4>Wichtig: Nur als Struktur-Inspiration</h4>
+    <div class="miriam-sagt" data-variant="mindset">
+      <div class="miriam-sagt-header">
+        <div class="miriam-avatar"></div>
+        <div>
+          <div class="miriam-sagt-label">Wichtig: Nur als Struktur-Inspiration</div>
+          <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+        </div>
+      </div>
       <p>Du darfst die Struktur (das Layout, den HTML-Aufbau) einer Website als Vorlage verwenden — aber niemals Texte, Bilder oder Designs 1:1 übernehmen. Das wäre eine Urheberrechtsverletzung. Lass Claude <em>alles</em> durch deine eigenen Inhalte ersetzen.</p>
     </div>
     <div class="step"><div class="step-label">04</div><h4>Quellcode als Struktur-Vorlage nutzen</h4><p>Jede Website hat einen Quellcode. Rechtsklick → „Quellcode anzeigen" → Code kopieren → in deine index.html einfügen → Claude sagt: „Benutze das nur als Struktur und ersetze alles mit meinen eigenen Inhalten und Farben."</p></div>
@@ -1706,10 +1940,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
     <pre>Ich habe den HTML-Quellcode einer Website in meine index.html kopiert. Bitte nimm diesen Code als Strukturvorlage und baue daraus eine komplett eigene Website für mein Business „[Name]". Ersetze alle Texte, Bilder und Farben durch meine eigenen: Farben [Hex-Codes], Schrift [Name]. Behalte die Struktur und das Layout bei, aber mache alles zu meiner eigenen Seite.</pre>
   </div>
-  <div class="mindset-box" style="background:#fff8f6;">
-    <h4>Trying and Error — das gehört dazu</h4>
-    <p>Deine Website wird beim ersten Versuch nicht perfekt aussehen. Das ist völlig normal. Der Trick: Du sagst Claude einfach, was dir nicht gefällt. Claude passt alles an — so oft du willst, ohne dass es extra kostet.</p>
-  </div>
+  <p><strong>Trying and Error — das gehört dazu.</strong> Deine Website wird beim ersten Versuch nicht perfekt aussehen. Das ist völlig normal. Der Trick: Du sagst Claude einfach, was dir nicht gefällt. Claude passt alles an — so oft du willst, ohne dass es extra kostet.</p>
 </div>
 
 <div class="section" id="sec-ch8-2" data-title="Bilder & Anpassung" data-chapter="08">
@@ -1720,12 +1951,17 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <div class="step"><div class="step-label">02</div><h4>KI-generierte Bilder</h4><p>Canva AI (Magic Media), ChatGPT / DALL-E, Claude mit Cowork — perfekt für Hero-Bilder, Hintergründe oder abstrakte Grafiken.</p></div>
     <div class="step"><div class="step-label">03</div><h4>Eigene Fotos</h4><p>Dein Handy reicht völlig! Authentische Bilder wirken oft besser als jedes Stockfoto. Tipps: Natürliches Licht, aufgeräumter Hintergrund, mehrere Fotos machen.</p></div>
     <p style="margin-top:16px;"><strong>Bildformate:</strong> JPG — für Fotos. PNG — für Grafiken und Logos mit transparentem Hintergrund. WebP — modernst, kleiner als JPG. SVG — für Logos und Icons, skaliert ohne Qualitätsverlust.</p>
-    <div class="tip-coral">
-      <div class="label">Bilder optimieren = schnelle Website</div>
-      <p style="font-size:14px;color:var(--muted);margin:0;">Große Bilddateien machen deine Website langsam. Faustregel: Kein Bild über 500 KB. Hero-Bilder maximal 1920px breit. Sag einfach Claude: „Optimiere alle Bilder in meinem Projekt für schnelle Ladezeiten."</p>
+    <div class="tipp-box" data-color="coral"><div class="tipp-label">Bilder optimieren = schnelle Website</div>
+      <p>Große Bilddateien machen deine Website langsam. Faustregel: Kein Bild über 500 KB. Hero-Bilder maximal 1920px breit. Sag einfach Claude: „Optimiere alle Bilder in meinem Projekt für schnelle Ladezeiten."</p>
     </div>
-    <div class="mindset-box" style="margin-top:16px;">
-      <h4>Urheberrecht bei Bildern</h4>
+    <div class="miriam-sagt" data-variant="mindset" style="margin-top:16px;">
+      <div class="miriam-sagt-header">
+        <div class="miriam-avatar"></div>
+        <div>
+          <div class="miriam-sagt-label">Urheberrecht bei Bildern</div>
+          <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+        </div>
+      </div>
       <p>Du darfst NICHT einfach Bilder von Google oder anderen Websites nehmen. Erlaubt: Bilder von Unsplash, Pexels, Pixabay (Lizenz prüfen), KI-generierte Bilder, eigene Fotos. Verboten: Bilder von Google Bildersuche oder von anderen Websites kopieren.</p>
     </div>
   </div>
@@ -1766,8 +2002,27 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
 <div class="section" id="sec-ch9-1" data-title="Rechtliche Pflichten" data-chapter="09">
   <h3 class="section-title"><span class="icon">⚖️</span> Was deine Website rechtlich braucht</h3>
+
+  <div class="miriam-sagt">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">DSGVO? Impressum? Klingt schlimmer als es ist.</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p>Ich weiß, jetzt willst du den Laptop zuklappen. Tu's nicht. Es gibt kostenlose Generatoren — du füllst ein Formular aus, kopierst das Ergebnis, Claude baut es ein. Dauert keine Stunde. Weniger als ein IKEA-Regal. Und danach musst du nie wieder dran denken.</p>
+    <div class="mantra">Einmal machen, für immer erledigt. Los geht's.</div>
+  </div>
+
+  <div class="glossar-box">
+    <div class="glossar-term">DSGVO — Datenschutz-Grundverordnung</div>
+    <p>Ein EU-Gesetz, das regelt, wie Websites mit persönlichen Daten umgehen müssen. Wenn jemand auf deiner Website ein Kontaktformular ausfüllt, musst du transparent erklären, was mit diesen Daten passiert.</p>
+    <div class="glossar-analogy">Stell dir vor, jemand gibt dir seine Visitenkarte. DSGVO sagt: Du musst dieser Person sagen, was du damit machst — und sie muss einverstanden sein.</div>
+  </div>
+
   <div class="card">
-    <p>Ich weiß, das klingt trocken. Aber in Deutschland gibt es klare Regeln für Websites — und wer sie nicht einhält, riskiert Abmahnungen. Die können schnell 1.000 Euro oder mehr kosten. Die gute Nachricht: Mit den richtigen Generatoren und Claude ist alles in unter einer Stunde erledigt.</p>
+    <p>In Deutschland gibt es klare Regeln für Websites — und wer sie nicht einhält, riskiert Abmahnungen. Die können schnell 1.000 Euro oder mehr kosten. Die gute Nachricht: Mit den richtigen Generatoren und Claude ist alles in unter einer Stunde erledigt.</p>
     <div class="checklist" style="margin-top:16px;">
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>1. Impressum</strong> — Pflicht für jede gewerbliche Website</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>2. Datenschutzerklärung</strong> — Pflicht laut DSGVO</span></div>
@@ -1793,8 +2048,14 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
     <pre>Erstelle mir einen DSGVO-konformen Cookie-Consent-Banner für meine Website. Der Banner soll drei Optionen haben: „Alle akzeptieren", „Nur notwendige" und „Einstellungen" (mit Kategorien: Notwendig, Statistik, Marketing). Der Banner soll die Auswahl im localStorage speichern und Cookies/Skripte erst nach Zustimmung laden. Google Analytics darf erst nach Zustimmung in der Kategorie „Statistik" geladen werden. Design: passend zu meinen Farben [Hex-Codes].</pre>
   </div>
-  <div class="mindset-box">
-    <h4>Wichtig: Generatoren nutzen, nicht selbst schreiben</h4>
+  <div class="miriam-sagt" data-variant="mindset">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Wichtig: Generatoren nutzen, nicht selbst schreiben</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
     <p>Schreibe Impressum, Datenschutzerklärung und AGB NICHT selbst — auch nicht mit Claude. Nutze dafür immer offizielle Generatoren (<a href="https://www.e-recht24.de" target="_blank" rel="noopener" style="color:var(--coral)">e-recht24.de</a>, <a href="https://www.datenschutz-generator.de" target="_blank" rel="noopener" style="color:var(--coral)">datenschutz-generator.de</a>). Claude baut die Ergebnisse dann auf deiner Website ein. Für den Cookie-Banner und die Barrierefreiheit kann Claude den Code aber komplett selbst schreiben.</p>
   </div>
   <div class="reflection-box" style="margin-top:24px;">
@@ -1840,9 +2101,8 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
     <pre>Meine Website ist fertig und ich möchte sie live stellen. Führe einen kompletten Launch-Check durch: META-TAGS: Title-Tag, Meta-Description, Viewport, Charset, Language, Open Graph, Favicon auf jeder Seite? HTML-STRUKTUR: Genau eine H1 pro Seite? Überschriften-Hierarchie korrekt? Alt-Texte? Keine kaputten Links? PERFORMANCE: Bilder komprimiert (WebP, max. 200 KB)? CSS/JS minimiert? Lazy Loading? DATEIEN: sitemap.xml, robots.txt, 404-Seite, Favicon vorhanden? RECHT: Impressum, Datenschutz verlinkt? Cookie-Banner funktioniert? Erstelle eine Checkliste und fixe dann alles.</pre>
   </div>
-  <div class="tip-teal">
-    <div class="label">Zeitspar-Faktor</div>
-    <p style="font-size:14px;color:var(--muted);margin:0;">Selbst recherchieren: ca. 3–4 Stunden. Mit Claude und den richtigen Generatoren: unter 1 Stunde für alles.</p>
+  <div class="tipp-box" data-color="teal"><div class="tipp-label">Zeitspar-Faktor</div>
+    <p>Selbst recherchieren: ca. 3–4 Stunden. Mit Claude und den richtigen Generatoren: unter 1 Stunde für alles.</p>
   </div>
 
   <div class="chapter-summary">
@@ -1878,8 +2138,32 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
 <div class="section" id="sec-ch10-1" data-title="GitHub + Vercel" data-chapter="10">
   <h3 class="section-title"><span class="icon">🚀</span> Vom Ordner zur live Website</h3>
+
+  <div class="miriam-sagt">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Jetzt wird's real. Und ja, das darf kribbeln.</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p>Gleich ist deine Website im Internet. Für alle sichtbar. Dein Herz schlägt schneller? Gut so. Das heißt, es bedeutet dir etwas. Und falls du denkst "die ist noch nicht fertig" — doch, ist sie. Du kannst alles jederzeit ändern. Nichts ist für immer.</p>
+    <div class="mantra">Online stellen ist kein Endpunkt. Es ist der Anfang.</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+    <div class="glossar-box" style="margin:0;">
+      <div class="glossar-term">GitHub</div>
+      <p>Eine Cloud für deinen Website-Code. Jede Änderung wird gespeichert — du kannst jederzeit zurück. Wie Google Drive, aber für Code.</p>
+    </div>
+    <div class="glossar-box" style="margin:0;">
+      <div class="glossar-term">Vercel</div>
+      <p>Macht deine Website live im Internet. Nimmt deinen Code von GitHub und stellt ihn unter deiner Domain bereit. Kostenlos.</p>
+    </div>
+  </div>
+
   <div class="card">
-    <p><strong>GitHub</strong> ist wie eine Cloud für deinen Website-Code. Jede Änderung wird gespeichert — du kannst jederzeit zu einer früheren Version zurückgehen. <strong>Vercel</strong> nimmt deinen Code von GitHub, baut daraus eine Website und macht sie unter deiner Domain erreichbar. Jede Änderung wird automatisch in Sekunden live.</p>
+    <p>Der Workflow: Du arbeitest in VS Code → Claude Code lädt auf GitHub hoch → Vercel macht es live.</p>
     <p>Der Workflow: Du arbeitest in VS Code → Claude Code lädt auf GitHub hoch → Vercel macht es live.</p>
     <div class="step"><div class="step-label">01</div><h4>GitHub-Konto erstellen</h4><p>Gehe auf <a href="https://github.com" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">github.com</a> → „Sign up". Du brauchst nur eine E-Mail-Adresse. Wähle den kostenlosen Plan.</p></div>
     <div class="step"><div class="step-label">02</div><h4>GitHub mit Claude Code verbinden</h4><p>Sag Claude Code im Terminal: „Verbinde mich mit GitHub." Claude führt dich durch den Login-Prozess.</p></div>
@@ -1899,10 +2183,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <p>Wenn deine Website einmal live ist, funktioniert jede Änderung so:</p>
     <p>1. Änderung in VS Code machen → 2. Claude Code: „Lade die Änderungen auf GitHub hoch." → 3. Vercel aktualisiert automatisch in 10–30 Sekunden.</p>
     <p><strong>Was tun wenn etwas schief geht?</strong> Keine Panik. Website sieht komisch aus? Sag Claude: „Mach die letzte Änderung rückgängig." Vercel zeigt Fehler? Sag Claude: „Vercel zeigt diesen Fehler: [Fehlermeldung]. Kannst du das fixen?"</p>
-    <div class="mindset-box">
-      <h4>Das Magische an diesem Setup</h4>
-      <p>Jede Änderung, die du in VS Code machst und auf GitHub hochlädst, ist automatisch in Sekunden auf deiner Website live. Keine manuelle Veröffentlichung, kein FTP-Upload, kein Server-Stress. So arbeiten professionelle Entwickler.</p>
-    </div>
+    <p><strong>Das Magische an diesem Setup:</strong> Jede Änderung, die du in VS Code machst und auf GitHub hochlädst, ist automatisch in Sekunden auf deiner Website live. Keine manuelle Veröffentlichung, kein FTP-Upload, kein Server-Stress. So arbeiten professionelle Entwickler.</p>
   </div>
 
   <div class="reflection-box">
@@ -2004,11 +2285,29 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
 <div class="section" id="sec-ch12-1" data-title="HubSpot einrichten" data-chapter="12">
   <h3 class="section-title"><span class="icon">📊</span> HubSpot CRM einrichten</h3>
+
+  <div class="miriam-sagt">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">HubSpot sieht riesig aus. Ignorier 90% davon.</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p>Stell dir vor, 10 Leute schreiben dir über dein Kontaktformular. Ohne CRM: Du suchst in deinem E-Mail-Postfach, vergisst jemanden, antwortest doppelt. Mit CRM: Alles an einem Ort, automatische Benachrichtigungen, kein Kontakt geht verloren. HubSpot kann alles Mögliche — aber du brauchst nur fünf Dinge: Kontakte, Formulare, E-Mail-Vorlagen, Meeting-Link und die Pipeline. Den Rest? Gibt's nicht. Zumindest nicht für dich, nicht jetzt.</p>
+    <div class="mantra">Fünf Funktionen. Das war's. Den Rest vergiss.</div>
+  </div>
+
   <div class="card">
-    <div class="tip-miriam" style="margin-bottom:20px;">
-      <div class="label">Warum ich HubSpot nutze</div>
-      <p>"Ich habe HubSpot vor Jahren für meine eigene Website eingerichtet — und seitdem nie mehr gewechselt. Kostenlos, mächtig, und Claude kann es für dich einrichten. Kein Excel, keine Post-its, keine vergessenen Anfragen. Alles an einem Ort."</p>
-      <div class="author">Miriam Bäumler</div>
+    <div class="miriam-sagt" style="margin-bottom:20px;">
+      <div class="miriam-sagt-header">
+        <div class="miriam-avatar"></div>
+        <div>
+          <div class="miriam-sagt-label">Warum ich HubSpot nutze</div>
+          <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+        </div>
+      </div>
+      <p>Ich habe HubSpot vor Jahren für meine eigene Website eingerichtet — und seitdem nie mehr gewechselt. Kostenlos, mächtig, und Claude kann es für dich einrichten. Kein Excel, keine Post-its, keine vergessenen Anfragen. Alles an einem Ort.</p>
     </div>
     <p><strong>Was ist ein CRM?</strong> CRM steht für Customer Relationship Management. Ein System, das alle deine Kontakte, Anfragen und Kundenbeziehungen an einem Ort sammelt. HubSpot ist das beliebteste CRM für Einsteiger — dauerhaft kostenlos, nicht nur „30 Tage testen".</p>
     <p><strong>Was du bekommst:</strong> Kontaktverwaltung (bis 1.000.000 Kontakte), Formulare für deine Website, E-Mail-Marketing, Live-Chat, Meeting-Links und ein Dashboard.</p>
@@ -2033,9 +2332,8 @@ Erstelle drei E-Mail-Vorlagen: Erstanfrage, Angebot, Follow-up.
 Richte eine Sales-Pipeline ein: Anfrage → Gespräch → Angebot → Verhandlung → Abschluss.
 Verbinde meine Domain.</pre>
   </div>
-  <div class="tip-teal">
-    <div class="label">Claude Cowork richtet HubSpot für dich ein</div>
-    <p style="font-size:14px;color:var(--muted);margin:0;">HubSpot hat viele Einstellungen und Menüs. Claude Cowork kann über die Browser-Erweiterung direkt in HubSpot arbeiten. Claude öffnet HubSpot, klickt sich durch die Menüs, erstellt Formulare, richtet Einstellungen ein — und du schaust zu.</p>
+  <div class="tipp-box" data-color="teal"><div class="tipp-label">Claude Cowork richtet HubSpot für dich ein</div>
+    <p>HubSpot hat viele Einstellungen und Menüs. Claude Cowork kann über die Browser-Erweiterung direkt in HubSpot arbeiten. Claude öffnet HubSpot, klickt sich durch die Menüs, erstellt Formulare, richtet Einstellungen ein — und du schaust zu.</p>
   </div>
 
   <div class="chapter-summary">
@@ -2120,9 +2418,8 @@ Mische die Formate: Montag = Tipp/Mehrwert, Mittwoch = Behind-the-Scenes/Persön
 Analysiere für jeden: Website-Aufbau und Design, Angebot und Preisgestaltung, Social-Media-Präsenz, Stärken und Schwächen.
 Erstelle eine Vergleichstabelle als Excel-Datei und eine Zusammenfassung mit Empfehlungen, wie ich mich abheben kann. Speichere alles in meinem Ordner.</pre>
   </div>
-  <div class="tip-teal">
-    <div class="label">Zeitspar-Faktor</div>
-    <p style="font-size:14px;color:var(--muted);margin:0;">Was du einzeln in 4–5 Stunden machst, erledigt Cowork in unter einer Stunde. Du gibst die Liste, lehnst dich zurück, und Claude arbeitet. Und das Beste: Du lernst dabei, weil du zuschaust.</p>
+  <div class="tipp-box" data-color="teal"><div class="tipp-label">Zeitspar-Faktor</div>
+    <p>Was du einzeln in 4–5 Stunden machst, erledigt Cowork in unter einer Stunde. Du gibst die Liste, lehnst dich zurück, und Claude arbeitet. Und das Beste: Du lernst dabei, weil du zuschaust.</p>
   </div>
 
   <div class="reflection-box">
@@ -2167,8 +2464,22 @@ Erstelle eine Vergleichstabelle als Excel-Datei und eine Zusammenfassung mit Emp
 
 <div class="section" id="sec-ch14-1" data-title="Produkt erstellen" data-chapter="14">
   <h3 class="section-title"><span class="icon">📦</span> Digitale Produkte</h3>
+
+  <div class="miriam-sagt">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Letzter Tag. Du hast so viel geschafft.</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p>Schau mal kurz zurück: Mindset, Positionierung, Claude, VS Code, Branding, Domain, Website, Recht, E-Mail, CRM — alles steht. Du hast in ein paar Tagen mehr aufgebaut als die meisten in Monaten. Jetzt kommt das Sahnehäubchen: Dein erstes Produkt. Dein erstes Geld.</p>
+    <p>Fühlt sich "zu früh" an? Ist es nicht. Du bist bereit. Alles ist da.</p>
+    <div class="mantra">Dein erstes Produkt muss nicht perfekt sein. Es muss nur existieren.</div>
+  </div>
+
   <div class="card">
-    <p><strong>Was sind digitale Produkte?</strong> Alles, was du einmal erstellst und dann unendlich oft verkaufen kannst — ohne Lager, Versand oder Produktionskosten. Jemand kauft, bekommt sofort den Download, und du verdienst Geld — auch nachts, am Wochenende, im Urlaub.</p>
+    <p>Digitale Produkte sind alles, was du einmal erstellst und dann unendlich oft verkaufen kannst — ohne Lager, Versand oder Produktionskosten. PDFs, E-Books, Templates, Checklisten, Online-Kurse. Jemand kauft, bekommt sofort den Download, und du verdienst Geld — auch nachts, am Wochenende, im Urlaub.</p>
     <p><strong>Beispiele:</strong> Workbooks und Arbeitsbücher, E-Books und Ratgeber, Checklisten und Vorlagen (Canva, Excel, Word), Online-Kurse, Planungshilfen (Budgetplaner, Content-Kalender), Templates für Websites oder Social Media.</p>
     <p>Starte klein. Dein erstes Produkt kann eine einfache Checkliste sein, ein 10-seitiges E-Book oder eine Canva-Vorlage. Du brauchst drei Dinge: 1) Ein Produkt, 2) Eine Verkaufsseite, 3) Einen Zahlungsanbieter.</p>
   </div>
@@ -2194,6 +2505,13 @@ Verwende meine Brand-Farben und mein Design.</pre>
 
 <div class="section" id="sec-ch14-2" data-title="Stripe einrichten" data-chapter="14">
   <h3 class="section-title"><span class="icon">💳</span> Stripe einrichten</h3>
+
+  <div class="glossar-box">
+    <div class="glossar-term">Stripe</div>
+    <p>Ein Online-Zahlungsanbieter. Deine Kunden bezahlen über Stripe mit Kreditkarte oder anderen Methoden, und das Geld landet auf deinem Bankkonto. Keine monatlichen Gebühren — Stripe nimmt nur einen kleinen Prozentsatz pro Verkauf.</p>
+    <div class="glossar-analogy">Stripe ist wie eine digitale Kasse für deinen Online-Shop. Du stellst sie einmal auf, und ab dann können Kunden jederzeit bezahlen — auch um 3 Uhr nachts.</div>
+  </div>
+
   <div class="card">
     <p><strong>Warum Stripe?</strong> Nur ~2,9 % + 0,25 € pro Transaktion, keine monatlichen Gebühren. Mit Stripe + HubSpot hast du alles in einem System: Zahlung, Kundendaten, automatische E-Mails, Follow-ups.</p>
     <p><strong>Rechenbeispiel bei 29 € E-Book:</strong> Gumroad (10 %) → 26,10 € | Digistore (7,9 %) → 26,71 € | Stripe (2,9 % + 0,25 €) → 27,91 €. Bei 100 Verkäufen sparst du mit Stripe über 180 € gegenüber Gumroad.</p>
@@ -2267,19 +2585,17 @@ Teste den gesamten Ablauf im Testmodus.</pre>
       <div class="item">Digitales Produkt erstellt &amp; Stripe-Zahlungen eingerichtet</div>
     </div>
   </div>
-  <div class="value-box" style="max-width:480px;margin:24px auto 0;position:relative;z-index:1;">
-    <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+  <div class="miriam-sagt" style="max-width:480px;margin:24px auto 0;position:relative;z-index:1;text-align:left;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
       <div>
-        <div class="value-num">30 €</div>
-        <div class="value-label">pro Monat. Alles inklusive.</div>
-      </div>
-      <div style="flex:1;min-width:160px;">
-        <p style="font-size:14px;color:var(--text);margin:0;line-height:1.6;">Agenturpreis für das Gleiche: <strong style="color:var(--coral);">5.000–15.000 €</strong> einmalig. Plus laufende Wartung. Du machst das jetzt selbst.</p>
+        <div class="miriam-sagt-label">Von Miriam</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
       </div>
     </div>
+    <p>Ich bin stolz auf dich. Wirklich. Du hast etwas gemacht, was sich die meisten Menschen nur vornehmen. Du hast angefangen, du hast durchgehalten, und du hast jetzt etwas Eigenes in der Welt. Das ist mehr wert, als du gerade denkst.</p>
+    <div class="mantra">So macht Selbstständigkeit wieder Spaß.</div>
   </div>
-  <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--coral);margin-top:40px;position:relative;z-index:1;">So macht Selbstständigkeit wieder Spaß.</div>
-  <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-top:8px;position:relative;z-index:1;">— Miriam Bäumler</div>
 </div>
 
 </div><!-- /main -->
@@ -2564,7 +2880,7 @@ function initGSAP() {
 
   // Section reveal with staggered children
   document.querySelectorAll('.section:not(.hero-section)').forEach(function(sec) {
-    var children = sec.querySelectorAll('.card, .prompt-box, .tip-coral, .tip-teal, .mindset-box, .reflection-box, .step, .chapter-summary, .for-whom, h3.section-title, .checklist, .fill-group, .baustein-grid, .roadmap, .cost-table');
+    var children = sec.querySelectorAll('.card, .prompt-box, .tip-coral, .tip-teal, .tipp-box, .mindset-box, .miriam-sagt, .glossar-box, .mistake-box, .celebration, .reflection-box, .step, .chapter-summary, .for-whom, h3.section-title, .checklist, .fill-group, .baustein-grid, .roadmap, .cost-table');
     if (children.length > 0) {
       gsap.set(children, { opacity: 0, y: 30 });
       ScrollTrigger.create({
