@@ -1179,8 +1179,78 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     </div>
   </div>
 
-  <div class="tipp-box" data-color="coral" style="margin-top:20px;"><div class="tipp-label">Platzhalter</div>
-    <p>Den vollständigen Wettbewerbsanalyse-Prompt füge ich ein, sobald du ihn mir schickst.</p>
+  <div class="prompt-box">
+    <div class="label">Prompt: Schnelle Wettbewerbsanalyse (Anfänger)</div>
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
+    <pre>Ich mache mich als [Beruf/Branche] in [Stadt/Region] selbstständig. Analysiere meine 3 wichtigsten Wettbewerber. Finde heraus:
+
+1. Wer sind sie? (Name, Website, was bieten sie an?)
+2. Was machen sie gut? (Website, Angebot, Auftritt)
+3. Was machen sie schlecht? (Bewertungen, fehlende Angebote, schlechte Website)
+4. Wie sind ihre Preise?
+5. Wo könnte ICH mich abheben?
+
+Suche auf Google, Instagram und Bewertungsportalen. Schreibe die Ergebnisse als übersichtliche Tabelle.</pre>
+  </div>
+
+  <div class="prompt-box" style="margin-top:12px;">
+    <div class="label">Prompt: Tiefgehende Wettbewerbsanalyse (Profi)</div>
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
+    <pre>Führe eine tiefgehende Wettbewerbsanalyse zu [Wettbewerber] durch:
+
+UNTERNEHMENSÜBERSICHT:
+• Gründungsgeschichte und wichtigste Meilensteine
+• Führungsteam (Hintergründe, vorherige Unternehmen)
+• Finanzierungshistorie (Runden, Investoren, Bewertungen, geschätzte Burn-Rate)
+• Mitarbeiterzahl und Wachstumsverlauf (LinkedIn-Headcount prüfen)
+• Bürostandorte und Expansionsmuster
+
+PRODUKT-TIEFENANALYSE:
+• Vollständiger Produktkatalog mit Beschreibungen
+• Preismodelle (aktuell + historische Änderungen)
+• Feature-Vergleich mit den 3 wichtigsten Alternativen
+• Technologie-Stack (aus Stellenanzeigen, Tech-Blogs, BuiltWith)
+• Neue Produktlaunches (letzte 12 Monate)
+• Hinweise auf die Roadmap (aus: Stellenanzeigen, Konferenzvorträgen, Patentanmeldungen, Kundenbefragungen)
+
+MARKTPOSITIONIERUNG:
+• Zielkunde (Größe, Branche, Merkmale, Jobtitel)
+• Ideales Kundenprofil (ICP) basierend auf Fallstudien
+• Messaging und Positionierung (Website, Anzeigen, Content analysieren)
+• Markenstimme und Persönlichkeit
+• Behauptete Alleinstellungsmerkmale
+
+GO-TO-MARKET-STRATEGIE:
+• Marketingkanäle (bezahlt, organisch, Partnerschaften)
+• Content-Strategie (Blog-Themen, Frequenz, Engagement)
+• Vertriebsansatz (Inbound vs. Outbound, PLG vs. vertriebsgesteuert)
+• Partner-Ökosystem (Integrationen, Reseller, Technologiepartner)
+• Eventpräsenz (Konferenzen, Webinare, Sponsorings)
+
+KUNDENINTELLIGENZ:
+• Bewertungsanalyse (G2, Capterra, TrustPilot – was lieben/hassen Nutzer?)
+• Häufige Beschwerden (aus Reddit, Twitter/X, Support-Foren)
+• Feature-Wünsche und Lücken (aus öffentlicher Roadmap, Nutzerforen)
+• Abwanderungssignale (Glassdoor-Bewertungen, Kundenreferenzen die verstummt sind)
+
+STRATEGISCHE SCHWACHSTELLEN:
+• Worin sind sie schlecht? (basierend auf Bewertungen, Einstellungsmustern)
+• Welche Märkte ignorieren sie?
+• Wo sind sie überdehnt?
+• Technische Schulden oder Legacy-Probleme
+• Preisschwächen oder -lücken
+
+BEDROHUNGSEINSCHÄTZUNG:
+• Wie aggressiv agieren sie in UNSEREM Markt?
+• Was wäre nötig, um effektiv zu konkurrieren?
+• Was könnten sie tun, das uns am meisten schaden würde?
+• Frühwarnsignale, die überwacht werden sollten
+
+Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen priorisieren (deren Blog, offizielle Ankündigungen, verifizierte Bewertungen). Spekulationen klar von bestätigten Fakten trennen. URLs zur Verifizierung angeben.</pre>
+  </div>
+
+  <div class="nova-beispiel">
+    <strong>Nova's Wettbewerber:</strong> Sie hat drei Schmuck-Shops in Köln analysiert und festgestellt: Keiner bietet personalisierte Beratung online an, die Websites sind veraltet, und bei Google-Bewertungen beschweren sich Kundinnen über fehlende Rückgabemöglichkeiten. Ihre Chance: Moderner Online-Auftritt + persönlicher Service + klare Rückgabebedingungen.
   </div>
 </div>
 
@@ -1494,9 +1564,8 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   </div>
 
   <div class="card">
-    <p>Claude ist das Werkzeug, mit dem du den Rest dieses Workbooks durcharbeitest. Wenn du Claude verstehst, wird alles danach einfacher — Website bauen, Logo erstellen, E-Mails einrichten, Produkte verkaufen. Nimm dir hier ruhig extra Zeit.</p>
-    <p>Ich habe in meinem Leben noch nie eine Zeile Code geschrieben. Diese ganzen Begriffe waren mir komplett fremd. Dann habe ich gesehen, wie jemand einer KI in normalem Deutsch sagt, was er haben will, und die KI baut eine komplette Website. Innerhalb von Minuten.</p>
-    <p>Das war der Moment, in dem ich verstanden habe: Du musst nicht programmieren können. Du musst nur wissen, wie du mit Claude redest.</p>
+    <p>Claude ist das Werkzeug, mit dem du den Rest dieses Workbooks durcharbeitest — Website bauen, Logo erstellen, E-Mails einrichten, Produkte verkaufen. Wenn du Claude einmal verstanden hast, wird alles danach leichter. Nimm dir hier ruhig extra Zeit, denn dieses Kapitel ist die Grundlage für alles, was kommt.</p>
+    <p>Ich habe in meinem Leben noch nie eine Zeile Code geschrieben. Diese ganzen Begriffe waren mir komplett fremd. Dann habe ich gesehen, wie jemand einer KI in normalem Deutsch sagt, was er haben will — und die KI baut eine komplette Website. Innerhalb von Minuten. Das war der Moment, in dem ich verstanden habe: Du musst nicht programmieren können. Du musst nur wissen, wie du mit Claude redest.</p>
     <div class="miriam-sagt" style="margin-top:16px;">
       <div class="miriam-sagt-header">
         <div class="miriam-avatar"></div>
@@ -1507,14 +1576,16 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
       </div>
       <p>Claude hat meine komplette Website gebaut. Ich habe einfach erklärt, wie sie aussehen soll — Farben, Struktur, Texte — und Claude hat den Code geschrieben. Kein teurer Webdesigner, keine Programmierkenntnisse. Nur ich, meine Ideen, und Claude.</p>
     </div>
-    <p>Und genau das lernst du in diesem Kapitel. Wir fangen ganz am Anfang an — kein Vorwissen nötig. Am Ende wirst du wissen, was Claude kann, wie du es nutzt und welchen Modus du wofür brauchst. Nimm dir für dieses Kapitel ruhig etwas mehr Zeit — es ist die Grundlage für alles, was danach kommt.</p>
+    <p>Und genau das lernst du in diesem Kapitel. Wir fangen ganz am Anfang an — kein Vorwissen nötig. Am Ende wirst du wissen, was Claude kann, wie du es nutzt und welchen Modus du wofür brauchst.</p>
+    <div class="nova-beispiel">
+      <strong>Nova's erster Chat mit Claude:</strong> Nova tippt in Claude: „Was brauche ich alles, um handgemachten Schmuck online zu verkaufen?" Zurück kommt eine komplette Checkliste — von Gewerbeanmeldung über Website bis zu Verpackungsvorschriften. Ihre Reaktion: „Das hätte ich drei Wochen gegoogelt."
+    </div>
   </div>
 
   <div class="card">
     <h3 class="section-title" style="font-size:20px;"><span class="icon">💬</span> Erstmal ankommen: Claude ausprobieren</h3>
-    <p>Bevor wir irgendetwas einrichten, solltest du Claude erstmal kennenlernen. Öffne claude.ai, melde dich an und stell einfach eine Frage. Irgendeine. Das kann sein: „Was brauche ich alles, um mich als Coach selbstständig zu machen?" Oder: „Erkläre mir, was eine Domain ist — so, als wäre ich 10."</p>
-    <p>Es geht darum, ein Gefühl dafür zu bekommen, wie Claude antwortet. Wie du Fragen stellst. Und dass du merkst: Das hier ist kein kompliziertes Programm. Das ist wie chatten — nur dass dein Gesprächspartner wirklich alles weiß.</p>
-    <p>Teste ruhig verschiedene Sachen. Frag etwas Persönliches zu deinem Business. Lass dir einen Text schreiben. Bitte Claude, etwas zu erklären. Probiere aus, was passiert, wenn du nachfragst oder sagst „das ist mir zu kompliziert, erklär es einfacher". Claude passt sich an.</p>
+    <p>Bevor wir irgendetwas einrichten, solltest du Claude erstmal kennenlernen. Öffne claude.ai, melde dich an und stell einfach eine Frage — irgendeine. „Was brauche ich alles, um mich als Coach selbstständig zu machen?" Oder: „Erkläre mir, was eine Domain ist — so, als wäre ich 10." Es geht darum, ein Gefühl dafür zu bekommen, wie Claude antwortet und wie du Fragen stellst. Du wirst schnell merken: Das hier ist kein kompliziertes Programm, sondern wie chatten — nur dass dein Gesprächspartner wirklich alles weiß.</p>
+    <p>Teste ruhig verschiedene Sachen: Frag etwas Persönliches zu deinem Business, lass dir einen Text schreiben, bitte Claude etwas zu erklären. Probiere aus, was passiert, wenn du nachfragst oder sagst „das ist mir zu kompliziert, erklär es einfacher" — Claude passt sich an und wird mit jeder Nachricht besser auf dich abgestimmt.</p>
     <div class="tipp-box" data-color="teal"><div class="tipp-label">Zeitspar-Tipp: Einfach lostesten</div>
       <p>Nimm dir 10 Minuten und stell Claude 5 verschiedene Fragen zu deinem Business. Frag nach deiner Zielgruppe, nach Ideen für deinen Markennamen, nach einem Slogan. Du wirst überrascht sein, wie gut die Antworten sind — und wie schnell du ein Gefühl für das Tool bekommst.</p>
     </div>
@@ -1577,7 +1648,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   </div>
 
   <div class="card">
-    <p>Claude hat drei verschiedene Arbeitsmodi. Jeder ist für andere Aufgaben gedacht. Stell es dir vor wie drei verschiedene Mitarbeiter in einem Büro:</p>
+    <p>Claude hat drei verschiedene Arbeitsmodi, jeder für andere Aufgaben gedacht. Am einfachsten stellst du dir das wie drei verschiedene Mitarbeiter in einem Büro vor:</p>
     <div class="step"><div class="step-label">Modus 1</div><h4>Claude Chat</h4><p>Das ist der Modus, den du gerade kennengelernt hast. Hier stellst du Fragen, lässt Texte schreiben, arbeitest an Strategien. Nutze Chat für: Texte schreiben, Ideen brainstormen, Fragen stellen, Prompts vorbereiten, Recherche, Strategien entwickeln, Social-Media-Pläne erstellen.</p></div>
     <div class="step"><div class="step-label">Modus 2</div><h4>Claude Cowork</h4><p>Cowork ist wie ein Assistent, der an deinem Computer sitzt und Aufgaben erledigt. Du sagst Claude was er tun soll, und er macht es — im Browser, vor deinen Augen. Über Konnektoren kann Claude direkt in Tools wie Canva, Google oder HubSpot für dich arbeiten. Nutze Cowork für: HubSpot einrichten, E-Mail-Signaturen erstellen, Canva-Designs bauen, Gmail konfigurieren.</p></div>
     <div class="step"><div class="step-label">Modus 3</div><h4>Claude Code</h4><p>Dein persönlicher Programmierer. Claude Code arbeitet direkt in deinen Dateien — entweder in VS Code oder über das Terminal. Du sagst in normalem Deutsch was du willst, und Claude schreibt den Code. Nutze Code für: Website bauen und ändern, Bilder einfügen, Kontaktformulare programmieren, Animationen hinzufügen, Fehler beheben, neue Seiten erstellen.</p></div>
@@ -1590,9 +1661,8 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="section" id="sec-ch4-3" data-title="Cowork & Projektordner" data-chapter="04">
   <h3 class="section-title"><span class="icon">🔌</span> Cowork kennenlernen</h3>
   <div class="card">
-    <p>Cowork verdient eine eigene Erklärung, weil es für viele das beeindruckendste Feature ist. Ich erinnere mich noch, wie ich das erste Mal zugeschaut habe, wie Claude meinen Browser öffnet, sich durch HubSpot klickt und Formulare einrichtet — während ich daneben saß und Kaffee getrunken habe.</p>
-    <p><strong>Der Unterschied zum Chat:</strong> Im Chat sagt Claude dir, was du tun sollst. In Cowork tut Claude es für dich — direkt in deinem Browser, vor deinen Augen.</p>
-    <p>Cowork kannst du für Logo-Erstellung in Canva, HubSpot-Setup, Gmail-Signatur und vieles mehr einsetzen. Die vollständige Anleitung mit allen Schritten, Konnektoren und Mega-Prompts findest du in <strong>Kapitel 13</strong>.</p>
+    <p>Cowork verdient eine eigene Erklärung, weil es für viele das beeindruckendste Feature ist. Ich erinnere mich noch, wie ich das erste Mal zugeschaut habe, wie Claude meinen Browser öffnet, sich durch HubSpot klickt und Formulare einrichtet — während ich daneben saß und Kaffee getrunken habe. Der entscheidende Unterschied zum Chat: Im Chat sagt Claude dir, was du tun sollst. In Cowork tut Claude es für dich — direkt in deinem Browser, vor deinen Augen.</p>
+    <p>Du kannst Cowork unter anderem für Logo-Erstellung in Canva, dein HubSpot-Setup und deine Gmail-Signatur einsetzen. Die vollständige Anleitung mit allen Schritten, Konnektoren und Mega-Prompts findest du in <strong>Kapitel 13</strong>.</p>
     <div class="tipp-box" data-color="coral"><div class="tipp-label">Merk dir</div>
       <p>Für Kapitel 06 (Logo) und Kapitel 12 (HubSpot) wirst du Cowork das erste Mal aktiv nutzen. Bis dahin reicht es, zu wissen: Es gibt Cowork, es ist in der Desktop App, und es macht Arbeit für dich.</p>
     </div>
@@ -1601,8 +1671,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   <h3 class="section-title" style="margin-top:40px;"><span class="icon">📂</span> Dein Projektordner</h3>
 
   <div class="card">
-    <p>Jetzt kommt ein Punkt, der am Anfang vielleicht etwas abstrakt klingt, aber später extrem wichtig wird: Dein Projektordner. Das ist ein ganz normaler Ordner auf deinem Computer — nur dass hier alle Dateien deiner Website liegen. Claude arbeitet in diesem Ordner und ändert die Dateien für dich. Stell ihn dir vor wie einen Koffer für eine Reise: Nur was drin liegt, kommt mit auf die Reise ins Internet.</p>
-    <p><strong>Warum ist das wichtig?</strong> Claude Code arbeitet direkt in diesem Ordner. Wenn du Claude sagst „Erstelle mir eine Website", legt Claude die Dateien genau dort ab. Und wenn du deine Website später live schalten willst (Kapitel 10), lädst du genau diesen Ordner auf GitHub hoch.</p>
+    <p>Jetzt kommt ein Punkt, der am Anfang vielleicht etwas abstrakt klingt, aber später extrem wichtig wird: Dein Projektordner. Das ist ein ganz normaler Ordner auf deinem Computer, in dem alle Dateien deiner Website liegen. Claude arbeitet in diesem Ordner und ändert die Dateien für dich — stell ihn dir vor wie einen Koffer für eine Reise: Nur was drin liegt, kommt mit auf die Reise ins Internet. Claude Code arbeitet direkt in diesem Ordner. Wenn du Claude sagst „Erstelle mir eine Website", legt Claude die Dateien genau dort ab, und wenn du deine Website später live schalten willst (Kapitel 10), lädst du genau diesen Ordner auf GitHub hoch.</p>
     <div class="step"><div class="step-label">01</div><h4>Ordner erstellen</h4><p>Öffne den Datei-Explorer, gehe zu einem Ort, wo du ihn leicht wiederfindest — z.B. Desktop oder Dokumente. Erstelle einen neuen Ordner und nenne ihn so wie dein Business. Verwende nur Kleinbuchstaben und Bindestriche, keine Leerzeichen, keine Umlaute.</p></div>
     <div class="step"><div class="step-label">Der Weg</div><h4>Von deinem Ordner ins Internet</h4><p>Dein Ordner → Claude Code arbeitet darin → Du lädst auf GitHub hoch → Vercel macht deine Website live → Deine Domain zeigt auf Vercel. Das meiste passiert automatisch.</p></div>
     <p style="margin-top:16px;"><strong>Was in deinem Projektordner liegen wird:</strong></p>
@@ -1660,16 +1729,13 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
   <div class="card" style="margin-top:24px;">
     <h3 class="section-title" style="font-size:20px;"><span class="icon">⚠️</span> Was tun, wenn Claude falsch liegt?</h3>
-    <p>Claude ist beeindruckend gut, aber nicht perfekt. Manchmal macht Claude Fehler — er erfindet einen Link, der nicht existiert, oder gibt eine Information, die nicht ganz stimmt.</p>
-    <p><strong>Erstens: Vertraue, aber prüfe.</strong> Wenn Claude dir sagt „Gehe auf diese Website", klicke den Link ruhig an — aber wenn er nicht funktioniert, sag es Claude.</p>
-    <p><strong>Zweitens: Sag einfach, was falsch ist.</strong> „Der Link funktioniert nicht." „Das stimmt so nicht." Claude entschuldigt sich und macht es besser.</p>
-    <p><strong>Drittens: Bei wichtigen Sachen doppelt prüfen.</strong> Rechtliche Texte immer mit einem Generator wie e-recht24.de erstellen. Preise, Telefonnummern, Adressen immer selbst prüfen.</p>
+    <p>Claude ist beeindruckend gut, aber nicht perfekt. Manchmal macht Claude Fehler — erfindet einen Link, der nicht existiert, oder gibt eine Information, die nicht ganz stimmt. Die goldene Regel: <strong>Vertraue, aber prüfe.</strong> Wenn Claude dir einen Link gibt, klick ihn ruhig an — aber wenn er nicht funktioniert, sag es Claude einfach. „Der Link funktioniert nicht." „Das stimmt so nicht." Claude entschuldigt sich und macht es besser.</p>
+    <p>Bei wichtigen Sachen lohnt sich das Doppelt-Prüfen besonders: Rechtliche Texte immer mit einem Generator wie e-recht24.de erstellen, und Preise, Telefonnummern oder Adressen immer selbst kontrollieren. Claude ist dein Assistent, nicht dein Notar.</p>
   </div>
 
   <div class="card" style="margin-top:24px;">
     <h3 class="section-title" style="font-size:20px;"><span class="icon">🔒</span> Kurz zum Datenschutz</h3>
-    <p>Eine berechtigte Frage: Ist das sicher, wenn ich Claude meine Business-Informationen gebe? Die kurze Antwort: Ja, grundsätzlich schon. Claude speichert deine Chats nur für dich — sie werden nicht veröffentlicht oder für andere Nutzer sichtbar gemacht.</p>
-    <p>Trotzdem ein paar Grundregeln: Gib keine Passwörter, Bankdaten oder Steuernummern in Claude ein. Teile keine vertraulichen Kundendaten. Nutze Claude für dein Business, deine Texte, dein Marketing — aber nicht für hochsensible Daten.</p>
+    <p>Eine berechtigte Frage: Ist das sicher, wenn ich Claude meine Business-Informationen gebe? Die kurze Antwort: Ja, grundsätzlich schon. Claude speichert deine Chats nur für dich — sie werden nicht veröffentlicht oder für andere Nutzer sichtbar gemacht. Trotzdem ein paar Grundregeln: Gib keine Passwörter, Bankdaten oder Steuernummern in Claude ein und teile keine vertraulichen Kundendaten. Nutze Claude für dein Business, deine Texte und dein Marketing — aber nicht für hochsensible Daten.</p>
   </div>
 
   <div class="chapter-summary">
@@ -1725,7 +1791,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   </div>
 
   <div class="card">
-    <p>In Kapitel 04 hast du Claude kennengelernt und deinen Projektordner erstellt. Jetzt richten wir VS Code ein — das Programm, in dem Claude Code direkt an deinen Website-Dateien arbeitet. VS Code ist ein kostenloser Code-Editor, den Millionen von Entwicklern weltweit nutzen.</p>
+    <p>In Kapitel 04 hast du Claude kennengelernt und deinen Projektordner erstellt. Jetzt richten wir den Ort ein, an dem Claude Code direkt an deinen Website-Dateien arbeiten kann: VS Code. Das ist ein kostenloser Code-Editor, den Millionen von Entwicklern weltweit nutzen — und du musst trotzdem keinen Code schreiben.</p>
     <div class="step"><div class="step-label">01</div><h4>VS Code herunterladen</h4><p>Gehe auf code.visualstudio.com und lade die kostenlose Version herunter. Installieren, öffnen, fertig.</p></div>
     <div class="step"><div class="step-label">02</div><h4>Projektordner öffnen</h4><p>Öffne VS Code und klicke oben auf „Datei" → „Ordner öffnen". Wähle den Projektordner aus, den du in Kapitel 04 erstellt hast.</p></div>
     <div class="step"><div class="step-label">03</div><h4>Das Terminal öffnen</h4><p>Das Terminal ist das schwarze Fenster unten in VS Code. Klicke oben auf „Ansicht" → „Terminal". Oder nutze Strg + ` (das Häkchen neben der 1-Taste).</p></div>
@@ -1740,6 +1806,9 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <div class="step"><div class="step-label">05</div><h4>Claude Code starten</h4><p>Tippe ins Terminal einfach: claude — und ab jetzt kannst du in normalem Deutsch sagen, was du willst.</p></div>
     <div class="step"><div class="step-label">06</div><h4>Website im Browser ansehen</h4><p>Klicke im Datei-Explorer links auf „index.html" mit der rechten Maustaste und wähle „Mit Live Server öffnen". Du siehst sofort, wie deine Website aussieht.</p></div>
     <p><strong>Keine Angst vor Code:</strong> Du musst keinen Code lesen oder verstehen können. Du sagst Claude einfach in ganz normalen Sätzen, was du willst. „Mach die Überschrift größer." „Ändere die Hintergrundfarbe zu Weiß." „Füge ein Kontaktformular ein." Claude versteht dich und ändert den Code für dich.</p>
+    <div class="nova-beispiel">
+      <strong>Nova's erster Moment in VS Code:</strong> Nova öffnet VS Code, sieht den dunklen Bildschirm mit buntem Text und denkt: „Das ist nichts für mich." Dann tippt sie „claude" ins Terminal und sagt: „Erstelle mir eine einfache Startseite für einen Schmuck-Shop." 30 Sekunden später hat sie ihre erste HTML-Datei. Sie hat keine einzige Zeile Code geschrieben.
+    </div>
   </div>
 </div>
 
@@ -1765,8 +1834,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
   <div class="card" style="margin-top:24px;">
     <h3 class="section-title" style="font-size:20px;"><span class="icon">🎨</span> Farben und Symbole in VS Code</h3>
-    <p><strong>Farben neben Dateinamen:</strong> Grün = neu, noch nicht gespeichert/hochgeladen. Gelb/Orange = verändert seit dem letzten Speichern. Grau = alles normal.</p>
-    <p><strong>Wellenlinien unter dem Code:</strong> Rote Wellenlinie = Fehler. Sag Claude: „Ich habe eine rote Markierung in meiner Datei. Kannst du den Fehler finden und beheben?" Gelbe Wellenlinie = Warnung, meistens ignorierbar.</p>
+    <p><strong>Farben neben Dateinamen:</strong> Grün bedeutet neu (noch nicht gespeichert oder hochgeladen), Gelb/Orange heißt verändert seit dem letzten Speichern, und Grau ist alles normal. <strong>Wellenlinien unter dem Code</strong> sind ebenfalls hilfreich: Eine rote Wellenlinie zeigt einen Fehler — sag Claude einfach „Ich habe eine rote Markierung in meiner Datei, kannst du den Fehler finden?" und Claude kümmert sich darum. Gelbe Wellenlinien sind Warnungen, die du meistens ignorieren kannst.</p>
     <p><strong>Speichern nicht vergessen!</strong> Strg + S (Windows) oder Cmd + S (Mac). Mach dir das zur Gewohnheit — nach jeder Änderung einmal Strg + S drücken.</p>
     <div class="tipp-box" data-color="teal"><div class="tipp-label">Tipp: Auto-Save aktivieren</div>
       <p>Gehe auf Datei → Einstellungen → suche nach „Auto Save" und stelle es auf „afterDelay". Dann sparst du dir das manuelle Speichern komplett.</p>
@@ -1775,9 +1843,8 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
   <div class="card" style="margin-top:24px;">
     <h3 class="section-title" style="font-size:20px;"><span class="icon">🌐</span> Live Server ist nicht gleich „live im Internet"</h3>
-    <p>Wichtige Unterscheidung: Wenn du deine Website mit Live Server im Browser anschaust, ist sie NICHT im Internet sichtbar. Nur du kannst sie sehen. Die Adresse sieht so aus: http://127.0.0.1:5500 — das ist nur deine Maschine.</p>
-    <p>Damit deine Website wirklich für alle sichtbar ist, musst du sie erst „live schalten". Das passiert in Kapitel 10 mit GitHub und Vercel. Bis dahin arbeitest du in Ruhe lokal — du kannst nichts kaputt machen, niemand sieht deine Baustelle.</p>
-    <p><strong>Das ist sogar ein Vorteil:</strong> Lokal arbeiten bedeutet, du kannst in Ruhe experimentieren, Fehler machen, Dinge ausprobieren — ohne dass irgendjemand es sieht. Erst wenn du zufrieden bist, schaltest du die Seite online.</p>
+    <p>Wichtige Unterscheidung: Wenn du deine Website mit Live Server im Browser anschaust, ist sie NICHT im Internet sichtbar. Die Adresse http://127.0.0.1:5500 ist nur deine Maschine — nur du kannst sie sehen. Damit deine Website wirklich für alle sichtbar wird, musst du sie in Kapitel 10 mit GitHub und Vercel „live schalten".</p>
+    <p><strong>Das ist sogar ein Vorteil:</strong> Bis dahin arbeitest du in Ruhe lokal — du kannst experimentieren, Fehler machen, Dinge ausprobieren, ohne dass irgendjemand es sieht. Erst wenn du zufrieden bist, schaltest du die Seite online.</p>
   </div>
 
   <div class="card" style="margin-top:24px;">
@@ -1831,7 +1898,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="section" id="sec-ch6-1" data-title="Logo erstellen" data-chapter="06">
   <h3 class="section-title"><span class="icon">✏️</span> Marke & Logo erstellen</h3>
   <div class="card">
-    <p>Ich habe am Anfang viel zu viel Zeit mit dem Markennamen verbracht. Stundenlang Schreibweisen verglichen, Markenrecht recherchiert. Heute sage ich: Einfach soll einfach sein. Ich heiße Bäumler, ich mache Marketing — also Bäumler Marketing. Nimm deinen Namen und das, was du machst. Prüf, ob die Domain frei ist. Wenn ja — fertig.</p>
+    <p>Ich habe am Anfang viel zu viel Zeit mit dem Markennamen verbracht — stundenlang Schreibweisen verglichen, Markenrecht recherchiert, mich in Details verloren. Heute sage ich: Einfach soll einfach sein. Ich heiße Bäumler, ich mache Marketing — also Bäumler Marketing. Nimm deinen Namen und das, was du machst, prüf ob die Domain frei ist, und wenn ja: fertig.</p>
     <div class="miriam-sagt" style="margin:16px 0;">
       <div class="miriam-sagt-header">
         <div class="miriam-avatar"></div>
@@ -1842,7 +1909,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
       </div>
       <p>Mein Logo habe ich in Canva in einer Stunde erstellt. Ich weiß, was ich mache — deshalb hatte ich keine Angst davor, dass es 'zu simpel' ist. Simpel ist professionell. Die aufwändigen Logos, die Leute stundenlang in Canva bauen, sieht man meistens sofort. Weniger ist fast immer mehr.</p>
     </div>
-    <p><strong>Was ist ein Logo — und warum brauchst du eins?</strong> Dein Logo erscheint auf deiner Website, in E-Mails, auf Social Media, auf Rechnungen — überall. Es muss nicht perfekt sein. Ein gutes Logo für den Start ist: einfach, lesbar auch wenn es klein ist, und es funktioniert auf weißem und dunklem Hintergrund.</p>
+    <p><strong>Was ist ein Logo — und warum brauchst du eins?</strong> Dein Logo erscheint auf deiner Website, in E-Mails, auf Social Media, auf Rechnungen — praktisch überall. Es muss nicht perfekt sein: Ein gutes Logo für den Start ist einfach, auch in kleiner Größe lesbar und funktioniert sowohl auf weißem als auch auf dunklem Hintergrund.</p>
     <div class="step"><div class="step-label">01</div><h4>Markennamen festlegen</h4><p>Kurz, einprägsam, ehrlich. Tipp: Dein Name + was du machst. Prüfe, ob die .de-Domain noch frei ist (bei ionos.de).</p></div>
     <div class="step"><div class="step-label">02</div><h4>Inspiration sammeln</h4><p>Schau dir Logos an, die dir gefallen. Nutze looka.com für Logo-Vorschläge. Zeichne grob auf Papier. Schaue in Canva die Logo-Vorlagen an.</p></div>
     <div class="step"><div class="step-label">03</div><h4>Logo in Canva erstellen</h4><p>Erstelle ein Konto auf <a href="https://www.canva.com" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">canva.com</a>. Wähle eine fertige Logo-Vorlage ODER erstelle von Null. In Claude Cowork kannst du Canva als Konnektor verbinden — dann erstellt Claude dein Logo direkt.</p></div>
@@ -1858,6 +1925,10 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <div class="label">Prompt: Branding-Konzept</div>
     <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
     <pre>Ich brauche ein Branding-Konzept für „[Name]". Schlage mir 3 Farbpaletten vor (Hex-Codes), 2 Schrift-Kombinationen und eine Tonalität. Zielgruppe: [wer]. Stil: [modern/elegant/locker].</pre>
+  </div>
+
+  <div class="nova-beispiel">
+    <strong>Nova's Logo-Session:</strong> Nova erstellt in Canva drei Logo-Varianten — ein minimalistisches Text-Logo in ihrer Brand-Schrift, eins mit einem kleinen Diamant-Icon und eins im Handschrift-Stil. Sie entscheidet sich für die minimalistische Version. Gesamtzeit: 45 Minuten.
   </div>
 
   <div class="reflection-box">
@@ -1957,7 +2028,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
   <div class="card" style="margin-top:12px;">
     <h3 class="section-title" style="font-size:20px;"><span class="icon">🔧</span> DNS-Einstellungen</h3>
-    <p>Über DNS-Einstellungen legst du fest, welcher Dienst was mit deiner Domain machen darf. Du musst das nicht im Detail verstehen — Claude erklärt dir jeden Schritt.</p>
+    <p>Über DNS-Einstellungen legst du fest, welcher Dienst was mit deiner Domain machen darf. Das klingt technisch, aber in der Praxis heißt es: Du kopierst Werte, die Claude dir gibt, und fügst sie bei IONOS ein. Claude erklärt dir dabei jeden Schritt.</p>
     <div class="checklist" style="margin-top:16px;">
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Vercel (Website) — A-Record oder CNAME-Record eintragen</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Google Workspace (E-Mail) — MX-Records und TXT-Record eintragen</span></div>
@@ -1965,7 +2036,10 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Google Search Console — TXT-Record zur Verifizierung</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>E-Mail-Sicherheit (SPF, DKIM, DMARC) — TXT-Records eintragen</span></div>
     </div>
-    <p style="margin-top:16px;"><strong>Keine Angst vor DNS-Einstellungen:</strong> Wenn du einen falschen Eintrag machst, geht nichts kaputt. Du kannst jeden Eintrag jederzeit ändern oder löschen. Mach alle Einträge in einem Rutsch — dann musst du nur einmal warten.</p>
+    <p style="margin-top:16px;"><strong>Keine Angst vor DNS-Einstellungen:</strong> Wenn du einen falschen Eintrag machst, geht nichts kaputt. Du kannst jeden Eintrag jederzeit ändern oder löschen. Am besten machst du alle Einträge in einem Rutsch — dann musst du nur einmal warten.</p>
+    <div class="nova-beispiel">
+      <strong>Nova's DNS-Setup:</strong> Nova registriert nova-schmuck.de bei IONOS für 1 €/Monat. Die DNS-Einstellungen? Sie kopiert die Werte, die Claude ihr gibt, und fügt sie bei IONOS ein. Copy-Paste. Fertig. Hat sie verstanden, was ein A-Record ist? Nicht wirklich. Musste sie auch nicht.
+    </div>
   </div>
   <div class="prompt-box">
     <div class="label">Prompt: Alle DNS-Einstellungen auf einen Blick</div>
@@ -2029,8 +2103,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   </div>
 
   <div class="card">
-    <p>Ich wollte eine richtig gute Website. Nicht so eine Standard-Baukasten-Seite wie bei Wix oder Jimdo, wo man sofort sieht, dass es ein Baukasten ist. Sondern etwas Modernes, Interaktives, Professionelles.</p>
-    <p>Das Problem: Wenn du das von einer Agentur bauen lässt, zahlst du schnell 5.000 Euro aufwärts. Die Lösung: Du nimmst ein professionelles Template als Grundlage und lässt Claude den Rest machen.</p>
+    <p>Ich wollte eine richtig gute Website — nicht so eine Standard-Baukasten-Seite wie bei Wix oder Jimdo, wo man sofort sieht, dass es ein Baukasten ist, sondern etwas Modernes, Interaktives, Professionelles. Das Problem: Wenn du das von einer Agentur bauen lässt, zahlst du schnell 5.000 Euro aufwärts. Die Lösung: Du nimmst ein professionelles Template als Grundlage und lässt Claude den Rest machen.</p>
     <div class="miriam-sagt" style="margin-top:16px;">
       <div class="miriam-sagt-header">
         <div class="miriam-avatar"></div>
@@ -2041,7 +2114,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
       </div>
       <p>Ich habe meine Website mit einem Template von html5up.net gestartet. Claude hat alles umgebaut — Farben, Schriften, Texte, Struktur. Das Ergebnis sieht aus wie eine 5.000-Euro-Agentur-Website. Und ich habe sie in zwei Tagen fertig gehabt.</p>
     </div>
-    <p><strong>Was ist ein Template?</strong> Ein Template ist eine fertige Website-Vorlage. Jemand hat das Design, die Struktur und den Code schon gebaut — du musst nur noch deine Inhalte einsetzen. Wie ein möbliertes Apartment: Du ziehst ein und stellst deine Sachen rein.</p>
+    <p><strong>Was genau ist ein Template?</strong> Eine fertige Website-Vorlage, bei der jemand das Design, die Struktur und den Code schon gebaut hat — du musst nur noch deine eigenen Inhalte einsetzen. Wie ein möbliertes Apartment: Du ziehst ein und stellst deine Sachen rein.</p>
   </div>
   <div class="card">
     <h3 class="section-title" style="font-size:20px;"><span class="icon">🔗</span> Wo findest du Templates?</h3>
@@ -2070,13 +2143,16 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
     <pre>Ich habe den HTML-Quellcode einer Website in meine index.html kopiert. Bitte nimm diesen Code als Strukturvorlage und baue daraus eine komplett eigene Website für mein Business „[Name]". Ersetze alle Texte, Bilder und Farben durch meine eigenen: Farben [Hex-Codes], Schrift [Name]. Behalte die Struktur und das Layout bei, aber mache alles zu meiner eigenen Seite.</pre>
   </div>
-  <p><strong>Trying and Error — das gehört dazu.</strong> Deine Website wird beim ersten Versuch nicht perfekt aussehen. Das ist völlig normal. Der Trick: Du sagst Claude einfach, was dir nicht gefällt. Claude passt alles an — so oft du willst, ohne dass es extra kostet.</p>
+  <p><strong>Trying and Error — das gehört dazu.</strong> Deine Website wird beim ersten Versuch nicht perfekt aussehen. Das ist völlig normal. Der Trick: Du sagst Claude einfach, was dir nicht gefällt, und Claude passt alles an — so oft du willst, ohne dass es extra kostet.</p>
+  <div class="nova-beispiel">
+    <strong>Nova's erste Website:</strong> Nova findet ein cleanes Portfolio-Template auf html5up.net und sagt Claude: „Mach das in meinen Farben, mit meinen Texten, für einen Schmuck-Shop." Zwei Stunden später schaut sie ihre angepasste Website zum ersten Mal an. Es sieht aus wie etwas, das eine 5.000-Euro-Agentur gebaut hätte.
+  </div>
 </div>
 
 <div class="section" id="sec-ch8-2" data-title="Bilder & Anpassung" data-chapter="08">
   <h3 class="section-title"><span class="icon">🖼️</span> Bilder für deine Website</h3>
   <div class="card">
-    <p>Eine Website ohne Bilder wirkt leer und unprofessionell. Aber woher bekommst du gute Bilder?</p>
+    <p>Eine Website ohne Bilder wirkt leer und unprofessionell — aber woher bekommst du gute Bilder, ohne ein Vermögen auszugeben? Es gibt drei gute Quellen:</p>
     <div class="step"><div class="step-label">01</div><h4>Kostenlose Stockfotos</h4><p><a href="https://unsplash.com" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">unsplash.com</a>, <a href="https://pexels.com" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">pexels.com</a>, <a href="https://pixabay.com" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">pixabay.com</a> — Millionen professioneller Fotos, kostenlos und kommerziell nutzbar.</p></div>
     <div class="step"><div class="step-label">02</div><h4>KI-generierte Bilder</h4><p>Canva AI (Magic Media), ChatGPT / DALL-E, Claude mit Cowork — perfekt für Hero-Bilder, Hintergründe oder abstrakte Grafiken.</p></div>
     <div class="step"><div class="step-label">03</div><h4>Eigene Fotos</h4><p>Dein Handy reicht völlig! Authentische Bilder wirken oft besser als jedes Stockfoto. Tipps: Natürliches Licht, aufgeräumter Hintergrund, mehrere Fotos machen.</p></div>
@@ -2153,7 +2229,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   </div>
 
   <div class="card">
-    <p>In Deutschland gibt es klare Regeln für Websites — und wer sie nicht einhält, riskiert Abmahnungen. Die können schnell 1.000 Euro oder mehr kosten. Die gute Nachricht: Mit den richtigen Generatoren und Claude ist alles in unter einer Stunde erledigt.</p>
+    <p>In Deutschland gibt es klare Regeln für Websites, und wer sie nicht einhält, riskiert Abmahnungen — die können schnell 1.000 Euro oder mehr kosten. Die gute Nachricht: Mit den richtigen Generatoren und Claude ist alles in unter einer Stunde erledigt. Hier ist deine Checkliste:</p>
     <div class="checklist" style="margin-top:16px;">
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>1. Impressum</strong> — Pflicht für jede gewerbliche Website</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span><strong>2. Datenschutzerklärung</strong> — Pflicht laut DSGVO</span></div>
@@ -2166,8 +2242,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   </div>
   <div class="card" style="margin-top:24px;">
     <h3 class="section-title" style="font-size:20px;"><span class="icon">📝</span> Impressum & Datenschutz</h3>
-    <p><strong>Impressum:</strong> Jede gewerbliche Website braucht ein Impressum mit Name, Adresse, Kontaktdaten und ggf. Steuernummer. Es muss von jeder Seite mit maximal 2 Klicks erreichbar sein — am besten im Footer. Nutze einen Generator wie e-recht24.de.</p>
-    <p><strong>Datenschutzerklärung:</strong> Sobald deine Website personenbezogene Daten erhebt (und das tut sie fast immer), brauchst du eine Datenschutzerklärung. Nutze datenschutz-generator.de oder e-recht24.de.</p>
+    <p><strong>Impressum:</strong> Jede gewerbliche Website braucht ein Impressum mit Name, Adresse, Kontaktdaten und ggf. Steuernummer — es muss von jeder Seite mit maximal 2 Klicks erreichbar sein, am besten im Footer. <strong>Datenschutzerklärung:</strong> Sobald deine Website personenbezogene Daten erhebt (und das tut sie fast immer), brauchst du eine Datenschutzerklärung. Für beides nutzt du kostenlose Generatoren wie e-recht24.de oder datenschutz-generator.de, und Claude baut das Ergebnis dann auf deiner Website ein.</p>
   </div>
   <div class="prompt-box">
     <div class="label">Prompt: Impressum einbauen</div>
@@ -2188,6 +2263,9 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
       </div>
     </div>
     <p>Schreibe Impressum, Datenschutzerklärung und AGB NICHT selbst — auch nicht mit Claude. Nutze dafür immer offizielle Generatoren (<a href="https://www.e-recht24.de" target="_blank" rel="noopener" style="color:var(--coral)">e-recht24.de</a>, <a href="https://www.datenschutz-generator.de" target="_blank" rel="noopener" style="color:var(--coral)">datenschutz-generator.de</a>). Claude baut die Ergebnisse dann auf deiner Website ein. Für den Cookie-Banner und die Barrierefreiheit kann Claude den Code aber komplett selbst schreiben.</p>
+  </div>
+  <div class="nova-beispiel">
+    <strong>Nova's Rechts-Stunde:</strong> Nova generiert ihr Impressum auf e-recht24.de (5 Minuten), ihre Datenschutzerklärung auf datenschutz-generator.de (10 Minuten) und sagt Claude: „Bau beides auf meiner Website ein und erstelle einen Cookie-Banner." Alles erledigt in unter einer Stunde.
   </div>
   <div class="reflection-box" style="margin-top:24px;">
     <div class="label">Meine Pflichtangaben</div>
@@ -2213,7 +2291,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="section" id="sec-ch9-2" data-title="Launch-Check" data-chapter="09">
   <h3 class="section-title"><span class="icon">🚀</span> Vor dem Launch — HTML-Struktur prüfen</h3>
   <div class="card">
-    <p>Bevor deine Website live geht, solltest du Claude einmal bitten, den gesamten Code durchzugehen und sauber zu machen. Jede einzelne Seite braucht:</p>
+    <p>Bevor deine Website live geht, lohnt sich ein letzter Check. Bitte Claude einmal, den gesamten Code durchzugehen und sauber zu machen. Im Grunde ist das wie eine Generalprobe vor der Premiere. Jede einzelne Seite braucht:</p>
     <div class="checklist">
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Title-Tag — max. 60 Zeichen, im Browser-Tab und bei Google sichtbar</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Meta-Description — max. 160 Zeichen, die Beschreibung bei Google</span></div>
@@ -2295,8 +2373,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   </div>
 
   <div class="card">
-    <p>Der Workflow: Du arbeitest in VS Code → Claude Code lädt auf GitHub hoch → Vercel macht es live.</p>
-    <p>Der Workflow: Du arbeitest in VS Code → Claude Code lädt auf GitHub hoch → Vercel macht es live.</p>
+    <p>Der Workflow ist denkbar einfach: Du arbeitest in VS Code, Claude Code lädt auf GitHub hoch, und Vercel macht es live. Drei Schritte, und deine Website ist im Internet.</p>
     <div class="step"><div class="step-label">01</div><h4>GitHub-Konto erstellen</h4><p>Gehe auf <a href="https://github.com" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">github.com</a> → „Sign up". Du brauchst nur eine E-Mail-Adresse. Wähle den kostenlosen Plan.</p></div>
     <div class="step"><div class="step-label">02</div><h4>GitHub mit Claude Code verbinden</h4><p>Sag Claude Code im Terminal: „Verbinde mich mit GitHub." Claude führt dich durch den Login-Prozess.</p></div>
     <div class="step"><div class="step-label">03</div><h4>Repository erstellen und Code hochladen</h4><p>Sag Claude Code: „Erstelle ein GitHub-Repository für meine Website und lade meinen Code hoch."</p></div>
@@ -2312,10 +2389,11 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   </div>
   <div class="card" style="margin-top:24px;">
     <h3 class="section-title" style="font-size:20px;"><span class="icon">🔄</span> So machst du Änderungen</h3>
-    <p>Wenn deine Website einmal live ist, funktioniert jede Änderung so:</p>
-    <p>1. Änderung in VS Code machen → 2. Claude Code: „Lade die Änderungen auf GitHub hoch." → 3. Vercel aktualisiert automatisch in 10–30 Sekunden.</p>
-    <p><strong>Was tun wenn etwas schief geht?</strong> Keine Panik. Website sieht komisch aus? Sag Claude: „Mach die letzte Änderung rückgängig." Vercel zeigt Fehler? Sag Claude: „Vercel zeigt diesen Fehler: [Fehlermeldung]. Kannst du das fixen?"</p>
-    <p><strong>Das Magische an diesem Setup:</strong> Jede Änderung, die du in VS Code machst und auf GitHub hochlädst, ist automatisch in Sekunden auf deiner Website live. Keine manuelle Veröffentlichung, kein FTP-Upload, kein Server-Stress. So arbeiten professionelle Entwickler.</p>
+    <p>Wenn deine Website einmal live ist, funktioniert jede Änderung nach demselben Muster: Änderung in VS Code machen, Claude Code sagen „Lade die Änderungen auf GitHub hoch", und Vercel aktualisiert automatisch in 10-30 Sekunden. Keine manuelle Veröffentlichung, kein FTP-Upload, kein Server-Stress — so arbeiten professionelle Entwickler.</p>
+    <p><strong>Was tun wenn etwas schief geht?</strong> Keine Panik. Website sieht komisch aus? Sag Claude: „Mach die letzte Änderung rückgängig." Vercel zeigt Fehler? Sag Claude: „Vercel zeigt diesen Fehler: [Fehlermeldung]. Kannst du das fixen?" Du kannst nichts unwiderruflich kaputt machen — jede Änderung lässt sich zurücknehmen.</p>
+    <div class="nova-beispiel">
+      <strong>Nova's Go-Live-Moment:</strong> Nova tippt nova-schmuck.de in ihren Browser — und da ist sie. Ihre Website. Live im Internet. Sie schickt den Link an ihre beste Freundin, und die antwortet: „Warte, DU hast das gemacht?!" Bestes Gefühl der Woche.
+    </div>
   </div>
 
   <div class="reflection-box">
@@ -2362,8 +2440,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="section" id="sec-ch11-1" data-title="E-Mail einrichten" data-chapter="11">
   <h3 class="section-title"><span class="icon">📧</span> E-Mail einrichten</h3>
   <div class="card">
-    <p>Du hast wahrscheinlich schon eine Gmail-Adresse wie vorname123@gmail.com. Für dein Business brauchst du eine E-Mail mit deiner eigenen Domain: kontakt@deinbusiness.de. Das wirkt professionell und schafft Vertrauen.</p>
-    <p>Google Workspace ist Googles Business-Lösung: Gmail mit deiner eigenen Domain, Google Drive (30 GB), Google Kalender, Google Meet und Google Docs. Der Business Starter Plan kostet ca. 6–8 € pro Monat.</p>
+    <p>Du hast wahrscheinlich schon eine Gmail-Adresse wie vorname123@gmail.com — aber für dein Business brauchst du eine E-Mail mit deiner eigenen Domain: kontakt@deinbusiness.de. Das wirkt sofort professioneller und schafft Vertrauen. Google Workspace ist Googles Business-Lösung und bringt dir alles mit: Gmail mit deiner eigenen Domain, Google Drive (30 GB), Google Kalender, Google Meet und Google Docs. Der Business Starter Plan kostet ca. 6-8 Euro pro Monat.</p>
     <div class="step"><div class="step-label">01</div><h4>Google Workspace abonnieren</h4><p>Gehe auf <a href="https://workspace.google.com" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">workspace.google.com</a> → Business Starter Plan (~8 €/Monat).</p></div>
     <div class="step"><div class="step-label">02</div><h4>Domain verifizieren</h4><p>Du musst einen TXT-Record bei IONOS hinzufügen. Google zeigt dir den genauen Wert.</p></div>
     <div class="step"><div class="step-label">03</div><h4>DNS Records bei IONOS ändern</h4><p>MX-Records eintragen, die Google dir gibt. MX-Records sagen dem Internet: „E-Mails für diese Domain gehen an Google."</p></div>
@@ -2379,6 +2456,10 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
     <pre>Richte meine Gmail-Signatur ein. Name: [Name], Position: [Position], E-Mail: [E-Mail], Website: [URL], Telefon: [Nr]. Professionell mit meinen Brand-Farben [Hex-Codes]. Füge mein Logo ein.</pre>
   </div>
+  <div class="nova-beispiel">
+    <strong>Nova's erste Business-E-Mail:</strong> Nova schickt ihre erste E-Mail von hallo@nova-schmuck.de an eine Kundin, die nach einem Sonderanfertigung gefragt hatte. Die Kundin antwortet: „Oh, du hast jetzt eine richtige Business-E-Mail — das sieht so professionell aus!"
+  </div>
+
   <div class="reflection-box">
     <div class="label">Meine E-Mail-Adressen</div>
     <div class="fill-group">
@@ -2443,8 +2524,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
       </div>
       <p>Ich habe HubSpot vor Jahren für meine eigene Website eingerichtet — und seitdem nie mehr gewechselt. Kostenlos, mächtig, und Claude kann es für dich einrichten. Kein Excel, keine Post-its, keine vergessenen Anfragen. Alles an einem Ort.</p>
     </div>
-    <p><strong>Was ist ein CRM?</strong> CRM steht für Customer Relationship Management. Ein System, das alle deine Kontakte, Anfragen und Kundenbeziehungen an einem Ort sammelt. HubSpot ist das beliebteste CRM für Einsteiger — dauerhaft kostenlos, nicht nur „30 Tage testen".</p>
-    <p><strong>Was du bekommst:</strong> Kontaktverwaltung (bis 1.000.000 Kontakte), Formulare für deine Website, E-Mail-Marketing, Live-Chat, Meeting-Links und ein Dashboard.</p>
+    <p><strong>Was ist ein CRM?</strong> CRM steht für Customer Relationship Management — ein System, das alle deine Kontakte, Anfragen und Kundenbeziehungen an einem Ort sammelt. HubSpot ist das beliebteste CRM für Einsteiger und dauerhaft kostenlos (nicht nur „30 Tage testen"). Du bekommst damit Kontaktverwaltung für bis zu 1.000.000 Kontakte, Formulare für deine Website, E-Mail-Marketing, Live-Chat, Meeting-Links und ein Dashboard.</p>
     <div class="step"><div class="step-label">01</div><h4>HubSpot-Konto erstellen</h4><p>Gehe auf <a href="https://www.hubspot.com" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">hubspot.com</a> → „Get started free". Registriere dich mit deiner geschäftlichen E-Mail. Wähle „Free Tools".</p></div>
     <div class="step"><div class="step-label">02</div><h4>Firmenprofil einrichten</h4><p>Einstellungen → Unternehmensinformationen. Firmenname, Adresse, Telefonnummer, Website-URL, Logo hochladen, Brand-Farben hinterlegen.</p></div>
     <div class="step"><div class="step-label">03</div><h4>Kontaktformular erstellen</h4><p>Marketing → Formulare → „Formular erstellen". Felder: Vorname, Nachname, E-Mail, Nachricht, Telefon (optional). DSGVO-Checkbox mit Einwilligungstext aktivieren.</p></div>
@@ -2467,7 +2547,11 @@ Richte eine Sales-Pipeline ein: Anfrage → Gespräch → Angebot → Verhandlun
 Verbinde meine Domain.</pre>
   </div>
   <div class="tipp-box" data-color="teal"><div class="tipp-label">Claude Cowork richtet HubSpot für dich ein</div>
-    <p>HubSpot hat viele Einstellungen und Menüs. Claude Cowork kann über die Browser-Erweiterung direkt in HubSpot arbeiten. Claude öffnet HubSpot, klickt sich durch die Menüs, erstellt Formulare, richtet Einstellungen ein — und du schaust zu.</p>
+    <p>HubSpot hat viele Einstellungen und Menüs. Claude Cowork kann über die Browser-Erweiterung direkt in HubSpot arbeiten — Claude öffnet HubSpot, klickt sich durch die Menüs, erstellt Formulare, richtet Einstellungen ein, und du schaust zu.</p>
+  </div>
+
+  <div class="nova-beispiel">
+    <strong>Nova's erster Kontakt:</strong> Nova's erste Kontaktformular-Anfrage kommt um 23 Uhr an einem Dienstag rein. Sie bekommt eine Benachrichtigung auf dem Handy, sieht alle Details in HubSpot und antwortet am nächsten Morgen — von ihrer professionellen E-Mail, mit ihrer gebrandeten Signatur. Keine Post-its, keine vergessenen Anfragen.
   </div>
 
   <div class="chapter-summary">
@@ -2504,8 +2588,7 @@ Verbinde meine Domain.</pre>
 <div class="section" id="sec-ch13-1" data-title="Cowork einrichten" data-chapter="13">
   <h3 class="section-title"><span class="icon">🤝</span> Dein persönlicher Assistent</h3>
   <div class="card">
-    <p>Stell dir vor, du hättest einen persönlichen Assistenten. Einen, der 24 Stunden am Tag verfügbar ist. Der nicht müde wird. Der Texte schreiben kann, Designs erstellen, E-Mails einrichten, Formulare ausfüllen, Websites bearbeiten — und der das alles direkt auf deinem Computer macht, während du zuschaust. Genau das ist Claude Cowork.</p>
-    <p><strong>Der Unterschied:</strong> Im Chat sagt Claude dir, was du tun sollst. In Cowork tut Claude es für dich.</p>
+    <p>Stell dir vor, du hättest einen persönlichen Assistenten, der 24 Stunden am Tag verfügbar ist, nie müde wird und Texte schreiben, Designs erstellen, E-Mails einrichten, Formulare ausfüllen und Websites bearbeiten kann — direkt auf deinem Computer, während du zuschaust. Genau das ist Claude Cowork. Der entscheidende Unterschied zum Chat: Statt dir zu sagen, was du tun sollst, tut Claude es einfach für dich.</p>
     <div class="checklist">
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Claude Desktop App heruntergeladen: <a href="https://claude.ai/download" target="_blank" rel="noopener" style="color:var(--coral)">claude.ai/download</a></span></div>
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Claude Pro-Abo abgeschlossen (~20 €/Monat)</span></div>
@@ -2521,12 +2604,8 @@ Verbinde meine Domain.</pre>
 <div class="section" id="sec-ch13-2" data-title="Mega-Prompts" data-chapter="13">
   <h3 class="section-title"><span class="icon">⚡</span> Was Claude Cowork für dein Business bedeutet</h3>
   <div class="card">
-    <p>Als Selbstständige/r bist du Geschäftsführer, Marketing-Abteilung, IT-Support, Buchhalter und Sekretär in einer Person. Cowork ändert das.</p>
-    <p><strong>Website und Design:</strong> Logo erstellen, Texte umschreiben, Bilder optimieren, Social-Media-Vorlagen — alles in Canva.</p>
-    <p><strong>E-Mail und Kommunikation:</strong> Gmail-Signatur einrichten, E-Mail-Vorlagen in HubSpot, Abwesenheitsnotiz.</p>
-    <p><strong>Business-Einrichtung:</strong> HubSpot, DNS, Cookie-Banner, Google Analytics — Claude klickt sich durch.</p>
-    <p><strong>Dokumente und Content:</strong> Angebote als Word-Dokument, Rechnungen als Excel, Präsentationen als PowerPoint.</p>
-    <p><strong>Tipps:</strong> Je genauer dein Prompt, desto besser. Nenne Farben, Texte, Dateinamen, URLs. Gib eine Reihenfolge an. Beschreibe das Ergebnis.</p>
+    <p>Als Selbstständige bist du Geschäftsführerin, Marketing-Abteilung, IT-Support und Sekretärin in einer Person. Cowork ändert das grundlegend. Im Bereich <strong>Website und Design</strong> erstellt Claude Logos, schreibt Texte um, optimiert Bilder und baut Social-Media-Vorlagen in Canva. Für <strong>E-Mail und Kommunikation</strong> richtet Claude deine Gmail-Signatur ein, erstellt E-Mail-Vorlagen in HubSpot und konfiguriert deine Abwesenheitsnotiz. Bei der <strong>Business-Einrichtung</strong> klickt sich Claude durch HubSpot, DNS, Cookie-Banner und Google Analytics. Und für <strong>Dokumente und Content</strong> erstellt Claude Angebote als Word-Dokument, Rechnungen als Excel und Präsentationen als PowerPoint.</p>
+    <p>Ein Tipp: Je genauer dein Prompt, desto besser das Ergebnis. Nenne Farben, Texte, Dateinamen und URLs, gib eine Reihenfolge an und beschreibe, wie das Ergebnis aussehen soll.</p>
   </div>
   <div class="prompt-box">
     <div class="label">Prompt: Komplettes Business-Setup an einem Tag</div>
@@ -2554,7 +2633,11 @@ Analysiere für jeden: Website-Aufbau und Design, Angebot und Preisgestaltung, S
 Erstelle eine Vergleichstabelle als Excel-Datei und eine Zusammenfassung mit Empfehlungen, wie ich mich abheben kann. Speichere alles in meinem Ordner.</pre>
   </div>
   <div class="tipp-box" data-color="teal"><div class="tipp-label">Zeitspar-Faktor</div>
-    <p>Was du einzeln in 4–5 Stunden machst, erledigt Cowork in unter einer Stunde. Du gibst die Liste, lehnst dich zurück, und Claude arbeitet. Und das Beste: Du lernst dabei, weil du zuschaust.</p>
+    <p>Was du einzeln in 4-5 Stunden machst, erledigt Cowork in unter einer Stunde. Du gibst die Liste, lehnst dich zurück, und Claude arbeitet. Und das Beste: Du lernst dabei, weil du zuschaust.</p>
+  </div>
+
+  <div class="nova-beispiel">
+    <strong>Nova's Cowork-Erlebnis:</strong> Nova schaut zu, wie Claude in Canva drei Instagram-Post-Vorlagen in ihren Brand-Farben erstellt und sie in ihrem Konto speichert. Dann wechselt Claude zu Gmail und richtet ihre E-Mail-Signatur mit Logo ein. Nova trinkt Kaffee und beobachtet. Eigener Aufwand: null.
   </div>
 
   <div class="reflection-box">
@@ -2615,9 +2698,8 @@ Erstelle eine Vergleichstabelle als Excel-Datei und eine Zusammenfassung mit Emp
   </div>
 
   <div class="card">
-    <p>Digitale Produkte sind alles, was du einmal erstellst und dann unendlich oft verkaufen kannst — ohne Lager, Versand oder Produktionskosten. PDFs, E-Books, Templates, Checklisten, Online-Kurse. Jemand kauft, bekommt sofort den Download, und du verdienst Geld — auch nachts, am Wochenende, im Urlaub.</p>
-    <p><strong>Beispiele:</strong> Workbooks und Arbeitsbücher, E-Books und Ratgeber, Checklisten und Vorlagen (Canva, Excel, Word), Online-Kurse, Planungshilfen (Budgetplaner, Content-Kalender), Templates für Websites oder Social Media.</p>
-    <p>Starte klein. Dein erstes Produkt kann eine einfache Checkliste sein, ein 10-seitiges E-Book oder eine Canva-Vorlage. Du brauchst drei Dinge: 1) Ein Produkt, 2) Eine Verkaufsseite, 3) Einen Zahlungsanbieter.</p>
+    <p>Digitale Produkte sind alles, was du einmal erstellst und dann unendlich oft verkaufen kannst — ohne Lager, Versand oder Produktionskosten. PDFs, E-Books, Templates, Checklisten, Online-Kurse: Jemand kauft, bekommt sofort den Download, und du verdienst Geld — auch nachts, am Wochenende und im Urlaub. Workbooks, Ratgeber, Canva-Vorlagen, Planungshilfen, Content-Kalender — die Möglichkeiten sind endlos.</p>
+    <p>Starte klein: Dein erstes Produkt kann eine einfache Checkliste sein, ein 10-seitiges E-Book oder eine Canva-Vorlage. Alles, was du dafür brauchst, sind drei Dinge: ein Produkt, eine Verkaufsseite und einen Zahlungsanbieter.</p>
   </div>
   <div class="prompt-box">
     <div class="label">Prompt: Produktideen finden</div>
@@ -2649,8 +2731,7 @@ Verwende meine Brand-Farben und mein Design.</pre>
   </div>
 
   <div class="card">
-    <p><strong>Warum Stripe?</strong> Nur ~2,9 % + 0,25 € pro Transaktion, keine monatlichen Gebühren. Mit Stripe + HubSpot hast du alles in einem System: Zahlung, Kundendaten, automatische E-Mails, Follow-ups.</p>
-    <p><strong>Rechenbeispiel bei 29 € E-Book:</strong> Gumroad (10 %) → 26,10 € | Digistore (7,9 %) → 26,71 € | Stripe (2,9 % + 0,25 €) → 27,91 €. Bei 100 Verkäufen sparst du mit Stripe über 180 € gegenüber Gumroad.</p>
+    <p><strong>Warum Stripe?</strong> Die Gebühren sind minimal: nur ~2,9 % + 0,25 Euro pro Transaktion, keine monatlichen Kosten. In Kombination mit HubSpot hast du alles in einem System — Zahlung, Kundendaten, automatische E-Mails und Follow-ups. Zum Vergleich bei einem 29-Euro-E-Book: Gumroad (10 %) lässt dir 26,10 Euro, Digistore (7,9 %) bringt 26,71 Euro, und Stripe (2,9 % + 0,25 Euro) zahlt dir 27,91 Euro aus. Bei 100 Verkäufen sparst du mit Stripe über 180 Euro gegenüber Gumroad.</p>
     <div class="step"><div class="step-label">01</div><h4>Stripe-Konto erstellen</h4><p>Gehe auf <a href="https://stripe.com" target="_blank" rel="noopener" style="color:var(--coral);font-weight:600">stripe.com</a> → „Jetzt starten". Geschäftsdaten eingeben, Bankverbindung hinterlegen, Identität verifizieren. Keine monatlichen Gebühren.</p></div>
     <div class="step"><div class="step-label">02</div><h4>Produkt und Payment-Link erstellen</h4><p>Produkte → Neues Produkt → Name, Beschreibung, Preis (Einmalig) → Payment Links → Neuer Payment Link → Checkout anpassen → Link erstellen.</p></div>
     <div class="step"><div class="step-label">03</div><h4>Kaufen-Button auf Website einbauen</h4><p>Sag Claude: „Baue einen professionellen Kaufen-Button ein, der zu diesem Stripe-Link führt: [URL]." Button-Text: „Jetzt für 29 € kaufen" statt nur „Kaufen".</p></div>
@@ -2668,6 +2749,10 @@ Richte die automatische Auslieferung ein: Bestätigungsseite mit Download-Link u
 Verbinde Stripe mit HubSpot, damit jeder Käufer als Kontakt angelegt wird.
 Erstelle eine versteckte Download-Seite auf meiner Website.
 Teste den gesamten Ablauf im Testmodus.</pre>
+  </div>
+
+  <div class="nova-beispiel">
+    <strong>Nova's erstes digitales Produkt:</strong> Nova erstellt mit Claude einen PDF-Guide „10 Tipps zur Schmuckpflege", baut eine Verkaufsseite, verbindet Stripe und macht ihren ersten Testkauf. Der ganze Flow funktioniert — von Klick zu Zahlung zu automatischem Download. Ihr erstes echtes Produkt für 9,90 Euro. Sie könnte es tausendmal verkaufen, ohne einen Finger zu rühren.
   </div>
 
   <div class="reflection-box">
