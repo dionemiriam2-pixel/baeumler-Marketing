@@ -137,12 +137,10 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(-
 
 /* ═══ SECTIONS ═══ */
 .section{
-  min-height:auto;padding:40px 48px 48px;
+  min-height:auto;padding:28px 48px 32px;
   max-width:820px;margin:0 auto;
-  opacity:0;transform:translateY(40px);
-  transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1);
+  opacity:1;transform:none;
 }
-.section.visible{opacity:1;transform:translateY(0)}
 .section.hero-section{
   display:flex;flex-direction:column;justify-content:center;
   align-items:center;text-align:center;min-height:auto;padding-top:80px;padding-bottom:40px;
@@ -200,41 +198,43 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(-
 
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 
-/* ═══ CHAPTER HEADERS — baeumlermarketing.de style ═══ */
-.chapter-header{margin-bottom:32px;position:relative;display:flex;align-items:flex-start;gap:24px}
+/* ═══ CHAPTER HEADERS — bold card ═══ */
+.chapter-header{
+  background:var(--bg2);border-radius:var(--r);
+  padding:28px 32px;margin-bottom:24px;
+  display:flex;align-items:flex-start;gap:20px;
+  border-left:5px solid var(--coral);
+}
 .chapter-num{
-  font-family:'Antonio',sans-serif;font-size:clamp(48px,6vw,72px);font-weight:700;
-  color:var(--coral);line-height:1;flex-shrink:0;letter-spacing:-0.03em;
-  opacity:0.9;
+  font-family:'Antonio',sans-serif;font-size:clamp(44px,5.5vw,60px);font-weight:700;
+  color:var(--coral);line-height:1;flex-shrink:0;letter-spacing:-0.03em;opacity:0.7;
 }
 .chapter-day{
-  font-size:12px;font-weight:500;color:var(--muted);
-  margin-bottom:12px;display:block;
+  font-size:11px;font-weight:600;color:var(--coral);
+  letter-spacing:1.5px;text-transform:uppercase;
+  margin-bottom:4px;display:block;
 }
 .chapter-day::before{content:none}
 .chapter-title{
-  font-family:'Antonio',sans-serif;font-size:clamp(28px,4vw,42px);
-  font-weight:700;line-height:1.15;letter-spacing:-0.02em;
-  margin-bottom:0;position:relative;text-transform:none;
+  font-family:'Antonio',sans-serif;font-size:clamp(22px,3vw,32px);
+  font-weight:700;line-height:1.2;letter-spacing:-0.01em;
+  margin-bottom:0;text-transform:none;color:var(--text);
 }
-.chapter-title::after{
-  content:'';display:block;width:40px;height:3px;
-  background:var(--coral);border-radius:2px;margin-top:16px;
-}
-.chapter-intro{font-size:15px;color:var(--muted);max-width:600px;line-height:1.78;margin-top:16px}
+.chapter-title::after{content:none}
+.chapter-intro{font-size:14px;color:var(--muted);line-height:1.75;margin-top:10px}
 .chapter-quote{display:none}
 .chapter-what{
-  display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;
+  display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;
 }
 .chapter-what-item{
-  font-size:11px;font-weight:600;color:var(--muted);
-  background:var(--bg2);border:1px solid var(--border);
-  border-radius:var(--pill);padding:5px 14px;
+  font-size:10px;font-weight:600;color:var(--coral);
+  background:rgba(232,96,76,0.06);border:1px solid rgba(232,96,76,0.12);
+  border-radius:var(--pill);padding:3px 10px;
 }
 .chapter-nova{
-  font-family:'Playfair Display',serif;font-style:italic;
-  font-size:14px;color:var(--muted);margin-top:16px;
-  line-height:1.7;
+  font-size:13px;color:var(--muted);margin-top:12px;
+  line-height:1.7;font-style:italic;
+  padding-top:10px;border-top:1px solid rgba(0,0,0,0.05);
 }
 .chapter-nova strong{font-weight:700;font-style:normal;color:var(--coral)}
 
@@ -304,7 +304,7 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(-
 
 h3.section-title{
   font-family:'Antonio',sans-serif;font-size:clamp(20px,2.2vw,26px);font-weight:700;
-  text-transform:uppercase;margin-bottom:20px;letter-spacing:-0.02em;
+  text-transform:none;margin-bottom:20px;letter-spacing:-0.02em;
   display:inline;line-height:1.5;
   box-decoration-break:clone;-webkit-box-decoration-break:clone;
   background:linear-gradient(transparent 58%,rgba(232,96,76,0.13) 58%);
@@ -417,7 +417,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 .step{
   background:#fff;border:1px solid var(--border);
   border-radius:var(--r);
-  padding:20px 24px 20px 68px;margin:10px 0;
+  padding:14px 20px 14px 60px;margin:6px 0;
   box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s;
   position:relative;
 }
@@ -776,10 +776,11 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   .menu-toggle{display:flex;align-items:center;justify-content:center}
   .main{margin-left:0}
   .top-bar{left:0}
-  .section{padding:80px 24px 60px}
+  .section{padding:20px 20px 24px}
   .baustein-grid{grid-template-columns:1fr}
-  .hero-title{font-size:clamp(36px,8vw,56px)}
-  .chapter-num{font-size:clamp(100px,15vw,160px)}
+  .hero-title{font-size:clamp(32px,8vw,48px)}
+  .chapter-header{flex-direction:column;gap:8px;padding:20px 24px}
+  .chapter-num{font-size:40px}
   .roadmap{padding-left:32px}
   .check-item .box{min-width:44px;min-height:44px;width:44px;height:44px}
 }
@@ -891,8 +892,8 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <div>
       <div class="chapter-day">Tag 1 · Vorbereitung</div>
       <h2 class="chapter-title">Bevor du startest</h2>
-      <p class="chapter-intro">In diesem Kapitel klärst du die Grundlagen: Was bietest du an, für wen, und was brauchst du formal? Am Ende hast du dein Angebot formuliert, deine Zielgruppe beschrieben und die wichtigsten Formalitäten abgehakt.</p>
-      <p class="chapter-nova"><strong>Nova</strong> hat einen kleinen Schmuckladen in der Innenstadt. Ihre Kundinnen lieben ihre handgemachten Stücke — aber online findet man sie nirgends. Das ändert sich jetzt.</p>
+      <p class="chapter-intro">Du hast eine Idee — jetzt machen wir daraus einen Plan. In diesem Kapitel definierst du dein Angebot, findest deine Zielgruppe und regelst die Formalitäten. Danach weißt du genau, wohin die Reise geht.</p>
+      <p class="chapter-nova"><strong>Nova</strong> betreibt einen kleinen Schmuckladen in Köln. Ihre Kundinnen lieben ihre Unikate — aber online existiert sie nicht. Am Ende dieses Kapitels hat sie ihr Angebot formuliert, ihre Zielgruppe beschrieben und ihr Gewerbe angemeldet.</p>
       <div class="chapter-what">
         <span class="chapter-what-item">Mindset</span>
         <span class="chapter-what-item">Dein Angebot</span>
@@ -1135,8 +1136,8 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <div>
       <div class="chapter-day">Tag 1 · Marke &amp; Strategie</div>
       <h2 class="chapter-title">Dein Fundament</h2>
-      <p class="chapter-intro">Hier baust du deine Marke: Keywords recherchieren, Markennamen sichern, Tonalität festlegen und deine ersten Texte schreiben. Nach diesem Kapitel hast du alles, was du brauchst, um deine Website zu bauen.</p>
-      <p class="chapter-nova"><strong>Nova</strong> recherchiert ihre Keywords, sichert sich die Domain nova-schmuck.de und schreibt ihren ersten Über-mich-Text.</p>
+      <p class="chapter-intro">Jetzt baust du alles, was deine Online-Präsenz braucht: deine Keywords, deinen Markennamen, deine Texte und deinen Ton. Nach diesem Kapitel bist du bereit, deine Website zu bauen — mit allem, was dazugehört.</p>
+      <p class="chapter-nova"><strong>Nova:</strong> Am Ende dieses Kapitels hat Nova ihre Keywords recherchiert, sich nova-schmuck.de gesichert, ihren Über-mich-Text geschrieben und weiß genau, wie sie online klingen will.</p>
       <div class="chapter-what">
         <span class="chapter-what-item">Wettbewerber</span>
         <span class="chapter-what-item">Keywords</span>
@@ -1352,16 +1353,17 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="blob" style="width:380px;height:380px;background:radial-gradient(circle,#f0872b,transparent 70%);top:-60px;left:-100px;--tx:35px;--ty:-15px;--d:22s"></div>
   <div class="chapter-header">
     <div class="chapter-num">03</div>
-    <div class="chapter-day">Tag 2 · Überblick &amp; Setup</div>
-    <h2 class="chapter-title">Dein Plan &amp;<br>deine Werkzeuge</h2>
-    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
-    <p class="chapter-intro">Du weißt jetzt, was du aufbauen willst und für wen. Jetzt schauen wir uns an, wie der Weg dahin aussieht — und was du dafür brauchst.</p>
-    <div class="chapter-quote">"Weniger als du denkst. Und günstiger, als du glaubst."</div>
-    <div class="chapter-what">
-      <span class="chapter-what-item">7-Tage-Plan</span>
-      <span class="chapter-what-item">10 Bausteine</span>
-      <span class="chapter-what-item">Kostenübersicht</span>
-      <span class="chapter-what-item">Konten einrichten</span>
+    <div>
+      <div class="chapter-day">Tag 2 · Überblick &amp; Setup</div>
+      <h2 class="chapter-title">Dein Plan &amp;<br>deine Werkzeuge</h2>
+      <p class="chapter-intro">Hier bekommst du den Überblick: Dein 7-Tage-Fahrplan, alle Tools die du brauchst, und was es kostet. Spoiler: weniger als du denkst.</p>
+      <p class="chapter-nova"><strong>Nova</strong> richtet sich an einem Nachmittag alle Konten ein — Claude, Canva, GitHub, IONOS. Kosten: 29 € im Monat. Weniger als ihr monatlicher Kaffee-Konsum.</p>
+      <div class="chapter-what">
+        <span class="chapter-what-item">7-Tage-Plan</span>
+        <span class="chapter-what-item">10 Bausteine</span>
+        <span class="chapter-what-item">Kostenübersicht</span>
+        <span class="chapter-what-item">Konten einrichten</span>
+      </div>
     </div>
   </div>
 </div>
@@ -1468,15 +1470,16 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="blob" style="width:400px;height:400px;background:radial-gradient(circle,#e8604c,transparent 70%);bottom:-120px;right:-100px;--tx:-25px;--ty:20px;--d:26s"></div>
   <div class="chapter-header">
     <div class="chapter-num">04</div>
-    <div class="chapter-day">Tag 2 · Dein KI-Assistent</div>
-    <h2 class="chapter-title">Claude AI<br>verstehen</h2>
-    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
-    <p class="chapter-intro">Das Herzstück dieses Workbooks. Claude ist nicht einfach ein Chatbot — Claude ist dein Entwickler, Texter und Assistent in einem.</p>
-    <div class="chapter-quote">"Alles, was du nicht weißt, kannst du einfach fragen."</div>
-    <div class="chapter-what">
-      <span class="chapter-what-item">Claude kennenlernen</span>
-      <span class="chapter-what-item">Projekt anlegen</span>
-      <span class="chapter-what-item">Prompts schreiben</span>
+    <div>
+      <div class="chapter-day">Tag 2 · Dein KI-Assistent</div>
+      <h2 class="chapter-title">Claude AI<br>verstehen</h2>
+      <p class="chapter-intro">Dein wichtigstes Werkzeug. Claude ist nicht einfach ein Chatbot — Claude baut deine Website, schreibt deine Texte und richtet deine Tools ein. Hier lernst du, wie du mit Claude arbeitest.</p>
+      <p class="chapter-nova"><strong>Nova:</strong> Am Ende dieses Kapitels hat Nova ihr erstes Claude-Projekt angelegt, 10 verschiedene Prompts ausprobiert und verstanden, welchen Modus sie wofür nutzt.</p>
+      <div class="chapter-what">
+        <span class="chapter-what-item">Claude kennenlernen</span>
+        <span class="chapter-what-item">Projekt anlegen</span>
+        <span class="chapter-what-item">Prompts schreiben</span>
+      </div>
     </div>
   </div>
 </div>
@@ -1686,15 +1689,16 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="blob" style="width:360px;height:360px;background:radial-gradient(circle,#2db8a8,transparent 70%);top:-80px;right:-130px;--tx:20px;--ty:-30px;--d:21s"></div>
   <div class="chapter-header">
     <div class="chapter-num">05</div>
-    <div class="chapter-day">Tag 2 · Dein Arbeitsbereich</div>
-    <h2 class="chapter-title">VS Code &amp;<br>Projektstruktur</h2>
-    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
-    <p class="chapter-intro">VS Code klingt technischer als es ist. Es ist einfach das Programm, in dem deine Website-Dateien liegen und in dem Claude Code für dich arbeitet.</p>
-    <div class="chapter-quote">"Du musst keinen Code verstehen. Du redest, Claude baut."</div>
-    <div class="chapter-what">
-      <span class="chapter-what-item">VS Code installieren</span>
-      <span class="chapter-what-item">Ordnerstruktur</span>
-      <span class="chapter-what-item">Claude Code starten</span>
+    <div>
+      <div class="chapter-day">Tag 2 · Dein Arbeitsbereich</div>
+      <h2 class="chapter-title">VS Code &amp;<br>Projektstruktur</h2>
+      <p class="chapter-intro">Das Programm, in dem deine Website entsteht. Klingt technisch — ist aber nur der Ort, an dem Claude für dich arbeitet. Du tippst dort keinen Code.</p>
+      <p class="chapter-nova"><strong>Nova:</strong> Am Ende dieses Kapitels hat Nova VS Code installiert, ihren Projektordner angelegt und Claude Code zum ersten Mal gestartet. Sie hat noch keine Zeile Code geschrieben — und trotzdem ist alles bereit.</p>
+      <div class="chapter-what">
+        <span class="chapter-what-item">VS Code installieren</span>
+        <span class="chapter-what-item">Ordnerstruktur</span>
+        <span class="chapter-what-item">Claude Code starten</span>
+      </div>
     </div>
   </div>
 </div>
@@ -1809,16 +1813,17 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="blob" style="width:420px;height:420px;background:radial-gradient(circle,#e8604c,transparent 70%);bottom:-100px;left:-120px;--tx:30px;--ty:-25px;--d:20s"></div>
   <div class="chapter-header">
     <div class="chapter-num">06</div>
-    <div class="chapter-day">Tag 3 · Deine Markenidentität</div>
-    <h2 class="chapter-title">Marke &amp; Logo<br>mit Canva</h2>
-    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
-    <p class="chapter-intro">Markennamen festlegen, Logo erstellen, Brand-Farben definieren — alles mit Canva und Claude.</p>
-    <div class="chapter-quote">"Einfach soll einfach sein."</div>
-    <div class="chapter-what">
-      <span class="chapter-what-item">Logo in Canva</span>
-      <span class="chapter-what-item">Farbpalette</span>
-      <span class="chapter-what-item">Schriften</span>
-      <span class="chapter-what-item">Brand Kit</span>
+    <div>
+      <div class="chapter-day">Tag 3 · Deine Markenidentität</div>
+      <h2 class="chapter-title">Marke &amp; Logo<br>mit Canva</h2>
+      <p class="chapter-intro">Dein Logo, deine Farben, dein visueller Auftritt. Alles in Canva — kostenlos und in unter einer Stunde fertig.</p>
+      <p class="chapter-nova"><strong>Nova:</strong> Am Ende dieses Kapitels hat Nova ein minimalistisches Logo, zwei Brand-Farben und ihr Logo in allen Formaten exportiert — bereit für Website, E-Mail und Social Media.</p>
+      <div class="chapter-what">
+        <span class="chapter-what-item">Logo in Canva</span>
+        <span class="chapter-what-item">Farbpalette</span>
+        <span class="chapter-what-item">Schriften</span>
+        <span class="chapter-what-item">Brand Kit</span>
+      </div>
     </div>
   </div>
 </div>
@@ -1906,15 +1911,16 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="blob" style="width:380px;height:380px;background:radial-gradient(circle,#f0872b,transparent 70%);top:-60px;right:-90px;--tx:-20px;--ty:30px;--d:24s"></div>
   <div class="chapter-header">
     <div class="chapter-num">07</div>
-    <div class="chapter-day">Tag 3 · Deine Online-Adresse</div>
-    <h2 class="chapter-title">Domain bei<br>IONOS</h2>
-    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
-    <p class="chapter-intro">Deine Adresse im Internet — kostet weniger als ein Kaffee im Monat.</p>
-    <div class="chapter-quote">"1 € im Monat für deine eigene .de-Domain."</div>
-    <div class="chapter-what">
-      <span class="chapter-what-item">Domain registrieren</span>
-      <span class="chapter-what-item">DNS einrichten</span>
-      <span class="chapter-what-item">E-Mail-Sicherheit</span>
+    <div>
+      <div class="chapter-day">Tag 3 · Deine Online-Adresse</div>
+      <h2 class="chapter-title">Domain bei<br>IONOS</h2>
+      <p class="chapter-intro">Deine Adresse im Internet. Für etwa einen Euro im Monat gehört sie dir. Die Einrichtung dauert 15 Minuten.</p>
+      <p class="chapter-nova"><strong>Nova:</strong> Am Ende dieses Kapitels hat Nova nova-schmuck.de registriert und alle DNS-Einstellungen eingetragen. Hat sie verstanden, was DNS ist? Nicht im Detail. Musste sie auch nicht — Copy-Paste hat gereicht.</p>
+      <div class="chapter-what">
+        <span class="chapter-what-item">Domain registrieren</span>
+        <span class="chapter-what-item">DNS einrichten</span>
+        <span class="chapter-what-item">E-Mail-Sicherheit</span>
+      </div>
     </div>
   </div>
 </div>
@@ -1987,15 +1993,16 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="blob" style="width:420px;height:420px;background:radial-gradient(circle,#f5c842,transparent 70%);bottom:-90px;left:-110px;--tx:-30px;--ty:25px;--d:23s"></div>
   <div class="chapter-header">
     <div class="chapter-num">08</div>
-    <div class="chapter-day">Tag 4 · Deine Website</div>
-    <h2 class="chapter-title">Website-Template<br>finden &amp; anpassen</h2>
-    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
-    <p class="chapter-intro">Du musst das Rad nicht neu erfinden. Es gibt Tausende professionelle Vorlagen im Internet — viele kostenlos.</p>
-    <div class="chapter-quote">"Eine Agentur kostet 5.000 €. Dein Weg: 0 € + Claude."</div>
-    <div class="chapter-what">
-      <span class="chapter-what-item">Template auswählen</span>
-      <span class="chapter-what-item">Mit Claude anpassen</span>
-      <span class="chapter-what-item">Bilder &amp; Texte</span>
+    <div>
+      <div class="chapter-day">Tag 4 · Deine Website</div>
+      <h2 class="chapter-title">Website-Template<br>finden &amp; anpassen</h2>
+      <p class="chapter-intro">Du nimmst eine professionelle Vorlage und sagst Claude, was du ändern willst. Farben, Texte, Bilder — alles deins. Kein Code nötig.</p>
+      <p class="chapter-nova"><strong>Nova:</strong> Am Ende dieses Kapitels hat Nova ein Template gefunden, es mit ihren Farben und Texten angepasst und ihre Website zum ersten Mal im Browser gesehen. Ihr erster Gedanke: 'Das sieht aus wie eine echte Website. Weil es eine ist.'</p>
+      <div class="chapter-what">
+        <span class="chapter-what-item">Template auswählen</span>
+        <span class="chapter-what-item">Mit Claude anpassen</span>
+        <span class="chapter-what-item">Bilder &amp; Texte</span>
+      </div>
     </div>
   </div>
 </div>
@@ -2109,16 +2116,17 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="blob" style="width:360px;height:360px;background:radial-gradient(circle,#2db8a8,transparent 70%);top:-80px;right:-100px;--tx:20px;--ty:30px;--d:26s"></div>
   <div class="chapter-header">
     <div class="chapter-num">09</div>
-    <div class="chapter-day">Tag 4 · Rechtssicherheit</div>
-    <h2 class="chapter-title">Cookie-Banner<br>&amp; Rechtliches</h2>
-    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
-    <p class="chapter-intro">In Deutschland Pflicht: Impressum, Datenschutz und Cookie-Banner. Claude kann das komplett übernehmen.</p>
-    <div class="chapter-quote">"Ohne Impressum riskierst du 1.000 € Abmahnung. Mit Claude: erledigt in 30 Minuten."</div>
-    <div class="chapter-what">
-      <span class="chapter-what-item">Impressum</span>
-      <span class="chapter-what-item">Datenschutz</span>
-      <span class="chapter-what-item">Cookie-Banner</span>
-      <span class="chapter-what-item">AGB</span>
+    <div>
+      <div class="chapter-day">Tag 4 · Rechtssicherheit</div>
+      <h2 class="chapter-title">Cookie-Banner<br>&amp; Rechtliches</h2>
+      <p class="chapter-intro">Impressum, Datenschutz, Cookie-Banner — klingt trocken, ist aber in einer Stunde erledigt. Danach bist du rechtlich abgesichert.</p>
+      <p class="chapter-nova"><strong>Nova:</strong> Am Ende dieses Kapitels hat Nova ihr Impressum, ihre Datenschutzerklärung und einen Cookie-Banner auf der Website. Hat sie dafür einen Anwalt gebraucht? Nein. Einen Generator und Claude.</p>
+      <div class="chapter-what">
+        <span class="chapter-what-item">Impressum</span>
+        <span class="chapter-what-item">Datenschutz</span>
+        <span class="chapter-what-item">Cookie-Banner</span>
+        <span class="chapter-what-item">AGB</span>
+      </div>
     </div>
   </div>
 </div>
@@ -2246,15 +2254,16 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="blob" style="width:400px;height:400px;background:radial-gradient(circle,#2db8a8,transparent 70%);bottom:-100px;left:-100px;--tx:25px;--ty:-20px;--d:21s"></div>
   <div class="chapter-header">
     <div class="chapter-num">10</div>
-    <div class="chapter-day">Tag 5 · Go Live!</div>
-    <h2 class="chapter-title">Website<br>live schalten</h2>
-    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
-    <p class="chapter-intro">GitHub + Vercel: Jede Änderung automatisch in Sekunden live.</p>
-    <div class="chapter-quote">"Du speicherst, lädst hoch, und deine Website aktualisiert sich von alleine."</div>
-    <div class="chapter-what">
-      <span class="chapter-what-item">GitHub Repo</span>
-      <span class="chapter-what-item">Vercel verbinden</span>
-      <span class="chapter-what-item">Domain live</span>
+    <div>
+      <div class="chapter-day">Tag 5 · Go Live!</div>
+      <h2 class="chapter-title">Website<br>live schalten</h2>
+      <p class="chapter-intro">DER Moment. Deine Website geht online — unter deiner eigenen Domain, für die ganze Welt sichtbar. Und jede zukünftige Änderung ist in Sekunden live.</p>
+      <p class="chapter-nova"><strong>Nova:</strong> Am Ende dieses Kapitels tippt Nova nova-schmuck.de in ihren Browser — und da ist sie. Ihre Website. Im Internet. Sie schickt den Link an drei Freundinnen. Alle fragen: 'Wer hat dir das gemacht?' Ihre Antwort: 'Ich. Mit Claude.'</p>
+      <div class="chapter-what">
+        <span class="chapter-what-item">GitHub Repo</span>
+        <span class="chapter-what-item">Vercel verbinden</span>
+        <span class="chapter-what-item">Domain live</span>
+      </div>
     </div>
   </div>
 </div>
@@ -2336,15 +2345,16 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="blob" style="width:350px;height:350px;background:radial-gradient(circle,#e8604c,transparent 70%);top:-70px;left:-80px;--tx:20px;--ty:25px;--d:25s"></div>
   <div class="chapter-header">
     <div class="chapter-num">11</div>
-    <div class="chapter-day">Tag 5 · Professionelle Kommunikation</div>
-    <h2 class="chapter-title">Google Workspace<br>&amp; E-Mail</h2>
-    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
-    <p class="chapter-intro">kontakt@deinbusiness.de statt irgendwas123@gmail.com.</p>
-    <div class="chapter-quote">"Der Unterschied ist sofort spürbar."</div>
-    <div class="chapter-what">
-      <span class="chapter-what-item">Google Workspace</span>
-      <span class="chapter-what-item">Eigene E-Mail</span>
-      <span class="chapter-what-item">E-Mail-Signatur</span>
+    <div>
+      <div class="chapter-day">Tag 5 · Professionelle Kommunikation</div>
+      <h2 class="chapter-title">Google Workspace<br>&amp; E-Mail</h2>
+      <p class="chapter-intro">kontakt@deinbusiness.de statt irgendwas123@gmail.com. Eine geschäftliche E-Mail-Adresse verändert sofort, wie professionell du wirkst.</p>
+      <p class="chapter-nova"><strong>Nova:</strong> Am Ende dieses Kapitels schreibt Nova ihre erste E-Mail von hallo@nova-schmuck.de — mit professioneller Signatur und ihrem Logo.</p>
+      <div class="chapter-what">
+        <span class="chapter-what-item">Google Workspace</span>
+        <span class="chapter-what-item">Eigene E-Mail</span>
+        <span class="chapter-what-item">E-Mail-Signatur</span>
+      </div>
     </div>
   </div>
 </div>
@@ -2392,16 +2402,17 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="blob" style="width:410px;height:410px;background:radial-gradient(circle,#f0872b,transparent 70%);bottom:-90px;right:-110px;--tx:-25px;--ty:20px;--d:23s"></div>
   <div class="chapter-header">
     <div class="chapter-num">12</div>
-    <div class="chapter-day">Tag 6 · CRM &amp; Kontakte</div>
-    <h2 class="chapter-title">CRM mit<br>HubSpot</h2>
-    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
-    <p class="chapter-intro">Professionelles CRM-System — Free-Version komplett kostenlos. Für immer.</p>
-    <div class="chapter-quote">"Keine Excel-Listen mehr. HubSpot macht das."</div>
-    <div class="chapter-what">
-      <span class="chapter-what-item">CRM einrichten</span>
-      <span class="chapter-what-item">Kontaktformular</span>
-      <span class="chapter-what-item">Meeting-Link</span>
-      <span class="chapter-what-item">E-Mail-Vorlagen</span>
+    <div>
+      <div class="chapter-day">Tag 6 · CRM &amp; Kontakte</div>
+      <h2 class="chapter-title">CRM mit<br>HubSpot</h2>
+      <p class="chapter-intro">Alle deine Kontakte, Anfragen und Kunden an einem Ort. Kostenlos, professionell, und Claude richtet es für dich ein.</p>
+      <p class="chapter-nova"><strong>Nova:</strong> Am Ende dieses Kapitels hat Nova ein Kontaktformular auf ihrer Website, einen Meeting-Link für Beratungsgespräche und eine Pipeline, die ihr zeigt, wo jede Anfrage gerade steht.</p>
+      <div class="chapter-what">
+        <span class="chapter-what-item">CRM einrichten</span>
+        <span class="chapter-what-item">Kontaktformular</span>
+        <span class="chapter-what-item">Meeting-Link</span>
+        <span class="chapter-what-item">E-Mail-Vorlagen</span>
+      </div>
     </div>
   </div>
 </div>
@@ -2475,16 +2486,17 @@ Verbinde meine Domain.</pre>
 <div class="blob" style="width:440px;height:440px;background:radial-gradient(circle,#e8604c,transparent 70%);top:-80px;left:-120px;--tx:30px;--ty:-30px;--d:22s"></div>
   <div class="chapter-header">
     <div class="chapter-num">13</div>
-    <div class="chapter-day">Tag 6 · Automatisierung</div>
-    <h2 class="chapter-title">Claude<br>Cowork</h2>
-    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
-    <p class="chapter-intro">Claude öffnet deinen Browser, klickt sich durch Websites, richtet Dinge ein. Du schaust zu.</p>
-    <div class="chapter-quote">"Ich habe zugeschaut, wie Claude Formulare ausfüllt. Ohne dass ich irgendetwas machen musste."</div>
-    <div class="chapter-what">
-      <span class="chapter-what-item">Desktop App</span>
-      <span class="chapter-what-item">Browser-Agent</span>
-      <span class="chapter-what-item">Konnektoren</span>
-      <span class="chapter-what-item">Mega-Prompts</span>
+    <div>
+      <div class="chapter-day">Tag 6 · Automatisierung</div>
+      <h2 class="chapter-title">Claude<br>Cowork</h2>
+      <p class="chapter-intro">Claude öffnet deinen Browser und erledigt Aufgaben für dich — HubSpot einrichten, Canva-Designs erstellen, Gmail konfigurieren. Du schaust zu und trinkst Kaffee.</p>
+      <p class="chapter-nova"><strong>Nova:</strong> Am Ende dieses Kapitels hat Nova zugeschaut, wie Claude ihre Gmail-Signatur einrichtet, drei Instagram-Vorlagen in Canva erstellt und eine Angebotsvorlage als Word-Dokument speichert. Zeitaufwand: 20 Minuten.</p>
+      <div class="chapter-what">
+        <span class="chapter-what-item">Desktop App</span>
+        <span class="chapter-what-item">Browser-Agent</span>
+        <span class="chapter-what-item">Konnektoren</span>
+        <span class="chapter-what-item">Mega-Prompts</span>
+      </div>
     </div>
   </div>
 </div>
@@ -2571,16 +2583,17 @@ Erstelle eine Vergleichstabelle als Excel-Datei und eine Zusammenfassung mit Emp
 <div class="blob" style="width:450px;height:450px;background:radial-gradient(circle,#2db8a8,transparent 70%);bottom:-100px;right:-120px;--tx:-30px;--ty:25px;--d:20s"></div>
   <div class="chapter-header">
     <div class="chapter-num">14</div>
-    <div class="chapter-day">Tag 7 · Monetarisierung</div>
-    <h2 class="chapter-title">Digitale Produkte<br>verkaufen</h2>
-    <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;margin-bottom:16px;"></div>
-    <p class="chapter-intro">Dein erstes digitales Produkt erstellen, Verkaufsseite bauen &amp; online verkaufen — mit Stripe.</p>
-    <div class="chapter-quote">"~2,9 % Gebühr. Alles in deiner Hand."</div>
-    <div class="chapter-what">
-      <span class="chapter-what-item">Produkt erstellen</span>
-      <span class="chapter-what-item">Verkaufsseite</span>
-      <span class="chapter-what-item">Stripe einrichten</span>
-      <span class="chapter-what-item">Live schalten</span>
+    <div>
+      <div class="chapter-day">Tag 7 · Monetarisierung</div>
+      <h2 class="chapter-title">Digitale Produkte<br>verkaufen</h2>
+      <p class="chapter-intro">Dein erstes Produkt, dein erster Verkauf. Du erstellst etwas einmal — und verkaufst es beliebig oft. Ohne Lager, ohne Versand, ohne Limit.</p>
+      <p class="chapter-nova"><strong>Nova:</strong> Am Ende dieses Kapitels hat Nova ein E-Book mit ihren 10 beliebtesten Schmuck-Pflegetipps erstellt, eine Verkaufsseite gebaut und ihren ersten Testverkauf über Stripe abgeschlossen. Preis: 9,90 €. Aufwand für den Verkauf: 0 Minuten — läuft automatisch.</p>
+      <div class="chapter-what">
+        <span class="chapter-what-item">Produkt erstellen</span>
+        <span class="chapter-what-item">Verkaufsseite</span>
+        <span class="chapter-what-item">Stripe einrichten</span>
+        <span class="chapter-what-item">Live schalten</span>
+      </div>
     </div>
   </div>
 </div>
