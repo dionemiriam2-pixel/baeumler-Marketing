@@ -26,7 +26,7 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(-
 /* ═══ SIDEBAR — LIGHT & MODERN ═══ */
 .sidebar{
   position:fixed;left:0;top:0;bottom:0;width:var(--sidebar-w);
-  background:#fff;color:var(--text);z-index:100;
+  background:#faf8f5;color:var(--text);z-index:100;
   display:flex;flex-direction:column;
   transition:transform .4s cubic-bezier(.4,0,.2,1);
   transform:translateZ(0);
@@ -203,7 +203,7 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(-
 
 /* ═══ CHAPTER HEADERS — dark & bold ═══ */
 .chapter-header{
-  background:var(--bg2);border-radius:var(--r);
+  background:#f0eeeb;border-radius:var(--r);
   padding:32px 48px;margin-bottom:24px;
   display:flex;align-items:flex-start;gap:24px;
   border-left:5px solid var(--coral);
@@ -298,6 +298,61 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(-
   color:var(--coral);line-height:1;margin-bottom:4px;
 }
 .value-box .value-label{font-size:14px;color:var(--muted);font-weight:500}
+
+/* ═══ EXPANDABLE (Weiterlesen) ═══ */
+.expandable{position:relative}
+.expandable-content{
+  max-height:0;overflow:hidden;
+  transition:max-height .5s ease;
+}
+.expandable.open .expandable-content{max-height:3000px}
+.expandable:not(.open) .expandable-preview::after{
+  content:'';display:block;height:60px;
+  background:linear-gradient(transparent,var(--card));
+  margin-top:-60px;position:relative;z-index:1;
+}
+.expandable-toggle{
+  display:block;margin:12px auto 0;
+  background:none;border:1.5px solid var(--coral);color:var(--coral);
+  font-family:'Inter',sans-serif;font-size:14px;font-weight:600;
+  padding:10px 28px;border-radius:var(--pill);cursor:pointer;
+  transition:all .2s ease;
+}
+.expandable-toggle:hover{background:var(--coral);color:#fff}
+
+/* ═══ REASSURANCE GRID ═══ */
+.reassurance-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;
+}
+.reassurance-item{
+  background:var(--bg2);border-radius:var(--r);padding:20px 24px;
+  display:flex;flex-direction:column;gap:6px;
+}
+.reassurance-dot{
+  width:10px;height:10px;border-radius:50%;background:var(--coral);
+  margin-bottom:4px;
+}
+.reassurance-item strong{font-size:15px;color:var(--text);font-weight:700}
+.reassurance-item span{font-size:14px;color:var(--muted);line-height:1.6}
+@media(max-width:600px){
+  .reassurance-grid{grid-template-columns:1fr}
+}
+
+/* ═══ RESULT LIST (static checkmarks) ═══ */
+.result-list{display:flex;flex-direction:column;gap:0}
+.result-item{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 0;border-bottom:1px solid var(--border);
+  font-size:15px;line-height:1.6;color:var(--text);
+}
+.result-item:last-child{border-bottom:none}
+.result-check{
+  width:24px;height:24px;min-width:24px;border-radius:50%;
+  background:var(--coral);display:flex;align-items:center;justify-content:center;
+}
+.result-check::after{
+  content:'\2713';color:#fff;font-size:14px;font-weight:700;
+}
 
 /* ═══ CONTENT CARDS ═══ */
 .card{
@@ -912,7 +967,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <div class="blob" style="width:600px;height:600px;background:radial-gradient(circle,#f5c842,transparent 70%);top:-120px;right:-100px;--tx:30px;--ty:-20px;--d:24s"></div>
 <div class="blob" style="width:400px;height:400px;background:radial-gradient(circle,#e8604c,transparent 70%);bottom:-80px;left:-100px;--tx:-20px;--ty:25px;--d:28s"></div>
   <div class="hero-label">Workbook</div>
-  <h1 class="hero-title">Der komplette Workspace<br>für deine Selbstständigkeit</h1>
+  <h1 class="hero-title">In 7 Tagen<br>zum eigenen Online-Business</h1>
   <p class="hero-subtitle">Website · Domain · Branding · E-Mail · CRM · Shop — alles mit KI, Schritt für Schritt.</p>
   <div class="hero-scroll" onclick="scrollToSection(1)">Starte hier<br>↓</div>
 </div>
@@ -927,33 +982,74 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
         <div class="miriam-avatar"></div>
         <div>
           <div class="miriam-sagt-label">Von Miriam Bäumler</div>
-          <div class="miriam-sagt-sub">Master Wirtschafts- &amp; Werbepsychologie · baeumlermarketing.de</div>
+          <div class="miriam-sagt-sub">Marketingberaterin (M.Sc.) · baeumlermarketing.de</div>
         </div>
       </div>
-      <p>Ich heiße Miriam und vor ein paar Jahren stand ich genau da, wo du vielleicht gerade stehst. Ich hatte eine Idee, ich wusste, was ich anbieten wollte — aber zwischen mir und meinem Online-Business lag eine Welt aus Technik, Tools und Begriffen, die ich nicht kannte.</p>
-      <p>Ich wusste nicht, was eine Domain ist. Ich wusste nicht, was ein CRM macht. Ich hatte noch nie eine Zeile Code gesehen. Und ehrlich gesagt hatte ich Angst, etwas falsch zu machen — irgendeinen Button zu drücken, der alles löscht, oder meine Daten irgendwohin zu schicken, wo sie nicht hingehören.</p>
-      <p>Also habe ich angefangen, mir alles selbst beizubringen. Schritt für Schritt, Tool für Tool. Dann kam KI dazu — und plötzlich ging alles viel schneller. Meine komplette Website? Hat Claude für mich gebaut. Mein Logo? In einer Stunde in Canva erstellt. Mein CRM? Claude hat es eingerichtet, während ich daneben saß.</p>
-      <p>Dieses Workbook ist alles, was ich mir damals gewünscht hätte: Eine klare Anleitung, die bei null anfängt, jeden Schritt erklärt und dich nicht alleine lässt. Genau das bekommst du hier.</p>
-    </div>
-
-    <div class="card">
-      <h3 class="section-title"><span class="icon"></span> Was du am Ende hast</h3>
-      <div class="checklist" id="takeawayList">
-        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Eine professionelle Website — live im Internet, unter deiner eigenen Domain</span></div>
-        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Dein Logo und deine Markenidentität</span></div>
-        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Eine geschäftliche E-Mail (kontakt@deinbusiness.de)</span></div>
-        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Ein CRM-System, das deine Kontakte und Anfragen verwaltet</span></div>
-        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Einen Online-Shop mit Zahlungsabwicklung</span></div>
-        <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Claude AI als persönlichen Assistenten, der das alles mit dir baut</span></div>
-      </div>
+      <p>Hey, schön, dass du da bist!</p>
+      <p>Vor ein paar Jahren stand ich genau an dem Punkt, an dem du vielleicht gerade stehst. Ich hatte ein Produkt und wusste auch ungefähr, was ich anbieten möchte. Aber zwischen diesem Produkt und einem echten Online-Business lag für mich damals eine riesige Welt aus Technik, Tools und Begriffen, von denen ich noch nie etwas gehört hatte.</p>
+      <p>Ich wusste beispielsweise nicht, was eine Domain ist. Ich hatte keine Ahnung, wofür man ein CRM braucht. Und Code? Davon hatte ich wirklich gar keine Vorstellung. Ehrlich gesagt hatte ich sogar ein bisschen Angst davor, etwas falsch zu machen. Aus Versehen einen Button zu drücken, der alles löscht, etwas Wichtiges zu übersehen oder eine Entscheidung zu treffen, die später teuer werden könnte.</p>
+      <p>Also habe ich angefangen, mir alles selbst beizubringen. Schritt für Schritt. Ich habe mich durch Tools geklickt, Dinge ausprobiert, Fehler gemacht und daraus gelernt. Es war manchmal mühsam, aber mit jeder Sache, die ich verstanden habe, wurde alles ein Stück klarer.</p>
+      <p>Dann kam die KI dazu und plötzlich wurde vieles einfacher. Auf einmal gingen Dinge, für die ich früher Tage oder Wochen gebraucht hätte, viel schneller. Meine komplette Website habe ich zum Beispiel mit Claude erstellt. Mein Logo war innerhalb einer Stunde in Canva fertig. Und mein CRM läuft inzwischen im Hintergrund, während ich dieses Workbook schreibe.</p>
+      <p><em>Hey, ich bin im Übrigen Miriam, Marketingberaterin aus Langenfeld im Rheinland und ich unterstütze lokale Unternehmen dabei, online sichtbar zu werden und das Internet gezielt für ihr Online-Business zu nutzen.</em></p>
+      <p><em>Alles, was du in diesem Workbook findest, basiert auf meinen eigenen Erfahrungen. Ich habe verschiedene Tools ausprobiert und teile hier, was in der Praxis wirklich funktioniert.</em></p>
+      <p><em>Dieses Workbook gibt dir eine klare Orientierung für den Start. Ohne komplizierte Fachbegriffe und ohne unnötige Umwege. Stattdessen begleite ich dich Schritt für Schritt durch die wichtigsten Themen, damit du online sichtbar wirst und dir eine starke Online-Präsenz aufbauen kannst.</em></p>
     </div>
 
     <div class="card">
       <h3 class="section-title"><span class="icon"></span> Bevor du loslegst</h3>
-      <p>Du brauchst keine Vorkenntnisse. Du musst keinen Code schreiben. Du kannst nichts kaputt machen — alles lässt sich rückgängig machen. Deine Daten bleiben bei dir. Und niemand sieht deine Website, bis du selbst entscheidest, sie online zu stellen.</p>
-      <p>Wenn du merkst, dass sich etwas fremd oder kompliziert anfühlt: Das ist normal. Ich erkläre dir jeden einzelnen Schritt — und wenn du nicht weiterweißt, kannst du jederzeit Claude fragen. Du bist hier nie allein.</p>
-      <p>Du arbeitest dich Kapitel für Kapitel durch, in deinem Tempo. Unterwegs füllst du Felder aus, hakst Checklisten ab und kopierst fertige Prompts für Claude. Alles wird automatisch in deinem Browser gespeichert — du kannst jederzeit pausieren und dort weitermachen, wo du aufgehört hast.</p>
-      <p>Damit du bei jedem Schritt siehst, wie das Ganze in der Praxis aussieht, begleitet dich <strong style="color:var(--coral);">Nova</strong> durch dieses Workbook. Nova hat einen kleinen Schmuckladen und überträgt ihr Geschäft Schritt für Schritt ins Internet. An ihrem Beispiel siehst du bei jedem Kapitel konkret, was zu tun ist — von der Keyword-Recherche bis zum ersten Online-Verkauf.</p>
+      <p>Vielleicht fragst du dich gerade: <em>„Kann ich das wirklich?"</em> Die Antwort ist: Ja. Dieses Workbook ist so aufgebaut, dass du jeden Schritt nachvollziehen kannst – auch wenn du dich heute zum ersten Mal mit diesen Themen beschäftigst.</p>
+
+      <div class="reassurance-grid">
+        <div class="reassurance-item">
+          <div class="reassurance-dot"></div>
+          <strong>Keine Vorkenntnisse nötig</strong>
+          <span>Du musst keinen Code schreiben. Ich erkläre dir alles von Grund auf.</span>
+        </div>
+        <div class="reassurance-item">
+          <div class="reassurance-dot"></div>
+          <strong>Nichts kann kaputt gehen</strong>
+          <span>Alles lässt sich rückgängig machen. Du kannst frei ausprobieren.</span>
+        </div>
+        <div class="reassurance-item">
+          <div class="reassurance-dot"></div>
+          <strong>Niemand sieht es</strong>
+          <span>Deine Website geht erst online, wenn du es selbst entscheidest.</span>
+        </div>
+        <div class="reassurance-item">
+          <div class="reassurance-dot"></div>
+          <strong>Automatisch gespeichert</strong>
+          <span>Pausiere jederzeit und mach dort weiter, wo du aufgehört hast.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-miriam">
+      <div class="label">Miriam sagt</div>
+      <p>Wenn sich etwas fremd oder kompliziert anfühlt: Das ist völlig normal. Mir ging es genauso. Ich erkläre dir jeden einzelnen Schritt und wenn du trotzdem nicht weiterweißt, kannst du jederzeit Claude fragen.</p>
+    </div>
+
+    <p style="font-size:16px;line-height:1.8;color:var(--text);margin:8px 0 24px;">Gut, jetzt weißt du, dass nichts schiefgehen kann. Dann lass uns kurz klären, wie dieses Workbook aufgebaut ist und was dich erwartet.</p>
+
+    <div class="card">
+      <h3 class="section-title"><span class="icon"></span> So funktioniert dieses Workbook</h3>
+      <p>Du arbeitest dich Kapitel für Kapitel durch, in deinem eigenen Tempo. Unterwegs füllst du Felder aus, hakst Checklisten ab und kopierst fertige Prompts für Claude. Alles wird automatisch in deinem Browser gespeichert.</p>
+      <div style="background:var(--bg2);border-radius:var(--r);padding:20px 24px;margin-top:16px;">
+        <p style="margin:0;font-size:15px;line-height:1.75;"><strong style="color:var(--coral);">Deine Begleiterin: Nova</strong> — Damit du bei jedem Schritt siehst, wie sich alles in der Praxis umsetzen lässt, begleitet dich Nova durch dieses Workbook. Sie betreibt einen kleinen Schmuckladen und macht ihr Geschäft Schritt für Schritt online sichtbar. An ihrem Beispiel siehst du in jedem Kapitel ganz konkret, was zu tun ist.</p>
+      </div>
+    </div>
+
+    <p style="font-size:16px;line-height:1.8;color:var(--text);margin:8px 0 24px;">Und damit du von Anfang an siehst, worauf das Ganze hinausläuft, hier ein Überblick. Am Ende dieses Workbooks hast du all das fertig aufgebaut:</p>
+
+    <div class="card">
+      <h3 class="section-title"><span class="icon"></span> Dein Ergebnis nach 7 Tagen</h3>
+      <div class="result-list">
+        <div class="result-item"><span class="result-check"></span><span>Eine professionelle Website — live im Internet, unter deiner eigenen Domain</span></div>
+        <div class="result-item"><span class="result-check"></span><span>Dein Logo und deine Markenidentität</span></div>
+        <div class="result-item"><span class="result-check"></span><span>Eine geschäftliche E-Mail (kontakt@deinbusiness.de)</span></div>
+        <div class="result-item"><span class="result-check"></span><span>Ein CRM-System, das deine Kontakte und Anfragen verwaltet</span></div>
+        <div class="result-item"><span class="result-check"></span><span>Einen Online-Shop mit Zahlungsabwicklung</span></div>
+        <div class="result-item"><span class="result-check"></span><span>Claude AI als persönlichen Assistenten, der das alles mit dir baut</span></div>
+      </div>
     </div>
 
   </div>
@@ -968,7 +1064,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <div>
       <div class="chapter-day">Tag 1 · Vorbereitung</div>
       <h2 class="chapter-title">Bevor du startest</h2>
-      <p class="chapter-intro">Du hast eine Idee — jetzt machen wir daraus einen Plan. In diesem Kapitel definierst du dein Angebot, findest deine Zielgruppe und regelst die Formalitäten. Danach weißt du genau, wohin die Reise geht.</p>
+      <p class="chapter-intro">In diesem Kapitel entwickelst du einen klaren Plan für dein Online-Angebot. Dabei spielt es keine Rolle, ob du bereits lokal selbstständig tätig bist oder noch ganz am Anfang stehst. Du schärfst dein Angebot, definierst deine Zielgruppe und verschaffst dir einen Überblick über alle relevanten Formalitäten, die du für einen strukturierten Online-Start brauchst.</p>
       <p class="chapter-nova"><strong>Nova</strong> betreibt einen kleinen Schmuckladen in Köln. Ihre Kundinnen lieben ihre Unikate — aber online existiert sie nicht. Am Ende dieses Kapitels hat sie ihr Angebot formuliert, ihre Zielgruppe beschrieben und ihr Gewerbe angemeldet.</p>
       <div class="chapter-what">
         <span class="chapter-what-item">Mindset</span>
@@ -979,47 +1075,93 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     </div>
   </div>
   <p style="font-size:13px;color:var(--muted);margin-top:12px;">Wenn du schon eine Marke, ein Angebot und einen Markennamen hast, kannst du direkt zu <a href="#sec-ch3-title" style="color:var(--coral);font-weight:600;">Kapitel 03</a> springen.</p>
-</div>
 
-<div class="section" id="sec-ch1-1" data-title="Selbst und ständig" data-chapter="01">
-  <h3 class="section-title"><span class="icon"></span> Selbst und ständig</h3>
-
-  <div class="card">
-    <p>In der Schule lernen wir rechnen, schreiben, analysieren — aber niemand erklärt uns, wie man eine Idee nimmt und daraus ein eigenes Business aufbaut. Wie man ein Projekt organisiert, Verantwortung übernimmt, den ersten Schritt macht. Und genau deshalb stehen so viele Menschen an diesem Punkt: Sie haben eine Idee, vielleicht sogar schon ein Angebot — aber irgendwie fühlt sich alles gleichzeitig zu groß und zu unklar an. Und dann kommt dieses Gefühl: <em>Alle anderen scheinen zu wissen, was sie tun. Nur ich nicht.</em></p>
-
-    <p>Selbstständig sein heißt wörtlich: <strong>selbst</strong> denken und <strong>ständig</strong> denken. Niemand sagt dir mehr, was du als Nächstes tun sollst — du entscheidest. Und genau das ist auch die Bedeutung von <strong>Unter-nehmer</strong>: jemand, der etwas unter-nimmt. Der nicht wartet, sondern selbst losgeht. Das kann sich am Anfang beängstigend anfühlen, aber es ist auch das Befreiendste, was es gibt.</p>
-
-    <p>Was dich dabei leitet, ist nicht das perfekte Produkt am ersten Tag. Es ist die Fähigkeit, dranzubleiben, dazuzulernen, den nächsten Schritt zu machen — und bei Problemen nicht aufzugeben, sondern zu fragen: <strong>„Wie kann ich das lösen?"</strong> Und genau hier kommt KI ins Spiel.</p>
-
-    <p>Dieses Workbook zeigt dir, wie du KI — also Künstliche Intelligenz — als persönlichen Assistenten nutzt, um deine Selbstständigkeit aufzubauen. Wir nutzen dafür Claude AI: eine KI, der du in normalem Deutsch sagst, was du brauchst, und sie liefert dir Texte, Code, Ideen oder ganze Websites. Stell dir Claude vor wie einen klugen Assistenten, der nie müde wird und auf jede Frage eine Antwort hat. Aber bevor wir in die Tools und Technik einsteigen, gibt es ein paar Denkweisen, die den Unterschied machen. Sie klingen einfach — entscheiden aber darüber, ob du wirklich loslegst oder nur darüber nachdenkst.</p>
-  </div>
-
-  <div class="miriam-sagt" data-variant="ehrlich">
+  <div class="miriam-sagt" style="margin-top:24px;">
     <div class="miriam-sagt-header">
       <div class="miriam-avatar"></div>
       <div>
-        <div class="miriam-sagt-label">Kurz mal ehrlich</div>
+        <div class="miriam-sagt-label">Ein paar warme Worte vorweg</div>
         <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
       </div>
     </div>
-    <p>Du fragst dich gerade vielleicht: "Kann ich das überhaupt?" Ja. Ich konnte es am Anfang auch nicht — ich wusste nicht mal, was eine Domain ist. Heute habe ich eine Website, ein CRM, digitale Produkte, alles selbst aufgebaut. Das Geheimnis? Es gibt keins. Du machst einfach den nächsten Schritt, auch wenn er sich wackelig anfühlt.</p>
-    <div class="mantra">Zum ersten Mal ist nicht das Gleiche wie falsch.</div>
+    <p>Dass du dieses Workbook geöffnet hast, zeigt mir, dass du bereit bist, den nächsten Schritt zu gehen. Und das allein ist schon viel wert. Du musst nicht alles auf einmal verstehen und du musst auch nicht perfekt starten. Wichtig ist nur, dass du anfängst. Ich bin hier, um dich dabei zu begleiten — Kapitel für Kapitel, Schritt für Schritt.</p>
+  </div>
+</div>
+
+<div class="section" id="sec-ch1-1" data-title="Selbst und ständig" data-chapter="01">
+  <h3 class="section-title"><span class="icon"></span> Unter-nehmer-sein</h3>
+
+  <div class="card">
+    <h4 style="font-family:'Antonio',sans-serif;font-size:20px;margin-bottom:12px;">Ein wichtiger Gedanke vor dem Start</h4>
+    <p>Bevor wir mit diesem Kapitel und dem Workbook beginnen, möchte ich dir einen wichtigen Gedanken mitgeben. Etwas, das mir in der Arbeit mit meinen Kundinnen und Kunden immer wieder auffällt.</p>
+    <p><strong>Unternehmerin oder Unternehmer zu sein bedeutet auch, etwas zu unternehmen.</strong></p>
+    <p>Viele Menschen wünschen sich, selbstständig zu sein. Sie möchten sich entfalten, ihre eigenen Ideen umsetzen und ihrer Bestimmung folgen. Das ist großartig und genau das unterstütze ich von ganzem Herzen.</p>
+    <p>Gleichzeitig ist es wichtig zu verstehen, was Selbstständigkeit wirklich bedeutet. Die Begriffe sagen es bereits: <strong>selbstständig</strong> heißt, selbst zu denken und eigenständig zu handeln. <strong>Unternehmerisch</strong> zu sein bedeutet, Dinge zu unternehmen, also aktiv zu werden.</p>
+    <p>Das klingt einfach, ist aber im Alltag manchmal leichter gesagt als getan.</p>
+    <p>Mit diesem Einstieg möchte ich dir einen Gedankengang mitgeben, der dir helfen kann, dranzubleiben und eine Perspektive einzunehmen, die dich deinem Ziel Schritt für Schritt näherbringt.</p>
+
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:12px;">Warum viele Menschen hier feststecken</h4>
+        <p>In der Schule lernen wir zu rechnen, zu schreiben und zu analysieren. Was uns jedoch kaum jemand erklärt, ist, wie man eine Idee nimmt und daraus ein eigenes Business entwickelt.</p>
+      </div>
+      <div class="expandable-content">
+        <p>Niemand zeigt uns, wie man ein Projekt strukturiert, Verantwortung übernimmt oder den ersten Schritt macht.</p>
+        <p>Deshalb stehen viele Menschen genau an diesem Punkt: Sie haben eine Idee. Vielleicht sogar schon ein Angebot. Aber alles wirkt gleichzeitig zu groß, zu unklar und zu kompliziert.</p>
+        <p>Und dann kommt oft dieses Gefühl: <em>Alle anderen scheinen zu wissen, was sie tun. Nur ich nicht.</em></p>
+        <p>Die Wahrheit ist: Fast jede Unternehmerin und jeder Unternehmer stand einmal genau an diesem Punkt.</p>
+
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin:24px 0 12px;">Der Unterschied liegt im Handeln</h4>
+        <p>Selbstständig zu sein bedeutet, selbst zu entscheiden, was der nächste Schritt ist. Niemand gibt dir mehr eine klare Anleitung. Du übernimmst Verantwortung für deine Ideen und für deinen Weg.</p>
+        <p><strong>Genau darin liegt aber auch die größte Freiheit.</strong></p>
+        <p>Unternehmerinnen und Unternehmer sind Menschen, die nicht warten, bis alles perfekt ist. Sie beginnen. Sie probieren aus. Sie lernen unterwegs.</p>
+        <p>Manchmal fühlt sich das unsicher oder anstrengend an. Gleichzeitig ist genau dieser Prozess das Befreiende daran.</p>
+        <p>Der wichtigste Unterschied ist nicht Talent, Wissen oder ein perfektes Produkt. <strong>Der wichtigste Unterschied ist, dranzubleiben.</strong></p>
+
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin:24px 0 12px;">Kleine Schritte haben eine große Wirkung</h4>
+        <p>Unternehmerisches Denken bedeutet auch, Gewohnheiten zu verändern. Besonders, wenn man lange im Angestelltenverhältnis gearbeitet hat. Dort gibt es klare Aufgaben, Strukturen und Vorgaben.</p>
+        <p>In der Selbstständigkeit bist du die Person, die entscheidet, was als Nächstes passiert.</p>
+        <p>Das Gute daran ist: Alles baut Schritt für Schritt aufeinander auf.</p>
+        <p>Jede Entscheidung, jeder Versuch und jeder kleine Fortschritt wirkt langfristig wie ein Zinseszinseffekt. Ein einzelner Schritt wirkt vielleicht klein, aber viele kleine Schritte ergeben am Ende einen großen Weg.</p>
+        <p><em>Wenn dein Ziel ein 5-Kilometer-Lauf ist, bringt dich ein einziger Schritt bereits näher ans Ziel als gar keiner.</em></p>
+        <p>Denke deshalb während des gesamten Workbooks immer wieder daran: Du bist Unternehmerin oder Unternehmer. Das bedeutet, jeden Tag einen kleinen Schritt weiterzugehen. Auch dann, wenn es sich manchmal mühsam anfühlt.</p>
+
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin:24px 0 12px;">Der Schlüssel ist nicht Perfektion</h4>
+        <p>Was dich auf deinem Weg wirklich weiterbringt, ist nicht das perfekte Produkt am ersten Tag. Es ist deine Fähigkeit,</p>
+        <ul style="list-style:none;padding:0;margin:8px 0 16px;">
+          <li style="padding:6px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">+</span> dranzubleiben</li>
+          <li style="padding:6px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">+</span> dazuzulernen</li>
+          <li style="padding:6px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">+</span> den nächsten Schritt zu gehen</li>
+          <li style="padding:6px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">+</span> und bei Problemen zu fragen: <strong>„Wie kann ich das lösen?"</strong></li>
+        </ul>
+        <p>Und genau hier kommt ein Werkzeug ins Spiel, das dir diesen Weg deutlich erleichtern kann.</p>
+
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin:24px 0 12px;">Wie dich KI dabei unterstützen kann</h4>
+        <p>In diesem Workbook zeige ich dir, wie du Künstliche Intelligenz (KI) als persönlichen Assistenten nutzen kannst, um deine Selbstständigkeit aufzubauen.</p>
+        <p>Wir arbeiten dafür mit <strong>Claude AI</strong>. Du kannst dir Claude wie einen klugen Assistenten vorstellen, dem du in normalem Deutsch sagst, was du brauchst. Claude hilft dir dabei, Texte zu schreiben, Ideen zu entwickeln, Code zu erstellen oder sogar ganze Webseiten aufzubauen.</p>
+        <p>Ein Assistent, der rund um die Uhr verfügbar ist und dir bei jedem Schritt helfen kann.</p>
+        <p>Doch bevor wir uns mit Tools und Technik beschäftigen, ist eine Sache entscheidend: <strong>deine Denkweise.</strong></p>
+        <p>Denn bestimmte Perspektiven und Gewohnheiten entscheiden darüber, ob jemand wirklich ins Handeln kommt oder nur lange über seine Idee nachdenkt.</p>
+        <p>Genau mit dieser Grundlage beginnen wir jetzt.</p>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Weiterlesen</button>
+    </div>
   </div>
 
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:8px 0 24px;">Bevor wir in die Praxis einsteigen, nimm dir kurz einen Moment. Drei Fragen, ganz ehrlich, nur für dich:</p>
+
   <div class="reflection-box">
-    <div class="label">Mini-Reflexion</div>
-    <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Schreib spontan auf, ohne nachzudenken. Es gibt keine falschen Antworten — niemand außer dir liest das hier.</p>
     <div class="fill-group">
-      <div class="fill-label">Warum möchte ich mich selbstständig machen?</div>
-      <textarea class="fill-input" placeholder="z.B. 'Ich will mein eigener Chef sein' oder 'Ich will etwas aufbauen, das mir gehört'" data-save="ch1-why"></textarea>
+      <div class="fill-label">Was möchte ich mit meiner Selbstständigkeit erreichen?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Mein eigenes Ding aufbauen' oder 'Unabhängig arbeiten können'" data-save="ch1-why"></textarea>
     </div>
     <div class="fill-group">
-      <div class="fill-label">Was möchte ich NICHT mehr in einem Angestelltenjob?</div>
-      <textarea class="fill-input" placeholder="z.B. 'Keine Flexibilität', 'Arbeit, die mich nicht erfüllt'" data-save="ch1-nomore"></textarea>
+      <div class="fill-label">Was ist aktuell deine größte Herausforderung im Online-Bereich?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Ich weiß nicht, wo ich anfangen soll' oder 'Meine Website braucht ein Update'" data-save="ch1-challenge"></textarea>
     </div>
     <div class="fill-group">
-      <div class="fill-label">Was hält mich gerade noch zurück?</div>
-      <textarea class="fill-input" placeholder="z.B. 'Ich habe Angst, zu versagen' oder 'Ich weiß nicht, wo ich anfangen soll'" data-save="ch1-fear"></textarea>
+      <div class="fill-label">Was wäre für mich der größte Erfolg nach diesen 7 Tagen?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Eine eigene Website haben' oder 'Endlich online sichtbar sein'" data-save="ch1-goal"></textarea>
     </div>
   </div>
 
@@ -3084,6 +3226,13 @@ document.getElementById('backToTop').addEventListener('click', function() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+// ═══ EXPANDABLE (Weiterlesen) ═══
+function toggleExpand(btn) {
+  var wrapper = btn.closest('.expandable');
+  wrapper.classList.toggle('open');
+  btn.textContent = wrapper.classList.contains('open') ? 'Weniger anzeigen' : 'Weiterlesen';
+}
+
 // ═══ CHECKLIST ═══
 function toggleCheck(el) {
   el.classList.toggle('checked');
@@ -3219,7 +3368,7 @@ function initGSAP() {
       start: 'top 85%',
       once: true,
       onEnter: function() {
-        gsap.to(num, { x: 0, opacity: 0.06, filter: 'blur(0px)', duration: 1, ease: 'power3.out' });
+        gsap.to(num, { x: 0, opacity: 0.15, filter: 'blur(0px)', duration: 1, ease: 'power3.out' });
       }
     });
   });
