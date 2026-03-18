@@ -320,6 +320,41 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(-
 }
 .expandable-toggle:hover{background:var(--coral);color:#fff}
 
+/* ═══ CLAUDE HINT (rosa Sprechblase) ═══ */
+.claude-hint{
+  background:#fdf0f4;border-radius:var(--r);
+  border-left:4px solid #d4729a;
+  padding:16px 20px 16px 50px;margin:16px 0;
+  position:relative;font-size:14px;line-height:1.7;color:#444;
+}
+.claude-hint::before{
+  content:'';position:absolute;left:14px;top:14px;
+  width:26px;height:26px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23d4729a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/%3E%3C/svg%3E") no-repeat center;
+}
+.claude-hint strong{color:#d4729a}
+.claude-hint .claude-detail{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.claude-hint.open .claude-detail{max-height:600px}
+.claude-hint .claude-toggle{
+  display:inline-block;margin-top:8px;background:none;border:1px solid #d4729a;
+  color:#d4729a;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
+  padding:5px 16px;border-radius:var(--pill);cursor:pointer;transition:all .2s;
+}
+.claude-hint .claude-toggle:hover{background:#d4729a;color:#fff}
+
+/* ═══ SAVE HINT (orange Ordner-Anweisung) ═══ */
+.save-local{
+  background:#e8f5e9;border-radius:12px;
+  border-left:3px solid #4caf50;
+  padding:12px 16px 12px 44px;margin:12px 0;
+  position:relative;font-size:14px;font-style:italic;line-height:1.6;color:#2e7d32;
+}
+.save-local::before{
+  content:'';position:absolute;left:12px;top:11px;
+  width:22px;height:22px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%234caf50' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z'/%3E%3C/svg%3E") no-repeat center;
+}
+
 /* ═══ REASSURANCE GRID ═══ */
 .reassurance-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;
@@ -396,11 +431,12 @@ h3.section-title .icon{display:none}
 
 /* ═══ PROMPT BOX ═══ */
 .prompt-box{
-  background:var(--bg2);color:var(--text);border-radius:var(--r);
-  border-left:4px solid var(--coral);
+  background:#f0faf8;color:var(--text);border-radius:var(--r);
+  border-left:4px solid var(--teal);
   padding:24px 28px;margin:20px 0;position:relative;overflow:hidden;
   box-shadow:var(--shadow-sm);
 }
+.prompt-box .label{color:var(--teal)}
 .prompt-box::before{content:none}
 .prompt-box::after{content:none}
 .prompt-box .label{
@@ -681,20 +717,20 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 
 /* ═══ GLOSSAR-BOX — "Was ist das eigentlich?" ═══ */
 .glossar-box{
-  background:#f8f6ff;
-  border-radius:var(--r);border-top:3px solid #7c5ce0;
+  background:#f0f6fc;
+  border-radius:var(--r);border-left:4px solid #4a90c4;
   padding:20px 24px;margin:16px 0;
 }
 .glossar-box .glossar-term{
   font-family:'Antonio',sans-serif;font-size:15px;font-weight:700;
   text-transform:uppercase;letter-spacing:0.5px;
-  color:#7c5ce0;margin-bottom:6px;padding-left:4px;
+  color:#4a90c4;margin-bottom:6px;padding-left:4px;
 }
-.glossar-box p{font-size:14px;color:var(--muted);margin:0;line-height:1.7}
+.glossar-box p{font-size:14px;color:#444;margin:0;line-height:1.7}
 .glossar-box .glossar-analogy{
   font-family:'Playfair Display',serif;font-style:italic;
-  font-size:13px;color:#7c5ce0;margin-top:8px;
-  padding-top:8px;border-top:1px solid rgba(120,90,220,0.1);
+  font-size:13px;color:#4a90c4;margin-top:8px;
+  padding-top:8px;border-top:1px solid rgba(74,144,196,0.15);
 }
 
 /* ═══ MIRIAM-SAGT — Persönliche Box (OMR PRO-TIPP Stil) ═══ */
@@ -937,7 +973,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 <nav class="sidebar">
   <div class="sidebar-header">
     <div class="sidebar-brand">Workbook</div>
-    <div class="sidebar-title">Dein Business<br>Workspace</div>
+    <div class="sidebar-title">Dein Business<br>Workspace mit KI</div>
   </div>
   <div class="sidebar-nav" id="sidebarNav"></div>
   <div class="sidebar-footer">
@@ -969,11 +1005,30 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   <div class="hero-label">Workbook</div>
   <h1 class="hero-title">In 7 Tagen<br>zum eigenen Online-Business</h1>
   <p class="hero-subtitle">Website · Domain · Branding · E-Mail · CRM · Shop — alles mit KI, Schritt für Schritt.</p>
+  <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(14px,1.8vw,18px);color:var(--muted);margin-top:12px;">So einfach wie nötig, so effektiv wie möglich.</p>
   <div class="hero-scroll" onclick="scrollToSection(1)">Starte hier<br>↓</div>
 </div>
 
-<!-- ══════════════════════════════════ EDITORIAL ══════════════════════════════════ -->
-<div class="section" id="sec-intro" data-title="Willkommen" data-chapter="">
+<!-- ══════════════════════════════════ KAPITEL 00 ══════════════════════════════════ -->
+<div class="section" id="sec-ch0-title" data-title="Bevor du startest" data-chapter="00">
+<div class="blob" style="width:400px;height:400px;background:radial-gradient(circle,#f5c842,transparent 70%);top:-100px;right:-150px;--tx:30px;--ty:-25px;--d:20s"></div>
+  <div class="chapter-header">
+    <div class="chapter-num">00</div>
+    <div>
+      <div class="chapter-day">Einstieg · Vorbereitung</div>
+      <h2 class="chapter-title">Bevor du startest</h2>
+      <p class="chapter-intro">In diesem Kapitel lernst du mich kennen, erfährst wie dieses Workbook funktioniert und machst dich mit den Tools vertraut, die wir im gesamten Workbook verwenden werden.</p>
+      <div class="chapter-what">
+        <span class="chapter-what-item">Willkommen</span>
+        <span class="chapter-what-item">Claude AI</span>
+        <span class="chapter-what-item">VS Code</span>
+        <span class="chapter-what-item">Deine Tools</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="sec-intro" data-title="Willkommen" data-chapter="00">
 <div class="blob" style="width:350px;height:350px;background:radial-gradient(circle,#f5c842,transparent 70%);top:-80px;right:-100px;--tx:20px;--ty:-20px;--d:26s"></div>
   <div style="max-width:900px;margin:0 auto;">
 
@@ -1023,8 +1078,14 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
       </div>
     </div>
 
-    <div class="tip-miriam">
-      <div class="label">Miriam sagt</div>
+    <div class="miriam-sagt">
+      <div class="miriam-sagt-header">
+        <div class="miriam-avatar"></div>
+        <div>
+          <div class="miriam-sagt-label">Miriam sagt</div>
+          <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+        </div>
+      </div>
       <p>Wenn sich etwas fremd oder kompliziert anfühlt: Das ist völlig normal. Mir ging es genauso. Ich erkläre dir jeden einzelnen Schritt und wenn du trotzdem nicht weiterweißt, kannst du jederzeit Claude fragen.</p>
     </div>
 
@@ -1033,6 +1094,9 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     <div class="card">
       <h3 class="section-title"><span class="icon"></span> So funktioniert dieses Workbook</h3>
       <p>Du arbeitest dich Kapitel für Kapitel durch, in deinem eigenen Tempo. Unterwegs füllst du Felder aus, hakst Checklisten ab und kopierst fertige Prompts für Claude. Alles wird automatisch in deinem Browser gespeichert.</p>
+      <div style="background:linear-gradient(135deg,rgba(232,96,76,0.06) 0%,rgba(232,96,76,0.02) 100%);border:1px solid rgba(232,96,76,0.15);border-radius:var(--r);padding:20px 24px;margin-top:16px;">
+        <p style="margin:0;font-size:15px;line-height:1.75;"><strong style="color:var(--coral);">Wichtig:</strong> Fülle bitte alle Felder und Notizen so sorgfältig wie möglich aus. Am Ende dieses Workbooks wartet eine besondere Überraschung von mir auf dich, die auf all deinen Antworten aufbaut. Je mehr du reinschreibst, desto wertvoller wird das Ergebnis.</p>
+      </div>
       <div style="background:var(--bg2);border-radius:var(--r);padding:20px 24px;margin-top:16px;">
         <p style="margin:0;font-size:15px;line-height:1.75;"><strong style="color:var(--coral);">Deine Begleiterin: Nova</strong> — Damit du bei jedem Schritt siehst, wie sich alles in der Praxis umsetzen lässt, begleitet dich Nova durch dieses Workbook. Sie betreibt einen kleinen Schmuckladen und macht ihr Geschäft Schritt für Schritt online sichtbar. An ihrem Beispiel siehst du in jedem Kapitel ganz konkret, was zu tun ist.</p>
       </div>
@@ -1055,15 +1119,101 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   </div>
 </div>
 
+<!-- ══════════════ UNTERKAPITEL 00: Was ist Claude AI? ══════════════ -->
+<div class="section" id="sec-ch0-claude" data-title="Was ist Claude AI?" data-chapter="00">
+  <h3 class="section-title"><span class="icon"></span> Was ist Claude AI?</h3>
+
+  <div class="card">
+    <p>In diesem Workbook zeige ich dir, wie du Künstliche Intelligenz (KI) als persönlichen Assistenten nutzen kannst, um deine Selbstständigkeit aufzubauen.</p>
+    <p>Wir arbeiten dafür mit <strong>Claude AI</strong>. Du kannst dir Claude wie einen klugen Assistenten vorstellen, dem du in normalem Deutsch sagst, was du brauchst. Claude hilft dir dabei, Texte zu schreiben, Ideen zu entwickeln, Code zu erstellen oder sogar ganze Webseiten aufzubauen. Ein Assistent, der rund um die Uhr verfügbar ist und dir bei jedem Schritt helfen kann.</p>
+    <p>Das Wichtigste dabei: <strong>Denke ab jetzt in Fragen.</strong> Immer wenn du nicht weiterweißt, formuliere dein Problem als Frage und gib sie in Claude ein. Je genauer deine Frage, desto besser die Antwort. Das ist die wichtigste Fähigkeit, die du in diesem Workbook lernst.</p>
+    <p style="font-size:13px;color:var(--muted);margin-top:16px;padding-top:12px;border-top:1px solid var(--border);">Alle deine Eingaben in diesem Workbook werden ausschließlich in deinem Browser gespeichert und niemals an einen Server übertragen. Wenn du Prompts in Claude einfügst, gelten die Datenschutzrichtlinien von Anthropic. Gib keine sensiblen Daten wie Passwörter, Bankdaten oder Steuernummern in Claude ein.</p>
+  </div>
+
+  <div class="card">
+    <p><em>Die ausführliche Anleitung zur Anmeldung, Einrichtung und ersten Nutzung von Claude wird hier noch ergänzt.</em></p>
+  </div>
+
+  <div class="card" style="border-left:4px solid #d4729a;background:#fdf0f4;">
+    <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:12px;color:#d4729a;">Dein Claude-Projekt: "Online Business Workspace"</h4>
+    <p>Gleich nach der Anmeldung legst du in Claude ein neues Projekt an. Dieses Projekt begleitet dich durch das gesamte Workbook und wird Schritt für Schritt mit deinen Informationen gefüllt.</p>
+
+    <div class="card" style="background:#fff;margin:16px 0;box-shadow:none;">
+      <strong>So richtest du es ein:</strong>
+      <ol style="font-size:14px;line-height:1.8;padding-left:20px;margin:8px 0 0;">
+        <li>Öffne Claude und klicke links auf <strong>"Neues Projekt"</strong></li>
+        <li>Nenne es <strong>"Online Business Workspace"</strong></li>
+        <li>Klicke auf <strong>"Projektanweisungen"</strong></li>
+        <li>Hier trägst du nach und nach alle Informationen ein, die du in diesem Workbook erarbeitest</li>
+      </ol>
+    </div>
+
+    <p>Jedes Mal, wenn du im Workbook diesen rosa Hinweis siehst, bedeutet das: <strong>Trage diese Information jetzt in deine Claude-Projektanweisungen ein.</strong></p>
+
+    <div class="claude-hint" style="margin:16px 0 0;">
+      <strong>Claude-Projekt:</strong> So sehen die Hinweise aus. Immer wenn du dieses rosa Feld siehst, öffne dein Claude-Projekt und trage die Information in deine Projektanweisungen ein.
+    </div>
+
+    <p style="margin-top:16px;">Je mehr Informationen in deinen Projektanweisungen stehen, desto besser versteht Claude dein Business. Am Ende kennt Claude deinen Markennamen, deine Zielgruppe, deine Tonalität, deine Keywords und kann dir Texte schreiben, die sich anfühlen, als hättest du sie selbst geschrieben.</p>
+
+    <div class="card" style="background:#fff;margin:16px 0 0;box-shadow:none;">
+      <strong>Template für deine Projektanweisungen (kopiere das als Startvorlage):</strong>
+      <pre style="font-family:'Inter',monospace;font-size:13px;line-height:1.7;white-space:pre-wrap;background:var(--bg2);border-radius:12px;padding:16px;margin-top:8px;color:var(--text);">MEIN BUSINESS:
+- Name: [wird in Kapitel 02 ergänzt]
+- Branche: [wird in Kapitel 01 ergänzt]
+- Standort: [deine Stadt]
+
+MEIN ANGEBOT:
+- [wird in Kapitel 01 ergänzt]
+
+MEINE ZIELGRUPPE:
+- [wird in Kapitel 01 ergänzt]
+
+MEINE MISSION:
+- [wird in Kapitel 01 ergänzt]
+
+MEINE KEYWORDS:
+- [wird in Kapitel 02 ergänzt]
+
+MEINE TONALITÄT:
+- Stil: [wird in Kapitel 02 ergänzt]
+- Ich duze/sieze meine Kunden
+- 3 Adjektive: [wird in Kapitel 02 ergänzt]
+- So möchte ich NICHT klingen: [wird in Kapitel 02 ergänzt]
+
+MEINE MARKE:
+- Markenname: [wird in Kapitel 02 ergänzt]
+- Farben: [wird in Kapitel 06 ergänzt]
+- Schriften: [wird in Kapitel 06 ergänzt]</pre>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ UNTERKAPITEL 00: Wie du mit Claude arbeitest ══════════════ -->
+<div class="section" id="sec-ch0-prompts" data-title="Wie du mit Claude arbeitest" data-chapter="00">
+  <h3 class="section-title"><span class="icon"></span> Wie du mit Claude arbeitest</h3>
+  <div class="card">
+    <p><em>Dieser Abschnitt wird noch mit Inhalten befüllt — hier kommt die Erklärung, was Prompts sind und wie du sie formulierst.</em></p>
+  </div>
+</div>
+
+<!-- ══════════════ UNTERKAPITEL 00: VS Code Basics ══════════════ -->
+<div class="section" id="sec-ch0-vscode" data-title="VS Code Basics" data-chapter="00">
+  <h3 class="section-title"><span class="icon"></span> VS Code Basics</h3>
+  <div class="card">
+    <p><em>Dieser Abschnitt wird noch mit Inhalten befüllt — hier kommt eine kurze Einführung in VS Code.</em></p>
+  </div>
+</div>
+
 
 <!-- ══════════════════════════════════ KAPITEL 01 ══════════════════════════════════ -->
-<div class="section" id="sec-ch1-title" data-title="Bevor du startest" data-chapter="01">
+<div class="section" id="sec-ch1-title" data-title="Dein Fundament" data-chapter="01">
 <div class="blob" style="width:400px;height:400px;background:radial-gradient(circle,#e8604c,transparent 70%);top:-100px;right:-150px;--tx:30px;--ty:-25px;--d:20s"></div>
   <div class="chapter-header">
     <div class="chapter-num">01</div>
     <div>
-      <div class="chapter-day">Tag 1 · Vorbereitung</div>
-      <h2 class="chapter-title">Bevor du startest</h2>
+      <div class="chapter-day">Tag 1 · Positionierung</div>
+      <h2 class="chapter-title">Dein Fundament</h2>
       <p class="chapter-intro">In diesem Kapitel entwickelst du einen klaren Plan für dein Online-Angebot. Dabei spielt es keine Rolle, ob du bereits lokal selbstständig tätig bist oder noch ganz am Anfang stehst. Du schärfst dein Angebot, definierst deine Zielgruppe und verschaffst dir einen Überblick über alle relevanten Formalitäten, die du für einen strukturierten Online-Start brauchst.</p>
       <p class="chapter-nova"><strong>Nova</strong> betreibt einen kleinen Schmuckladen in Köln. Ihre Kundinnen lieben ihre Unikate — aber online existiert sie nicht. Am Ende dieses Kapitels hat sie ihr Angebot formuliert, ihre Zielgruppe beschrieben und ihr Gewerbe angemeldet.</p>
       <div class="chapter-what">
@@ -1088,7 +1238,7 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
   </div>
 </div>
 
-<div class="section" id="sec-ch1-1" data-title="Selbst und ständig" data-chapter="01">
+<div class="section" id="sec-ch1-1" data-title="Unter-nehmer-sein" data-chapter="01">
   <h3 class="section-title"><span class="icon"></span> Unter-nehmer-sein</h3>
 
   <div class="card">
@@ -1118,6 +1268,12 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
         <p>Manchmal fühlt sich das unsicher oder anstrengend an. Gleichzeitig ist genau dieser Prozess das Befreiende daran.</p>
         <p>Der wichtigste Unterschied ist nicht Talent, Wissen oder ein perfektes Produkt. <strong>Der wichtigste Unterschied ist, dranzubleiben.</strong></p>
 
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin:24px 0 12px;">Think Business</h4>
+        <p>Konkret bedeutet das, dass du dir ab sofort bei jeder Entscheidung eine neue Frage stellen darfst: <strong><em>Ist das wirklich die beste Entscheidung, um mein Business weiterzubringen?</em></strong></p>
+        <p>Versuche ab sofort nicht mehr nur als Privatperson zu denken und zu handeln — sondern als Unternehmerin. Im finanziellen Bereich bedeutet das konkret: Fokussiere dich auf Investitionen anstelle von privaten Ausgaben.</p>
+        <p>Gerade am Anfang ist es sehr wichtig zu lernen, Prioritäten zu setzen und Entscheidungen für dich und dein Business zu treffen.</p>
+        <p><em>Investierst du die freie Stunde am Abend in das Erreichen deiner Ziele und in dein Business oder schaust du Serien auf Netflix?</em> Wähle vor allem am Anfang immer das, was dich näher an dein Ziel bringt.</p>
+
         <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin:24px 0 12px;">Kleine Schritte haben eine große Wirkung</h4>
         <p>Unternehmerisches Denken bedeutet auch, Gewohnheiten zu verändern. Besonders, wenn man lange im Angestelltenverhältnis gearbeitet hat. Dort gibt es klare Aufgaben, Strukturen und Vorgaben.</p>
         <p>In der Selbstständigkeit bist du die Person, die entscheidet, was als Nächstes passiert.</p>
@@ -1134,124 +1290,745 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
           <li style="padding:6px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">+</span> den nächsten Schritt zu gehen</li>
           <li style="padding:6px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">+</span> und bei Problemen zu fragen: <strong>„Wie kann ich das lösen?"</strong></li>
         </ul>
-        <p>Und genau hier kommt ein Werkzeug ins Spiel, das dir diesen Weg deutlich erleichtern kann.</p>
-
-        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin:24px 0 12px;">Wie dich KI dabei unterstützen kann</h4>
-        <p>In diesem Workbook zeige ich dir, wie du Künstliche Intelligenz (KI) als persönlichen Assistenten nutzen kannst, um deine Selbstständigkeit aufzubauen.</p>
-        <p>Wir arbeiten dafür mit <strong>Claude AI</strong>. Du kannst dir Claude wie einen klugen Assistenten vorstellen, dem du in normalem Deutsch sagst, was du brauchst. Claude hilft dir dabei, Texte zu schreiben, Ideen zu entwickeln, Code zu erstellen oder sogar ganze Webseiten aufzubauen.</p>
-        <p>Ein Assistent, der rund um die Uhr verfügbar ist und dir bei jedem Schritt helfen kann.</p>
-        <p>Doch bevor wir uns mit Tools und Technik beschäftigen, ist eine Sache entscheidend: <strong>deine Denkweise.</strong></p>
-        <p>Denn bestimmte Perspektiven und Gewohnheiten entscheiden darüber, ob jemand wirklich ins Handeln kommt oder nur lange über seine Idee nachdenkt.</p>
-        <p>Genau mit dieser Grundlage beginnen wir jetzt.</p>
+        <p>Und genau hier kommt ein Werkzeug ins Spiel, das dir diesen Weg deutlich erleichtern kann: Künstliche Intelligenz. Aber dazu gleich mehr in Kapitel 00.</p>
+        <p>Doch bevor wir uns mit Tools und Technik beschäftigen, ist eine Sache entscheidend: <strong>deine Denkweise.</strong> Denn bestimmte Perspektiven und Gewohnheiten entscheiden darüber, ob jemand wirklich ins Handeln kommt oder nur lange über seine Idee nachdenkt.</p>
       </div>
       <button class="expandable-toggle" onclick="toggleExpand(this)">Weiterlesen</button>
     </div>
   </div>
 
-  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:8px 0 24px;">Bevor wir in die Praxis einsteigen, nimm dir kurz einen Moment. Drei Fragen, ganz ehrlich, nur für dich:</p>
+  <!-- ── Mindset Quick-Check ── -->
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:8px 0 24px;">Du hast gerade gelesen, was es bedeutet, unternehmerisch zu denken. Bevor wir weitergehen, nimm dir kurz einen Moment und schau ehrlich auf dich selbst:</p>
 
   <div class="reflection-box">
+    <div class="label">Dein Mindset</div>
     <div class="fill-group">
-      <div class="fill-label">Was möchte ich mit meiner Selbstständigkeit erreichen?</div>
-      <textarea class="fill-input" placeholder="z.B. 'Mein eigenes Ding aufbauen' oder 'Unabhängig arbeiten können'" data-save="ch1-why"></textarea>
+      <div class="fill-label">Wie stehe ich zur Selbstständigkeit? Begeistert, unsicher, beides?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Ich bin motiviert, aber habe Respekt vor dem Unbekannten'" data-save="ch1-mindset-feeling"></textarea>
     </div>
     <div class="fill-group">
-      <div class="fill-label">Was ist aktuell deine größte Herausforderung im Online-Bereich?</div>
-      <textarea class="fill-input" placeholder="z.B. 'Ich weiß nicht, wo ich anfangen soll' oder 'Meine Website braucht ein Update'" data-save="ch1-challenge"></textarea>
+      <div class="fill-label">Was bedeutet "unternehmerisch handeln" für mich persönlich?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Selbst entscheiden, was ich tue' oder 'Verantwortung für meine Idee übernehmen'" data-save="ch1-mindset-meaning"></textarea>
     </div>
     <div class="fill-group">
-      <div class="fill-label">Was wäre für mich der größte Erfolg nach diesen 7 Tagen?</div>
-      <textarea class="fill-input" placeholder="z.B. 'Eine eigene Website haben' oder 'Endlich online sichtbar sein'" data-save="ch1-goal"></textarea>
+      <div class="fill-label">Welche Eigenschaft bringe ich mit, die mir dabei helfen wird?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Ich bin hartnäckig' oder 'Ich lerne gerne Neues'" data-save="ch1-mindset-strength"></textarea>
     </div>
   </div>
 
   <div class="nova-beispiel">
-    <strong>Nova's Antworten:</strong> "Warum selbstständig? Weil ich meinen Schmuck nicht nur in meinem Laden verkaufen will — ich will, dass Leute mich online finden." Was hält sie zurück? "Ich habe keine Ahnung von Technik und will nichts kaputt machen."
+    <strong>Nova:</strong> "Ich bin begeistert und unsicher gleichzeitig. Für mich bedeutet unternehmerisch handeln, nicht mehr darauf zu warten, dass Kunden in meinen Laden kommen, sondern aktiv auf sie zuzugehen. Meine Stärke? Ich bin kreativ und gebe nicht so schnell auf."
+  </div>
+
+  <!-- ── Mindset-Vertiefung (optional) ── -->
+  <div class="card" style="margin-top:24px;border-left:3px solid var(--coral);background:var(--bg2);">
+    <p style="font-size:16px;line-height:1.8;color:var(--text);margin:0 0 12px;">Wenn du dich intensiver mit deinem Unternehmer-Mindset beschäftigen möchtest, öffne die folgenden Module. Wenn du lieber direkt weitermachen willst, spring zum nächsten Abschnitt.</p>
+    <a href="#sec-ch1-ziele" style="color:var(--coral);font-weight:600;font-size:15px;">Direkt weiter zu: Deine Ziele →</a>
+  </div>
+
+  <!-- Modul 1: Emotionale Verantwortung -->
+  <div class="card" style="margin-top:16px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Emotionale Verantwortung</h4>
+        <p>Wenn du in einer schlechten Energie versuchst, deine Visionen und Ziele zu formulieren oder an einem Projekt zu arbeiten, kann dabei nicht das entstehen, was du dir aus tiefstem Herzen wünschst.</p>
+      </div>
+      <div class="expandable-content">
+        <p>Das bedeutet aber nicht, dass du in diesen Momenten nicht weitermachst. Es bedeutet vielmehr, dass du die Verantwortung für deine Emotionen übernimmst und dafür sorgst, dass du dich gut fühlst.</p>
+        <p>Gedanken sind magnetisch und haben eine Frequenz. Die Frequenz deiner Gedanken zieht automatisch an, was auf der gleichen Frequenz schwingt. <strong>Gleiches zieht Gleiches an.</strong></p>
+        <p>Woran du also am häufigsten denkst und worauf du dich besonders intensiv konzentrierst, wird sehr wahrscheinlich zu deiner Realität werden. Wähle daher bewusst Gedanken mit einer hohen Frequenz.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;">
+          <div style="background:rgba(45,184,168,0.08);border-radius:var(--r);padding:16px 20px;">
+            <strong style="color:var(--teal);font-size:13px;text-transform:uppercase;letter-spacing:1px;">Hohe Frequenz</strong>
+            <p style="margin:8px 0 0;font-size:14px;line-height:1.8;color:var(--text);">Freude, Liebe, Begeisterung, Stolz, Dankbarkeit, Zuversicht, Behaglichkeit, Zärtlichkeit</p>
+          </div>
+          <div style="background:rgba(232,96,76,0.06);border-radius:var(--r);padding:16px 20px;">
+            <strong style="color:var(--coral);font-size:13px;text-transform:uppercase;letter-spacing:1px;">Niedrige Frequenz</strong>
+            <p style="margin:8px 0 0;font-size:14px;line-height:1.8;color:var(--text);">Enttäuschung, Einsamkeit, Mangel, Traurigkeit, Verwirrung, Stress, Wut, Verletzung</p>
+          </div>
+        </div>
+        <p>Wenn du in deinem Leben etwas verändern möchtest, dann wechsle die Frequenz, indem du deine Gedanken änderst.</p>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <!-- Modul 2: Deine Big Five -->
+  <div class="card" style="margin-top:16px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Deine Big Five</h4>
+        <p>Kennst du das Buch "Big Five for Life"? Die Big Five sind die fünf Dinge, die du in deinem Leben unbedingt erreichen, erleben oder erschaffen möchtest.</p>
+      </div>
+      <div class="expandable-content">
+        <p>Was auch immer deine Antwort auf diese Frage ist — nimm dir jetzt einen Moment und definiere deine persönlichen Big Five. Was sind deine Top 5 Ziele im Leben, die du erreichen möchtest? Was möchtest du erleben?</p>
+        <p><strong>Du lebst dein Leben für DICH.</strong> Und nicht um Ziele zu erreichen, die anderen Menschen gefallen.</p>
+        <div class="reflection-box" style="margin:16px 0 0;">
+          <div class="label">Deine Big Five</div>
+          <div class="fill-group"><div class="fill-label">1.</div><input class="fill-input" type="text" placeholder="" data-save="ch1-bigfive-1"></div>
+          <div class="fill-group"><div class="fill-label">2.</div><input class="fill-input" type="text" placeholder="" data-save="ch1-bigfive-2"></div>
+          <div class="fill-group"><div class="fill-label">3.</div><input class="fill-input" type="text" placeholder="" data-save="ch1-bigfive-3"></div>
+          <div class="fill-group"><div class="fill-label">4.</div><input class="fill-input" type="text" placeholder="" data-save="ch1-bigfive-4"></div>
+          <div class="fill-group"><div class="fill-label">5.</div><input class="fill-input" type="text" placeholder="" data-save="ch1-bigfive-5"></div>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <!-- Modul 3: Der perfekte Tag -->
+  <div class="card" style="margin-top:16px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg> Der perfekte Tag</h4>
+        <p>Schließe die Augen und stell dir deinen absolut perfekten Tag vor. Von dem Moment, in dem du aufwachst, bis du abends einschläfst.</p>
+      </div>
+      <div class="expandable-content">
+        <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Hier ein kleiner Leitfaden für dich. Lass dir Zeit und schreib alles auf, was dir in den Sinn kommt:</p>
+        <div class="reflection-box" style="margin:0 0 16px;">
+          <div class="fill-group"><div class="fill-label">Was siehst du als erstes, wenn du deine Augen öffnest? Wo wachst du auf?</div><textarea class="fill-input" placeholder="" data-save="ch1-day-morning"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Wie startest du deinen Tag? Was machst du als erstes?</div><textarea class="fill-input" placeholder="" data-save="ch1-day-start"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Arbeitest du? Was arbeitest du? Liebst du deine Arbeit?</div><textarea class="fill-input" placeholder="" data-save="ch1-day-work"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Bist du selbstständig? Hast du Mitarbeiter?</div><textarea class="fill-input" placeholder="" data-save="ch1-day-business"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Wie endet dein perfekter Tag?</div><textarea class="fill-input" placeholder="" data-save="ch1-day-evening"></textarea></div>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <!-- Modul 4: Deine wahren Stärken -->
+  <div class="card" style="margin-top:16px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M5 8H4a4 4 0 0 0 0 8h1"/><line x1="6" y1="12" x2="18" y2="12"/><line x1="12" y1="6" x2="12" y2="18"/></svg> Deine wahren Stärken</h4>
+        <p>Meistens schätzt du dich selbst viel schlechter ein als du es in Wahrheit bist. Daher holst du dir bei dieser Aufgabe Unterstützung von Menschen, die dich kennen.</p>
+      </div>
+      <div class="expandable-content">
+        <div class="card" style="background:var(--bg2);box-shadow:none;margin:0 0 16px;">
+          <strong>Deine Aufgabe:</strong>
+          <p>1. Erstelle eine Liste mit 5–10 Menschen, die dich mögen, kennen und unterstützen.</p>
+          <p>2. Stelle jedem einzelnen dieser Menschen die folgenden Fragen:</p>
+          <ul style="list-style:none;padding:0;margin:8px 0;">
+            <li style="padding:4px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">a)</span> Was sind aus deiner Sicht meine 3 größten Stärken?</li>
+            <li style="padding:4px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">b)</span> Bei welchen 3 Tätigkeiten habe ich aus deiner Sicht die meiste Freude?</li>
+            <li style="padding:4px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">c)</span> Warum glaubst du ist das so?</li>
+            <li style="padding:4px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">d)</span> Welche Sache kann ich mit Leichtigkeit lösen, wenn du mich nachts wecken und danach fragen würdest?</li>
+          </ul>
+        </div>
+        <div class="miriam-sagt" style="margin:0 0 16px;">
+          <div class="miriam-sagt-header">
+            <div class="miriam-avatar"></div>
+            <div>
+              <div class="miriam-sagt-label">Tipp</div>
+              <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+            </div>
+          </div>
+          <p>Nutze am besten WhatsApp. Schicke zuerst eine Nachricht wie: "Hey, es gibt da etwas, wobei du mir weiterhelfen kannst. Es braucht auch nur 3 Minuten deiner Zeit. Darf ich es dir schicken?" Warte auf ein "Ja" und schicke dann die Fragen. Schreib dazu, dass sie auch gern per Sprachnachricht antworten können.</p>
+        </div>
+        <div class="reflection-box" style="margin:0;">
+          <div class="label">Deine Ergebnisse</div>
+          <div class="fill-group"><div class="fill-label">Meine 3 größten Stärken:</div><textarea class="fill-input" placeholder="" data-save="ch1-strengths-top3"></textarea></div>
+          <div class="fill-group"><div class="fill-label">3 Tätigkeiten, die ich mit Freude mache:</div><textarea class="fill-input" placeholder="" data-save="ch1-strengths-joy"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Was mir wirklich leicht fällt:</div><textarea class="fill-input" placeholder="" data-save="ch1-strengths-easy"></textarea></div>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <!-- Modul 5: Wachstumsbooster -->
+  <div class="card" style="margin-top:16px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Wachstumsbooster</h4>
+        <p>In dieser Übung geht es darum, deine Vergangenheit zu durchleuchten. Werde dir darüber bewusst, was du wie, wo und warum schon erlebt hast.</p>
+      </div>
+      <div class="expandable-content">
+        <p>Gab es schon Rückschläge oder große Erfolge, aber auch Erlebnisse, die du durch gewisse Stärken gemeistert hast? Oftmals sind unsere Handlungen so selbstverständlich, dass uns gar nicht bewusst ist, wie außergewöhnlich gut wir bestimmte Situationen meistern.</p>
+        <p>Schreib unbedingt alles auf, was dir in den Sinn kommt. Es geht hier noch nicht darum, eine Business-Idee daraus entstehen zu lassen.</p>
+        <div class="reflection-box" style="margin:16px 0 0;">
+          <div class="label">Dein Wachstumsbooster</div>
+          <div class="fill-group"><div class="fill-label">Welche Fähigkeiten hast du im Laufe deines Lebens erlernt?</div><textarea class="fill-input" placeholder="" data-save="ch1-growth-skills"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Was hast du getan, um sie zu erlernen?</div><textarea class="fill-input" placeholder="" data-save="ch1-growth-how"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Was ist jetzt der Nutzen davon?</div><textarea class="fill-input" placeholder="" data-save="ch1-growth-benefit"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Ich konnte etwas nicht, habe es gelernt, und dadurch bin ich jetzt in der Lage...</div><textarea class="fill-input" placeholder="z.B. 'Ich hatte keine Ahnung von Websites, habe mich eingearbeitet und habe jetzt einen eigenen Online-Shop'" data-save="ch1-growth-example"></textarea></div>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <!-- Modul 6: Energiemanagement -->
+  <div class="card" style="margin-top:16px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="18" rx="2"/><line x1="10" y1="2" x2="14" y2="2"/><line x1="8" y1="18" x2="16" y2="18"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="10" x2="16" y2="10"/></svg> Energiemanagement</h4>
+        <p>Die Energie, die dir täglich zur Verfügung steht, ist begrenzt. Wenn du deine Energie für die falschen Dinge einsetzt, wird nicht mehr ausreichend Energie für die wirklich wichtigen Dinge bleiben.</p>
+      </div>
+      <div class="expandable-content">
+        <p>Sei ehrlich zu dir selbst und schau dir an, wie du deine Energie aktuell einsetzt. Versuchst du gegen die Wellen anzuschwimmen? Nutzt du deine Energie wirklich ausschließlich für die Dinge, die dich deinem Ziel näher bringen?</p>
+        <div class="reflection-box" style="margin:16px 0 0;">
+          <div class="label">Deine Energie-Bilanz</div>
+          <div class="fill-group"><div class="fill-label">Wofür geht aktuell die meiste Energie drauf?</div><textarea class="fill-input" placeholder="z.B. Arbeit, Social Media, Sorgen, Haushalt..." data-save="ch1-energy-current"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Wofür möchtest du deine Energie ab sofort einsetzen?</div><textarea class="fill-input" placeholder="z.B. Business-Aufbau, Sport, Weiterbildung..." data-save="ch1-energy-future"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Was kannst du ab sofort weglassen oder reduzieren?</div><textarea class="fill-input" placeholder="z.B. 'Weniger Social Media scrollen' oder 'Weniger Netflix'" data-save="ch1-energy-reduce"></textarea></div>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <!-- Modul 7: Dich selbst verkaufen -->
+  <div class="card" style="margin-top:16px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Dich selbst verkaufen</h4>
+        <p>Wenn du ein Produkt oder eine Dienstleistung verkaufst, verkaufst du immer auch dich selbst. Und genau das ist der Punkt, an dem viele Menschen aufhören, bevor sie überhaupt angefangen haben.</p>
+      </div>
+      <div class="expandable-content">
+        <div class="miriam-sagt" style="margin:16px 0;">
+          <div class="miriam-sagt-header">
+            <div class="miriam-avatar"></div>
+            <div>
+              <div class="miriam-sagt-label">Ganz ehrlich</div>
+              <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+            </div>
+          </div>
+          <p>Ich habe mich am Anfang nicht getraut, ehrlich und direkt zu sagen, was ich kann und was ich dafür haben möchte. Glaubenssätze haben mich aufgehalten. Ich habe mich immer kleiner gefühlt als ich bin und dachte, ich bin nicht so viel wert, das jetzt zu können und zu tun. Das war bei mir tief verankert. Und ich glaube, dass das sehr viele Menschen abhält.</p>
+        </div>
+
+        <p>Die Wahrheit ist: Wenn du selbst nicht an dein Angebot glaubst, wird es auch niemand anderes tun. Verkaufen ist keine Manipulation — es ist die Fähigkeit, klar zu kommunizieren, was du anbietest und welchen Wert es hat.</p>
+
+        <p>Das bedeutet konkret:</p>
+        <ul style="list-style:none;padding:0;margin:8px 0 16px;">
+          <li style="padding:6px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">+</span> Dein Angebot im Kopf haben — jederzeit klar sagen können, was du machst</li>
+          <li style="padding:6px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">+</span> Deinen Preis selbstbewusst nennen — ohne dich zu rechtfertigen</li>
+          <li style="padding:6px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">+</span> Präsent sein — dich zeigen, sichtbar werden, nicht verstecken</li>
+          <li style="padding:6px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">+</span> Deine eigene Hausaufgabe machen — dein Angebot kennen wie deine Westentasche</li>
+        </ul>
+
+        <p>Das ist wie Hausaufgaben machen: Es fühlt sich am Anfang unbequem an, aber je öfter du es tust, desto natürlicher wird es.</p>
+
+        <div class="reflection-box" style="margin:16px 0 0;">
+          <div class="label">Ehrlicher Selbst-Check</div>
+          <div class="fill-group"><div class="fill-label">Kannst du in einem Satz sagen, was du anbietest und was es kostet?</div><textarea class="fill-input" placeholder="Probiere es jetzt: 'Ich biete ... an und das kostet ...'" data-save="ch1-sell-pitch"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Welche Glaubenssätze halten dich davon ab, selbstbewusst zu verkaufen?</div><textarea class="fill-input" placeholder="z.B. 'Ich bin nicht gut genug', 'Wer bin ich, das zu verlangen?', 'Andere können das besser'" data-save="ch1-sell-beliefs"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Wovor hast du am meisten Angst, wenn es ums Verkaufen geht?</div><textarea class="fill-input" placeholder="z.B. 'Abgelehnt zu werden', 'Als aufdringlich wahrgenommen zu werden'" data-save="ch1-sell-fear"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Was würdest du tun, wenn du wüsstest, dass du nicht scheitern kannst?</div><textarea class="fill-input" placeholder="" data-save="ch1-sell-fearless"></textarea></div>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <!-- Modul 8: Erlaube dir Pausen -->
+  <div class="card" style="margin-top:16px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Erlaube dir Pausen</h4>
+        <p>Wenn ich eins zur Selbstständigkeit gelernt habe, dann das: Du musst nicht jeden Tag 100 % geben.</p>
+      </div>
+      <div class="expandable-content">
+        <div class="miriam-sagt" style="margin:16px 0;">
+          <div class="miriam-sagt-header">
+            <div class="miriam-avatar"></div>
+            <div>
+              <div class="miriam-sagt-label">Aus eigener Erfahrung</div>
+              <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+            </div>
+          </div>
+          <p>Es gibt Tage, da geht einfach gar nichts. Und dann kommen wieder Tage, da hast du 150 %. Das ist normal. Das gehört dazu. Erlaube dir diese Pausen, denn meistens sind es genau die Pausen, in denen du neue Inspiration findest. Plötzlich hast du unter der Dusche oder beim Spaziergang eine Idee, auf die du am Schreibtisch nie gekommen wärst.</p>
+        </div>
+        <p>Selbstständigkeit ist kein Sprint, sondern ein Marathon. Die Menschen, die langfristig erfolgreich sind, sind nicht die, die sich jeden Tag bis zum Umfallen verausgaben. Es sind die, die wissen, wann sie Gas geben und wann sie pausieren.</p>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <!-- Modul 9: Die 72-Stunden-Regel -->
+  <div class="card" style="margin-top:16px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg> Die 72-Stunden-Regel</h4>
+        <p>Dein Unterbewusstsein ist dein stärkstes Werkzeug. Nutze es richtig und es arbeitet für dich, auch wenn du schläfst.</p>
+      </div>
+      <div class="expandable-content">
+        <p>Es gibt eine faszinierende Beobachtung: Wenn du dir eine Frage stellst und sie bewusst formulierst, versucht dein Unterbewusstsein, sie innerhalb von 72 Stunden zu beantworten. Das passiert nicht magisch, sondern weil dein Gehirn im Hintergrund weiterarbeitet. Du nimmst plötzlich Dinge wahr, die vorher an dir vorbeigegangen sind. Du hörst einen Satz in einem Podcast, der genau die Antwort ist. Du wachst morgens auf und die Lösung ist einfach da.</p>
+        <p><strong>So nutzt du es:</strong></p>
+        <ul style="list-style:none;padding:0;margin:8px 0 16px;">
+          <li style="padding:6px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">1.</span> Schreibe dir eine konkrete Frage auf, die du beantwortet haben möchtest</li>
+          <li style="padding:6px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">2.</span> Hänge sie sichtbar auf, an deinen Kühlschrank, deinen Spiegel oder deinen Bildschirm</li>
+          <li style="padding:6px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">3.</span> Lies sie jeden Morgen und jeden Abend einmal durch</li>
+          <li style="padding:6px 0;padding-left:20px;position:relative;"><span style="position:absolute;left:0;color:var(--coral);font-weight:700;">4.</span> Warte ab. Die Antwort kommt, oft dann, wenn du es am wenigsten erwartest</li>
+        </ul>
+        <div class="reflection-box" style="margin:16px 0 0;">
+          <div class="label">Probiere es aus</div>
+          <div class="fill-group">
+            <div class="fill-label">Meine Frage, die ich beantwortet haben möchte:</div>
+            <textarea class="fill-input" placeholder="z.B. 'Wie kann ich mein Angebot so formulieren, dass meine Wunschkundin sofort versteht, was ich mache?'" data-save="ch1-72h-question"></textarea>
+          </div>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="label">Prompt: Unternehmer-Mindset reflektieren</div>
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
+    <pre>Ich stehe am Anfang meiner Selbstständigkeit und möchte [Produkt/Dienstleistung] anbieten. Ich fühle mich dabei [begeistert/unsicher/motiviert/überfordert]. Meine größte Stärke ist [deine Stärke]. Hilf mir, mein Unternehmer-Mindset zu stärken. Gib mir 3 konkrete Denkmuster, die mir helfen, ins Handeln zu kommen, und 3 typische Denkfallen, die ich vermeiden sollte.</pre>
+  </div>
+
+</div>
+
+<!-- ══════════════ UNTERKAPITEL: Deine Ziele ══════════════ -->
+<div class="section" id="sec-ch1-ziele" data-title="Deine Ziele" data-chapter="01">
+  <h3 class="section-title"><span class="icon"></span> Deine Ziele</h3>
+
+  <div class="card">
+    <p>Du hast dich mit deinem Mindset beschäftigt und weißt, was dich antreibt. Jetzt schauen wir nach vorne: Was willst du konkret erreichen?</p>
+    <p>Ziele geben dir Richtung. Ohne klare Ziele arbeitest du zwar viel, aber nicht unbedingt an den richtigen Dingen. In der Selbstständigkeit unterscheidet man zwischen zwei Arten von Zielen:</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;">
+    <div class="card" style="margin-bottom:0;">
+      <h4 style="font-family:'Antonio',sans-serif;font-size:17px;color:var(--coral);margin-bottom:8px;">Operative Ziele</h4>
+      <p style="font-size:14px;line-height:1.7;">Kurzfristige, konkrete Ziele für die nächsten 1–3 Jahre. Sie beschreiben, was du in absehbarer Zeit erreichen willst und machen deine Vision greifbar.</p>
+      <p style="font-size:13px;color:var(--muted);margin-top:8px;"><em>z.B. "Innerhalb der nächsten 12 Monate möchte ich eine laufende Website haben und monatlich 10 Anfragen über mein Kontaktformular bekommen."</em></p>
+    </div>
+    <div class="card" style="margin-bottom:0;">
+      <h4 style="font-family:'Antonio',sans-serif;font-size:17px;color:var(--coral);margin-bottom:8px;">Strategische Ziele</h4>
+      <p style="font-size:14px;line-height:1.7;">Langfristige Ziele für die nächsten 3–5 Jahre. Sie beschreiben das große Bild: Wohin soll sich dein Business entwickeln?</p>
+      <p style="font-size:13px;color:var(--muted);margin-top:8px;"><em>z.B. "In 5 Jahren möchte ich ein etabliertes Online-Business haben, von meiner Selbstständigkeit leben und ein kleines Team führen."</em></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4 style="font-family:'Antonio',sans-serif;font-size:17px;margin-bottom:12px;">Gute Ziele sind SMART</h4>
+    <p style="margin-bottom:12px;">Damit deine Ziele nicht vage bleiben, formuliere sie nach der SMART-Methode:</p>
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:14px;line-height:1.7;">
+      <strong style="color:var(--coral);">S</strong><span><strong>Spezifisch</strong> — Was genau willst du erreichen?</span>
+      <strong style="color:var(--coral);">M</strong><span><strong>Messbar</strong> — Woran erkennst du, dass du es erreicht hast?</span>
+      <strong style="color:var(--coral);">A</strong><span><strong>Attraktiv</strong> — Motiviert dich dieses Ziel wirklich?</span>
+      <strong style="color:var(--coral);">R</strong><span><strong>Realistisch</strong> — Ist es machbar mit deinen Ressourcen?</span>
+      <strong style="color:var(--coral);">T</strong><span><strong>Terminiert</strong> — Bis wann willst du es erreicht haben?</span>
+    </div>
+    <p style="margin-top:12px;font-size:13px;color:var(--muted);"><em>Statt "Ich will mehr Kunden" → "Ich möchte bis Ende des Monats 3 Anfragen über mein Kontaktformular bekommen."</em></p>
+  </div>
+
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:8px 0 24px;">Formuliere jetzt deine eigenen Ziele — erst das große Bild, dann die konkreten nächsten Schritte:</p>
+
+  <div class="reflection-box">
+    <div class="label">Dein operatives Ziel (1–3 Jahre) — SMART formuliert</div>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Formuliere dein Ziel so, dass es alle 5 SMART-Kriterien erfüllt:</p>
+    <div class="fill-group">
+      <div class="fill-label"><strong style="color:var(--coral);">S</strong> — Was genau willst du erreichen?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Eine professionelle Website mit Online-Shop für meinen Schmuck'" data-save="ch1-goal-specific"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label"><strong style="color:var(--coral);">M</strong> — Woran erkennst du, dass du es erreicht hast?</div>
+      <textarea class="fill-input" placeholder="z.B. '500 Besucher pro Monat und 10 Anfragen über das Kontaktformular'" data-save="ch1-goal-measurable"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label"><strong style="color:var(--coral);">A</strong> — Warum ist dir dieses Ziel wichtig?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Weil ich nicht mehr nur von Laufkundschaft abhängig sein will'" data-save="ch1-goal-attractive"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label"><strong style="color:var(--coral);">R</strong> — Ist es realistisch mit deinen aktuellen Ressourcen?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Ja, ich habe abends 1–2 Stunden Zeit und dieses Workbook als Anleitung'" data-save="ch1-goal-realistic"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label"><strong style="color:var(--coral);">T</strong> — Bis wann willst du es erreicht haben?</div>
+      <input class="fill-input" type="text" placeholder="z.B. 'Bis März nächstes Jahr'" data-save="ch1-goal-deadline">
+    </div>
+    <div class="fill-group" style="margin-top:16px;border-top:1px solid var(--border);padding-top:16px;">
+      <div class="fill-label"><strong>Dein fertiges SMART-Ziel in einem Satz:</strong></div>
+      <textarea class="fill-input" style="min-height:60px;font-size:15px;font-weight:600;" placeholder="z.B. 'Bis März 2027 habe ich eine laufende Website mit 500 monatlichen Besuchern und erhalte mindestens 10 Kundenanfragen pro Monat.'" data-save="ch1-goal-smart-sentence"></textarea>
+    </div>
+  </div>
+
+  <div class="reflection-box">
+    <div class="label">Deine strategischen Ziele (3–5 Jahre)</div>
+    <div class="fill-group">
+      <div class="fill-label">Wo möchte ich mit meinem Business in 3–5 Jahren stehen?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Von meiner Selbstständigkeit leben, ein kleines Team haben und in meiner Region bekannt sein'" data-save="ch1-goal-strategic"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Wie soll sich mein Alltag dann anfühlen?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Ich arbeite selbstbestimmt, habe feste Kunden und kann mir meine Zeit frei einteilen'" data-save="ch1-goal-feeling"></textarea>
+    </div>
+  </div>
+
+  <div class="nova-beispiel">
+    <strong>Nova:</strong> "Strategisch: In 12 Monaten möchte ich 30% meines Umsatzes online machen. Operativ: Bis Sonntag habe ich eine Website mit meinen 10 beliebtesten Schmuckstücken online. Meine 3 Schritte: Claude einrichten, Produktfotos machen, Website bauen."
+  </div>
+
+  <div class="prompt-box">
+    <div class="label">Prompt: Ziele formulieren</div>
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
+    <pre>Ich bin [deine Beschreibung] und möchte mich online selbstständig machen. Mein großes Ziel ist [strategisches Ziel]. Hilf mir, daraus 3 konkrete, SMARTe Ziele für die nächsten 7 Tage zu formulieren. Jedes Ziel soll spezifisch, messbar, attraktiv, realistisch und terminiert sein. Gib mir zu jedem Ziel auch den ersten konkreten Schritt, den ich heute noch tun kann.</pre>
   </div>
 </div>
 
-<div class="section" id="sec-ch1-2" data-title="Dein Angebot & deine Zielgruppe" data-chapter="01">
-  <h3 class="section-title"><span class="icon"></span> Dein Angebot &amp; deine Zielgruppe</h3>
+<!-- ══════════════ UNTERKAPITEL: Deine Vision ══════════════ -->
+<div class="section" id="sec-ch1-vision" data-title="Deine Vision" data-chapter="01">
+  <h3 class="section-title"><span class="icon"></span> Deine Vision</h3>
 
-  <div class="card">
-    <p>Du weißt jetzt, warum du das hier machst. Jetzt klären wir, <strong>was</strong> du anbietest und <strong>für wen</strong>. Das ist die Grundlage für alles, was danach kommt — dein Markenname, deine Website-Texte, dein Marketing. Alles baut darauf auf.</p>
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:0 0 24px;">Du hast deine Ziele formuliert. Jetzt gehen wir einen Schritt weiter: Was ist dein Nordstern? Deine Vision beschreibt nicht was du morgen tust, sondern wohin die Reise langfristig gehen soll.</p>
 
-    <p>Viele, die sich selbstständig machen wollen, starten direkt mit der Technik — Website bauen, Logo erstellen, Instagram-Account anlegen. Aber was dann oft passiert: Man baut sich eine hübsche Website, wählt Farben aus, schreibt Texte — und merkt drei Wochen später, dass der Name nicht passt, die Zielgruppe unklar war oder die Website für die falschen Leute spricht. Deshalb machen wir es hier anders. Bevor wir auch nur ein einziges Tool aufmachen, klären wir gemeinsam dein Fundament. Das spart dir später Wochen an Überarbeitung.</p>
+  <div class="glossar-box">
+    <div class="glossar-term">Vision vs. Mission vs. Ziele</div>
+    <p><strong>Vision</strong> = Dein Nordstern. Wohin soll die Reise gehen? Das große Bild. (z.B. "Die Welt ein Stück umweltfreundlicher gestalten")<br>
+    <strong>Mission</strong> = Dein Weg dorthin. Wie und für wen? (z.B. "Wir helfen Unternehmen, nachhaltige Verpackungen einzusetzen")<br>
+    <strong>Ziele</strong> = Konkrete Meilensteine auf dem Weg. Messbar und terminiert. (z.B. "Bis Dezember 50 Unternehmen beraten")</p>
   </div>
 
-  <div class="reflection-box">
-    <div class="label">Dein Fundament</div>
-    <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Schreib auf, was dir durch den Kopf geht. Du darfst alles später ändern — Klarheit kommt nicht vom Grübeln, sondern vom Aufschreiben.</p>
+  <div class="card" style="margin-top:20px;">
+    <p>Stell dir vor, dein Business läuft seit 5 Jahren genau so, wie du es dir wünschst. Alles ist perfekt. Was hat sich verändert? Nicht nur für dich, sondern auch für deine Kunden, für deine Branche, für die Welt um dich herum?</p>
+    <p>Eine gute Vision ist wie ein Kompass. Du schaust nicht jeden Tag drauf, aber sie gibt dir die Richtung vor. Besonders dann, wenn es mal schwierig wird oder du nicht weißt, welche Entscheidung die richtige ist.</p>
+  </div>
+
+  <div class="reflection-box" style="margin-top:20px;">
+    <div class="label">Deine Vision</div>
     <div class="fill-group">
-      <div class="fill-label">Mein Angebot in einem Satz:</div>
-      <input class="fill-input" type="text" placeholder="z.B. Ich helfe Yogalehrerinnen, online sichtbar zu werden." data-save="ch2-offer">
+      <div class="fill-label">Was ist meine große Vision? Was möchte ich mit meinem Business in die Welt bringen?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Ich möchte, dass jede Frau ein Schmuckstück besitzt, das ihre eigene Geschichte erzählt'" data-save="ch1-vision-big" style="min-height:80px;"></textarea>
     </div>
     <div class="fill-group">
-      <div class="fill-label">Für wen ist es gedacht:</div>
-      <input class="fill-input" type="text" placeholder="Wer ist dein Wunschkunde?" data-save="ch2-audience">
+      <div class="fill-label">Wie sieht mein Business in 5 Jahren aus, wenn alles perfekt läuft?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Ein Online-Shop mit eigenem Atelier, Workshops für Schmuckdesign und eine Community'" data-save="ch1-vision-5years"></textarea>
     </div>
     <div class="fill-group">
-      <div class="fill-label">Welches Problem löse ich damit:</div>
-      <input class="fill-input" type="text" placeholder="Was ist das Kernproblem?" data-save="ch2-problem">
+      <div class="fill-label">Was verändert sich für meine Kunden durch mein Business?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Sie fühlen sich besonders und tragen etwas Einzigartiges mit Bedeutung'" data-save="ch1-vision-impact"></textarea>
     </div>
     <div class="fill-group">
-      <div class="fill-label">Was kann ich besonders gut:</div>
-      <input class="fill-input" type="text" placeholder="Deine Superpower..." data-save="ch2-strength">
+      <div class="fill-label">Meine Vision in einem Satz:</div>
+      <textarea class="fill-input" style="min-height:60px;font-size:16px;font-weight:600;" placeholder="z.B. 'Ich mache handgemachten Schmuck zum Ausdruck von Persönlichkeit'" data-save="ch1-vision-statement"></textarea>
     </div>
   </div>
 
   <div class="nova-beispiel">
-    <strong>Nova's Fundament:</strong> "Ich biete handgemachten Schmuck aus nachhaltigen Materialien an — für Frauen zwischen 25 und 45, die Wert auf Individualität legen. Mein Kernproblem: Sie finden mich nur, wenn sie zufällig an meinem Laden vorbeigehen. Meine Superpower: Jedes Stück ist ein Unikat mit Geschichte."
+    <strong>Nova:</strong> "Meine Vision: Jede Frau soll ein Schmuckstück besitzen können, das ihre eigene Geschichte erzählt. In 5 Jahren habe ich einen Online-Shop, ein eigenes Atelier und biete Workshops an. Meine Kundinnen fühlen sich besonders, weil jedes Stück ein Unikat ist."
+  </div>
+
+  <div class="claude-hint">
+    <strong>Claude-Projekt:</strong> Trage deine Vision in deine Projektanweisungen ein.
+    <button class="claude-toggle" onclick="toggleClaudeHint(this)">Vorlage anzeigen</button>
+    <div class="claude-detail">
+      <pre style="font-family:'Inter',monospace;font-size:12px;line-height:1.6;white-space:pre-wrap;background:rgba(212,114,154,0.08);border-radius:8px;padding:12px;margin-top:8px;color:#444;cursor:pointer;" onclick="navigator.clipboard.writeText(this.textContent);this.style.outline='2px solid #d4729a';setTimeout(()=>this.style.outline='none',1000)">MEINE VISION:
+- [deine Vision in einem Satz]</pre>
+      <p style="font-size:11px;color:#d4729a;margin:6px 0 0;">Klicke auf den Text oben, um ihn zu kopieren.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="sec-ch1-2" data-title="Dein Angebot" data-chapter="01">
+  <h3 class="section-title"><span class="icon"></span> Dein Angebot</h3>
+
+  <div class="card">
+    <p>Du hast gerade dein Mindset und deine Ziele definiert. Jetzt klären wir, <strong>was genau du anbietest</strong>. Das ist die Grundlage für alles, was danach kommt — dein Markenname, deine Website-Texte, dein Marketing. Alles baut darauf auf.</p>
+
+    <p>Viele starten direkt mit der Technik — Website bauen, Logo erstellen, Instagram-Account anlegen. Aber was dann oft passiert: Man baut sich eine hübsche Website, wählt Farben aus, schreibt Texte und merkt drei Wochen später, dass der Name nicht passt oder die Website für die falschen Leute spricht. Deshalb machen wir es hier anders. Bevor wir auch nur ein einziges Tool aufmachen, klären wir gemeinsam dein Angebot.</p>
+  </div>
+
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:8px 0 24px;">Definiere jetzt dein Angebot, egal ob du bei null anfängst oder dein bestehendes Angebot für den Online-Bereich anpassen möchtest. Du darfst alles später noch ändern. Klarheit kommt nicht vom Grübeln, sondern vom Aufschreiben.</p>
+
+  <div class="reflection-box">
+    <div class="label">Dein Angebot definieren</div>
+    <div class="fill-group">
+      <div class="fill-label">Was bietest du an? (Produkt, Dienstleistung oder digitales Produkt)</div>
+      <textarea class="fill-input" placeholder="z.B. 'Handgemachter Schmuck', 'Yoga-Kurse', 'Online-Coaching', 'E-Book zum Thema Ernährung'" data-save="ch2-offer"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">In welcher Form lieferst du es? (vor Ort, online, als Download, auf Bestellung...)</div>
+      <input class="fill-input" type="text" placeholder="z.B. 'Online-Shop + lokaler Laden' oder 'Zoom-Coaching + Workbook als PDF'" data-save="ch2-format">
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Welches konkrete Problem löst du für deine Kunden?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Meine Kundinnen finden online nur Massenware und wünschen sich etwas Individuelles'" data-save="ch2-problem"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Was ist das Ergebnis für deine Kunden? Was verändert sich für sie?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Sie tragen ein Schmuckstück, das ihre eigene Geschichte erzählt'" data-save="ch2-result"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Was macht dich anders als andere? Was ist dein Alleinstellungsmerkmal?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Jedes Stück ist handgefertigt aus nachhaltigen Materialien — kein Stück gibt es zweimal'" data-save="ch2-strength"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">In welcher Preiskategorie bewegst du dich? (grobe Einschätzung reicht)</div>
+      <input class="fill-input" type="text" placeholder="z.B. '30–150 €' oder 'ab 500 € pro Coaching'" data-save="ch2-price"></input>
+    </div>
+  </div>
+  <div class="claude-hint">
+    <strong>Claude-Projekt:</strong> Trage dein Angebot in deine Projektanweisungen unter "MEIN ANGEBOT" ein.
+    <button class="claude-toggle" onclick="toggleClaudeHint(this)">Vorlage anzeigen</button>
+    <div class="claude-detail">
+    <pre style="font-family:'Inter',monospace;font-size:12px;line-height:1.6;white-space:pre-wrap;background:rgba(212,114,154,0.08);border-radius:8px;padding:12px;margin-top:8px;color:#444;cursor:pointer;" onclick="navigator.clipboard.writeText(this.textContent);this.style.outline='2px solid #d4729a';setTimeout(()=>this.style.outline='none',1000)">MEIN ANGEBOT:
+- Was ich anbiete: [dein Angebot]
+- Format: [vor Ort, online, Download, auf Bestellung]
+- Problem das ich löse: [das Kernproblem deiner Kunden]
+- Ergebnis für den Kunden: [was sich für sie verändert]
+- Alleinstellungsmerkmal: [was dich anders macht]
+- Preiskategorie: [deine Preisspanne]</pre>
+    <p style="font-size:11px;color:#d4729a;margin:6px 0 0;">Klicke auf den Text oben, um ihn zu kopieren.</p>
+    </div>
+  </div>
+
+  <div class="miriam-sagt">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Tipp</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p>Falls du noch nicht genau weißt, was du anbieten willst: Frag dich, was du gut kannst, was du gerne erklärst und wobei andere dich oft um Rat fragen. Das sind häufig die besten Ausgangspunkte für ein Angebot.</p>
+  </div>
+
+  <div class="nova-beispiel">
+    <strong>Nova:</strong> "Ich biete handgemachten Schmuck aus nachhaltigen Materialien an — im Laden und bald auch online. Mein Problem: Kundinnen finden mich nur, wenn sie zufällig vorbeigehen. Mein Ergebnis: Sie tragen etwas Einzigartiges mit Bedeutung. Mein Alleinstellungsmerkmal: Jedes Stück ist ein Unikat mit Geschichte. Preisbereich: 35–200 €."
   </div>
 
   <div class="prompt-box">
-    <div class="label">Prompt: Idee schärfen</div>
+    <div class="label">Prompt: Angebot schärfen</div>
     <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
-    <pre>Ich möchte mich mit [Thema/Dienstleistung] selbstständig machen. Meine Zielgruppe ist [wer]. Hilf mir, mein Angebot klar zu formulieren. Was genau biete ich an? Welches Problem löse ich? Warum sollte jemand bei mir kaufen? Formuliere mir 3 verschiedene Varianten für einen Elevator Pitch.</pre>
+    <pre>Ich möchte [Produkt/Dienstleistung/digitales Produkt] anbieten. Meine Zielgruppe ist [wer]. Das Problem, das ich löse: [Problem]. Hilf mir, mein Angebot klar zu formulieren. Was genau biete ich an? In welcher Form? Warum sollte jemand bei mir kaufen statt woanders? Formuliere mir 3 verschiedene Varianten für einen kurzen Elevator Pitch.</pre>
   </div>
+</div>
 
-  <h3 class="section-title" style="margin-top:40px;"><span class="icon"></span> Deine Zielgruppe</h3>
+<div class="section" id="sec-ch1-wunschkunden" data-title="Deine Wunschkunden" data-chapter="01">
+  <h3 class="section-title"><span class="icon"></span> Deine Wunschkunden</h3>
 
   <div class="card">
-    <p>Jetzt wird es konkreter: Wer genau soll bei dir kaufen? Deine Zielgruppe sind nicht „alle" — sondern ganz bestimmte Menschen mit einem bestimmten Problem, das du löst. Die Antwort auf diese Frage beeinflusst später buchstäblich alles: Wie deine Website aussieht, welche Texte du schreibst, welche Farben du wählst, auf welchen Social-Media-Kanälen du aktiv bist und sogar welche Keywords du für Google brauchst.</p>
+    <p>Du weißt jetzt, was du anbietest. Aber <strong>für wen</strong> eigentlich? Deine Wunschkunden sind nicht "alle" — sondern ganz bestimmte Menschen mit einem bestimmten Problem, das du lösen kannst.</p>
 
-    <p>Je besser du deine Zielgruppe verstehst, desto besser werden später deine Website-Texte, deine Social-Media-Posts und dein gesamtes Marketing. Du schreibst dann nicht mehr „für alle", sondern für echte Menschen — und genau das macht den Unterschied.</p>
+    <p>Je genauer du dir vorstellst, wer diese Menschen sind, desto leichter wird später alles: deine Website-Texte, dein Marketing, sogar dein Logo und deine Farben. Du schreibst dann nicht mehr "für alle", sondern für echte Menschen und genau das macht den Unterschied.</p>
+  </div>
 
-    <div class="mistake-box">
-      <div class="mistake-title">Der häufigste Fehler bei der Zielgruppe</div>
-      <div class="mistake-item">"Mein Angebot ist für alle" — wer alle ansprechen will, spricht niemanden an
-        <div class="mistake-fix">Wähle eine konkrete Gruppe. Du kannst dich später immer noch erweitern.</div>
-      </div>
-      <div class="mistake-item">Sich die Zielgruppe nur ausdenken, statt echte Menschen zu beobachten
-        <div class="mistake-fix">Schau in Facebook-Gruppen, Foren oder bei Wettbewerbern: Was fragen echte Menschen?</div>
-      </div>
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:8px 0 24px;">Stell dir eine konkrete Person vor, die dein Angebot braucht. Gib ihr einen Namen, ein Gesicht, eine Geschichte:</p>
+
+  <div class="reflection-box">
+    <div class="label">Dein Wunschkunden-Profil</div>
+    <div class="fill-group">
+      <div class="fill-label">Wer ist dein Wunschkunde? Beschreibe ihn oder sie in 2–3 Sätzen:</div>
+      <textarea class="fill-input" placeholder="z.B. 'Frauen zwischen 28 und 45, die Wert auf Qualität und Nachhaltigkeit legen'" data-save="ch2-target"></textarea>
     </div>
+    <div class="fill-group">
+      <div class="fill-label">Was beschäftigt diese Person? Welches Problem hat sie?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Sie findet online nur Massenware und wünscht sich etwas Individuelles'" data-save="ch2-pain"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Was wünscht sich diese Person am meisten?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Etwas Einzigartiges finden, das ihre Persönlichkeit widerspiegelt'" data-save="ch2-desire"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Was darf dein Wunschkunde erwarten, wenn er zu dir kommt?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Persönliche Beratung, einzigartige Produkte und eine ehrliche Empfehlung'" data-save="ch2-expectation"></textarea>
+    </div>
+  </div>
+  <div class="claude-hint">
+    <strong>Claude-Projekt:</strong> Trage deine Zielgruppe in deine Projektanweisungen unter "MEINE ZIELGRUPPE" ein.
+    <button class="claude-toggle" onclick="toggleClaudeHint(this)">Vorlage anzeigen</button>
+    <div class="claude-detail">
+    <pre style="font-family:'Inter',monospace;font-size:12px;line-height:1.6;white-space:pre-wrap;background:rgba(212,114,154,0.08);border-radius:8px;padding:12px;margin-top:8px;color:#444;cursor:pointer;" onclick="navigator.clipboard.writeText(this.textContent);this.style.outline='2px solid #d4729a';setTimeout(()=>this.style.outline='none',1000)">MEINE ZIELGRUPPE:
+- Wer: [z.B. Frauen zwischen 28 und 45]
+- Ihr Problem: [was sie beschäftigt]
+- Ihr Wunsch: [was sie sich am meisten wünschen]
+- Was sie von mir erwarten: [z.B. persönliche Beratung, Qualität]</pre>
+    <p style="font-size:11px;color:#d4729a;margin:6px 0 0;">Klicke auf den Text oben, um ihn zu kopieren.</p>
+    </div>
+  </div>
+
+  <div class="nova-beispiel">
+    <strong>Nova:</strong> "Meine Wunschkundin heißt Lisa, 34, Grafikdesignerin aus Düsseldorf. Sie liebt besondere Dinge und kauft lieber bei kleinen Labels als bei großen Ketten. Ihr Problem: Sie findet online nur Massenware. Sie ist auf Instagram und Pinterest unterwegs und googelt 'handgemachter Schmuck Köln'. Wenn sie zu mir kommt, darf sie erwarten, dass jedes Stück eine Geschichte hat und sie persönlich beraten wird."
+  </div>
+
+  <!-- Dream Clients Vertiefung -->
+  <div class="card" style="margin-top:24px;border-left:3px solid #f0b428;background:var(--bg2);">
+    <p style="font-size:16px;line-height:1.8;color:var(--text);margin:0 0 12px;">Um deine Wunschkunden wirklich zu verstehen, lohnt es sich, tiefer einzusteigen. Nur wenn du deine Traumkundin so gut wie möglich kennst, kannst du so kommunizieren, dass sich die richtigen Menschen von dir angesprochen fühlen. Öffne die folgenden Module oder spring direkt weiter.</p>
+    <a href="#sec-ch1-mission" style="color:var(--coral);font-weight:600;font-size:15px;">Direkt weiter zu: Deine Mission →</a>
+  </div>
+
+  <!-- Modul: Persönlichkeit & Charakter -->
+  <div class="card" style="margin-top:16px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Persönlichkeit & Charakter</h4>
+        <p>Beschreibe deine Traumkundin als Person. Je konkreter, desto besser wirst du später kommunizieren können.</p>
+      </div>
+      <div class="expandable-content">
+        <div class="reflection-box" style="margin:16px 0 0;">
+          <div class="fill-group"><div class="fill-label">Name, Geschlecht, Alter, Wohnort:</div><input class="fill-input" type="text" placeholder="z.B. 'Lisa, weiblich, 34, Düsseldorf'" data-save="ch1-dc-person"></div>
+          <div class="fill-group"><div class="fill-label">Familienstand, beruflicher Werdegang, aktueller Job:</div><textarea class="fill-input" placeholder="" data-save="ch1-dc-career"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Bildungsstand und ungefähres Einkommen:</div><input class="fill-input" type="text" placeholder="z.B. 'Studium, ca. 45.000 € brutto/Jahr'" data-save="ch1-dc-income"></div>
+          <div class="fill-group"><div class="fill-label">Was macht den Charakter deiner Traumkundin aus?</div><textarea class="fill-input" placeholder="z.B. feinfühlig, mutig, kreativ, optimistisch, perfektionistisch..." data-save="ch1-dc-character"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Woran glaubt deine Traumkundin? (Überzeugungen, Werte)</div><textarea class="fill-input" placeholder="" data-save="ch1-dc-values"></textarea></div>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <!-- Modul: Interessen & Vorbilder -->
+  <div class="card" style="margin-top:16px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Interessen & Vorbilder</h4>
+        <p>Welche Themen begeistern deine Traumkundin? Wem folgt sie, wer inspiriert sie?</p>
+      </div>
+      <div class="expandable-content">
+        <div class="reflection-box" style="margin:16px 0 0;">
+          <div class="fill-group"><div class="fill-label">Hobbys und Leidenschaften:</div><textarea class="fill-input" placeholder="Themen, über die er/sie permanent sprechen könnte..." data-save="ch1-dc-hobbies"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Welche Vorbilder inspirieren deine Traumkundin?</div><textarea class="fill-input" placeholder="z.B. Influencer, Familienmitglieder, Promis, Mentoren..." data-save="ch1-dc-rolemodels"></textarea></div>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <!-- Modul: Emotionen & Alltag -->
+  <div class="card" style="margin-top:16px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg> Emotionen & Alltag</h4>
+        <p>Wie fühlt sich deine Traumkundin aktuell? Was beschäftigt sie im Alltag?</p>
+      </div>
+      <div class="expandable-content">
+        <div class="reflection-box" style="margin:16px 0 0;">
+          <div class="fill-group"><div class="fill-label">Wie fühlt sich deine Traumkundin aktuell?</div><textarea class="fill-input" placeholder="z.B. überfordert, gestresst, orientierungslos, gelangweilt, gefangen..." data-save="ch1-dc-feeling"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Wie sieht ein typischer Tag in ihrem Leben aus?</div><textarea class="fill-input" placeholder="" data-save="ch1-dc-typicalday"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Womit wird sie täglich konfrontiert? (Beruf, Privatleben, Beziehungen, Social Media)</div><textarea class="fill-input" placeholder="" data-save="ch1-dc-confronted"></textarea></div>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <!-- Modul: Probleme & Träume -->
+  <div class="card" style="margin-top:16px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg> Probleme & Träume</h4>
+        <p>Was sind die größten Schmerzpunkte deiner Traumkundin, und was wünscht sie sich am meisten?</p>
+      </div>
+      <div class="expandable-content">
+        <div class="reflection-box" style="margin:16px 0 0;">
+          <div class="fill-group"><div class="fill-label">Was sind die 3–5 größten Probleme deiner Traumkundin? (Der allergrößte Schmerz, vor allem emotional)</div><textarea class="fill-input" placeholder="z.B. keine Zeit, nicht genug Geld, keine Erfüllung, fehlender Mut..." data-save="ch1-dc-problems"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Was sind ihre geheimen Wünsche, Sehnsüchte und ihre Lebensvision?</div><textarea class="fill-input" placeholder="" data-save="ch1-dc-dreams"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Was hat sie bisher davon abgehalten, ihr Ziel zu erreichen?</div><textarea class="fill-input" placeholder="z.B. fehlende Strategie, fehlende Motivation, Unwissenheit wo anfangen..." data-save="ch1-dc-obstacles"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Welche limitierenden Mindset-Themen hat sie? (Glaubenssätze, Ängste, Blockaden)</div><textarea class="fill-input" placeholder="" data-save="ch1-dc-mindset"></textarea></div>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <!-- Modul: Kaufverhalten & Beziehung -->
+  <div class="card" style="margin-top:16px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Kaufverhalten & Beziehung</h4>
+        <p>Wie entscheidet sich deine Traumkundin, wenn sie etwas kauft? Und welche Beziehung hat sie zu dir?</p>
+      </div>
+      <div class="expandable-content">
+        <div class="reflection-box" style="margin:16px 0 0;">
+          <div class="fill-group"><div class="fill-label">Wie entscheidet sich deine Traumkundin beim Kauf? (impulsiv, lange Entscheidungsfindung, vergleicht viel...)</div><textarea class="fill-input" placeholder="" data-save="ch1-dc-buying"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Wo informiert sie sich, bevor sie eine Entscheidung trifft? (Blogs, YouTube, Podcasts, Freundinnen...)</div><textarea class="fill-input" placeholder="" data-save="ch1-dc-infosources"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Was könnte sie davon abhalten, bei dir zu kaufen? (Einwände, Zweifel)</div><textarea class="fill-input" placeholder="z.B. 'Zu teuer', 'Kenne ich nicht', 'Brauche ich wirklich?'" data-save="ch1-dc-objections"></textarea></div>
+          <div class="fill-group"><div class="fill-label">Wie viel Geld hat deine Traumkundin zur Verfügung, um Hilfe in Anspruch zu nehmen?</div><input class="fill-input" type="text" placeholder="" data-save="ch1-dc-budget"></div>
+          <div class="fill-group"><div class="fill-label">In welcher Beziehung steht deine Traumkundin zu dir? (Vertrauen, Erwartungshaltung, Vorbildfunktion)</div><textarea class="fill-input" placeholder="" data-save="ch1-dc-relationship"></textarea></div>
+        </div>
+        <div class="miriam-sagt" style="margin-top:16px;">
+          <div class="miriam-sagt-header">
+            <div class="miriam-avatar"></div>
+            <div>
+              <div class="miriam-sagt-label">Wichtig</div>
+              <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+            </div>
+          </div>
+          <p>Es geht nicht darum, dass du später nur mit Menschen zusammenarbeiten darfst, die 100% deiner Traumkundin entsprechen. Aber es ist unglaublich wichtig, dass du ein klares Bild von ihr bekommst. Denn nur so kannst du sie auch wirklich erreichen und als Kundin gewinnen. Definiere also keine Kundin, mit der du später wenig Freude haben wirst — sondern deine Traumkundin.</p>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <div class="mistake-box">
+    <div class="mistake-title">Der häufigste Fehler bei Wunschkunden</div>
+    <div class="mistake-item">"Mein Angebot ist für alle" — wer alle ansprechen will, spricht niemanden an
+      <div class="mistake-fix">Wähle eine konkrete Gruppe. Du kannst dich später immer noch erweitern.</div>
+    </div>
+    <div class="mistake-item">Sich die Zielgruppe nur ausdenken, statt echte Menschen zu beobachten
+      <div class="mistake-fix">Schau in Facebook-Gruppen, Foren oder bei Wettbewerbern: Was fragen echte Menschen?</div>
+    </div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="label">Prompt: Wunschkunden analysieren</div>
+    <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
+    <pre>Ich biete [Dienstleistung/Produkt] an für [grobe Zielgruppe]. Hilf mir, meine Wunschkunden besser zu verstehen. Erstelle mir ein detailliertes Profil meiner idealen Kundin: Alter, Lebenssituation, größte Probleme, wonach sie googeln, wo sie online unterwegs sind und was sie von mir erwarten dürfen. Schreibe es so, als würdest du mir eine echte Person beschreiben.</pre>
+  </div>
+</div>
+
+<!-- ══════════════ UNTERKAPITEL: Deine Mission ══════════════ -->
+<div class="section" id="sec-ch1-mission" data-title="Deine Mission" data-chapter="01">
+  <h3 class="section-title"><span class="icon"></span> Deine Mission</h3>
+
+  <div class="card">
+    <p>Du weißt jetzt, was du anbietest und für wen. Jetzt bringen wir alles zusammen — in deiner persönlichen Mission. Formuliere positiv, in der Ich-Form und so konkret wie möglich. Denn nur ein greifbares Mission Statement lässt sich auch wirklich umsetzen.</p>
   </div>
 
   <div class="reflection-box">
-    <div class="label">Zielgruppen-Profil</div>
+    <div class="label">Deine Mission erarbeiten</div>
     <div class="fill-group">
-      <div class="fill-label">Meine Zielgruppe in 2–3 Sätzen:</div>
-      <textarea class="fill-input" placeholder="Beschreibe deine Wunschkunden..." data-save="ch2-target"></textarea>
+      <div class="fill-label">1. Welches konkrete Problem löse ich für meine Kunden?</div>
+      <textarea class="fill-input" placeholder="" data-save="ch1-mission-problem"></textarea>
     </div>
     <div class="fill-group">
-      <div class="fill-label">Ihr größtes Problem / ihre größte Frustration:</div>
-      <input class="fill-input" type="text" placeholder="" data-save="ch2-pain">
+      <div class="fill-label">2. Wem helfe ich genau, also wer ist meine Zielgruppe?</div>
+      <textarea class="fill-input" placeholder="" data-save="ch1-mission-who"></textarea>
     </div>
     <div class="fill-group">
-      <div class="fill-label">Was googeln sie, wenn sie nach einer Lösung suchen:</div>
-      <input class="fill-input" type="text" placeholder="z.B. 'Yoga Online Kurs Anfänger'" data-save="ch2-search">
+      <div class="fill-label">3. Wie mache ich es, was ist mein besonderer Ansatz?</div>
+      <textarea class="fill-input" placeholder="" data-save="ch1-mission-how"></textarea>
     </div>
     <div class="fill-group">
-      <div class="fill-label">Wo sind sie online unterwegs:</div>
-      <input class="fill-input" type="text" placeholder="Instagram, LinkedIn, Facebook..." data-save="ch2-channels">
+      <div class="fill-label">4. Was verändert sich für meinen Kunden durch meine Arbeit?</div>
+      <textarea class="fill-input" placeholder="" data-save="ch1-mission-result"></textarea>
     </div>
   </div>
 
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:24px 0 16px;">Jetzt fasse alles in einem Satz zusammen. Nutze diese Vorlage als Hilfe:</p>
+  <p style="font-size:15px;color:var(--muted);font-style:italic;margin-bottom:16px;">Ich helfe [Zielgruppe], [Problem] zu lösen, indem ich [Lösung/Ansatz], damit [Ergebnis].</p>
+
+  <div class="reflection-box">
+    <div class="label">Dein Mission Statement</div>
+    <div class="fill-group">
+      <div class="fill-label">Meine Mission in einem Satz:</div>
+      <textarea class="fill-input" style="min-height:80px;font-size:16px;font-weight:600;" placeholder="Ich helfe ..., ... zu lösen, indem ich ..., damit ..." data-save="ch1-mission-statement"></textarea>
+    </div>
+  </div>
+  <div class="claude-hint">
+    <strong>Claude-Projekt:</strong> Trage dein Mission Statement in deine Projektanweisungen unter "MEINE MISSION" ein.
+    <button class="claude-toggle" onclick="toggleClaudeHint(this)">Vorlage anzeigen</button>
+    <div class="claude-detail">
+      <pre style="font-family:'Inter',monospace;font-size:12px;line-height:1.6;white-space:pre-wrap;background:rgba(212,114,154,0.08);border-radius:8px;padding:12px;margin-top:8px;color:#444;cursor:pointer;" onclick="navigator.clipboard.writeText(this.textContent);this.style.outline='2px solid #d4729a';setTimeout(()=>this.style.outline='none',1000)">MEINE MISSION:
+- [dein fertiges Mission Statement hier einfügen]</pre>
+      <p style="font-size:11px;color:#d4729a;margin:6px 0 0;">Klicke auf den Text oben, um ihn zu kopieren.</p>
+    </div>
+  </div>
+
+  <div class="nova-beispiel">
+    <strong>Nova:</strong> "Ich helfe Frauen, die einzigartigen Schmuck mit Bedeutung suchen, das Richtige zu finden, indem ich jedes Stück von Hand aus nachhaltigen Materialien fertige, damit sie etwas tragen, das ihre eigene Geschichte erzählt."
+  </div>
+
   <div class="prompt-box">
-    <div class="label">Prompt: Zielgruppe analysieren</div>
+    <div class="label">Prompt: Mission Statement verfeinern</div>
     <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
-    <pre>Ich biete [Dienstleistung/Produkt] an für [grobe Zielgruppe]. Hilf mir, meine Zielgruppe besser zu verstehen. Erstelle mir ein detailliertes Profil meiner idealen Kundin: Alter, Lebenssituation, größte Probleme, wonach sie googeln, wo sie online unterwegs sind. Schreibe es so, als würdest du mir eine echte Person beschreiben.</pre>
+    <pre>Hier ist mein erster Entwurf für mein Mission Statement: "[dein Satz]". Meine Zielgruppe ist [wer], ich löse das Problem [welches] mit [deinem Ansatz]. Bitte hilf mir, diesen Satz zu verfeinern. Er soll klar, motivierend und konkret sein. Gib mir 3 überarbeitete Varianten und erkläre kurz, warum jede Version besser funktioniert.</pre>
   </div>
 </div>
 
@@ -1319,30 +2096,38 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     </div>
   </div>
 
+  <div class="reflection-box" style="margin-top:24px;">
+    <div class="label">Deine Erkenntnisse aus diesem Kapitel</div>
+    <div class="fill-group">
+      <div class="fill-label">Was habe ich Neues aus diesem Kapitel für mich mitgenommen?</div>
+      <textarea class="fill-input" placeholder="Was hat dich überrascht? Was war neu? Was möchtest du dir merken?" data-save="ch1-takeaway" style="min-height:100px;"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Meine Notizen:</div>
+      <textarea class="fill-input" placeholder="Platz für alles, was dir sonst noch durch den Kopf geht..." data-save="ch1-notes" style="min-height:120px;"></textarea>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>Das nimmst du aus diesem Kapitel mit:</h4>
+    <div class="item">Du hast dein Unternehmer-Mindset reflektiert</div>
+    <div class="item">Du hast klare Ziele formuliert, operativ und strategisch</div>
+    <div class="item">Du weißt, was du anbietest und für wen</div>
+    <div class="item">Du kennst deine Wunschkunden im Detail</div>
+    <div class="item">Du hast deine Mission in einem Satz definiert</div>
+    <div class="item">Formales ist geklärt (Gewerbe, Steuern, Konto)</div>
+  </div>
+
   <div class="miriam-sagt" style="margin-top:24px;">
     <div class="miriam-sagt-header">
       <div class="miriam-avatar"></div>
       <div>
-        <div class="miriam-sagt-label">Miriam sagt</div>
+        <div class="miriam-sagt-label">Kapitel 01 geschafft!</div>
         <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
       </div>
     </div>
-    <p>Ich bin selbst eine kleine Perfektionistin — und musste lernen, mich davon zu lösen. Ich hatte am Anfang genauso viel Angst wie du jetzt vielleicht. CRM, DNS, GitHub — das waren für mich nur Fremdwörter. Ich bin keine Technikerin, ich bin Wirtschaftspsychologin. Und ich hab's geschafft. Nicht weil ich mutiger war als du — sondern weil ich es einfach trotzdem gemacht habe.</p>
-    <div class="mantra">Du musst nicht alles auf einmal kapieren. Du musst nur weitermachen.</div>
-  </div>
-
-  <div class="fill-group" style="margin-top:24px;">
-    <div class="fill-label">Was ist mein Ziel in 4 Wochen? (So konkret wie möglich!)</div>
-    <textarea class="fill-input" placeholder="z.B. 'Meine Website ist online, ich habe ein Logo und mein erstes Produkt steht zum Verkauf.' — Je konkreter, desto besser." data-save="ch1-goal" style="min-height:100px;"></textarea>
-  </div>
-
-  <div class="chapter-summary">
-    <h4>Das nimmst du aus Kapitel 01 mit:</h4>
-    <div class="item">Selbstständig sein heißt: selbst denken, ständig dazulernen</div>
-    <div class="item">Du weißt, was du anbietest und für wen</div>
-    <div class="item">Done is better than perfect</div>
-    <div class="item">Formales ist geklärt (Gewerbe, Steuern, Konto)</div>
-    <div class="item">Du hast dein 4-Wochen-Ziel aufgeschrieben</div>
+    <p>Du hast gerade mehr erarbeitet als die meisten Menschen, die seit Monaten über ihre Selbstständigkeit nachdenken. Du hast dein Mindset reflektiert, deine Ziele formuliert, dein Angebot definiert, deine Wunschkunden beschrieben und deine Mission in einem Satz zusammengefasst. Das ist dein Fundament und darauf bauen wir jetzt auf.</p>
+    <p style="margin-top:12px;">Im nächsten Kapitel schärfen wir deine Marke und bereiten alles für deinen Online-Auftritt vor: deinen Markennamen, deine Keywords und deine Texte. Das Fundament steht, jetzt geht es ans Bauen.</p>
   </div>
 </div>
 
@@ -1366,39 +2151,33 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
     </div>
   </div>
   <p style="font-size:13px;color:var(--muted);margin-top:12px;">Schon eine etablierte Marke? Dann spring direkt zu <a href="#sec-ch3-title" style="color:var(--coral);font-weight:600;">Kapitel 03</a>.</p>
+
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Worte von Miriam</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p>Ich sage dir ganz ehrlich: Dieses Kapitel war für mich persönlich das schwierigste. Einen Namen finden, eine Marke definieren, sich festlegen. Das fällt mir bis heute schwer, weil ich viel zu perfektionistisch bin. Ich habe meinen Markennamen bestimmt zehnmal geändert, bevor ich mich endlich für einen entschieden habe. Und weißt du was? Er ist immer noch nicht perfekt. Aber er funktioniert.</p>
+    <p style="margin-top:12px;">Was ich daraus gelernt habe: Es geht nicht darum, den perfekten Namen zu finden. Es geht darum, einen guten Namen zu wählen und dann loszulegen. Du kannst später immer noch Dinge anpassen. Mach dir also keinen Druck, nimm dir die Zeit, die du brauchst, aber lass dich nicht von der Suche nach Perfektion aufhalten.</p>
+  </div>
 </div>
 
 <div class="section" id="sec-ch2-1" data-title="Wettbewerber anschauen" data-chapter="02">
   <h3 class="section-title"><span class="icon"></span> Schau dir an, was andere machen</h3>
 
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:0 0 24px;">Um dein Angebot im Markt richtig zu positionieren und deine Marke so aufzubauen, dass sie sich von anderen abhebt, müssen wir zuerst verstehen, was es dort draußen schon gibt. Wer bietet etwas Ähnliches an? Wie treten diese Anbieter auf? Und wo gibt es Lücken, die du füllen kannst?</p>
+
   <div class="card">
-    <p>Bevor du deinen eigenen Markennamen wählst und deine Website baust, lohnt sich ein Blick auf die Konkurrenz. Nicht um zu kopieren — sondern um zu verstehen, was in deiner Branche funktioniert und wo es Lücken gibt. Was machen andere gut? Was fehlt? Wo könntest du dich abheben?</p>
-
-    <p>Hand aufs Herz: In fast jeder Branche gibt es schon andere Anbieter. Das ist normal und überhaupt kein Problem. Die Frage ist nicht, ob es Konkurrenz gibt — sondern warum jemand sich für <strong>dich</strong> entscheiden sollte. Das muss kein riesiges Alleinstellungsmerkmal sein. Oft sind es die kleinen Dinge: Deine Art zu erklären. Deine persönliche Geschichte. Dein spezieller Blickwinkel. Deine Erfahrung in einem bestimmten Bereich.</p>
+    <p>Dafür schauen wir uns jetzt 3–5 Anbieter in deiner Branche an. Nicht um sie zu kopieren, sondern um ein Gefühl dafür zu bekommen, wie der Markt aussieht. Die Frage ist nicht, ob es Konkurrenz gibt, sondern warum sich jemand für <strong>dich</strong> entscheiden sollte.</p>
   </div>
 
-  <div class="reflection-box">
-    <div class="label">Wettbewerber-Analyse</div>
-    <div class="fill-group">
-      <div class="fill-label">3 Wettbewerber in meiner Branche:</div>
-      <textarea class="fill-input" placeholder="z.B. Name, Website, was sie anbieten..." data-save="ch2-competitors"></textarea>
-    </div>
-    <div class="fill-group">
-      <div class="fill-label">Was machen sie gut?</div>
-      <textarea class="fill-input" placeholder="z.B. Schöne Website, klare Texte, gute Social-Media-Präsenz..." data-save="ch2-comp-good"></textarea>
-    </div>
-    <div class="fill-group">
-      <div class="fill-label">Was fehlt oder stört mich?</div>
-      <textarea class="fill-input" placeholder="z.B. Unpersönlich, keine Preise, schlechte Erreichbarkeit..." data-save="ch2-comp-gap"></textarea>
-    </div>
-    <div class="fill-group">
-      <div class="fill-label">Was unterscheidet mich von anderen:</div>
-      <textarea class="fill-input" placeholder="Dein Hintergrund, deine Story, dein Stil..." data-save="ch2-usp"></textarea>
-    </div>
-  </div>
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:8px 0 24px;">Am einfachsten ist es, Claude die Recherche für dich machen zu lassen. Kopiere den folgenden Prompt, füge ihn in Claude ein und lass dir eine ausführliche Analyse erstellen. Speichere das Dokument auf deinem Computer und schau es dir in Ruhe an. Notiere danach hier die wichtigsten Erkenntnisse für dich.</p>
 
   <div class="prompt-box">
-    <div class="label">Prompt: Schnelle Wettbewerbsanalyse (Anfänger)</div>
+    <div class="label">Prompt: Schnelle Wettbewerbsanalyse</div>
     <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
     <pre>Ich mache mich als [Beruf/Branche] in [Stadt/Region] selbstständig. Analysiere meine 3 wichtigsten Wettbewerber. Finde heraus:
 
@@ -1411,221 +2190,584 @@ textarea.fill-input:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(23
 Suche auf Google, Instagram und Bewertungsportalen. Schreibe die Ergebnisse als übersichtliche Tabelle.</pre>
   </div>
 
-  <div class="prompt-box" style="margin-top:12px;">
-    <div class="label">Prompt: Tiefgehende Wettbewerbsanalyse (Profi)</div>
-    <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
-    <pre>Führe eine tiefgehende Wettbewerbsanalyse zu [Wettbewerber] durch:
+  <div class="card" style="margin-top:12px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Tiefgehende Wettbewerbsanalyse (Profi)</h4>
+        <p>Wenn du noch tiefer einsteigen willst, nutze diesen ausführlichen Prompt für eine umfassende Markt- und Wettbewerbsanalyse.</p>
+      </div>
+      <div class="expandable-content">
+        <div class="prompt-box" style="margin:16px 0 0;">
+          <div class="label">Prompt: Tiefgehende Wettbewerbsanalyse</div>
+          <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
+          <pre>Führe eine tiefgehende Wettbewerbsanalyse zu [Wettbewerber] durch:
 
 UNTERNEHMENSÜBERSICHT:
-• Gründungsgeschichte und wichtigste Meilensteine
-• Führungsteam (Hintergründe, vorherige Unternehmen)
-• Finanzierungshistorie (Runden, Investoren, Bewertungen, geschätzte Burn-Rate)
-• Mitarbeiterzahl und Wachstumsverlauf (LinkedIn-Headcount prüfen)
-• Bürostandorte und Expansionsmuster
+- Gründungsgeschichte und wichtigste Meilensteine
+- Führungsteam und Hintergründe
+- Mitarbeiterzahl und Wachstumsverlauf
+- Bürostandorte und Expansionsmuster
 
 PRODUKT-TIEFENANALYSE:
-• Vollständiger Produktkatalog mit Beschreibungen
-• Preismodelle (aktuell + historische Änderungen)
-• Feature-Vergleich mit den 3 wichtigsten Alternativen
-• Technologie-Stack (aus Stellenanzeigen, Tech-Blogs, BuiltWith)
-• Neue Produktlaunches (letzte 12 Monate)
-• Hinweise auf die Roadmap (aus: Stellenanzeigen, Konferenzvorträgen, Patentanmeldungen, Kundenbefragungen)
+- Vollständiger Produktkatalog mit Beschreibungen
+- Preismodelle (aktuell + historische Änderungen)
+- Feature-Vergleich mit den 3 wichtigsten Alternativen
+- Neue Produktlaunches der letzten 12 Monate
 
 MARKTPOSITIONIERUNG:
-• Zielkunde (Größe, Branche, Merkmale, Jobtitel)
-• Ideales Kundenprofil (ICP) basierend auf Fallstudien
-• Messaging und Positionierung (Website, Anzeigen, Content analysieren)
-• Markenstimme und Persönlichkeit
-• Behauptete Alleinstellungsmerkmale
+- Zielkunde (Größe, Branche, Merkmale)
+- Messaging und Positionierung (Website, Anzeigen, Content)
+- Markenstimme und Persönlichkeit
+- Behauptete Alleinstellungsmerkmale
 
 GO-TO-MARKET-STRATEGIE:
-• Marketingkanäle (bezahlt, organisch, Partnerschaften)
-• Content-Strategie (Blog-Themen, Frequenz, Engagement)
-• Vertriebsansatz (Inbound vs. Outbound, PLG vs. vertriebsgesteuert)
-• Partner-Ökosystem (Integrationen, Reseller, Technologiepartner)
-• Eventpräsenz (Konferenzen, Webinare, Sponsorings)
+- Marketingkanäle (bezahlt, organisch, Partnerschaften)
+- Content-Strategie (Blog-Themen, Frequenz, Engagement)
+- Vertriebsansatz (Inbound vs. Outbound)
+- Eventpräsenz (Konferenzen, Webinare, Sponsorings)
 
 KUNDENINTELLIGENZ:
-• Bewertungsanalyse (G2, Capterra, TrustPilot – was lieben/hassen Nutzer?)
-• Häufige Beschwerden (aus Reddit, Twitter/X, Support-Foren)
-• Feature-Wünsche und Lücken (aus öffentlicher Roadmap, Nutzerforen)
-• Abwanderungssignale (Glassdoor-Bewertungen, Kundenreferenzen die verstummt sind)
+- Bewertungsanalyse (Google, TrustPilot, Social Media)
+- Häufige Beschwerden und Lob
+- Feature-Wünsche und Lücken
 
 STRATEGISCHE SCHWACHSTELLEN:
-• Worin sind sie schlecht? (basierend auf Bewertungen, Einstellungsmustern)
-• Welche Märkte ignorieren sie?
-• Wo sind sie überdehnt?
-• Technische Schulden oder Legacy-Probleme
-• Preisschwächen oder -lücken
+- Worin sind sie schlecht? (basierend auf Bewertungen)
+- Welche Märkte ignorieren sie?
+- Preisschwächen oder -lücken
+- Wo könnte ich mich positionieren?
 
-BEDROHUNGSEINSCHÄTZUNG:
-• Wie aggressiv agieren sie in UNSEREM Markt?
-• Was wäre nötig, um effektiv zu konkurrieren?
-• Was könnten sie tun, das uns am meisten schaden würde?
-• Frühwarnsignale, die überwacht werden sollten
+Nur aktuelle Quellen verwenden. Spekulationen klar von bestätigten Fakten trennen.</pre>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
 
-Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen priorisieren (deren Blog, offizielle Ankündigungen, verifizierte Bewertungen). Spekulationen klar von bestätigten Fakten trennen. URLs zur Verifizierung angeben.</pre>
+  <div class="reflection-box" style="margin-top:20px;">
+    <div class="label">Deine Notizen aus der Wettbewerbsanalyse</div>
+    <div class="fill-group"><div class="fill-label">Wettbewerber 1:</div><textarea class="fill-input" placeholder="Name, Website, was fällt dir auf?" data-save="ch2-comp-1"></textarea></div>
+    <div class="fill-group"><div class="fill-label">Wettbewerber 2:</div><textarea class="fill-input" placeholder="Name, Website, was fällt dir auf?" data-save="ch2-comp-2"></textarea></div>
+    <div class="fill-group"><div class="fill-label">Wettbewerber 3:</div><textarea class="fill-input" placeholder="Name, Website, was fällt dir auf?" data-save="ch2-comp-3"></textarea></div>
+    <div class="fill-group"><div class="fill-label">Was machen sie gut, das ich übernehmen kann?</div><textarea class="fill-input" placeholder="z.B. klare Preisübersicht, schöne Produktfotos, persönliche Über-mich-Seite..." data-save="ch2-comp-good"></textarea></div>
+    <div class="fill-group"><div class="fill-label">Wo gibt es Lücken, die ich füllen kann?</div><textarea class="fill-input" placeholder="z.B. kein persönlicher Service, veraltete Website, keine Online-Beratung..." data-save="ch2-comp-gap"></textarea></div>
+    <div class="fill-group"><div class="fill-label">Was unterscheidet mich von allen anderen?</div><textarea class="fill-input" placeholder="z.B. meine persönliche Geschichte, mein Ansatz, meine Erfahrung in einem bestimmten Bereich..." data-save="ch2-usp"></textarea></div>
+    <div class="fill-group"><div class="fill-label">Sonstige Notizen und Ideen:</div><textarea class="fill-input" placeholder="Alles was dir sonst noch aufgefallen ist..." data-save="ch2-comp-notes" style="min-height:100px;"></textarea></div>
   </div>
 
   <div class="nova-beispiel">
-    <strong>Nova's Wettbewerber:</strong> Sie hat drei Schmuck-Shops in Köln analysiert und festgestellt: Keiner bietet personalisierte Beratung online an, die Websites sind veraltet, und bei Google-Bewertungen beschweren sich Kundinnen über fehlende Rückgabemöglichkeiten. Ihre Chance: Moderner Online-Auftritt + persönlicher Service + klare Rückgabebedingungen.
+    <strong>Nova:</strong> "Ich habe drei Schmuck-Shops in Köln analysiert. Keiner bietet personalisierte Beratung online an, die Websites sind veraltet und bei Google-Bewertungen beschweren sich Kundinnen über fehlende Rückgabemöglichkeiten. Meine Chance: moderner Online-Auftritt, persönlicher Service und klare Rückgabebedingungen."
   </div>
 </div>
 
 <div class="section" id="sec-ch2-2" data-title="Deine Keywords" data-chapter="02">
   <h3 class="section-title"><span class="icon"></span> Deine Keywords — warum wir damit so früh starten</h3>
 
-  <div class="card">
-    <p>Vielleicht fragst du dich: Warum reden wir über Keywords, bevor die Website überhaupt steht? Weil deine Keywords <strong>alles</strong> bestimmen, was danach kommt. Dein Domain-Name, deine Website-Überschriften, deine Google-Sichtbarkeit, deine Social-Media-Strategie — alles basiert auf den Wörtern, die deine Zielgruppe bei Google eintippt.</p>
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:0 0 24px;">Du weißt jetzt, wer deine Wettbewerber sind und wo es Lücken im Markt gibt. Bevor wir uns um deinen Markennamen kümmern, klären wir zuerst deine Keywords. Der Grund: Deine Keywords beeinflussen alles, was danach kommt, deinen Domainnamen, deine Website-Texte, deine Google-Sichtbarkeit und deinen Algorithmus. Deshalb legen wir sie jetzt fest.</p>
 
-    <p>Keywords sind im Grunde nichts anderes als die Wörter und Sätze, die echte Menschen bei Google eintippen, wenn sie nach einer Lösung suchen. Stell sie dir vor wie Schilder an deinem Laden: Wenn auf deinem Schild „Yoga Köln" steht, finden dich Leute, die genau das suchen.</p>
+  <div class="glossar-box">
+    <div class="glossar-term">Was sind Keywords?</div>
+    <p>Keywords sind die Wörter und Sätze, die echte Menschen bei Google eintippen, wenn sie nach etwas suchen. Stell sie dir vor wie Schilder an deinem Laden: Wenn auf deinem Schild "Yoga Köln" steht, finden dich Leute, die genau das suchen.</p>
+  </div>
 
-    <p>Besonders spannend sind sogenannte <strong>Longtail-Keywords</strong>. Das sind längere, spezifischere Suchbegriffe. Der Unterschied: „Yoga Köln" suchen tausende Menschen — und du konkurrierst mit riesigen Studios. „Yoga Kurs für Anfänger in Köln Ehrenfeld" suchen viel weniger Menschen — aber die meinen es ernst und sind bereit zu buchen. Je länger und spezifischer dein Keyword, desto einfacher ist es, auf Seite 1 bei Google zu landen.</p>
+  <div class="glossar-box" style="margin-top:16px;">
+    <div class="glossar-term">Long-Tail Keywords</div>
+    <p>Längere, spezifischere Suchbegriffe. "Yoga Köln" suchen tausende Menschen und du konkurrierst mit riesigen Studios. "Yoga Kurs für Anfänger in Köln Ehrenfeld" suchen weniger Menschen, aber die meinen es ernst und sind bereit zu buchen. Je spezifischer dein Keyword, desto einfacher ist es, bei Google gefunden zu werden.</p>
+  </div>
 
-    <p><strong>Wie findest du deine Keywords?</strong> Ganz einfach: Gib bei Google ein, was du anbietest, und schau dir an, was Google automatisch vorschlägt. Scrolle dann ganz nach unten — dort findest du „Ähnliche Suchanfragen". Das sind echte Begriffe, die echte Menschen eintippen. Und natürlich kannst du auch Claude fragen: „Welche Keywords würde meine Zielgruppe googeln?"</p>
-
-    <p>Dabei ist es hilfreich, die <strong>Suchintention</strong> zu verstehen. Nicht jeder, der etwas googelt, will sofort kaufen. Manche wollen sich informieren („Was ist Yoga?"), manche vergleichen („Yoga vs. Pilates"), und manche sind bereit zu handeln („Yoga Kurs buchen Köln"). Für deine Website willst du vor allem die letzten beiden Gruppen erreichen.</p>
-
-    <div class="glossar-box">
-      <div class="glossar-term">SEO — Suchmaschinenoptimierung</div>
-      <p>Alles, was du tust, damit deine Website bei Google möglichst weit oben erscheint, wenn jemand nach deinem Thema sucht. Du musst dafür kein Technik-Genie sein — es reicht, die richtigen Wörter an den richtigen Stellen zu verwenden.</p>
-      <div class="glossar-analogy">Stell dir Google vor wie ein riesiges Telefonbuch. SEO bedeutet: Dein Eintrag steht auf Seite 1 statt auf Seite 47.</div>
+  <div class="card" style="margin-top:20px;">
+    <p>Vielleicht fragst du dich: Warum reden wir über Keywords, bevor die Website überhaupt steht? Weil deine Keywords wie ein roter Faden durch dein gesamtes Online-Business laufen. Sie tauchen überall wieder auf:</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 16px;">
+      <div style="font-size:13px;padding:8px 12px;background:var(--bg2);border-radius:8px;"><strong style="color:var(--coral);">Domain</strong> — baeumlermarketing.de</div>
+      <div style="font-size:13px;padding:8px 12px;background:var(--bg2);border-radius:8px;"><strong style="color:var(--coral);">Website-Texte</strong> — Überschriften, Beschreibungen</div>
+      <div style="font-size:13px;padding:8px 12px;background:var(--bg2);border-radius:8px;"><strong style="color:var(--coral);">Meta-Tags</strong> — Was Google in Suchergebnissen zeigt</div>
+      <div style="font-size:13px;padding:8px 12px;background:var(--bg2);border-radius:8px;"><strong style="color:var(--coral);">Social Media</strong> — Bio, Posts, Hashtags</div>
+      <div style="font-size:13px;padding:8px 12px;background:var(--bg2);border-radius:8px;"><strong style="color:var(--coral);">Google Business</strong> — Kategorien, Beschreibung</div>
+      <div style="font-size:13px;padding:8px 12px;background:var(--bg2);border-radius:8px;"><strong style="color:var(--coral);">Bilder</strong> — Dateinamen und Alt-Texte</div>
+      <div style="font-size:13px;padding:8px 12px;background:var(--bg2);border-radius:8px;"><strong style="color:var(--coral);">E-Mail/Newsletter</strong> — Betreffzeilen, Landingpages</div>
+      <div style="font-size:13px;padding:8px 12px;background:var(--bg2);border-radius:8px;"><strong style="color:var(--coral);">Algorithmen</strong> — Google, Instagram, Pinterest</div>
     </div>
+    <p>Je konsistenter du die gleichen Begriffe verwendest, desto klarer wird für jeden Algorithmus: Diese Person steht für dieses Thema. Deshalb legen wir die Keywords jetzt fest, bevor wir irgendetwas anderes bauen.</p>
+    <p><strong>Wie findest du deine Keywords?</strong> Ganz einfach: Gib bei Google ein, was du anbietest, und schau dir an, was Google automatisch vorschlägt. Scrolle dann ganz nach unten, dort findest du "Ähnliche Suchanfragen". Das sind echte Begriffe, die echte Menschen eintippen. Und natürlich kannst du auch Claude fragen: "Welche Keywords würde meine Zielgruppe googeln?"</p>
+  </div>
 
-    <div class="tipp-box" data-color="coral"><div class="tipp-label">Tipp</div>
-      <p>Alles, was du später auf deiner Website schreibst, in Social Media postest oder in deinem Newsletter verschickst, sollte diese Keywords enthalten. Je früher du sie kennst, desto einfacher wird alles.</p>
+  <!-- Bonus: Begriffe vertiefen -->
+  <div class="card" style="margin-top:16px;border-left:3px solid #4a90c4;background:#f0f6fc;">
+    <p style="font-size:16px;line-height:1.8;color:var(--text);margin:0 0 12px;">Wenn du die Begriffe rund um Keywords besser verstehen möchtest, öffne die folgenden Module. Für den Anfang reicht das Wissen von oben.</p>
+  </div>
+
+  <div class="card" style="margin-top:12px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4a90c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Short-Tail vs. Long-Tail</h4>
+        <p>Der Unterschied zwischen kurzen und langen Suchbegriffen und warum Long-Tail für dich am Anfang wertvoller ist.</p>
+      </div>
+      <div class="expandable-content">
+        <div class="glossar-box" style="margin:16px 0;">
+          <div class="glossar-term">Short-Tail Keywords</div>
+          <p>Kurze, allgemeine Begriffe wie "Schmuck kaufen". Hohes Suchvolumen, aber viel Konkurrenz. Schwer, damit auf Seite 1 bei Google zu kommen.</p>
+        </div>
+        <div class="glossar-box" style="margin:16px 0;">
+          <div class="glossar-term">Long-Tail Keywords</div>
+          <p>Längere, spezifische Begriffe wie "handgemachter Schmuck aus Köln online kaufen". Weniger Suchvolumen, aber die Menschen meinen es ernst und du hast weniger Konkurrenz. Das sind deine besten Chancen.</p>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
     </div>
+  </div>
 
-    <div class="fill-group" style="margin-top:20px;">
-      <div class="fill-label">Meine 5 wichtigsten Keywords:</div>
-      <input class="fill-input" type="text" placeholder="1." data-save="ch2-kw1" style="margin-bottom:8px;">
-      <input class="fill-input" type="text" placeholder="2." data-save="ch2-kw2" style="margin-bottom:8px;">
-      <input class="fill-input" type="text" placeholder="3." data-save="ch2-kw3" style="margin-bottom:8px;">
-      <input class="fill-input" type="text" placeholder="4." data-save="ch2-kw4" style="margin-bottom:8px;">
+  <div class="card" style="margin-top:12px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4a90c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Suchintention</h4>
+        <p>Warum nicht jeder, der etwas googelt, auch kaufen will und wie du die richtigen Menschen erreichst.</p>
+      </div>
+      <div class="expandable-content">
+        <div class="glossar-box" style="margin:16px 0;">
+          <div class="glossar-term">Die 3 Arten der Suchintention</div>
+          <p><strong>Informational:</strong> "Was ist Yoga?" — will sich informieren, noch nicht kaufen.<br>
+          <strong>Navigational:</strong> "Yoga Studio Köln Bewertungen" — vergleicht, ist auf dem Weg zur Entscheidung.<br>
+          <strong>Transactional:</strong> "Yoga Kurs buchen Köln" — ist bereit zu handeln. Das sind deine wertvollsten Keywords.</p>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:12px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4a90c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Suchvolumen & Fokus-Keyword</h4>
+        <p>Wie oft ein Keyword gesucht wird und warum jede Seite deiner Website ein eigenes Fokus-Keyword braucht.</p>
+      </div>
+      <div class="expandable-content">
+        <div class="glossar-box" style="margin:16px 0;">
+          <div class="glossar-term">Suchvolumen</div>
+          <p>Wie oft ein Keyword pro Monat bei Google gesucht wird. Ein hohes Suchvolumen klingt gut, bedeutet aber auch viel Konkurrenz. Für den Anfang sind Keywords mit niedrigerem Suchvolumen oft wertvoller, weil du dort leichter auf Seite 1 landest.</p>
+        </div>
+        <div class="glossar-box" style="margin:16px 0;">
+          <div class="glossar-term">Fokus-Keyword</div>
+          <p>Der eine zentrale Suchbegriff, auf den du eine einzelne Seite deiner Website optimierst. Jede Seite sollte ein eigenes Fokus-Keyword haben. Deine Startseite hat ein anderes als deine Über-mich-Seite.</p>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:12px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4a90c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> SEO — Suchmaschinenoptimierung</h4>
+        <p>Was SEO bedeutet und warum du kein Technik-Genie sein musst, um bei Google gefunden zu werden.</p>
+      </div>
+      <div class="expandable-content">
+        <div class="glossar-box" style="margin:16px 0;">
+          <div class="glossar-term">SEO einfach erklärt</div>
+          <p>SEO steht für Search Engine Optimization. Das ist alles, was du tust, damit deine Website bei Google möglichst weit oben erscheint. Du musst dafür kein Technik-Genie sein, es reicht, die richtigen Wörter an den richtigen Stellen zu verwenden. Stell dir Google vor wie ein riesiges Telefonbuch. SEO bedeutet: Dein Eintrag steht auf Seite 1 statt auf Seite 47.</p>
+        </div>
+        <p style="font-size:14px;color:var(--muted);margin-top:8px;">Mehr zu SEO lernst du im Workbook 2 (Professionelles Marketing). Für jetzt reicht es, deine Keywords zu kennen und sie auf deiner Website einzusetzen.</p>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px;">
+    <h4 style="font-family:'Antonio',sans-serif;font-size:17px;margin-bottom:12px;">Was macht ein gutes Keyword aus?</h4>
+    <p>Nicht jedes Keyword ist gleich wertvoll. Achte bei der Auswahl auf diese 4 Kriterien:</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
+      <div style="background:var(--bg2);border-radius:12px;padding:14px 18px;">
+        <strong style="color:var(--coral);font-size:14px;">Relevant</strong>
+        <p style="font-size:13px;color:var(--muted);margin:4px 0 0;">Passt das Keyword wirklich zu deinem Angebot? Würde jemand, der das googelt, bei dir richtig sein?</p>
+      </div>
+      <div style="background:var(--bg2);border-radius:12px;padding:14px 18px;">
+        <strong style="color:var(--coral);font-size:14px;">Spezifisch</strong>
+        <p style="font-size:13px;color:var(--muted);margin:4px 0 0;">Je konkreter, desto besser. "Schmuck" ist zu breit. "Handgemachter Silberschmuck Köln" ist perfekt.</p>
+      </div>
+      <div style="background:var(--bg2);border-radius:12px;padding:14px 18px;">
+        <strong style="color:var(--coral);font-size:14px;">Mit Kaufabsicht</strong>
+        <p style="font-size:13px;color:var(--muted);margin:4px 0 0;">Bevorzuge Keywords, bei denen die Person bereit ist zu handeln: "kaufen", "buchen", "in der Nähe".</p>
+      </div>
+      <div style="background:var(--bg2);border-radius:12px;padding:14px 18px;">
+        <strong style="color:var(--coral);font-size:14px;">Erreichbar</strong>
+        <p style="font-size:13px;color:var(--muted);margin:4px 0 0;">Wähle Keywords, bei denen du eine Chance hast. Gegen Amazon oder Wikipedia wirst du nicht gewinnen.</p>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:20px 0 24px;">Nutze jetzt den Prompt, um dir von Claude eine ausführliche Keyword-Liste erstellen zu lassen. Speichere das Ergebnis, prüfe es mit den Tools und trage dann deine besten Keywords unten ein.</p>
+
+  <div class="card" style="margin-top:12px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Prompt: Keyword-Recherche</h4>
+        <p>Claude erstellt dir eine vollständige Keyword-Liste mit 20 Keywords, Suchvolumen, Schwierigkeit und Content-Ideen.</p>
+      </div>
+      <div class="expandable-content">
+        <div class="prompt-box" style="margin:16px 0 0;">
+          <div class="label">Prompt: Keyword-Recherche</div>
+          <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
+          <pre>Ich brauche eine vollständige Keyword-Recherche für mein Business.
+
+MEIN BUSINESS:
+- Ich biete an: [Dienstleistung/Produkt]
+- Meine Zielgruppe: [Wer sind meine Kunden?]
+- Mein Standort: [Stadt/Region]
+- Mein Alleinstellungsmerkmal: [Was macht mich anders?]
+
+BITTE ERSTELLE MIR:
+
+1. EINE TABELLE mit 20 Keywords, sortiert nach Priorität:
+   - Keyword
+   - Art (Short-Tail / Long-Tail)
+   - Suchintention (Informational / Navigational / Transactional)
+   - Geschätztes monatliches Suchvolumen (niedrig/mittel/hoch)
+   - Schwierigkeit (leicht/mittel/schwer)
+   - Empfehlung (ja/nein)
+
+2. MEINE TOP 5 KEYWORDS, auf die ich mich konzentrieren sollte, mit Begründung
+
+3. 5 LONG-TAIL KEYWORDS mit Kaufabsicht, die wenig Konkurrenz haben
+
+4. 5 CONTENT-IDEEN basierend auf den Keywords (Blogartikel, FAQ-Seiten, Landingpages)
+
+5. EMPFEHLUNG: Welches Keyword sollte mein Fokus-Keyword für die Startseite sein und warum?
+
+Formatiere alles übersichtlich als Tabelle oder Liste.</pre>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <h4 style="font-family:'Antonio',sans-serif;font-size:17px;margin-bottom:12px;">Kostenlose Tools für deine Keyword-Recherche</h4>
+    <p style="font-size:14px;line-height:1.7;margin-bottom:12px;">Neben Claude kannst du diese Tools nutzen, um Keywords zu finden und zu prüfen:</p>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <a href="https://ads.google.com/intl/de_de/home/tools/keyword-planner/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--bg2);border-radius:12px;text-decoration:none;color:var(--text);transition:transform .2s;"><strong style="color:var(--coral);min-width:180px;">Google Keyword Planner</strong><span style="font-size:13px;color:var(--muted);">Suchvolumen und Wettbewerb direkt von Google (kostenlos mit Google-Konto)</span></a>
+      <a href="https://ubersuggest.com/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--bg2);border-radius:12px;text-decoration:none;color:var(--text);transition:transform .2s;"><strong style="color:var(--coral);min-width:180px;">Ubersuggest</strong><span style="font-size:13px;color:var(--muted);">Keyword-Ideen, Suchvolumen und SEO-Schwierigkeit (3 kostenlose Suchen/Tag)</span></a>
+      <a href="https://answerthepublic.com/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--bg2);border-radius:12px;text-decoration:none;color:var(--text);transition:transform .2s;"><strong style="color:var(--coral);min-width:180px;">AnswerThePublic</strong><span style="font-size:13px;color:var(--muted);">Zeigt dir, welche Fragen Menschen zu deinem Thema stellen</span></a>
+      <a href="https://www.google.de/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--bg2);border-radius:12px;text-decoration:none;color:var(--text);transition:transform .2s;"><strong style="color:var(--coral);min-width:180px;">Google Autocomplete</strong><span style="font-size:13px;color:var(--muted);">Tippe dein Thema bei Google ein und schau, was automatisch vorgeschlagen wird</span></a>
+    </div>
+  </div>
+
+  <div class="reflection-box" style="margin-top:20px;">
+    <div class="label">Deine Keywords</div>
+    <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Trage hier deine besten Keywords ein. Notiere jeweils, ob es ein Short-Tail oder Long-Tail Keyword ist.</p>
+    <div class="fill-group"><div class="fill-label">Mein Fokus-Keyword (der wichtigste Begriff für mein Business):</div><input class="fill-input" type="text" placeholder="z.B. 'Handgemachter Schmuck Köln'" data-save="ch2-kw-focus"></div>
+    <div class="fill-group"><div class="fill-label">5 weitere wichtige Keywords:</div>
+      <input class="fill-input" type="text" placeholder="1. z.B. 'Schmuck online kaufen nachhaltig' (Long-Tail)" data-save="ch2-kw1" style="margin-bottom:8px;">
+      <input class="fill-input" type="text" placeholder="2. z.B. 'Unikate Schmuck Geschenk' (Long-Tail)" data-save="ch2-kw2" style="margin-bottom:8px;">
+      <input class="fill-input" type="text" placeholder="3. z.B. 'Goldschmiedin Köln' (Short-Tail)" data-save="ch2-kw3" style="margin-bottom:8px;">
+      <input class="fill-input" type="text" placeholder="4. z.B. 'Individueller Schmuck bestellen' (Long-Tail)" data-save="ch2-kw4" style="margin-bottom:8px;">
       <input class="fill-input" type="text" placeholder="5." data-save="ch2-kw5">
+    </div>
+    <div class="fill-group"><div class="fill-label">3 Long-Tail Keywords (spezifisch, mit Kaufabsicht):</div>
+      <input class="fill-input" type="text" placeholder="1. z.B. 'handgemachter Silberschmuck online kaufen Deutschland'" data-save="ch2-lt1" style="margin-bottom:8px;">
+      <input class="fill-input" type="text" placeholder="2." data-save="ch2-lt2" style="margin-bottom:8px;">
+      <input class="fill-input" type="text" placeholder="3." data-save="ch2-lt3">
+    </div>
+    <div class="fill-group"><div class="fill-label">Notizen aus der Recherche:</div><textarea class="fill-input" placeholder="Was ist dir aufgefallen? Welche Begriffe tauchen immer wieder auf? Gibt es überraschende Suchbegriffe?" data-save="ch2-kw-notes" style="min-height:80px;"></textarea></div>
+  </div>
+  <div class="claude-hint">
+    <strong>Claude-Projekt:</strong> Trage deine Keywords in deine Projektanweisungen unter "MEINE KEYWORDS" ein.
+    <button class="claude-toggle" onclick="toggleClaudeHint(this)">Vorlage anzeigen</button>
+    <div class="claude-detail">
+      <pre style="font-family:'Inter',monospace;font-size:12px;line-height:1.6;white-space:pre-wrap;background:rgba(212,114,154,0.08);border-radius:8px;padding:12px;margin-top:8px;color:#444;cursor:pointer;" onclick="navigator.clipboard.writeText(this.textContent);this.style.outline='2px solid #d4729a';setTimeout(()=>this.style.outline='none',1000)">MEINE KEYWORDS:
+- Fokus-Keyword: [dein wichtigstes Keyword]
+- Keyword 2: [...]
+- Keyword 3: [...]
+- Keyword 4: [...]
+- Keyword 5: [...]
+- Long-Tail 1: [...]
+- Long-Tail 2: [...]
+- Long-Tail 3: [...]</pre>
+      <p style="font-size:11px;color:#d4729a;margin:6px 0 0;">Klicke auf den Text oben, um ihn zu kopieren.</p>
     </div>
   </div>
 
   <div class="nova-beispiel">
-    <strong>Nova's Keywords:</strong> 1. Handgemachter Schmuck Köln — 2. Schmuck online kaufen nachhaltig — 3. Unikate Schmuck Geschenk — 4. Goldschmiedin Köln Ehrenfeld — 5. Individueller Schmuck bestellen. Sie hat gemerkt: Die langen, spezifischen Begriffe (Longtail) sind ihre beste Chance, bei Google gefunden zu werden.
+    <strong>Nova:</strong> "Mein Fokus-Keyword: Handgemachter Schmuck Köln. Long-Tail Keywords: 'nachhaltiger Schmuck online kaufen', 'Schmuck Unikate Geschenk Frau', 'Goldschmiedin Köln Ehrenfeld'. Bei Google Autocomplete habe ich entdeckt, dass viele nach 'Schmuck mit Bedeutung' suchen. Das nehme ich auf!"
   </div>
 
-  <div class="prompt-box">
-    <div class="label">Prompt: Keywords recherchieren</div>
-    <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
-    <pre>Ich biete [Dienstleistung/Produkt] an für [Zielgruppe] in [Stadt/Region]. Welche Suchbegriffe würde meine Zielgruppe bei Google eingeben? Erstelle mir eine Liste mit 20 relevanten Keywords, sortiert nach Relevanz. Unterscheide kurze und lange Keywords (Longtail). Erkläre bei jedem Keyword die Suchintention: Will die Person kaufen, sich informieren oder vergleichen?</pre>
-  </div>
-
-  <p style="font-size:13px;color:var(--muted);margin-top:16px;font-style:italic;"><strong style="color:var(--coral);">Hinweis:</strong> Was du hier zu Keywords und SEO lernst, ist deine Startbasis — genug, um deine Website von Anfang an richtig aufzubauen. Im Workbook 2 (Professionelles Marketing) gehen wir deutlich tiefer: SEO-Strategie, Content-Planung, Google Search Console, Ranking-Analyse und alles, was deine Website langfristig auf Seite 1 bringt.</p>
+  <p style="font-size:13px;color:var(--muted);margin-top:16px;font-style:italic;"><strong style="color:var(--coral);">Hinweis:</strong> Was du hier zu Keywords und SEO lernst, ist deine Startbasis, genug, um deine Website von Anfang an richtig aufzubauen. Im Workbook 2 (Professionelles Marketing) gehen wir deutlich tiefer: SEO-Strategie, Content-Planung, Google Search Console, Ranking-Analyse und alles, was deine Website langfristig auf Seite 1 bringt.</p>
 </div>
 
 <div class="section" id="sec-ch2-3" data-title="Dein Markenname" data-chapter="02">
   <h3 class="section-title"><span class="icon"></span> Dein Markenname</h3>
-  <div class="card">
-    <p>Dein Markenname ist nicht einfach nur ein Wort auf deinem Logo. Er ist gleichzeitig deine Domain, dein Instagram-Handle, dein erster Eindruck bei Google — und der Name, mit dem dich Menschen finden sollen.</p>
 
-    <p><strong>Was Google mit deinem Namen macht:</strong> Ein Name wie „Bäumler Marketing" sagt Google sofort: Hier geht es um Marketing. Die Domain baeumlermarketing.de enthält das Keyword „Marketing". Ein Fantasiename wie „Luminos" klingt schön — aber Google kann damit erstmal nichts anfangen. Es hilft enorm, wenn dein Name ein Keyword enthält.</p>
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:0 0 24px;">Du hast jetzt deine Keywords und weißt, mit welchen Begriffen deine Kunden nach dir suchen. Der nächste logische Schritt: Wie willst du heißen? Dein Markenname verbindet alles, was du bisher erarbeitet hast, zu einer Identität.</p>
+
+  <div class="glossar-box">
+    <div class="glossar-term">Was ist eine Marke?</div>
+    <p>Eine Marke ist viel mehr als ein Name oder ein Logo. Sie ist die Summe aller Vorstellungen, die Menschen mit dir und deinem Angebot verbinden: deine Werte, dein Auftreten, dein visueller Stil, deine Sprache, dein Versprechen. Eine starke Marke schafft Vertrauen, Wiedererkennung und hebt dich von der Konkurrenz ab.</p>
+  </div>
+
+  <div class="card" style="margin-top:20px;">
+    <p>Dein Markenname ist gleichzeitig deine Domain, dein Instagram-Handle, dein erster Eindruck bei Google und der Name, mit dem dich Menschen finden und weiterempfehlen.</p>
+
+    <p><strong>Muss mein Markenname ein Keyword enthalten?</strong> Das ist keine SEO-Frage, sondern eine Kommunikations-Frage. Google gibt dir keinen Ranking-Bonus dafür. Aber Menschen verstehen sofort, was du machst. "Bäumler Marketing" sagt auf den ersten Blick: Hier geht es um Marketing. "Luminos" klingt schön, muss aber erst mit Bedeutung aufgeladen werden. Beides kann funktionieren. Überlege dir, was zu dir passt.</p>
+
+    <p><strong>Was langfristig wirklich zählt:</strong> Nicht der perfekte Name, sondern eine starke Marke dahinter. Wenn Menschen deinen Namen direkt in Google eingeben, dich auf Social Media erwähnen oder über dich sprechen, wirst du besser gefunden als mit dem cleversten Keyword-Namen, hinter dem keine echte Marke steht.</p>
 
     <div class="fill-group">
       <div class="fill-label">Mein Wunsch-Markenname:</div>
-      <input class="fill-input" type="text" placeholder="z.B. DeinName + Keyword" data-save="ch2-brand" style="font-size:18px;font-weight:600;">
+      <input class="fill-input" type="text" placeholder="z.B. 'Nova Schmuck' oder 'Bäumler Marketing' oder 'Luminos'" data-save="ch2-brand" style="font-size:18px;font-weight:600;">
     </div>
-    <div class="checklist" style="margin-top:20px;">
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>.de-Domain noch frei? → Prüfe auf ionos.de</span></div>
+  </div>
+  <div class="claude-hint">
+    <strong>Claude-Projekt:</strong> Trage deinen Markennamen in deine Projektanweisungen unter "MEINE MARKE" ein.
+    <button class="claude-toggle" onclick="toggleClaudeHint(this)">Vorlage anzeigen</button>
+    <div class="claude-detail">
+      <pre style="font-family:'Inter',monospace;font-size:12px;line-height:1.6;white-space:pre-wrap;background:rgba(212,114,154,0.08);border-radius:8px;padding:12px;margin-top:8px;color:#444;cursor:pointer;" onclick="navigator.clipboard.writeText(this.textContent);this.style.outline='2px solid #d4729a';setTimeout(()=>this.style.outline='none',1000)">MEINE MARKE:
+- Markenname: [dein gewählter Markenname]
+- Domain: [deinname.de]</pre>
+      <p style="font-size:11px;color:#d4729a;margin:6px 0 0;">Klicke auf den Text oben, um ihn zu kopieren.</p>
+    </div>
+  </div>
+
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:8px 0 24px;">Falls du unsicher bist oder Inspiration brauchst, lass Claude dir helfen. Der folgende Prompt erstellt dir Namensvorschläge und prüft direkt, ob sie verfügbar sind.</p>
+
+  <div class="card" style="margin-top:12px;">
+    <div class="expandable">
+      <div class="expandable-preview">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:18px;margin-bottom:8px;display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg> Prompt: Markennamen finden und prüfen</h4>
+        <p>Claude erstellt dir 10 Namensvorschläge in 3 Kategorien, prüft die Verfügbarkeit und gibt dir eine Top-3-Empfehlung.</p>
+      </div>
+      <div class="expandable-content">
+        <div class="prompt-box" style="margin:16px 0 0;">
+          <div class="label">Prompt: Markennamen finden und prüfen</div>
+          <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
+          <pre>Ich brauche einen Markennamen für mein Business.
+
+ÜBER MICH:
+- Ich biete an: [Dienstleistung/Produkt]
+- Meine Zielgruppe: [Wer sind meine Kunden?]
+- Mein Standort: [Stadt/Region]
+- Meine Keywords: [deine wichtigsten Keywords]
+- Mein Stil/Tonalität: [z.B. professionell, locker, modern, persönlich]
+- Mein Name: [dein Vor-/Nachname, falls du ihn einbauen möchtest]
+
+BITTE ERSTELLE MIR:
+
+1. 10 NAMENSVORSCHLÄGE in 3 Kategorien:
+   - Persönlich (mit meinem Namen, z.B. "Bäumler Marketing")
+   - Beschreibend (mit Keyword, z.B. "Schmuck Manufaktur Köln")
+   - Kreativ (Fantasiename mit Bedeutung, z.B. "Luminos")
+
+2. Prüfe für jeden Vorschlag:
+   - Ist die .de-Domain wahrscheinlich frei?
+   - Funktioniert er als Instagram-Handle?
+   - Ist er leicht zu buchstabieren und zu merken?
+   - Gibt es den Namen schon bei Google?
+
+3. Erstelle eine Tabelle mit allen Vorschlägen und Bewertungen
+
+4. Gib mir deine TOP 3 Empfehlung mit Begründung
+
+Wichtig: Der Name soll kurz, einprägsam und leicht zu buchstabieren sein. Er muss als Domain, E-Mail-Adresse und Social-Media-Handle funktionieren.</pre>
+        </div>
+      </div>
+      <button class="expandable-toggle" onclick="toggleExpand(this)">Modul öffnen</button>
+    </div>
+  </div>
+
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:8px 0 24px;">Wenn du dich für einen Namen entschieden hast, gehe die folgende Checkliste durch:</p>
+
+  <div class="card">
+    <div class="checklist">
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>.de-Domain noch frei? → Prüfe auf <a href="https://www.ionos.de/domains/domain-check" target="_blank" rel="noopener" style="color:var(--coral);">ionos.de</a></span></div>
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Instagram-Name verfügbar?</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Facebook-Name verfügbar?</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Bei Google schon vorhanden? (Einfach googeln)</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Kurz, einprägsam, leicht zu buchstabieren?</span></div>
-      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Enthält ein Keyword (z.B. Marketing, Coaching)?</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Enthält ein Keyword? (optional, aber hilfreich für Wiedererkennung)</span></div>
       <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Funktioniert als E-Mail? (kontakt@deinname.de)</span></div>
     </div>
   </div>
 
   <div class="nova-beispiel">
-    <strong>Nova's Markenname:</strong> Sie heißt Nova und macht Schmuck — also: nova-schmuck.de. Die Domain ist frei, der Instagram-Name @nova.schmuck auch. Das Keyword "Schmuck" ist im Namen drin, Google versteht sofort worum es geht. Fertig — keine drei Wochen Grübeln, sondern eine Entscheidung an einem Nachmittag.
+    <strong>Nova:</strong> "Claude hat mir 10 Namen vorgeschlagen. Mein Favorit: nova-schmuck.de. Die Domain ist frei, @nova.schmuck auf Instagram auch. Der Name ist kurz, enthält mein Keyword 'Schmuck' und ist leicht zu merken. Entscheidung getroffen, keine drei Wochen Grübeln."
   </div>
 </div>
 
-<div class="section" id="sec-ch2-4" data-title="Deine Stimme & Texte" data-chapter="02">
-  <h3 class="section-title"><span class="icon"></span> Deine Stimme, deine Texte, dein Auftritt</h3>
+<div class="section" id="sec-ch2-4" data-title="Deine Markenstimme" data-chapter="02">
+  <h3 class="section-title"><span class="icon"></span> Deine Markenstimme</h3>
 
-  <div class="card">
-    <p>Bevor wir deine Website bauen, brauchen wir noch drei Dinge: Deinen Ton, deine Texte und ein Foto von dir. Wenn das steht, geht das Bauen danach viel schneller — weil Claude dann genau weiß, wie du klingen willst.</p>
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:0 0 24px;">Du hast jetzt einen Namen. Aber wie klingst du? Wie sprichst du deine Kunden an? Deine Markenstimme ist das, was dich einzigartig macht, auch wenn jemand anderes das gleiche Produkt anbietet.</p>
+
+  <div class="glossar-box">
+    <div class="glossar-term">Corporate Identity (CI)</div>
+    <p>Der Überbegriff für alles, was deine Marke ausmacht. Eine CI besteht aus vier Bausteinen:</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 8px;">
+      <div style="font-size:13px;padding:8px 12px;background:rgba(74,144,196,0.08);border-radius:8px;"><strong style="color:#4a90c4;">Corporate Design</strong><br>Logo, Farben, Schriften, visueller Stil → Kapitel 06</div>
+      <div style="font-size:13px;padding:8px 12px;background:rgba(74,144,196,0.08);border-radius:8px;"><strong style="color:#4a90c4;">Corporate Language</strong><br>Tonalität, Wortwahl, Ansprache → dieses Kapitel</div>
+      <div style="font-size:13px;padding:8px 12px;background:rgba(74,144,196,0.08);border-radius:8px;"><strong style="color:#4a90c4;">Corporate Behaviour</strong><br>Wie du mit Kunden umgehst, dein Service</div>
+      <div style="font-size:13px;padding:8px 12px;background:rgba(74,144,196,0.08);border-radius:8px;"><strong style="color:#4a90c4;">Corporate Culture</strong><br>Deine Werte, wofür du stehst → Kapitel 01</div>
+    </div>
+    <p>In diesem Kapitel kümmern wir uns um deine <strong>Corporate Language</strong>, also deine Markenstimme. Logo und Farben kommen in Kapitel 06 (Canva).</p>
+  </div>
+
+  <div class="card" style="margin-top:20px;">
+    <p>Bevor wir deine Website bauen, brauchen wir noch drei Dinge: Deinen Ton, deine Texte und ein Foto von dir. Wenn das steht, geht das Bauen danach viel schneller, weil Claude dann genau weiß, wie du klingen willst.</p>
 
     <h4 style="margin-top:24px;margin-bottom:8px;">Tonalität</h4>
-    <p>Duzt du deine Kunden oder siezt du? Bist du locker oder professionell? Persönlich oder sachlich? Es gibt kein richtig oder falsch — nur passend oder unpassend für deine Zielgruppe. Eine Yoga-Lehrerin spricht anders als eine Steuerberaterin.</p>
+    <p>Deine Tonalität ist die Art, wie du mit deinen Kunden sprichst. Sie zieht sich durch alles: Website-Texte, Social Media, E-Mails, Beratungsgespräche. Um deine richtige Tonalität zu finden, stelle dir drei Fragen:</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:12px 0 16px;">
+      <div style="background:var(--bg2);border-radius:12px;padding:14px 18px;text-align:center;">
+        <strong style="color:var(--coral);font-size:14px;">Duzen oder Siezen?</strong>
+        <p style="font-size:12px;color:var(--muted);margin:4px 0 0;">Yoga-Lehrerin duzt. Steuerberaterin siezt. Was passt zu deiner Zielgruppe?</p>
+      </div>
+      <div style="background:var(--bg2);border-radius:12px;padding:14px 18px;text-align:center;">
+        <strong style="color:var(--coral);font-size:14px;">Locker oder seriös?</strong>
+        <p style="font-size:12px;color:var(--muted);margin:4px 0 0;">Wie eine Freundin, die Tipps gibt? Oder wie eine Expertin, der man vertraut?</p>
+      </div>
+      <div style="background:var(--bg2);border-radius:12px;padding:14px 18px;text-align:center;">
+        <strong style="color:var(--coral);font-size:14px;">Emotional oder sachlich?</strong>
+        <p style="font-size:12px;color:var(--muted);margin:4px 0 0;">Erzählst du Geschichten und weckst Gefühle? Oder lieferst du Fakten und Zahlen?</p>
+      </div>
+    </div>
+    <p>Der einfachste Weg, deine Tonalität zu finden: Schau dir an, wie deine Zielgruppe selbst spricht. Welche Sprache nutzt sie auf Social Media? In welchem Ton schreibt sie Bewertungen oder stellt Fragen? Deine Tonalität sollte eine Brücke sein zwischen dem, wie du authentisch bist, und dem, was bei deiner Zielgruppe ankommt.</p>
+
+    <p>Stell dir vor, deine Marke wäre eine Person. Wie würde sie sprechen? Beantworte die folgenden Fragen:</p>
+
+    <div class="fill-group" style="margin-top:16px;">
+      <div class="fill-label">Duze oder sieze ich meine Kunden?</div>
+      <input class="fill-input" type="text" placeholder="z.B. 'Ich duze, weil meine Zielgruppe jung und locker ist'" data-save="ch2-tone-dusie">
+    </div>
     <div class="fill-group">
       <div class="fill-label">Mein Ton ist...</div>
       <input class="fill-input" type="text" placeholder="z.B. locker und persönlich, professionell aber nahbar, wie eine Freundin die Tipps gibt" data-save="ch2-tone">
     </div>
+    <div class="fill-group">
+      <div class="fill-label">3 Adjektive, die beschreiben wie meine Marke klingen soll:</div>
+      <input class="fill-input" type="text" placeholder="z.B. warm, kompetent, ehrlich" data-save="ch2-tone-adjectives">
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">So möchte ich NICHT klingen:</div>
+      <input class="fill-input" type="text" placeholder="z.B. steif, überheblich, langweilig, zu verkäuferisch" data-save="ch2-tone-not">
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Wenn meine Marke eine Person wäre, wie würde sie sich vorstellen?</div>
+      <textarea class="fill-input" placeholder="z.B. 'Hey, ich bin Nova. Ich mache Schmuck, der Geschichten erzählt. Schön, dass du da bist.'" data-save="ch2-tone-persona"></textarea>
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Welche Wörter benutze ich oft, welche nie?</div>
+      <input class="fill-input" type="text" placeholder="z.B. oft: 'ehrlich, einzigartig, handgemacht' — nie: 'billig, Schnäppchen, Rabatt'" data-save="ch2-tone-words">
+    </div>
+    <div class="fill-group">
+      <div class="fill-label">Verwende ich Emojis? Ausrufezeichen? Wie förmlich schreibe ich?</div>
+      <input class="fill-input" type="text" placeholder="z.B. 'Keine Emojis, wenig Ausrufezeichen, natürliche Sprache'" data-save="ch2-tone-style">
+    </div>
 
-    <h4 style="margin-top:28px;margin-bottom:8px;">Texte vorbereiten</h4>
-    <p>Drei Texte brauchst du für deine Website. Du musst sie nicht perfekt schreiben — Claude hilft dir dabei. Aber die Grundidee solltest du festhalten:</p>
-    <div class="fill-group">
-      <div class="fill-label">Über mich in 3–4 Sätzen:</div>
-      <textarea class="fill-input" placeholder="Wer bist du, was machst du, warum machst du es?" data-save="ch2-aboutme"></textarea>
+    <div class="claude-hint">
+      <strong>Claude-Projekt:</strong> Trage deine Tonalität in deine Projektanweisungen unter "MEINE TONALITÄT" ein.
+      <button class="claude-toggle" onclick="toggleClaudeHint(this)">Vorlage anzeigen</button>
+      <div class="claude-detail">
+      <pre style="font-family:'Inter',monospace;font-size:12px;line-height:1.6;white-space:pre-wrap;background:rgba(212,114,154,0.08);border-radius:8px;padding:12px;margin-top:8px;color:#444;cursor:pointer;" onclick="navigator.clipboard.writeText(this.textContent);this.style.outline='2px solid #d4729a';setTimeout(()=>this.style.outline='none',1000)">MEINE TONALITÄT:
+- Ansprache: [Du/Sie]
+- Stil: [dein Ton, z.B. locker und persönlich]
+- 3 Adjektive: [z.B. warm, kompetent, ehrlich]
+- So klinge ich NICHT: [z.B. steif, überheblich, verkäuferisch]
+- Meine Marke als Person: [z.B. wie eine Freundin, die ehrlich berät]
+- Wörter die ich oft nutze: [z.B. einzigartig, handgemacht, ehrlich]
+- Wörter die ich nie nutze: [z.B. billig, Schnäppchen, Rabatt]
+- Emojis: [ja/nein/wenig]
+- Schreibstil: [z.B. natürlich, kurze Sätze, keine Floskeln]</pre>
+      <p style="font-size:11px;color:#d4729a;margin:6px 0 0;">Klicke auf den Text oben, um ihn zu kopieren.</p>
+      </div>
     </div>
-    <div class="fill-group">
-      <div class="fill-label">Mein Angebot in 2–3 Sätzen:</div>
-      <textarea class="fill-input" placeholder="Was bietest du an und warum ist es wertvoll?" data-save="ch2-offertext"></textarea>
-    </div>
-    <div class="fill-group">
-      <div class="fill-label">Mein Elevator Pitch (1 Satz, der alles sagt):</div>
-      <input class="fill-input" type="text" placeholder="z.B. Ich helfe Selbstständigen, mit KI in 4 Wochen online sichtbar zu werden." data-save="ch2-pitch">
+
+  </div>
+</div>
+
+<div class="section" id="sec-ch2-5" data-title="Startpaket Website" data-chapter="02">
+  <h3 class="section-title"><span class="icon"></span> Startpaket Website</h3>
+
+  <div class="card">
+    <p>Du hast in den letzten Abschnitten richtig viel erarbeitet: dein Angebot, deine Wunschkunden, deine Mission, deine Vision, deine Keywords, deinen Markennamen und deine Tonalität. All das steckt jetzt in deinem Claude-Projektordner "Online Business Workspace".</p>
+    <p>Das bedeutet: <strong>Claude kennt dein Business bereits.</strong> Und genau das nutzen wir jetzt. Wir lassen Claude aus all deinen Informationen die kompletten Inhalte für deine Website erstellen.</p>
+  </div>
+
+  <glossar-box style="display:block;background:#f0f6fc;border-radius:20px;border-left:4px solid #4a90c4;padding:20px 24px;margin:16px 0;">
+    <div style="font-family:'Antonio',sans-serif;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#4a90c4;margin-bottom:6px;">Was ist ein One-Pager?</div>
+    <p style="font-size:14px;color:#444;margin:0;line-height:1.7;">Eine Website, die nur aus einer einzigen Seite besteht. Der Besucher scrollt durch alle Bereiche: Hero, Über mich, Angebot, Kontakt. Das ist schneller gebaut, einfacher zu pflegen und reicht für den Start vollkommen aus. Unterseiten kannst du später jederzeit ergänzen.</p>
+  </glossar-box>
+
+  <!-- Schritt 1: Struktur -->
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:20px 0 16px;"><strong>Schritt 1:</strong> Mach dich damit vertraut, was auf einen One-Pager gehört.</p>
+
+  <div class="card">
+    <h4 style="font-family:'Antonio',sans-serif;font-size:17px;margin-bottom:12px;">Das gehört auf einen One-Pager</h4>
+    <div class="result-list">
+      <div class="result-item"><span class="result-check"></span><span><strong>Hero</strong> — die große Headline, ein Untertitel und ein Button (Call-to-Action)</span></div>
+      <div class="result-item"><span class="result-check"></span><span><strong>Über mich</strong> — wer bist du, deine Geschichte, ein Foto von dir</span></div>
+      <div class="result-item"><span class="result-check"></span><span><strong>Angebot</strong> — was bietest du an, deine Leistungen, deine Preise</span></div>
+      <div class="result-item"><span class="result-check"></span><span><strong>Referenzen</strong> — Kundenstimmen, falls vorhanden (kannst du später ergänzen)</span></div>
+      <div class="result-item"><span class="result-check"></span><span><strong>FAQ</strong> — häufige Fragen (erstellt Claude für dich)</span></div>
+      <div class="result-item"><span class="result-check"></span><span><strong>Kontakt</strong> — Kontaktformular oder deine Kontaktdaten</span></div>
     </div>
   </div>
+
+  <!-- Schritt 2: Prompt -->
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:20px 0 16px;"><strong>Schritt 2:</strong> Öffne dein Claude-Projekt und gib den folgenden Prompt ein. Claude nutzt automatisch alle Informationen aus deinen Projektanweisungen und erstellt dir die fertigen Inhalte.</p>
 
   <div class="prompt-box">
-    <div class="label">Prompt: Website-Texte erstellen</div>
+    <div class="label">Prompt: Website-Inhalte erstellen</div>
     <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
-    <pre>Ich bin [Name] und biete [Dienstleistung] an für [Zielgruppe]. Mein Ton ist [locker/professionell/persönlich]. Schreibe mir drei Texte für meine Website: 1) Einen 'Über mich'-Text (ca. 150 Wörter, persönlich und nahbar). 2) Eine Angebotsbeschreibung (ca. 100 Wörter, klar und überzeugend). 3) Einen Elevator Pitch (1 Satz). Schreibe auf Deutsch.</pre>
+    <pre>Nutze alle Informationen aus meinen Projektanweisungen und erstelle mir die kompletten Inhalte für meinen One-Pager. Ich brauche:
+
+1. HERO: Headline (max. 8 Wörter), Untertitel (1-2 Sätze), Call-to-Action Button-Text
+2. ÜBER MICH: Persönlicher Text (150-200 Wörter)
+3. ANGEBOT: Beschreibung (100-150 Wörter) + 3 Vorteile mit kurzer Beschreibung
+4. FAQ: 5 häufige Fragen mit Antworten
+5. KONTAKT: Einleitungstext (2-3 Sätze)
+6. META-TEXTE: Meta Title (max. 60 Zeichen) + Meta Description (max. 160 Zeichen)
+
+Schreibe alles in meiner Tonalität. Baue meine Keywords natürlich ein.</pre>
   </div>
 
-  <div class="card" style="margin-top:24px;">
-    <h4 style="margin-bottom:8px;">Fotos</h4>
-    <p>Ein gutes Foto von dir macht deine Website persönlich und schafft Vertrauen. Du brauchst keinen Fotografen — dein Handy reicht völlig.</p>
+  <div class="nova-beispiel" style="margin-top:16px;">
+    <strong>Nova:</strong> "Ich habe den Prompt eingegeben und Claude hat mir innerhalb von 30 Sekunden alle Texte für meine Website erstellt. Die Headline 'Schmuck, der deine Geschichte erzählt' fand ich sofort perfekt. Den Über-mich-Text habe ich noch ein bisschen angepasst, weil mir ein Satz zu förmlich war. Alles gespeichert, fertig."
+  </div>
 
-    <div class="tipp-box" data-color="coral"><div class="tipp-label">Foto-Tipp</div>
-      <p>Stell dich ans Fenster (natürliches Licht), aufgeräumter Hintergrund, mach 20 Fotos und such dir die besten 3 aus. Speichere sie in deinem Projektordner im Unterordner „images".</p>
-    </div>
+  <!-- Schritt 3: Speichern -->
+  <p style="font-size:16px;line-height:1.8;color:var(--text);margin:20px 0 16px;"><strong>Schritt 3:</strong> Speichere das Ergebnis. Wir brauchen es an zwei Stellen: einmal in deinem Claude-Projekt (damit Claude es immer kennt) und einmal als Datei auf deinem Computer (damit du es später in VS Code verwenden kannst).</p>
 
-    <h4 style="margin-top:28px;margin-bottom:8px;">Preise</h4>
-    <p>Was kostet dein Angebot? Viele Anfänger schieben diese Frage auf — und haben dann eine Website ohne Preise. Das wirkt unprofessionell und schreckt Kunden ab.</p>
-    <div class="fill-group">
-      <div class="fill-label">Mein Stundensatz / Paketpreis:</div>
-      <input class="fill-input" type="text" placeholder="z.B. 80 Euro/Stunde, Paket ab 500 Euro" data-save="ch2-price">
-    </div>
-    <div class="fill-group">
-      <div class="fill-label">Warum dieser Preis?</div>
-      <input class="fill-input" type="text" placeholder="z.B. Marktvergleich, Erfahrung, Ausbildung..." data-save="ch2-price-reason">
+  <div class="card" style="border-left:3px solid #4caf50;background:#e8f5e9;">
+    <p style="margin-bottom:12px;"><strong style="color:#2e7d32;">So geht's, Schritt für Schritt:</strong></p>
+    <ol style="font-size:14px;line-height:1.8;padding-left:20px;margin:0;">
+      <li>Markiere Claudes gesamte Antwort und kopiere sie (Strg+A, dann Strg+C)</li>
+      <li><strong>In Claude speichern:</strong> Gehe in dein Claude-Projekt "Online Business Workspace", klicke auf "Projektanweisungen" und füge den Text ganz unten ein unter einer neuen Überschrift "MEINE WEBSITE-INHALTE"</li>
+      <li><strong>Auf deinem Computer speichern:</strong> Öffne den Editor auf deinem Computer (bei Windows: suche nach "Editor" oder "Notepad"), füge den Text ein (Strg+V) und klicke auf Datei → Speichern unter</li>
+      <li>Wähle deinen Projektordner als Speicherort und nenne die Datei <strong>website-inhalte.txt</strong></li>
+    </ol>
+  </div>
+
+  <div class="save-local">Die Datei <strong>"website-inhalte.txt"</strong> liegt jetzt in deinem Projektordner auf deinem Computer und gleichzeitig in deinem Claude-Projekt. Beides brauchst du später.</div>
+
+  <!-- Checkliste -->
+  <div class="card" style="margin-top:20px;border-left:4px solid var(--teal);">
+    <h4 style="font-family:'Antonio',sans-serif;font-size:17px;margin-bottom:12px;color:var(--teal);">Startpaket-Checkliste</h4>
+    <p>Bevor du zum nächsten Kapitel gehst:</p>
+    <div class="checklist" style="margin-top:12px;">
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>One-Pager Sektionen festgelegt</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Prompt in Claude eingegeben</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Ergebnis als "website-inhalte.txt" gespeichert</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Texte durchgelesen und ggf. angepasst</span></div>
+      <div class="check-item" onclick="toggleCheck(this)"><div class="box"></div><span>Claude-Projektanweisungen vollständig ausgefüllt</span></div>
     </div>
   </div>
 
-  <h3 class="section-title" style="margin-top:40px;"><span class="icon"></span> Deine Vision</h3>
-  <div class="reflection-box">
-    <div class="label">Wo willst du hin?</div>
+  <div class="reflection-box" style="margin-top:24px;">
+    <div class="label">Deine Erkenntnisse aus diesem Kapitel</div>
     <div class="fill-group">
-      <div class="fill-label">Wo sehe ich mich in 12 Monaten:</div>
-      <input class="fill-input" type="text" placeholder="" data-save="ch2-vision12">
+      <div class="fill-label">Was habe ich Neues aus diesem Kapitel für mich mitgenommen?</div>
+      <textarea class="fill-input" placeholder="Was hat dich überrascht? Was war neu?" data-save="ch2-takeaway" style="min-height:80px;"></textarea>
     </div>
     <div class="fill-group">
-      <div class="fill-label">Wie soll sich mein Alltag anfühlen:</div>
-      <input class="fill-input" type="text" placeholder="" data-save="ch2-feeling">
+      <div class="fill-label">Meine Notizen:</div>
+      <textarea class="fill-input" placeholder="Platz für alles, was dir sonst noch durch den Kopf geht..." data-save="ch2-notes" style="min-height:100px;"></textarea>
     </div>
-    <div class="fill-group">
-      <div class="fill-label">Wie viel möchte ich verdienen:</div>
-      <input class="fill-input" type="text" placeholder="" data-save="ch2-income">
-    </div>
-  </div>
-
-  <div class="card" style="margin-top:32px;">
-    <h3 class="section-title" style="font-size:20px;"><span class="icon"></span> Was du jetzt noch NICHT brauchst</h3>
-    <p>Du brauchst jetzt noch keinen fertigen Businessplan. Kein perfekt formuliertes Angebot. Kein fertiges Logo — das machen wir später in Kapitel 09. Keine Social-Media-Strategie — darum kümmern wir uns in Workbook 2.</p>
-    <p>Was du jetzt brauchst, hast du gerade gemacht: Eine Idee, eine Richtung, einen Namen — und ein Gefühl dafür, wen du erreichen willst.</p>
-  </div>
-
-  <div class="tipp-box" data-color="teal" style="margin-top:20px;"><div class="tipp-label">Zeitspar-Tipp: Alles aufheben</div>
-    <p>Speichere alles, was du aufgeschrieben hast, auch digital ab. Erstelle in Claude Chat ein neues Projekt mit deinem Business-Namen und lade dort deine Notizen hoch. So weiß Claude bei jeder zukünftigen Frage sofort, wer du bist.</p>
   </div>
 
   <div class="chapter-summary">
@@ -1633,8 +2775,20 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
     <div class="item">Du kennst deine Wettbewerber und weißt, was dich unterscheidet</div>
     <div class="item">Du hast deine Keywords recherchiert</div>
     <div class="item">Dein Markenname steht und die Domain ist geprüft</div>
-    <div class="item">Deine Tonalität, Texte und Fotos sind vorbereitet</div>
-    <div class="item">Du hast deine Preise festgelegt</div>
+    <div class="item">Deine Tonalität und Markenstimme sind definiert</div>
+    <div class="item">Dein Website-Startpaket ist fertig und gespeichert</div>
+  </div>
+
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Tag 2 und Kapitel 02 geschafft!</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p>Sei stolz auf dich. Du hast jetzt dein gesamtes Setup für alle weiteren Schritte und Tools gesichert. Dein Markenname steht, deine Keywords sind recherchiert, deine Tonalität ist definiert und Claude hat alle Inhalte für deine Website erstellt. Jetzt können wir richtig was aufbauen und online erreichen.</p>
+    <p style="margin-top:12px;">Ich habe für diesen Schritt ganze zwei Jahre gebraucht. Ich habe vieles immer wieder umgeworfen, mir das Wissen aus diesem Kapitel über Monate zusammengesucht und unzählige Male von vorne angefangen. Umso mehr freut es mich, dass ich dir das mitgeben darf und du damit deinem Ziel ein großes Stück näher kommst.</p>
   </div>
 </div>
 
@@ -1655,6 +2809,16 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
         <span class="chapter-what-item">Konten einrichten</span>
       </div>
     </div>
+  </div>
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Worte von Miriam</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit meinen persönlichen Erfahrungen zu diesem Kapitel befüllt.</em></p>
   </div>
 </div>
 
@@ -1753,6 +2917,17 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
     <div class="item">Du weißt genau, was es kostet (unter 30 € / Monat)</div>
     <div class="item">Du hast alle Tool-Konten erstellt und bist bereit für den nächsten Schritt</div>
   </div>
+
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Kapitel 03 geschafft!</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit einer persönlichen Zusammenfassung und Überleitung zum nächsten Kapitel befüllt.</em></p>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════ KAPITEL 04 ══════════════════════════════════ -->
@@ -1771,6 +2946,16 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
         <span class="chapter-what-item">Prompts schreiben</span>
       </div>
     </div>
+  </div>
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Worte von Miriam</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit meinen persönlichen Erfahrungen zu diesem Kapitel befüllt.</em></p>
   </div>
 </div>
 
@@ -1968,6 +3153,17 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
     <div class="item">Ordnerstruktur verstanden (index.html, style.css, script.js, images/)</div>
     <div class="item">Mindestens 5 verschiedene Prompts ausprobiert</div>
   </div>
+
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Kapitel 04 geschafft!</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit einer persönlichen Zusammenfassung und Überleitung zum nächsten Kapitel befüllt.</em></p>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════ KAPITEL 05 ══════════════════════════════════ -->
@@ -1986,6 +3182,16 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
         <span class="chapter-what-item">Claude Code starten</span>
       </div>
     </div>
+  </div>
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Worte von Miriam</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit meinen persönlichen Erfahrungen zu diesem Kapitel befüllt.</em></p>
   </div>
 </div>
 
@@ -2093,6 +3299,17 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
     <div class="item">Claude Code installiert und gestartet</div>
     <div class="item">Leere Startseite (index.html) im Browser getestet — Inhalte und Design kommen in Kap. 08</div>
   </div>
+
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Kapitel 05 geschafft!</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit einer persönlichen Zusammenfassung und Überleitung zum nächsten Kapitel befüllt.</em></p>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════ KAPITEL 06 ══════════════════════════════════ -->
@@ -2112,6 +3329,16 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
         <span class="chapter-what-item">Brand Kit</span>
       </div>
     </div>
+  </div>
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Worte von Miriam</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit meinen persönlichen Erfahrungen zu diesem Kapitel befüllt.</em></p>
   </div>
 </div>
 
@@ -2195,6 +3422,17 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
     <div class="item">Logo in allen Formaten exportiert (SVG, PNG, Favicon)</div>
     <div class="item">Logo gespeichert — bereit für Website (Kap. 08), E-Mail (Kap. 11) und Social Media</div>
   </div>
+
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Kapitel 06 geschafft!</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit einer persönlichen Zusammenfassung und Überleitung zum nächsten Kapitel befüllt.</em></p>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════ KAPITEL 07 ══════════════════════════════════ -->
@@ -2213,6 +3451,16 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
         <span class="chapter-what-item">E-Mail-Sicherheit</span>
       </div>
     </div>
+  </div>
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Worte von Miriam</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit meinen persönlichen Erfahrungen zu diesem Kapitel befüllt.</em></p>
   </div>
 </div>
 
@@ -2280,6 +3528,17 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
     <div class="item">Alle DNS-Einstellungen eingetragen (Vercel, Google, HubSpot)</div>
     <div class="item">E-Mail-Sicherheit eingerichtet (SPF, DKIM, DMARC)</div>
   </div>
+
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Kapitel 07 geschafft!</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit einer persönlichen Zusammenfassung und Überleitung zum nächsten Kapitel befüllt.</em></p>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════ KAPITEL 08 ══════════════════════════════════ -->
@@ -2298,6 +3557,16 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
         <span class="chapter-what-item">Bilder &amp; Texte</span>
       </div>
     </div>
+  </div>
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Worte von Miriam</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit meinen persönlichen Erfahrungen zu diesem Kapitel befüllt.</em></p>
   </div>
 </div>
 
@@ -2405,6 +3674,17 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
     <div class="item">Eigene Farben, Texte und Bilder eingesetzt</div>
     <div class="item">Website auf dem Handy getestet (responsive)</div>
   </div>
+
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Kapitel 08 geschafft!</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit einer persönlichen Zusammenfassung und Überleitung zum nächsten Kapitel befüllt.</em></p>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════ KAPITEL 09 ══════════════════════════════════ -->
@@ -2424,6 +3704,16 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
         <span class="chapter-what-item">AGB</span>
       </div>
     </div>
+  </div>
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Worte von Miriam</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit meinen persönlichen Erfahrungen zu diesem Kapitel befüllt.</em></p>
   </div>
 </div>
 
@@ -2544,6 +3834,17 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
     <div class="item">sitemap.xml, robots.txt, 404-Seite und Favicon angelegt</div>
     <div class="item">Launch-Check mit Claude durchgeführt</div>
   </div>
+
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Kapitel 09 geschafft!</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit einer persönlichen Zusammenfassung und Überleitung zum nächsten Kapitel befüllt.</em></p>
+  </div>
 </div>
 </div>
 
@@ -2563,6 +3864,16 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
         <span class="chapter-what-item">Domain live</span>
       </div>
     </div>
+  </div>
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Worte von Miriam</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit meinen persönlichen Erfahrungen zu diesem Kapitel befüllt.</em></p>
   </div>
 </div>
 
@@ -2636,6 +3947,17 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
     <div class="item">Website ist live im Internet</div>
     <div class="item">Änderungs-Workflow verstanden (VS Code → GitHub → Vercel)</div>
   </div>
+
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Kapitel 10 geschafft!</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit einer persönlichen Zusammenfassung und Überleitung zum nächsten Kapitel befüllt.</em></p>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════ KAPITEL 11 ══════════════════════════════════ -->
@@ -2654,6 +3976,16 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
         <span class="chapter-what-item">E-Mail-Signatur</span>
       </div>
     </div>
+  </div>
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Worte von Miriam</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit meinen persönlichen Erfahrungen zu diesem Kapitel befüllt.</em></p>
   </div>
 </div>
 
@@ -2696,6 +4028,17 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
     <div class="item">Professionelle E-Mail-Signatur eingerichtet</div>
     <div class="item">E-Mail auf dem Handy eingerichtet</div>
   </div>
+
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Kapitel 11 geschafft!</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit einer persönlichen Zusammenfassung und Überleitung zum nächsten Kapitel befüllt.</em></p>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════ KAPITEL 12 ══════════════════════════════════ -->
@@ -2715,6 +4058,16 @@ Vorgaben: Nur aktuelle Quellen verwenden (letzte 18 Monate). Primärquellen prio
         <span class="chapter-what-item">E-Mail-Vorlagen</span>
       </div>
     </div>
+  </div>
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Worte von Miriam</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit meinen persönlichen Erfahrungen zu diesem Kapitel befüllt.</em></p>
   </div>
 </div>
 
@@ -2783,6 +4136,17 @@ Verbinde meine Domain.</pre>
     <div class="item">Sales-Pipeline eingerichtet</div>
     <div class="item">Domain mit HubSpot verbunden</div>
   </div>
+
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Kapitel 12 geschafft!</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit einer persönlichen Zusammenfassung und Überleitung zum nächsten Kapitel befüllt.</em></p>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════ KAPITEL 13 ══════════════════════════════════ -->
@@ -2802,6 +4166,16 @@ Verbinde meine Domain.</pre>
         <span class="chapter-what-item">Mega-Prompts</span>
       </div>
     </div>
+  </div>
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Worte von Miriam</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit meinen persönlichen Erfahrungen zu diesem Kapitel befüllt.</em></p>
   </div>
 </div>
 
@@ -2879,6 +4253,17 @@ Erstelle eine Vergleichstabelle als Excel-Datei und eine Zusammenfassung mit Emp
     <div class="item">Konnektoren verbunden (Canva, Google, HubSpot)</div>
     <div class="item">Mega-Prompts für Business-Setup, Content und Analyse</div>
   </div>
+
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Kapitel 13 geschafft!</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit einer persönlichen Zusammenfassung und Überleitung zum nächsten Kapitel befüllt.</em></p>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════ KAPITEL 14 ══════════════════════════════════ -->
@@ -2898,6 +4283,16 @@ Erstelle eine Vergleichstabelle als Excel-Datei und eine Zusammenfassung mit Emp
         <span class="chapter-what-item">Live schalten</span>
       </div>
     </div>
+  </div>
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Worte von Miriam</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit meinen persönlichen Erfahrungen zu diesem Kapitel befüllt.</em></p>
   </div>
 </div>
 
@@ -3005,6 +4400,74 @@ Teste den gesamten Ablauf im Testmodus.</pre>
     <div class="item">Stripe mit HubSpot verbunden</div>
     <div class="item">Gesamten Kaufprozess im Testmodus getestet</div>
   </div>
+
+  <div class="miriam-sagt" style="margin-top:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Kapitel 14 geschafft!</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p><em>Dieser Text wird noch mit einer persönlichen Zusammenfassung und Überleitung zum nächsten Kapitel befüllt.</em></p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ BUSINESS BLUEPRINT ══════════════════════════════════ -->
+<div class="section" id="sec-blueprint" data-title="Dein Business-Blueprint" data-chapter="">
+  <h3 class="section-title"><span class="icon"></span> Deine Überraschung</h3>
+
+  <div class="miriam-sagt" style="margin-bottom:24px;">
+    <div class="miriam-sagt-header">
+      <div class="miriam-avatar"></div>
+      <div>
+        <div class="miriam-sagt-label">Von Miriam</div>
+        <div class="miriam-sagt-sub">Miriam Bäumler · Deine Begleiterin</div>
+      </div>
+    </div>
+    <p>Du hast es bis hierher geschafft und dabei unglaublich viel erarbeitet. Jetzt kommt die Überraschung, die ich dir am Anfang versprochen habe: Aus all deinen Antworten erstellen wir jetzt automatisch deinen persönlichen <strong>Business-Blueprint</strong>. Ein fertiges Dokument mit allem, was dein Business ausmacht.</p>
+  </div>
+
+  <div class="card" style="border-left:4px solid var(--teal);">
+    <h4 style="font-family:'Antonio',sans-serif;font-size:20px;margin-bottom:16px;">Dein persönlicher Business-Blueprint</h4>
+    <p>Klicke auf den Button, um deinen Blueprint zu generieren. Er fasst automatisch alles zusammen, was du in diesem Workbook eingetragen hast.</p>
+    <button id="generateBlueprint" onclick="generateBlueprint()" style="display:block;margin:20px auto 0;background:var(--coral);border:none;color:#fff;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;padding:14px 36px;border-radius:var(--pill);cursor:pointer;transition:all .2s;">Business-Blueprint erstellen</button>
+  </div>
+
+  <div id="blueprintOutput" style="display:none;margin-top:24px;">
+    <div class="card" style="border:2px solid var(--teal);background:#f8fffe;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <h4 style="font-family:'Antonio',sans-serif;font-size:20px;margin:0;color:var(--teal);">Dein Business-Blueprint</h4>
+        <button onclick="copyBlueprint()" style="background:var(--teal);border:none;color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;padding:8px 20px;border-radius:8px;cursor:pointer;">Kopieren</button>
+      </div>
+      <div id="blueprintContent" style="font-size:14px;line-height:1.8;white-space:pre-wrap;"></div>
+    </div>
+
+    <div class="prompt-box" style="margin-top:20px;">
+      <div class="label">Prompt: Dein erstes digitales Produkt erstellen</div>
+      <button class="copy-btn" onclick="copyPrompt(this)">Kopieren</button>
+      <pre id="productPrompt"></pre>
+    </div>
+
+    <div class="card" style="margin-top:24px;border-left:4px solid var(--coral);background:linear-gradient(135deg,rgba(232,96,76,0.06) 0%,rgba(232,96,76,0.02) 100%);">
+      <h4 style="font-family:'Antonio',sans-serif;font-size:20px;margin-bottom:12px;">Zusammenfassung an Miriam senden</h4>
+      <p>Wenn du möchtest, dass ich mir deinen Blueprint anschaue und wir gemeinsam daran weiterarbeiten, kannst du mir deine Zusammenfassung direkt zuschicken.</p>
+      <div class="fill-group" style="margin-top:12px;">
+        <div class="fill-label">Dein Name:</div>
+        <input class="fill-input" type="text" id="blueprintName" placeholder="" data-save="blueprint-name">
+      </div>
+      <div class="fill-group">
+        <div class="fill-label">Deine E-Mail-Adresse:</div>
+        <input class="fill-input" type="email" id="blueprintEmail" placeholder="" data-save="blueprint-email">
+      </div>
+      <div class="fill-group">
+        <div class="fill-label">Nachricht an Miriam (optional):</div>
+        <textarea class="fill-input" id="blueprintMessage" placeholder="z.B. 'Ich würde gerne mit dir über mein Angebot sprechen...'" data-save="blueprint-message"></textarea>
+      </div>
+      <button id="sendToMiriam" onclick="sendBlueprintToMiriam()" style="display:block;margin:16px auto 0;background:var(--coral);border:none;color:#fff;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;padding:14px 36px;border-radius:var(--pill);cursor:pointer;transition:all .2s;">An Miriam senden</button>
+      <p id="sendStatus" style="text-align:center;margin-top:12px;font-size:14px;display:none;"></p>
+    </div>
+  </div>
 </div>
 
 <!-- ══════════════════════════════════ ENDE ══════════════════════════════════ -->
@@ -3087,7 +4550,8 @@ sections.forEach((sec, i) => {
     currentChapter = chapter;
     const ch = document.createElement('div');
     ch.className = 'nav-chapter';
-    ch.textContent = 'Kapitel ' + chapter;
+    var chapterDays = {'00':'Einstieg','01':'Tag 1','02':'Tag 2','03':'Tag 3','04':'Tag 4','05':'Tag 5','06':'Tag 6','07':'Tag 7','08':'Tag 8','09':'Tag 9','10':'Tag 10','11':'Tag 11','12':'Tag 12','13':'Tag 13','14':'Tag 14'};
+    ch.textContent = 'Kapitel ' + chapter + (chapterDays[chapter] ? ' · ' + chapterDays[chapter] : '');
     sidebarNav.appendChild(ch);
   }
 
@@ -3227,10 +4691,214 @@ document.getElementById('backToTop').addEventListener('click', function() {
 });
 
 // ═══ EXPANDABLE (Weiterlesen) ═══
+function toggleClaudeHint(btn) {
+  var hint = btn.closest('.claude-hint');
+  hint.classList.toggle('open');
+  btn.textContent = hint.classList.contains('open') ? 'Schließen' : 'Vorlage anzeigen';
+}
+
 function toggleExpand(btn) {
   var wrapper = btn.closest('.expandable');
   wrapper.classList.toggle('open');
-  btn.textContent = wrapper.classList.contains('open') ? 'Weniger anzeigen' : 'Weiterlesen';
+  var isOpen = wrapper.classList.contains('open');
+  var defaultOpen = btn.textContent === 'Modul öffnen' || btn.textContent === 'Modul schließen';
+  if (defaultOpen) {
+    btn.textContent = isOpen ? 'Modul schließen' : 'Modul öffnen';
+  } else {
+    btn.textContent = isOpen ? 'Weniger anzeigen' : 'Weiterlesen';
+  }
+}
+
+// ═══ BUSINESS BLUEPRINT ═══
+function getField(key) {
+  return (localStorage.getItem('workbook_' + key) || '').trim();
+}
+
+function generateBlueprint() {
+  var fields = {
+    // Mindset
+    mindsetFeeling: getField('ch1-mindset-feeling'),
+    mindsetMeaning: getField('ch1-mindset-meaning'),
+    mindsetStrength: getField('ch1-mindset-strength'),
+    // Ziele
+    goalSpecific: getField('ch1-goal-specific'),
+    goalMeasurable: getField('ch1-goal-measurable'),
+    goalDeadline: getField('ch1-goal-deadline'),
+    goalSmart: getField('ch1-goal-smart-sentence'),
+    goalStrategic: getField('ch1-goal-strategic'),
+    // Angebot
+    offer: getField('ch2-offer'),
+    format: getField('ch2-format'),
+    problem: getField('ch2-problem'),
+    result: getField('ch2-result'),
+    strength: getField('ch2-strength'),
+    price: getField('ch2-price'),
+    // Wunschkunden
+    target: getField('ch2-target'),
+    pain: getField('ch2-pain'),
+    desire: getField('ch2-desire'),
+    expectation: getField('ch2-expectation'),
+    // Mission
+    missionProblem: getField('ch1-mission-problem'),
+    missionWho: getField('ch1-mission-who'),
+    missionHow: getField('ch1-mission-how'),
+    missionResult: getField('ch1-mission-result'),
+    missionStatement: getField('ch1-mission-statement'),
+    // Keywords
+    focusKeyword: getField('ch2-kw-focus'),
+    kw1: getField('ch2-kw1'),
+    kw2: getField('ch2-kw2'),
+    kw3: getField('ch2-kw3'),
+    kw4: getField('ch2-kw4'),
+    kw5: getField('ch2-kw5'),
+    lt1: getField('ch2-lt1'),
+    lt2: getField('ch2-lt2'),
+    lt3: getField('ch2-lt3'),
+    // Marke
+    brandName: getField('ch2-name'),
+    domain: getField('ch2-domain'),
+    tonality: getField('ch2-tone'),
+    // Notizen
+    takeaway: getField('ch1-takeaway'),
+    notes: getField('ch1-notes')
+  };
+
+  var blueprint = '═══════════════════════════════════\n';
+  blueprint += 'DEIN PERSÖNLICHER BUSINESS-BLUEPRINT\n';
+  blueprint += '═══════════════════════════════════\n\n';
+
+  blueprint += '── MEIN MINDSET ──\n';
+  blueprint += 'Einstellung: ' + (fields.mindsetFeeling || '—') + '\n';
+  blueprint += 'Bedeutung: ' + (fields.mindsetMeaning || '—') + '\n';
+  blueprint += 'Stärke: ' + (fields.mindsetStrength || '—') + '\n\n';
+
+  blueprint += '── MEINE ZIELE ──\n';
+  blueprint += 'SMART-Ziel: ' + (fields.goalSmart || '—') + '\n';
+  blueprint += 'Strategisch (3-5 Jahre): ' + (fields.goalStrategic || '—') + '\n';
+  blueprint += 'Deadline: ' + (fields.goalDeadline || '—') + '\n\n';
+
+  blueprint += '── MEIN ANGEBOT ──\n';
+  blueprint += 'Was: ' + (fields.offer || '—') + '\n';
+  blueprint += 'Format: ' + (fields.format || '—') + '\n';
+  blueprint += 'Problem: ' + (fields.problem || '—') + '\n';
+  blueprint += 'Ergebnis: ' + (fields.result || '—') + '\n';
+  blueprint += 'Alleinstellung: ' + (fields.strength || '—') + '\n';
+  blueprint += 'Preiskategorie: ' + (fields.price || '—') + '\n\n';
+
+  blueprint += '── MEINE WUNSCHKUNDEN ──\n';
+  blueprint += 'Zielgruppe: ' + (fields.target || '—') + '\n';
+  blueprint += 'Ihr Problem: ' + (fields.pain || '—') + '\n';
+  blueprint += 'Ihr Wunsch: ' + (fields.desire || '—') + '\n';
+  blueprint += 'Erwartung an mich: ' + (fields.expectation || '—') + '\n\n';
+
+  blueprint += '── MEINE MISSION ──\n';
+  blueprint += 'Mission Statement: ' + (fields.missionStatement || '—') + '\n\n';
+
+  blueprint += '── MEINE KEYWORDS ──\n';
+  blueprint += 'Fokus-Keyword: ' + (fields.focusKeyword || '—') + '\n';
+  var keywords = [fields.kw1, fields.kw2, fields.kw3, fields.kw4, fields.kw5].filter(function(k){return k;});
+  if (keywords.length) blueprint += 'Weitere: ' + keywords.join(', ') + '\n';
+  var longtails = [fields.lt1, fields.lt2, fields.lt3].filter(function(k){return k;});
+  if (longtails.length) blueprint += 'Long-Tail: ' + longtails.join(', ') + '\n';
+  blueprint += '\n';
+
+  blueprint += '── MEINE MARKE ──\n';
+  blueprint += 'Markenname: ' + (fields.brandName || '—') + '\n';
+  blueprint += 'Domain: ' + (fields.domain || '—') + '\n';
+  blueprint += 'Tonalität: ' + (fields.tonality || '—') + '\n\n';
+
+  blueprint += '═══════════════════════════════════\n';
+
+  document.getElementById('blueprintContent').textContent = blueprint;
+  document.getElementById('blueprintOutput').style.display = 'block';
+
+  // Produkt-Prompt generieren
+  var productPrompt = 'Ich habe gerade mein Online-Business aufgebaut. Hier ist mein Business-Blueprint:\n\n';
+  productPrompt += '- Angebot: ' + (fields.offer || '[nicht ausgefüllt]') + '\n';
+  productPrompt += '- Zielgruppe: ' + (fields.target || '[nicht ausgefüllt]') + '\n';
+  productPrompt += '- Problem meiner Kunden: ' + (fields.problem || '[nicht ausgefüllt]') + '\n';
+  productPrompt += '- Meine Mission: ' + (fields.missionStatement || '[nicht ausgefüllt]') + '\n';
+  productPrompt += '- Meine Keywords: ' + (fields.focusKeyword || '[nicht ausgefüllt]') + '\n\n';
+  productPrompt += 'Erstelle mir basierend auf diesen Informationen ein Konzept für mein erstes digitales Produkt (z.B. ein E-Book, eine Checkliste, einen Mini-Kurs oder einen Leitfaden), das ich an meine Zielgruppe verkaufen kann. Das Produkt soll:\n';
+  productPrompt += '1. Ein konkretes Problem meiner Zielgruppe lösen\n';
+  productPrompt += '2. Zu meiner Marke und Tonalität passen\n';
+  productPrompt += '3. Einen Preis zwischen 9 und 29 Euro haben\n';
+  productPrompt += '4. In maximal einer Woche erstellbar sein\n\n';
+  productPrompt += 'Gib mir: Titel, Untertitel, Inhaltsgliederung (5-7 Kapitel), eine kurze Verkaufsbeschreibung und 3 Varianten für einen Preis.';
+
+  document.getElementById('productPrompt').textContent = productPrompt;
+
+  // Scroll zum Output
+  document.getElementById('blueprintOutput').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function copyBlueprint() {
+  var text = document.getElementById('blueprintContent').textContent;
+  navigator.clipboard.writeText(text).then(function() {
+    var btn = document.querySelector('#blueprintOutput button');
+    btn.textContent = 'Kopiert!';
+    setTimeout(function() { btn.textContent = 'Kopieren'; }, 2000);
+  });
+}
+
+function sendBlueprintToMiriam() {
+  var name = document.getElementById('blueprintName').value.trim();
+  var email = document.getElementById('blueprintEmail').value.trim();
+  var message = document.getElementById('blueprintMessage').value.trim();
+  var blueprint = document.getElementById('blueprintContent').textContent;
+  var status = document.getElementById('sendStatus');
+
+  if (!name || !email) {
+    status.style.display = 'block';
+    status.style.color = 'var(--coral)';
+    status.textContent = 'Bitte gib deinen Namen und deine E-Mail-Adresse ein.';
+    return;
+  }
+
+  var fullMessage = 'BUSINESS-BLUEPRINT von ' + name + '\n\n';
+  if (message) fullMessage += 'Nachricht: ' + message + '\n\n';
+  fullMessage += blueprint;
+
+  // HubSpot Form Submission
+  var portalId = '145261882';
+  var formId = '428b80d9-42f6-47c7-8069-848371bcbdbf';
+  var url = 'https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formId;
+
+  var data = {
+    fields: [
+      { name: 'firstname', value: name },
+      { name: 'email', value: email },
+      { name: 'message', value: fullMessage }
+    ],
+    context: {
+      pageUri: window.location.href,
+      pageName: 'Workbook - Business Blueprint'
+    }
+  };
+
+  status.style.display = 'block';
+  status.style.color = 'var(--muted)';
+  status.textContent = 'Wird gesendet...';
+
+  fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).then(function(res) {
+    if (res.ok) {
+      status.style.color = 'var(--teal)';
+      status.textContent = 'Erfolgreich an Miriam gesendet! Du hörst bald von mir.';
+      document.getElementById('sendToMiriam').disabled = true;
+      document.getElementById('sendToMiriam').textContent = 'Gesendet';
+      document.getElementById('sendToMiriam').style.background = 'var(--teal)';
+    } else {
+      status.style.color = 'var(--coral)';
+      status.textContent = 'Etwas ist schiefgelaufen. Bitte versuche es später noch einmal.';
+    }
+  }).catch(function() {
+    status.style.color = 'var(--coral)';
+    status.textContent = 'Verbindungsfehler. Bitte prüfe deine Internetverbindung.';
+  });
 }
 
 // ═══ CHECKLIST ═══
