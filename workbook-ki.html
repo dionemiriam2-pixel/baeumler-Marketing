@@ -178,7 +178,7 @@ section { position: relative; overflow: visible; }
   display: flex; align-items: baseline; gap: 6px; margin-bottom: 24px;
 }
 .pricing-amount {
-  font-family: var(--heading); font-size: 52px; font-weight: 700;
+  font-family: var(--heading); font-size: 32px; font-weight: 700;
   line-height: 1;
 }
 .pricing-card.featured .pricing-amount { color: #fff; }
@@ -702,6 +702,83 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 </section>
 
 
+<!-- ════════════════════ PRICING ════════════════════ -->
+<section id="pricing">
+  <div class="blob"></div>
+  <div class="container">
+    <div class="pricing-grid">
+
+      <!-- BASIC -->
+      <div class="pricing-card reveal">
+        <img class="pricing-img" src="images/miriam-tools.avif" alt="Basic Workbook — Dein digitales Fundament" loading="lazy">
+        <div class="pricing-body">
+          <span class="pricing-label">Basic</span>
+          <h3 class="pricing-name">Dein digitales Fundament</h3>
+          <p class="pricing-desc">Alles was du brauchst, um mit deiner eigenen Website online zu gehen.</p>
+          <div class="pricing-price">
+            <span class="pricing-amount">89</span>
+            <span class="pricing-currency">€</span>
+            <span class="pricing-vat">inkl. MwSt.</span>
+          </div>
+          <div class="pricing-highlights">
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Website bauen</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Domain verbinden</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Live schalten</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Claude AI Setup</span>
+          </div>
+          <a href="#" class="pricing-cta pricing-cta-outline" onclick="if(typeof gtag==='function') gtag('event','workbook_cta_click',{event_category:'conversion',paket:'Basic'});if(typeof fbq==='function') fbq('track','InitiateCheckout',{content_name:'Workbook Basic',value:89,currency:'EUR'});">Basic kaufen →</a>
+        </div>
+      </div>
+
+      <!-- PROFESSIONAL (featured) -->
+      <div class="pricing-card featured reveal">
+        <span class="pricing-badge">Beliebt</span>
+        <img class="pricing-img" src="images/miriam-umsetzung.avif" alt="Professional Workbook — Kompletter Business-Workspace" loading="lazy">
+        <div class="pricing-body">
+          <span class="pricing-label">Professional</span>
+          <h3 class="pricing-name">Dein kompletter Business-Workspace</h3>
+          <p class="pricing-desc">Website, E-Mail, CRM und Shop. Alles eingerichtet und verbunden.</p>
+          <div class="pricing-price">
+            <span class="pricing-amount">149</span>
+            <span class="pricing-currency">€</span>
+            <span class="pricing-vat">inkl. MwSt.</span>
+          </div>
+          <div class="pricing-highlights">
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Alles aus Basic</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> E-Mail einrichten</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> CRM & Formulare</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Shop & Checkout</span>
+          </div>
+          <a href="#" class="pricing-cta pricing-cta-filled" onclick="if(typeof gtag==='function') gtag('event','workbook_cta_click',{event_category:'conversion',paket:'Professional'});if(typeof fbq==='function') fbq('track','InitiateCheckout',{content_name:'Workbook Professional',value:149,currency:'EUR'});">Professional kaufen →</a>
+        </div>
+      </div>
+
+      <!-- PROFESSIONAL + MARKETING -->
+      <div class="pricing-card reveal">
+        <img class="pricing-img" src="images/miriam-strategie.avif" alt="Professional + Marketing — Business-Workspace mit Marketing-Strategie" loading="lazy">
+        <div class="pricing-body">
+          <span class="pricing-label">Professional + Marketing</span>
+          <h3 class="pricing-name">Business-Workspace + Marketing-Strategie</h3>
+          <p class="pricing-desc">Alles aufgebaut und sichtbar gemacht. Website, Shop, CRM plus SEO, Social Media und KI-Marketing.</p>
+          <div class="pricing-price">
+            <span class="pricing-amount">249</span>
+            <span class="pricing-currency">€</span>
+            <span class="pricing-vat">inkl. MwSt.</span>
+          </div>
+          <div class="pricing-highlights">
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Alles aus Professional</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SEO & Google</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Social Media</span>
+            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 30 KI-Prompts</span>
+          </div>
+          <a href="#" class="pricing-cta pricing-cta-outline" onclick="if(typeof gtag==='function') gtag('event','workbook_cta_click',{event_category:'conversion',paket:'Professional + Marketing'});if(typeof fbq==='function') fbq('track','InitiateCheckout',{content_name:'Workbook Komplett',value:249,currency:'EUR'});">Komplett-Paket kaufen →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ════════════════════ VERGLEICH ════════════════════ -->
 <section id="vergleich">
   <div class="blob"></div>
@@ -983,83 +1060,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     <div class="breaker-line"></div>
     <p class="breaker-text">Dein Business verdient ein<br><em><span style="font-family:var(--serif);font-style:italic;">professionelles</span></em> <span class="coral">Setup.</span></p>
     <p class="breaker-sub">Nicht irgendwann. Nicht wenn du es dir leisten kannst.<br>Jetzt — ab 89 €.</p>
-  </div>
-</section>
-
-<!-- ════════════════════ PRICING ════════════════════ -->
-<section id="pricing">
-  <div class="blob"></div>
-  <div class="container">
-    <div class="pricing-grid">
-
-      <!-- BASIC -->
-      <div class="pricing-card reveal">
-        <img class="pricing-img" src="images/miriam-tools.avif" alt="Basic Workbook — Dein digitales Fundament" loading="lazy">
-        <div class="pricing-body">
-          <span class="pricing-label">Basic</span>
-          <h3 class="pricing-name">Dein digitales Fundament</h3>
-          <p class="pricing-desc">Alles was du brauchst, um mit deiner eigenen Website online zu gehen.</p>
-          <div class="pricing-price">
-            <span class="pricing-amount">89</span>
-            <span class="pricing-currency">€</span>
-            <span class="pricing-vat">inkl. MwSt.</span>
-          </div>
-          <div class="pricing-highlights">
-            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Website bauen</span>
-            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Domain verbinden</span>
-            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Live schalten</span>
-            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Claude AI Setup</span>
-          </div>
-          <a href="#" class="pricing-cta pricing-cta-outline" onclick="if(typeof gtag==='function') gtag('event','workbook_cta_click',{event_category:'conversion',paket:'Basic'});if(typeof fbq==='function') fbq('track','InitiateCheckout',{content_name:'Workbook Basic',value:89,currency:'EUR'});">Basic kaufen →</a>
-        </div>
-      </div>
-
-      <!-- PROFESSIONAL (featured) -->
-      <div class="pricing-card featured reveal">
-        <span class="pricing-badge">Beliebt</span>
-        <img class="pricing-img" src="images/miriam-umsetzung.avif" alt="Professional Workbook — Kompletter Business-Workspace" loading="lazy">
-        <div class="pricing-body">
-          <span class="pricing-label">Professional</span>
-          <h3 class="pricing-name">Dein kompletter Business-Workspace</h3>
-          <p class="pricing-desc">Website, E-Mail, CRM und Shop. Alles eingerichtet und verbunden.</p>
-          <div class="pricing-price">
-            <span class="pricing-amount">149</span>
-            <span class="pricing-currency">€</span>
-            <span class="pricing-vat">inkl. MwSt.</span>
-          </div>
-          <div class="pricing-highlights">
-            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Alles aus Basic</span>
-            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> E-Mail einrichten</span>
-            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> CRM & Formulare</span>
-            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Shop & Checkout</span>
-          </div>
-          <a href="#" class="pricing-cta pricing-cta-filled" onclick="if(typeof gtag==='function') gtag('event','workbook_cta_click',{event_category:'conversion',paket:'Professional'});if(typeof fbq==='function') fbq('track','InitiateCheckout',{content_name:'Workbook Professional',value:149,currency:'EUR'});">Professional kaufen →</a>
-        </div>
-      </div>
-
-      <!-- PROFESSIONAL + MARKETING -->
-      <div class="pricing-card reveal">
-        <img class="pricing-img" src="images/miriam-strategie.avif" alt="Professional + Marketing — Business-Workspace mit Marketing-Strategie" loading="lazy">
-        <div class="pricing-body">
-          <span class="pricing-label">Professional + Marketing</span>
-          <h3 class="pricing-name">Business-Workspace + Marketing-Strategie</h3>
-          <p class="pricing-desc">Alles aufgebaut und sichtbar gemacht. Website, Shop, CRM plus SEO, Social Media und KI-Marketing.</p>
-          <div class="pricing-price">
-            <span class="pricing-amount">249</span>
-            <span class="pricing-currency">€</span>
-            <span class="pricing-vat">inkl. MwSt.</span>
-          </div>
-          <div class="pricing-highlights">
-            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Alles aus Professional</span>
-            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SEO & Google</span>
-            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Social Media</span>
-            <span class="pricing-tag"><svg class="tag-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 30 KI-Prompts</span>
-          </div>
-          <a href="#" class="pricing-cta pricing-cta-outline" onclick="if(typeof gtag==='function') gtag('event','workbook_cta_click',{event_category:'conversion',paket:'Professional + Marketing'});if(typeof fbq==='function') fbq('track','InitiateCheckout',{content_name:'Workbook Komplett',value:249,currency:'EUR'});">Komplett-Paket kaufen →</a>
-        </div>
-      </div>
-
-    </div>
   </div>
 </section>
 
